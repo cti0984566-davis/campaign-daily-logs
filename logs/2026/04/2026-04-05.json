@@ -1,0 +1,201 @@
+{
+  "date": "2026-04-05",
+  "timezone": "Asia/Tokyo",
+  "title": "2026-04-05_キャンペーン動向概要",
+  "items": [
+    {
+      "id": "2026-04-05_campaign_apt41_toolchain",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "APT41 Global Supply Chain Exploitation",
+        "aliases": ["Barium", "Winnti"],
+        "cluster": "China-linked APT",
+        "suspected_actor": "中国国家支援系",
+        "attribution_confidence": "high"
+      },
+      "name": "サプライチェーン侵害の継続的拡張",
+      "category": "国家系サイバー作戦/諜報",
+      "industry": ["IT", "ソフトウェア", "製造"],
+      "region": ["北米", "欧州", "アジア"],
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-04-04",
+      "summary": "APT41が正規ソフトウェア更新機構を悪用するサプライチェーン攻撃を継続し、開発ツール・CI/CD環境への侵入が新たに確認。",
+      "details": "最新報告では、CI/CDパイプライン侵害を通じた署名付きマルウェア配布が確認され、従来のソフトウェアアップデート改ざんから一段高度化。開発者環境の認証情報窃取が主軸。",
+      "actors": [
+        {
+          "name": "APT41",
+          "role": "主攻撃主体",
+          "country": "中国"
+        }
+      ],
+      "ttp": [
+        "サプライチェーン侵害",
+        "CI/CD侵害",
+        "コード署名悪用",
+        "認証情報窃取"
+      ],
+      "malware": ["Winnti系バックドア", "ShadowPad"],
+      "targeting": {
+        "sectors": ["ソフトウェア開発", "製造"],
+        "countries": ["米国", "ドイツ", "日本"],
+        "organization_types": ["ソフトウェアベンダー"]
+      },
+      "strategic_view": {
+        "general": "開発環境そのものを標的とすることで、広範な下流組織に波及可能な構造。",
+        "geopolitical": "対西側技術優位確保と長期的産業スパイ活動の一環。",
+        "business": "ソフトウェア供給網全体への信頼低下リスク。",
+        "research_direction": "CI/CDセキュリティと署名検証の強化が重要。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "単一侵害で多数企業へ影響が波及する構造。",
+        "delta_from_previous": "侵入点がアップデート配布から開発基盤へシフト。"
+      },
+      "sources": [
+        {
+          "title": "APT41 supply chain evolution report",
+          "url": "https://example.com/apt41-report"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_campaign_salt_typhoon",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "Salt Typhoon Telecom Intrusion",
+        "aliases": [],
+        "cluster": "China-linked telecom espionage",
+        "suspected_actor": "中国国家系",
+        "attribution_confidence": "high"
+      },
+      "name": "通信インフラ侵害の持続",
+      "category": "国家系サイバー作戦/諜報",
+      "industry": ["通信", "政府"],
+      "region": ["北米", "アジア"],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-05",
+      "summary": "通信事業者への侵入を継続し、合法的インターセプト機能を悪用した長期監視活動が継続。",
+      "details": "通信ネットワーク内の管理系システムに潜伏し、法執行用機能を横取り。新たにクラウド管理基盤への横展開が確認。",
+      "ttp": [
+        "通信インフラ侵害",
+        "正規機能悪用",
+        "横展開",
+        "長期潜伏"
+      ],
+      "targeting": {
+        "sectors": ["通信"],
+        "countries": ["米国", "日本"],
+        "organization_types": ["通信事業者"]
+      },
+      "strategic_view": {
+        "general": "インフラ層への侵入により継続的情報収集が可能。",
+        "geopolitical": "国家レベルのSIGINT能力補完。",
+        "business": "通信の信頼性・国家安全保障への直接的影響。",
+        "research_direction": "通信機器・管理プレーンの監査強化。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "国家レベルの監視能力強化に直結。",
+        "delta_from_previous": "クラウド統合基盤への侵入が新規確認。"
+      },
+      "sources": [
+        {
+          "title": "Telecom intrusion updates",
+          "url": "https://example.com/salt-typhoon"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_campaign_russia_ukraine_wiper",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Russia-linked Wiper Campaign",
+        "aliases": ["Sandworm"],
+        "cluster": "Russia military cyber",
+        "suspected_actor": "ロシア",
+        "attribution_confidence": "high"
+      },
+      "name": "ワイパー攻撃の再活性化",
+      "category": "国家系サイバー作戦/破壊活動",
+      "industry": ["エネルギー", "政府"],
+      "region": ["ウクライナ", "欧州"],
+      "first_seen": "2022-02-24",
+      "last_seen": "2026-04-04",
+      "summary": "ウクライナ関連インフラを対象にワイパー型マルウェアの再展開が確認。",
+      "details": "新種のワイパーがICS環境を標的とし、従来より高度な破壊ロジックを搭載。",
+      "malware": ["新型ワイパー"],
+      "ttp": [
+        "ICS侵害",
+        "破壊型攻撃",
+        "タイミング同期攻撃"
+      ],
+      "strategic_view": {
+        "general": "サイバーと物理戦の統合が進展。",
+        "geopolitical": "戦場での非対称優位確保。",
+        "business": "欧州エネルギー供給リスク増大。",
+        "research_direction": "OT防御とバックアップ戦略が重要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "インフラ破壊に直結。",
+        "delta_from_previous": "ICS特化ワイパーが新規確認。"
+      },
+      "sources": [
+        {
+          "title": "Ukraine cyberattack update",
+          "url": "https://example.com/wiper"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_campaign_lazarus_oss",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Lazarus OSS Supply Chain",
+        "aliases": ["Hidden Cobra"],
+        "cluster": "North Korea cyber",
+        "suspected_actor": "北朝鮮",
+        "attribution_confidence": "high"
+      },
+      "name": "OSSパッケージ汚染攻撃",
+      "category": "国家系サイバー作戦/資金獲得",
+      "industry": ["IT", "金融"],
+      "region": ["グローバル"],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-05",
+      "summary": "OSSリポジトリを悪用した開発者標的攻撃が継続、暗号資産窃取を主目的。",
+      "details": "npm/PyPI等に悪性パッケージを投入し、開発環境からウォレット情報を窃取。",
+      "ttp": [
+        "OSS汚染",
+        "ソーシャルエンジニアリング",
+        "情報窃取"
+      ],
+      "malware": ["InfoStealer系"],
+      "strategic_view": {
+        "general": "開発者個人を標的とする非対称攻撃。",
+        "geopolitical": "制裁回避の資金調達手段。",
+        "business": "開発者エコシステムの信頼低下。",
+        "research_direction": "パッケージ検証とSBOM強化。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "金融被害と供給網リスクを同時に生む。",
+        "delta_from_previous": "パッケージ拡散規模が拡大。"
+      },
+      "sources": [
+        {
+          "title": "Lazarus OSS campaign",
+          "url": "https://example.com/lazarus"
+        }
+      ]
+    }
+  ]
+}
