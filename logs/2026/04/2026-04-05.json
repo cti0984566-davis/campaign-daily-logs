@@ -1,199 +1,608 @@
 {
   "date": "2026-04-05",
   "timezone": "Asia/Tokyo",
-  "title": "2026-04-05_キャンペーン動向概要",
+  "title": "2026/04/05_サイバー事象概要",
   "items": [
     {
-      "id": "2026-04-05_campaign_apt41_toolchain",
-      "type": "campaign_activity",
-      "status": "更新",
+      "id": "2026-04-05_hasbro_cyber_incident",
+      "type": "incident",
+      "status": "継続",
       "campaign": {
-        "name": "APT41 Global Supply Chain Exploitation",
-        "aliases": ["Barium", "Winnti"],
-        "cluster": "China-linked APT",
-        "suspected_actor": "中国国家支援系",
-        "attribution_confidence": "high"
+        "name": "Hasbro cyber incident",
+        "aliases": [
+          "Hasbro network intrusion"
+        ],
+        "cluster": "enterprise_disruption_case",
+        "suspected_actor": "不明",
+        "attribution_confidence": "low"
       },
-      "name": "サプライチェーン侵害の継続的拡張",
-      "category": "国家系サイバー作戦/諜報",
-      "industry": ["IT", "ソフトウェア", "製造"],
-      "region": ["北米", "欧州", "アジア"],
-      "first_seen": "2023-01-01",
-      "last_seen": "2026-04-04",
-      "summary": "APT41が正規ソフトウェア更新機構を悪用するサプライチェーン攻撃を継続し、開発ツール・CI/CD環境への侵入が新たに確認。",
-      "details": "最新報告では、CI/CDパイプライン侵害を通じた署名付きマルウェア配布が確認され、従来のソフトウェアアップデート改ざんから一段高度化。開発者環境の認証情報窃取が主軸。",
+      "name": "Hasbroへの不正アクセス事案",
+      "category": "サイバー犯罪",
+      "industry": [
+        "製造",
+        "玩具",
+        "小売"
+      ],
+      "region": [
+        "米国"
+      ],
+      "first_seen": "2026-03-28",
+      "last_seen": "2026-04-05",
+      "summary": "Hasbroは2026年3月28日にネットワークへの不正アクセスを検知し、4月1日に公表した。4月5日時点で調査と復旧は継続中である。",
+      "details": "Reutersによると、Hasbroは第三者のサイバーセキュリティ専門家を起用し、一部システムを停止した。侵害範囲と業務影響は調査中。",
       "actors": [
         {
-          "name": "APT41",
-          "role": "主攻撃主体",
-          "country": "中国"
+          "name": "不明",
+          "role": "攻撃主体"
+        },
+        {
+          "name": "Hasbro",
+          "role": "被害組織",
+          "country": "米国"
         }
       ],
-      "ttp": [
-        "サプライチェーン侵害",
-        "CI/CD侵害",
-        "コード署名悪用",
-        "認証情報窃取"
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "企業ネットワーク"
       ],
-      "malware": ["Winnti系バックドア", "ShadowPad"],
       "targeting": {
-        "sectors": ["ソフトウェア開発", "製造"],
-        "countries": ["米国", "ドイツ", "日本"],
-        "organization_types": ["ソフトウェアベンダー"]
+        "sectors": [
+          "製造",
+          "小売"
+        ],
+        "countries": [
+          "米国"
+        ],
+        "organization_types": [
+          "民間企業"
+        ]
       },
       "strategic_view": {
-        "general": "開発環境そのものを標的とすることで、広範な下流組織に波及可能な構造。",
-        "geopolitical": "対西側技術優位確保と長期的産業スパイ活動の一環。",
-        "business": "ソフトウェア供給網全体への信頼低下リスク。",
-        "research_direction": "CI/CDセキュリティと署名検証の強化が重要。"
+        "general": "大規模な個人情報漏えい件数が未公表でも、業務中断だけで重大な経営影響が発生し得る事例である。",
+        "business": "受発注・物流・小売接続基盤を持つ企業にとって、事業継続計画と復旧体制の重要性を示す。"
       },
       "assessment": {
-        "significance": "critical",
+        "significance": "high",
         "confidence": "high",
-        "why_it_matters": "単一侵害で多数企業へ影響が波及する構造。",
-        "delta_from_previous": "侵入点がアップデート配布から開発基盤へシフト。"
+        "why_it_matters": "Reutersで具体的な発生日と対応状況が確認できるため。",
+        "delta_from_previous": "4月1日公表後も調査継続中。"
       },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "enterprise_intrusion",
+        "business_disruption",
+        "usa"
+      ],
       "sources": [
         {
-          "title": "APT41 supply chain evolution report",
-          "url": "https://example.com/apt41-report"
+          "title": "Hasbro investigates cybersecurity incident, takes some systems offline",
+          "url": "https://www.reuters.com/technology/hasbro-says-investigating-cybersecurity-incident-2026-04-01/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-01"
         }
       ]
     },
     {
-      "id": "2026-04-05_campaign_salt_typhoon",
+      "id": "2026-04-05_uffizi_cyberattack_update",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Uffizi Galleries cyberattack",
+        "aliases": [
+          "Uffizi museum cyberattack"
+        ],
+        "cluster": "cultural_institution_disruption",
+        "suspected_actor": "不明",
+        "attribution_confidence": "low"
+      },
+      "name": "イタリア・ウフィツィ美術館へのサイバー攻撃",
+      "category": "サイバー犯罪",
+      "industry": [
+        "文化機関",
+        "公共機関"
+      ],
+      "region": [
+        "イタリア"
+      ],
+      "first_seen": "2026-02-01",
+      "last_seen": "2026-04-05",
+      "summary": "Uffizi美術館は2月1日にサイバー攻撃を受けたが、4月3日のReuters報道時点で、館側は『何も盗まれていない』と説明している。",
+      "details": "Reutersによると、館側は重大なデータ窃取や収蔵品への影響を否定し、バックアップ復旧に限定的な影響があったと説明した。",
+      "actors": [
+        {
+          "name": "不明",
+          "role": "攻撃主体"
+        },
+        {
+          "name": "Uffizi Galleries",
+          "role": "被害組織",
+          "country": "イタリア"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "館内ITシステム"
+      ],
+      "targeting": {
+        "sectors": [
+          "文化機関",
+          "公共機関"
+        ],
+        "countries": [
+          "イタリア"
+        ],
+        "organization_types": [
+          "美術館"
+        ]
+      },
+      "strategic_view": {
+        "general": "文化機関もサイバー攻撃対象になり得ることを示す。",
+        "business": "非営利・公共系組織でもバックアップと危機広報の整備が重要である。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "Reutersで被害の有無と館側説明が具体的に確認できるため。",
+        "delta_from_previous": "初期報道より被害は限定的との見方が強まった。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "cultural_sector",
+        "italy",
+        "public_sector"
+      ],
+      "sources": [
+        {
+          "title": "Cyberattack targeted Italy's Uffizi but nothing stolen, museum says",
+          "url": "https://www.reuters.com/world/italys-uffizi-hit-by-cyberattack-jewels-moved-bank-italy-corriere-reports-2026-04-03/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_citrix_netscaler_cve_2026_3055",
       "type": "campaign_activity",
       "status": "継続",
       "campaign": {
-        "name": "Salt Typhoon Telecom Intrusion",
-        "aliases": [],
-        "cluster": "China-linked telecom espionage",
-        "suspected_actor": "中国国家系",
-        "attribution_confidence": "high"
+        "name": "Citrix NetScaler CVE-2026-3055 exploitation",
+        "aliases": [
+          "NetScaler active exploitation"
+        ],
+        "cluster": "edge_device_exploitation",
+        "suspected_actor": "不明",
+        "attribution_confidence": "low"
       },
-      "name": "通信インフラ侵害の持続",
-      "category": "国家系サイバー作戦/諜報",
-      "industry": ["通信", "政府"],
-      "region": ["北米", "アジア"],
-      "first_seen": "2024-01-01",
+      "name": "Citrix NetScaler CVE-2026-3055の継続悪用",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "企業横断"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-03-27",
       "last_seen": "2026-04-05",
-      "summary": "通信事業者への侵入を継続し、合法的インターセプト機能を悪用した長期監視活動が継続。",
-      "details": "通信ネットワーク内の管理系システムに潜伏し、法執行用機能を横取り。新たにクラウド管理基盤への横展開が確認。",
+      "summary": "CVE-2026-3055はCitrix NetScalerの脆弱性で、CISAのKnown Exploited Vulnerabilities Catalogに掲載されている。",
+      "details": "CISAのKEV掲載とCitrixのセキュリティ情報から、NetScaler ADC/Gatewayが影響対象であり、既に悪用が確認された脆弱性として扱うべきである。",
+      "actors": [
+        {
+          "name": "不明",
+          "role": "悪用主体"
+        },
+        {
+          "name": "Citrix",
+          "role": "ベンダー"
+        },
+        {
+          "name": "CISA",
+          "role": "警告機関",
+          "country": "米国"
+        }
+      ],
       "ttp": [
-        "通信インフラ侵害",
-        "正規機能悪用",
-        "横展開",
-        "長期潜伏"
+        "T1190 Exploit Public-Facing Application"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Citrix NetScaler ADC",
+        "Citrix NetScaler Gateway"
       ],
       "targeting": {
-        "sectors": ["通信"],
-        "countries": ["米国", "日本"],
-        "organization_types": ["通信事業者"]
+        "sectors": [
+          "政府機関",
+          "重要インフラ",
+          "企業"
+        ],
+        "countries": [
+          "グローバル"
+        ],
+        "organization_types": [
+          "官公庁",
+          "重要インフラ事業者",
+          "民間企業"
+        ]
       },
       "strategic_view": {
-        "general": "インフラ層への侵入により継続的情報収集が可能。",
-        "geopolitical": "国家レベルのSIGINT能力補完。",
-        "business": "通信の信頼性・国家安全保障への直接的影響。",
-        "research_direction": "通信機器・管理プレーンの監査強化。"
+        "general": "境界装置の既知悪用脆弱性は、日次監視で最優先級の実務論点である。",
+        "business": "日本企業でもエッジ機器の棚卸しとパッチ適用統制が重要である。"
       },
       "assessment": {
         "significance": "critical",
         "confidence": "high",
-        "why_it_matters": "国家レベルの監視能力強化に直結。",
-        "delta_from_previous": "クラウド統合基盤への侵入が新規確認。"
+        "why_it_matters": "CISA KEVとCitrix情報の双方で確認できるため。",
+        "delta_from_previous": "Citrix公表後、KEV掲載により優先度が一段と明確化した。"
       },
-      "sources": [
-        {
-          "title": "Telecom intrusion updates",
-          "url": "https://example.com/salt-typhoon"
-        }
-      ]
-    },
-    {
-      "id": "2026-04-05_campaign_russia_ukraine_wiper",
-      "type": "campaign_activity",
-      "status": "更新",
-      "campaign": {
-        "name": "Russia-linked Wiper Campaign",
-        "aliases": ["Sandworm"],
-        "cluster": "Russia military cyber",
-        "suspected_actor": "ロシア",
-        "attribution_confidence": "high"
-      },
-      "name": "ワイパー攻撃の再活性化",
-      "category": "国家系サイバー作戦/破壊活動",
-      "industry": ["エネルギー", "政府"],
-      "region": ["ウクライナ", "欧州"],
-      "first_seen": "2022-02-24",
-      "last_seen": "2026-04-04",
-      "summary": "ウクライナ関連インフラを対象にワイパー型マルウェアの再展開が確認。",
-      "details": "新種のワイパーがICS環境を標的とし、従来より高度な破壊ロジックを搭載。",
-      "malware": ["新型ワイパー"],
-      "ttp": [
-        "ICS侵害",
-        "破壊型攻撃",
-        "タイミング同期攻撃"
+      "related_campaigns": [
+        "CitrixBleed"
       ],
-      "strategic_view": {
-        "general": "サイバーと物理戦の統合が進展。",
-        "geopolitical": "戦場での非対称優位確保。",
-        "business": "欧州エネルギー供給リスク増大。",
-        "research_direction": "OT防御とバックアップ戦略が重要。"
-      },
-      "assessment": {
-        "significance": "high",
-        "confidence": "medium",
-        "why_it_matters": "インフラ破壊に直結。",
-        "delta_from_previous": "ICS特化ワイパーが新規確認。"
-      },
+      "related_reports": [],
+      "tags": [
+        "kev",
+        "citrix",
+        "netscaler",
+        "edge_device",
+        "zero_day"
+      ],
       "sources": [
         {
-          "title": "Ukraine cyberattack update",
-          "url": "https://example.com/wiper"
+          "title": "Citrix Security Bulletin for CVE-2026-3055 and related issue",
+          "url": "https://support.citrix.com/support-home/kbsearch/article?articleNumber=CTX696300",
+          "publisher": "Citrix",
+          "published_at": "2026-03-27"
+        },
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-05"
         }
       ]
     },
     {
-      "id": "2026-04-05_campaign_lazarus_oss",
-      "type": "campaign_activity",
-      "status": "更新",
+      "id": "2026-04-05_whatsapp_italian_spyware_case",
+      "type": "incident",
+      "status": "継続",
       "campaign": {
-        "name": "Lazarus OSS Supply Chain",
-        "aliases": ["Hidden Cobra"],
-        "cluster": "North Korea cyber",
-        "suspected_actor": "北朝鮮",
-        "attribution_confidence": "high"
+        "name": "WhatsApp Italian spyware campaign",
+        "aliases": [
+          "ASIGINT fake WhatsApp spyware case"
+        ],
+        "cluster": "commercial_spyware_activity",
+        "suspected_actor": "ASIGINT/SIO関連主体",
+        "attribution_confidence": "medium"
       },
-      "name": "OSSパッケージ汚染攻撃",
-      "category": "国家系サイバー作戦/資金獲得",
-      "industry": ["IT", "金融"],
-      "region": ["グローバル"],
-      "first_seen": "2024-01-01",
+      "name": "WhatsApp偽アプリを用いたイタリア系スパイウェア事案",
+      "category": "諜報活動",
+      "industry": [
+        "通信",
+        "モバイル",
+        "監視技術"
+      ],
+      "region": [
+        "イタリア"
+      ],
+      "first_seen": "2026-04-01",
       "last_seen": "2026-04-05",
-      "summary": "OSSリポジトリを悪用した開発者標的攻撃が継続、暗号資産窃取を主目的。",
-      "details": "npm/PyPI等に悪性パッケージを投入し、開発環境からウォレット情報を窃取。",
-      "ttp": [
-        "OSS汚染",
-        "ソーシャルエンジニアリング",
-        "情報窃取"
+      "summary": "WhatsAppは、約200人が偽WhatsAppアプリに埋め込まれたスパイウェアをダウンロードさせられたと公表した。",
+      "details": "Reutersによると、この作戦はイタリアの監視技術企業SIOの子会社ASIGINTに関係するとされ、主にイタリアの利用者が影響を受けた。",
+      "actors": [
+        {
+          "name": "ASIGINT",
+          "role": "関与を指摘された主体",
+          "country": "イタリア"
+        },
+        {
+          "name": "SIO",
+          "role": "親会社",
+          "country": "イタリア"
+        },
+        {
+          "name": "WhatsApp",
+          "role": "検知主体"
+        }
       ],
-      "malware": ["InfoStealer系"],
+      "ttp": [
+        "T1476 Deliver Malicious App",
+        "T1404 Exploit via Installed Application"
+      ],
+      "malware": [
+        "spyware"
+      ],
+      "infrastructure": [
+        "偽WhatsAppアプリ"
+      ],
+      "targeting": {
+        "sectors": [
+          "通信",
+          "市民社会",
+          "政府・法執行関連監視"
+        ],
+        "countries": [
+          "イタリア"
+        ],
+        "organization_types": [
+          "個人利用者"
+        ]
+      },
       "strategic_view": {
-        "general": "開発者個人を標的とする非対称攻撃。",
-        "geopolitical": "制裁回避の資金調達手段。",
-        "business": "開発者エコシステムの信頼低下。",
-        "research_direction": "パッケージ検証とSBOM強化。"
+        "general": "商用スパイウェアと偽アプリ配布の組み合わせが依然として有効な攻撃形態であることを示す。",
+        "business": "メッセージング基盤を使う組織では、モバイル端末管理と配布元検証が重要となる。"
       },
       "assessment": {
         "significance": "high",
         "confidence": "high",
-        "why_it_matters": "金融被害と供給網リスクを同時に生む。",
-        "delta_from_previous": "パッケージ拡散規模が拡大。"
+        "why_it_matters": "Reutersで具体的な被害規模と関係主体が報じられているため。",
+        "delta_from_previous": "2025年のParagon問題に続く、イタリア発スパイウェア論点の継続案件として位置付けられる。"
       },
+      "related_campaigns": [
+        "Paragon spyware case"
+      ],
+      "related_reports": [],
+      "tags": [
+        "spyware",
+        "whatsapp",
+        "italy",
+        "mobile"
+      ],
       "sources": [
         {
-          "title": "Lazarus OSS campaign",
-          "url": "https://example.com/lazarus"
+          "title": "WhatsApp says Italian surveillance company tricked around 200 users into downloading spyware",
+          "url": "https://www.reuters.com/sustainability/boards-policy-regulation/whatsapp-says-italian-surveillance-company-tricked-around-200-users-into-2026-04-01/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_north_korea_linked_supply_chain_hack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "North Korea-linked Axios software supply-chain compromise",
+        "aliases": [
+          "UNC1069 Axios compromise"
+        ],
+        "cluster": "software_supply_chain_attack",
+        "suspected_actor": "UNC1069",
+        "attribution_confidence": "medium"
+      },
+      "name": "北朝鮮系とされるAxios関連サプライチェーン侵害",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "ソフトウェア",
+        "ITサービス"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-03-31",
+      "last_seen": "2026-04-05",
+      "summary": "Reutersは、北朝鮮系とされる攻撃者が、広く使われるオープンソース部品Axiosを通じて悪性コードを配布したと報じた。",
+      "details": "Googleや複数のセキュリティ企業によると、この侵害はソフトウェア更新を通じて広範囲に配布され、認証情報窃取や追加侵入の足掛かりになり得る。",
+      "actors": [
+        {
+          "name": "UNC1069",
+          "role": "疑いのある攻撃主体",
+          "country": "北朝鮮"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Axios open-source software component",
+        "software update channel"
+      ],
+      "targeting": {
+        "sectors": [
+          "ソフトウェア",
+          "オンラインサービス"
+        ],
+        "countries": [
+          "グローバル"
+        ],
+        "organization_types": [
+          "ソフトウェア利用企業",
+          "開発者"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家系主体によるOSS/サプライチェーン攻撃の継続性を示す。",
+        "geopolitical": "北朝鮮の外貨獲得や制裁回避と結びつく作戦の一環として読む必要がある。",
+        "business": "日本企業でもSBOM、依存関係監査、更新経路監視の重要性を高める。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家系サプライチェーン攻撃として技術・戦略両面で重要なため。",
+        "delta_from_previous": "単なる個別侵害ではなく、広く使われる部品経由の配布型侵害として注目度が高い。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "north_korea",
+        "supply_chain",
+        "open_source",
+        "software"
+      ],
+      "sources": [
+        {
+          "title": "North Korea-linked hack hits largely invisible software that powers online services",
+          "url": "https://www.reuters.com/sustainability/boards-policy-regulation/north-korea-linked-hack-hits-largely-invisible-software-that-powers-online-2026-03-31/",
+          "publisher": "Reuters",
+          "published_at": "2026-03-31"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_cambodia_cybercrime_law",
+      "type": "policy",
+      "status": "新規",
+      "campaign": {
+        "name": "Cambodia cybercrime law response",
+        "aliases": [
+          "Cambodia anti-scam cyber law"
+        ],
+        "cluster": "policy_response_to_scam_centers",
+        "suspected_actor": "カンボジア政府",
+        "attribution_confidence": "high"
+      },
+      "name": "カンボジア議会による専用サイバー犯罪法可決",
+      "category": "政策",
+      "industry": [
+        "政府機関",
+        "金融",
+        "通信"
+      ],
+      "region": [
+        "カンボジア"
+      ],
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-05",
+      "summary": "カンボジア議会は4月3日、オンライン詐欺拠点問題への対応として専用サイバー犯罪法を可決した。",
+      "details": "Reutersによると、同法はオンライン詐欺、資金洗浄、被害者データ収集、詐欺要員募集などを処罰対象とする。",
+      "actors": [
+        {
+          "name": "カンボジア議会",
+          "role": "立法主体",
+          "country": "カンボジア"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [],
+      "targeting": {
+        "sectors": [
+          "金融",
+          "通信"
+        ],
+        "countries": [
+          "カンボジア"
+        ],
+        "organization_types": [
+          "政府機関"
+        ]
+      },
+      "strategic_view": {
+        "general": "東南アジア詐欺センター問題が本格的に政策課題化している。",
+        "geopolitical": "国際的な制裁・法執行協力と接続する論点である。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "越境詐欺・暗号資産・人身取引と結びつく政策変化のため。",
+        "delta_from_previous": "外圧や批判から、具体的な法整備に進んだ。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "policy",
+        "cambodia",
+        "cybercrime",
+        "scam_centers"
+      ],
+      "sources": [
+        {
+          "title": "Cambodian parliament passes landmark cybercrime law after scam centre scrutiny",
+          "url": "https://www.reuters.com/world/asia-pacific/cambodian-parliament-passes-landmark-cybercrime-law-after-scam-centre-scrutiny-2026-04-03/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-05_japan_microsoft_ai_cyber",
+      "type": "business_tech",
+      "status": "新規",
+      "campaign": {
+        "name": "Microsoft Japan AI and cyber investment",
+        "aliases": [
+          "Microsoft Japan 10 billion dollar investment"
+        ],
+        "cluster": "ai_cloud_cyber_investment",
+        "suspected_actor": "Microsoft",
+        "attribution_confidence": "high"
+      },
+      "name": "Microsoftの対日AI・サイバー投資拡大",
+      "category": "ビジネス・技術",
+      "industry": [
+        "クラウド",
+        "AI",
+        "サイバーセキュリティ"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-05",
+      "summary": "Reutersは、Microsoftが2026年から2029年にかけて日本へ100億ドルを投資し、AI基盤とサイバー防衛協力を強化すると報じた。",
+      "details": "Reutersによると、国内計算資源の拡充、人材育成、日本政府とのサイバー脅威情報共有強化が含まれる。",
+      "actors": [
+        {
+          "name": "Microsoft",
+          "role": "投資主体",
+          "country": "米国"
+        },
+        {
+          "name": "日本政府",
+          "role": "協力相手",
+          "country": "日本"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "国内AI計算基盤",
+        "クラウド基盤"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "AI",
+          "クラウド",
+          "セキュリティ"
+        ],
+        "countries": [
+          "日本"
+        ],
+        "organization_types": [
+          "政府機関",
+          "民間企業"
+        ]
+      },
+      "strategic_view": {
+        "general": "AI投資と同時に、日本のサイバー防衛協力基盤の拡張としても読める案件である。",
+        "business": "日本市場でのクラウド・AI・セキュリティ案件増加を示唆する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "Reutersで具体的な投資規模と日本政府との協力方針が報じられているため。",
+        "delta_from_previous": "2024年の投資発表とは別の、2026年の新たな大型投資計画として確認できる。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "japan",
+        "microsoft",
+        "ai",
+        "cyber_defense",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft to invest $10 billion in Japan for AI and cyber defence expansion",
+          "url": "https://www.reuters.com/business/media-telecom/microsoft-invest-10-billion-japan-ai-cyber-defence-expansion-2026-04-03/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-03"
         }
       ]
     }
