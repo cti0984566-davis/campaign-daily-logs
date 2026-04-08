@@ -28,3 +28,5 @@ temp/
 data/raw/
 data/private/
 output/private/
+
+scripts/*.txt

@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCHEMA="schema/campaign_schema.json"
 ERRORS=0
-
-if [ ! -f "$SCHEMA" ]; then
-  echo "Schema not found: $SCHEMA"
-  exit 1
-fi
 
 if [ $# -ge 1 ]; then
   TARGETS=("$@")
 else
-  mapfile -t TARGETS < <(find logs -type f -name "*.json" | sort)
+  mapfile -t TARGETS < <(find logs campaigns -type f -name "*.json" | sort)
 fi
 
 if [ ${#TARGETS[@]} -eq 0 ]; then
@@ -28,7 +22,22 @@ for file in "${TARGETS[@]}"; do
     continue
   fi
 
+  # スキーマ切り替え
+  if [[ "$file" == campaigns/* ]]; then
+    SCHEMA="schema/specific_campaign_schema.json"
+  else
+    SCHEMA="schema/daily_campaign_schema.json"
+  fi
+
+  if [ ! -f "$SCHEMA" ]; then
+    echo "Schema not found: $SCHEMA"
+    ERRORS=$((ERRORS + 1))
+    echo "--------------------"
+    continue
+  fi
+
   echo "Checking: $file"
+  echo "Using schema: $SCHEMA"
 
   if ajv validate -s "$SCHEMA" -d "$file" --strict=false; then
     echo "OK: $file"

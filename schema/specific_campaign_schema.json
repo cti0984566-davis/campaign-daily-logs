@@ -1,19 +1,42 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Campaign Daily Log Schema v1.0",
+  "title": "Campaign Log Schema v1.0",
   "type": "object",
-  "required": ["date", "timezone", "title", "items"],
+  "required": ["date", "timezone", "campaign", "items"],
   "properties": {
     "date": {
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "timezone": {
-      "type": "string"
-    },
-    "title": {
       "type": "string",
       "minLength": 1
+    },
+    "campaign": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cluster": {
+          "type": "string"
+        },
+        "suspected_actor": {
+          "type": "string"
+        },
+        "attribution_confidence": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        }
+      },
+      "additionalProperties": false
     },
     "items": {
       "type": "array",
@@ -29,9 +52,7 @@
         "id",
         "type",
         "status",
-        "campaign",
         "name",
-        "summary",
         "sources"
       ],
       "properties": {
@@ -41,48 +62,11 @@
         },
         "type": {
           "type": "string",
-          "enum": ["campaign_activity", "incident", "policy", "business_tech", "assessment"]
+          "enum": ["campaign_activity", "incident", "assessment", "alert", "policy", "business_tech"]
         },
         "status": {
           "type": "string",
           "enum": ["新規", "継続", "更新"]
-        },
-        "campaign": {
-          "type": "object",
-          "required": ["name"],
-          "properties": {
-            "name": { "type": "string" },
-            "aliases": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "cluster": { "type": "string" },
-            "suspected_actor": { "type": "string" },
-            "attribution_confidence": {
-              "type": "string",
-              "enum": ["low", "medium", "high"]
-            }
-          },
-          "additionalProperties": false
-        },
-        "diamond_model": {
-          "type": "object",
-          "properties": {
-            "adversary": { "type": "string" },
-            "infrastructure": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "capability": {
-              "type": "array",
-              "items": { "type": "string" }
-            },
-            "victim": {
-              "type": "array",
-              "items": { "type": "string" }
-            }
-          },
-          "additionalProperties": false
         },
         "name": {
           "type": "string"
@@ -90,61 +74,14 @@
         "category": {
           "type": "string"
         },
-        "industry": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "region": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "first_seen": {
-          "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-        },
-        "last_seen": {
-          "type": "string",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-        },
-        "summary": {
-          "type": "string"
-        },
-        "details": {
-          "type": "string"
-        },
-        "actors": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["name"],
-            "properties": {
-              "name": { "type": "string" },
-              "role": { "type": "string" },
-              "country": { "type": "string" }
-            },
-            "additionalProperties": false
-          }
-        },
-        "ttp": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "malware": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "infrastructure": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
         "targeting": {
           "type": "object",
           "properties": {
-            "sectors": {
+            "regions": {
               "type": "array",
               "items": { "type": "string" }
             },
-            "countries": {
+            "industries": {
               "type": "array",
               "items": { "type": "string" }
             },
@@ -154,6 +91,34 @@
             }
           },
           "additionalProperties": false
+        },
+        "first_seen": {
+          "type": "string"
+        },
+        "last_seen": {
+          "type": "string"
+        },
+        "activity_summary": {
+          "type": "string"
+        },
+        "activity_details": {
+          "type": "string"
+        },
+        "ttp": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "malware_and_tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "infrastructure": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "iocs": {
+          "type": "array",
+          "items": { "type": "string" }
         },
         "strategic_view": {
           "type": "object",
@@ -176,22 +141,24 @@
               "type": "string",
               "enum": ["low", "medium", "high"]
             },
-            "why_it_matters": { "type": "string" },
-            "delta_from_previous": { "type": "string" }
+            "why_it_matters": {
+              "type": "string"
+            },
+            "delta_from_previous": {
+              "type": "string"
+            }
           },
           "additionalProperties": false
         },
         "related_campaigns": {
           "type": "array",
-          "items": { "type": "string" }
-        },
-        "related_reports": {
-          "type": "array",
-          "items": { "type": "string" }
+          "items": { "type": "string" },
+          "uniqueItems": true
         },
         "tags": {
           "type": "array",
-          "items": { "type": "string" }
+          "items": { "type": "string" },
+          "uniqueItems": true
         },
         "sources": {
           "type": "array",
@@ -207,6 +174,27 @@
             },
             "additionalProperties": false
           }
+        },
+        "diamond_model": {
+          "type": "object",
+          "properties": {
+            "adversary": {
+              "type": "string"
+            },
+            "infrastructure": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "capability": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "victim": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
