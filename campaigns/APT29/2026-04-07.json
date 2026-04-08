@@ -1,0 +1,81 @@
+{
+  "date": "2026-04-07",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "APT29 campaign",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard"
+    ],
+    "cluster": "Russian state-linked espionage campaign",
+    "suspected_actor": "APT29",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-07_apt29_campaign_activity",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "APT29キャンペーン活動の更新",
+      "category": "国家系サイバー作戦/諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "北米"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "IT"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "民間企業"
+        ]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-07",
+      "activity_summary": "APT29に関する当日の主要活動を記録。",
+      "activity_details": "当日観測された活動の詳細。",
+      "ttp": [],
+      "malware_and_tools": [],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "継続監視対象。",
+        "geopolitical": "ロシア系諜報活動としての意義を持つ。",
+        "business": "政府・重要組織の防御強化が必要。",
+        "research_direction": "標的変化とTTP更新を継続追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "長期監視価値が高い。",
+        "delta_from_previous": "title追加によりschema適合。"
+      },
+      "related_campaigns": [
+        "Russian espionage operations"
+      ],
+      "tags": [
+        "APT29",
+        "Russia",
+        "espionage"
+      ],
+      "sources": [
+        {
+          "title": "Placeholder source",
+          "url": "https://example.com"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29",
+        "infrastructure": [],
+        "capability": [],
+        "victim": [
+          "Government organizations"
+        ]
+      }
+    }
+  ]
+}

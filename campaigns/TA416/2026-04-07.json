@@ -1,0 +1,127 @@
+{
+  "date": "2026-04-07",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "TA416 diplomatic espionage and PlugX delivery campaign",
+    "aliases": [
+      "RedDelta",
+      "Mustang Panda related public tracking"
+    ],
+    "cluster": "China-linked diplomatic phishing and PlugX operations",
+    "suspected_actor": "TA416",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-07_ta416_diplomatic_espionage_campaign",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "TA416による欧州・中東政府外交標的化とPlugX配信チェーンの進化",
+      "category": "国家系サイバー作戦/諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "中東"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "防衛"
+        ],
+        "organization_types": [
+          "外務省",
+          "国防省",
+          "EU関連代表部",
+          "NATO関連組織",
+          "外交使節団"
+        ]
+      },
+      "first_seen": "2025-07-01",
+      "last_seen": "2026-03-16",
+      "activity_summary": "Proofpointは、TA416が2025年半ば以降に欧州の政府・外交機関を継続標的化し、2026年3月には中東の政府・外交にも対象を拡大したと報告した。",
+      "activity_details": "同グループはweb bugによる偵察、侵入チェーンの変更、偽Cloudflare Turnstile、OAuth redirect悪用、Google Driveや侵害済みSharePointの利用、CSPROJ利用などを組み合わせ、最終的にDLL sideloading経由でPlugX系マルウェアを展開する運用を続けている。",
+      "ttp": [
+        "Web bug phishing",
+        "Spearphishing via compromised accounts",
+        "Fake Cloudflare Turnstile pages",
+        "OAuth redirect abuse",
+        "ZIP smuggling",
+        "LNK abuse",
+        "CSPROJ downloader",
+        "DLL sideloading"
+      ],
+      "malware_and_tools": [
+        "Custom PlugX",
+        "MSBuild based infection chain",
+        "CSPROJ downloader"
+      ],
+      "infrastructure": [
+        "speedifynews.com",
+        "Microsoft Azure Blob Storage",
+        "Google Drive",
+        "Compromised SharePoint instances",
+        "Compromised diplomatic or government mailboxes"
+      ],
+      "iocs": [
+        "office2000005@gmail.com",
+        "hsuhalingaye26@gmail.com",
+        "welnetsanda.org",
+        "phpthemes.net",
+        "speedifynews.com"
+      ],
+      "strategic_view": {
+        "general": "配信偵察からマルウェア配信までを一体運用する成熟した外交諜報キャンペーンであり、日次追跡に適する。",
+        "geopolitical": "EU、中国、中東情勢と連動して標的領域が変化しており、地政学イベントへの同期性が高い。",
+        "business": "外交・防衛以外でも、対外政策部門、研究機関、サプライチェーン上の関連企業に波及し得る。",
+        "research_direction": "台湾関連標的、EUやNATO周辺標的、中東展開の継続有無、PlugX派生、侵害済み外交メール資産の再利用を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "標的、テーマ、侵入チェーンが地政学イベントに同期して変化しており、中国系諜報活動の優先対象を読む材料になる。",
+        "delta_from_previous": "従来の欧州外交中心から、2026年3月には中東政府・外交へ明確に射程を広げた点が新しい。"
+      },
+      "related_campaigns": [
+        "China linked diplomatic phishing",
+        "PlugX delivery operations",
+        "Web bug reconnaissance campaigns"
+      ],
+      "tags": [
+        "TA416",
+        "China",
+        "diplomatic espionage",
+        "PlugX",
+        "phishing"
+      ],
+      "sources": [
+        {
+          "title": "Id come running back to EU again TA416 resumes European government espionage campaigns",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Compromised diplomatic accounts",
+          "Cloud storage delivery infrastructure",
+          "Actor controlled domains"
+        ],
+        "capability": [
+          "Reconnaissance via web bugs",
+          "Spearphishing",
+          "PlugX delivery",
+          "DLL sideloading"
+        ],
+        "victim": [
+          "European diplomatic missions",
+          "EU related entities",
+          "NATO related entities",
+          "Middle Eastern government organizations",
+          "Middle Eastern diplomatic organizations"
+        ]
+      }
+    }
+  ]
+}
