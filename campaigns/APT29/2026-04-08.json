@@ -3,10 +3,118 @@
   "timezone": "Asia/Tokyo",
   "campaign": {
     "name": "APT29",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "aliases": [
+      "Cozy Bear",
+      "The Dukes",
+      "NOBELIUM",
+      "Midnight Blizzard"
+    ],
+    "cluster": "Russian SVR cyber espionage",
+    "suspected_actor": "Russian Foreign Intelligence Service (SVR)",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-08_apt29_daily_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29に関する2026-04-08時点の日次評価",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "北米",
+          "グローバル"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "防衛",
+          "シンクタンク",
+          "クラウド"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "国際機関",
+          "政策研究機関",
+          "クラウド利用組織"
+        ]
+      },
+      "first_seen": "2024-10-29",
+      "last_seen": "2026-04-08",
+      "activity_summary": "2026-04-08時点で、APT29についてこの日に新規に公開された一次情報ベースの大きな更新は確認できなかった。一方で、同グループは直近でも外交・政府・クラウド環境を重視するロシアSVR系アクターとして継続監視対象である。",
+      "activity_details": "2026-04-08前後の公開情報では、APT28やTA416、イラン系OT案件に比べ、APT29の新規日次アップデートは目立たない。ただしAPT29は2024年以降も政府・外交・クラウド認証面を狙う活動が継続しており、Microsoftは2024年10月に大規模スピアフィッシングを報告している。よって、この日の整理では、無理に新規インシデント化せず、当日時点の継続評価として扱うのが妥当である。",
+      "ttp": [
+        "Spearphishing",
+        "Cloud account compromise",
+        "Credential theft",
+        "OAuth and identity abuse",
+        "Use of legitimate services for delivery and evasion"
+      ],
+      "malware_and_tools": [
+        "WINELOADER",
+        "GRAPELOADER"
+      ],
+      "infrastructure": [
+        "Cloud and webmail identity surfaces",
+        "Phishing infrastructure",
+        "Legitimate online services abused for delivery"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は大きな破壊よりも、長期潜伏型の諜報とクラウド・認証基盤悪用を重視する。日次報告では『新規情報がないこと』自体も重要な観測結果である。",
+        "geopolitical": "APT29はロシア国家の対外情報収集能力の一部として、欧米の外交・政府意思決定把握のため引き続き重要な位置を占め得る。",
+        "business": "日本企業でも、政府案件、政策コミュニティ、シンクタンク、国際会議参加者、Microsoft 365やGoogle Workspace利用者が間接的な標的になり得る。",
+        "research_direction": "APT29については、メール・端末侵害よりも、ID、クラウド、OAuth、アプリパスワード、正規サービス悪用の観点で継続追跡するのが有効である。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "APT29は日次で顕著な露出がなくても、政府・外交分野に対する継続的脅威であり、ロシア関連情勢を踏まえても重要監視対象とあり得る。",
+        "delta_from_previous": "新規の公開インシデントは確認されず。APT28・TA416等に比べ露出低下。ただし活動停止の兆候はなく、低可視状態と評価。"
+      },
+      "related_campaigns": [
+        "Russian SVR cloud and diplomatic phishing activity"
+      ],
+      "tags": [
+        "APT29",
+        "SVR",
+        "Russia",
+        "cyber_espionage",
+        "cloud_identity"
+      ],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "International Coalition of Government Cybersecurity Agencies Jointly Release Advisory on SVR Cyber Actors Adapt Tactics for Initial Cloud Access",
+          "url": "https://www.foley.com/p/102j11x/international-coalition-of-government-cybersecurity-agencies-jointly-release-advi/",
+          "publisher": "Foley summary of joint advisory",
+          "published_at": "2024-10-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR",
+        "infrastructure": [
+          "Phishing infrastructure",
+          "Legitimate cloud and collaboration services"
+        ],
+        "capability": [
+          "Credential theft",
+          "Cloud intrusion",
+          "Diplomatic espionage"
+        ],
+        "victim": [
+          "Government",
+          "Diplomatic entities",
+          "Policy organizations"
+        ]
+      }
+    }
+  ]
 }

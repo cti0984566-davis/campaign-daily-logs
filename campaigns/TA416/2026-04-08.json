@@ -3,10 +3,119 @@
   "timezone": "Asia/Tokyo",
   "campaign": {
     "name": "TA416",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
+    "aliases": [
+      "RedDelta",
+      "Red Lich",
+      "Vertigo Panda",
+      "SmugX",
+      "DarkPeony"
+    ],
+    "cluster": "China-aligned diplomatic espionage",
+    "suspected_actor": "China-aligned threat actor",
     "attribution_confidence": "medium"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-08_ta416_eu_mideast_resumption",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "TA416による欧州政府・外交機関および中東政府機関への標的化再活性化",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "中東"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "国際機関"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交団",
+          "EU関連機関",
+          "NATO関連機関"
+        ]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-08",
+      "activity_summary": "Proofpointは2026年4月初旬、TA416が2025年半ば以降に欧州政府・外交機関への標的化を再開し、2026年3月には中東の政府・外交機関にも対象を広げたと報告した。4月8日時点では、これは当日追うべき重要な継続・更新案件である。",
+      "activity_details": "Proofpointによれば、TA416はEUおよびNATO関連の外交ミッションに対し、ウェブビーコンとマルウェア配信キャンペーンを複数波で実施した。2026年3月には、2月以降の中東地域の緊張・紛争環境の高まりを背景として中東の外交・政府機関へも標的を拡大した。感染チェーンではCloudflare Turnstileのチャレンジページ悪用、OAuthリダイレクト悪用、C#プロジェクトファイル利用、頻繁に更新されるPlugXペイロードなどが確認されている。",
+      "ttp": [
+        "Web bug / beacon campaigns",
+        "Phishing and malware delivery",
+        "OAuth redirect abuse",
+        "Cloudflare Turnstile challenge page abuse",
+        "Use of C# project files",
+        "PlugX payload refresh"
+      ],
+      "malware_and_tools": [
+        "PlugX"
+      ],
+      "infrastructure": [
+        "Freemail sender accounts",
+        "Web bug infrastructure",
+        "OAuth redirect chains",
+        "Challenge-page themed delivery infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は欧州外交対象への再注力と、中東情勢に応じた標的拡大を示しており、テーマ選定と感染チェーン変更の機動性が高い。",
+        "geopolitical": "EU・NATO対象への再活性化は欧中関係悪化、ロシア・ウクライナ戦争、レアアース問題などの文脈と整合する。さらに中東への対象拡大は、地域紛争に対する中国系情報収集需要の高まりを示唆する。",
+        "business": "日本企業でも外交・政策・防衛関連の会合参加者、シンクタンク、大学、対外政策部門、在外拠点が類似のソーシャルエンジニアリング対象になる可能性がある。",
+        "research_direction": "TA416を、欧州・台湾・東南アジア・モンゴル・中東をまたぐ外交情報収集キャンペーンとして追い、PlugX系統と配信インフラの変化を時系列管理すると有効である。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "2026年4月時点で新しく可視化された中国系外交標的化キャンペーンであり、欧州と中東という二正面の動きが地政学上重要だから。",
+        "delta_from_previous": "欧州外交機関中心の活動に加え、2026年3月に中東政府・外交機関へ標的が拡大。感染チェーンもCloudflare TurnstileやOAuth悪用など新手法に更新。"
+      },
+      "related_campaigns": [
+        "China-linked diplomatic espionage",
+        "PlugX-related espionage activity"
+      ],
+      "tags": [
+        "TA416",
+        "China",
+        "EU",
+        "Middle_East",
+        "diplomatic_espionage",
+        "PlugX"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-03"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Freemail accounts",
+          "Web bug infrastructure",
+          "OAuth redirect infrastructure"
+        ],
+        "capability": [
+          "Phishing",
+          "Beaconing for reconnaissance",
+          "Malware delivery",
+          "Diplomatic espionage"
+        ],
+        "victim": [
+          "European government and diplomatic entities",
+          "Middle Eastern government and diplomatic entities"
+        ]
+      }
+    }
+  ]
 }
