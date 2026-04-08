@@ -1,0 +1,12 @@
+{
+  "date": "2026-04-09",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "TA416",
+    "aliases": [],
+    "cluster": "",
+    "suspected_actor": "",
+    "attribution_confidence": "medium"
+  },
+  "items": []
+}

@@ -1,6 +1,492 @@
 {
   "date": "2026-04-08",
   "timezone": "Asia/Tokyo",
-  "title": "2026/04/08_サイバー攻撃キャンペーン日次概要",
-  "items": []
+  "title": "2026-04-08_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-08_iran_plc_critical_infrastructure",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "Iranian-affiliated PLC Targeting Activity",
+        "aliases": [
+          "Iranian-affiliated cyber actors",
+          "CyberAv3ngers-related activity (possible overlap)"
+        ],
+        "cluster": "Iran-linked OT/ICS disruption activity",
+        "suspected_actor": "Iranian-affiliated actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iranian-affiliated cyber actors",
+        "infrastructure": [
+          "Internet-exposed PLCs",
+          "Public-facing OT/ICS management interfaces"
+        ],
+        "capability": [
+          "PLC manipulation",
+          "OT disruption",
+          "Remote access abuse"
+        ],
+        "victim": [
+          "U.S. critical infrastructure operators",
+          "OT/ICS asset owners"
+        ]
+      },
+      "name": "イラン系アクターによる米重要インフラPLC標的化の継続",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "重要インフラ",
+        "エネルギー",
+        "水道",
+        "OT/ICS"
+      ],
+      "region": [
+        "米国",
+        "中東"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-08",
+      "summary": "CISAは2026年4月7日、イラン関係アクターが米国の重要インフラ分野においてPLCを悪用していると警告した。4月8日時点でも本件は継続案件であり、OT/ICSに対する直接的干渉リスクが重視される。",
+      "details": "共同アドバイザリは、インターネット露出したPLCや関連管理面が悪用され、複数の米重要インフラ分野で障害につながり得ると警告している。Reutersは、2026年初頭以降にイラン系の対米重要インフラ標的化がエスカレートしたと報じた。",
+      "actors": [
+        {
+          "name": "Iranian-affiliated cyber actors",
+          "role": "suspected operator",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1133 External Remote Services",
+        "OT/ICS exposed asset abuse (推定)",
+        "Controller logic or task manipulation (推定)"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Internet-exposed PLC",
+        "SCADA/HMI access paths"
+      ],
+      "targeting": {
+        "sectors": [
+          "energy",
+          "water",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "critical infrastructure operators",
+          "industrial control system owners"
+        ]
+      },
+      "strategic_view": {
+        "general": "OT/ICSへの直接干渉は、情報窃取中心のサイバー作戦より一段上の実害リスクを持つ。",
+        "geopolitical": "中東情勢の延長線上で、サイバーが対米・対同盟国への非対称的圧力手段として機能していることを示す。",
+        "business": "日本の電力、水道、製造業OT環境でも類似の露出面や遠隔保守経路が残っていれば同種リスクが成立する。",
+        "research_direction": "日本国内の露出OT資産、遠隔保守経路、PLC/HMI製品別の攻撃面を整理し、過去事案との連続性を再評価するとよい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "物理的影響を伴う可能性があり、重要インフラ防護の優先順位に直結するため。",
+        "delta_from_previous": "4月7日の共同アドバイザリ公表を受け、4月8日時点では単発ではなく継続的OT脅威として評価する必要が高まった。"
+      },
+      "related_campaigns": [
+        "CyberAv3ngers-related OT activity"
+      ],
+      "related_reports": [
+        "2026/04/07_サイバー事象概要"
+      ],
+      "tags": [
+        "Iran",
+        "OT",
+        "ICS",
+        "PLC",
+        "critical_infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a",
+          "publisher": "CISA",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Iranian hackers' targeting of US critical infrastructure has escalated since start of war, US says",
+          "url": "https://www.reuters.com/world/middle-east/iranian-hackers-targeting-us-critical-infrastructure-has-escalated-since-start-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-08_gru_dns_hijacking_router_network",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "GRU DNS Hijacking Router Activity",
+        "aliases": [
+          "Operation Masquerade",
+          "GRU DNS hijacking network disruption",
+          "APT28 router hijacking activity"
+        ],
+        "cluster": "Russian military intelligence router-based espionage",
+        "suspected_actor": "GRU Unit 26165",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "GRU Unit 26165 / APT28",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "DNS hijacking nodes"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Credential interception",
+          "Traffic redirection"
+        ],
+        "victim": [
+          "Government entities",
+          "Diplomatic targets",
+          "Critical infrastructure organizations"
+        ]
+      },
+      "name": "ロシアGRU系DNSハイジャック網に対する米国の妨害措置",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "外交",
+        "通信",
+        "重要インフラ"
+      ],
+      "region": [
+        "米国",
+        "欧州",
+        "グローバル"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-08",
+      "summary": "米司法省は2026年4月7日、ロシア軍情報機関GRUの一部隊が運用したとされるDNSハイジャック基盤に対し、裁判所承認の技術的妨害措置を実施したと公表した。",
+      "details": "DOJ公式発表では特定の作戦名は明記されていない。一方、Reutersはこの活動を『Operation Masquerade』と呼称しているため、JSONでは公式名称としてではなく別名として扱うのが妥当である。",
+      "actors": [
+        {
+          "name": "GRU Unit 26165",
+          "role": "operator",
+          "country": "Russia"
+        },
+        {
+          "name": "APT28",
+          "role": "publicly associated threat cluster",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "T1601 Network device configuration abuse (推定)",
+        "DNS hijacking",
+        "SOHO router compromise",
+        "Credential interception"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Compromised SOHO routers",
+        "Hijacked DNS infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "diplomatic",
+          "critical infrastructure",
+          "telecommunications"
+        ],
+        "countries": [
+          "United States",
+          "Multiple countries"
+        ],
+        "organization_types": [
+          "government agencies",
+          "diplomatic entities",
+          "critical infrastructure organizations"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家系諜報は依然として境界機器という安価で見落とされやすいレイヤを悪用している。",
+        "geopolitical": "ロシアの対外諜報が外交・政府・重要インフラ分野を長期的に狙っていることを示す。",
+        "business": "日本企業でも海外拠点、委託先、小規模拠点のSOHO機器が弱点となり得る。",
+        "research_direction": "APT28の近年のルータ悪用事例と外交・防衛サプライチェーンへの接続性を継続監視するとよい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家系諜報基盤の実運用形態と、防御の盲点になりやすい境界機器リスクを示したため。",
+        "delta_from_previous": "米国が裁判所承認の妨害措置を実施したことで、基盤の実在性と運用規模に対する確度がさらに高まった。"
+      },
+      "related_campaigns": [
+        "APT28 router espionage activity"
+      ],
+      "related_reports": [
+        "2026/04/07_サイバー事象概要"
+      ],
+      "tags": [
+        "Russia",
+        "GRU",
+        "APT28",
+        "DNS_hijacking",
+        "router_compromise"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "US disrupts Russian military-run DNS hijacking network, Justice Department says",
+          "url": "https://www.reuters.com/business/media-telecom/us-disrupts-russian-military-run-dns-hijacking-network-justice-department-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-08_china_taiwan_chip_cyber_pressure",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "China Pressure on Taiwan Cyber and Semiconductor Ecosystem",
+        "aliases": [
+          "PRC cyber pressure on Taiwan",
+          "Taiwan semiconductor targeting"
+        ],
+        "cluster": "China-linked cyber-enabled technology acquisition and pressure activity",
+        "suspected_actor": "China-linked state-affiliated actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked state-affiliated actors",
+        "infrastructure": [
+          "Government network intrusion infrastructure",
+          "Front companies",
+          "Information operation channels"
+        ],
+        "capability": [
+          "Cyber intrusion",
+          "Technology theft",
+          "Talent recruitment",
+          "Influence operations"
+        ],
+        "victim": [
+          "Taiwan government",
+          "Taiwan semiconductor sector",
+          "Taiwan critical infrastructure"
+        ]
+      },
+      "name": "中国による台湾向けサイバー侵入・半導体技術獲得圧力の継続",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "半導体",
+        "重要インフラ",
+        "研究開発"
+      ],
+      "region": [
+        "台湾",
+        "中国"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-08",
+      "summary": "台湾国家安全局の報告として、中国が台湾の先端半導体技術・人材の獲得と政府ネットワークへの高水準の侵入試行を続けていることが4月7日に報じられ、4月8日時点でも重要な継続案件と評価できる。",
+      "details": "2026年初頭だけで台湾政府ネットワークに対する170 million超の侵入試行が確認されたと報じられた。狙いは政治的威圧に留まらず、半導体技術、人材、供給網情報の獲得を含む。",
+      "actors": [
+        {
+          "name": "China-linked state-affiliated actors",
+          "role": "suspected operator",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "Spearphishing (推定)",
+        "Credential access (推定)",
+        "Supply-chain and procurement evasion",
+        "Technology theft",
+        "Influence operations using synthetic media"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Government network intrusion infrastructure",
+        "Front companies",
+        "Influence operation channels"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "semiconductor",
+          "critical infrastructure",
+          "research and development"
+        ],
+        "countries": [
+          "Taiwan"
+        ],
+        "organization_types": [
+          "government agencies",
+          "chipmakers",
+          "research institutes",
+          "critical infrastructure operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "サイバー・技術窃取・人材獲得・情報工作が一体化した長期圧力である点が重要である。",
+        "geopolitical": "中台間のグレーゾーン競争の中で、サイバーは平時から技術覇権と統治圧力を高める主要手段として機能している。",
+        "business": "日本の半導体装置、素材、大学共同研究、人材交流も間接的な標的になり得る。",
+        "research_direction": "対台湾半導体標的化を政府侵入、産業スパイ、人材リクルート、影響工作を含む複合活動として追うとよい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本の経済安全保障と半導体サプライチェーンに直接つながるテーマであるため。",
+        "delta_from_previous": "4月7日報道により、2026年初頭の侵入試行規模と半導体技術獲得意図が改めて明示された。"
+      },
+      "related_campaigns": [
+        "China-linked targeting of Taiwan semiconductor ecosystem"
+      ],
+      "related_reports": [
+        "2026/04/07_中台関連事象概要"
+      ],
+      "tags": [
+        "China",
+        "Taiwan",
+        "semiconductor",
+        "cyber_espionage",
+        "influence_operations"
+      ],
+      "sources": [
+        {
+          "title": "China targets Taiwan's chip prowess to evade global 'containment', Taipei government says",
+          "url": "https://www.reuters.com/world/china/china-targets-taiwans-chip-prowess-evade-global-containment-taipei-government-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-08_fortinet_chrome_kev_exploitation",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Early April 2026 Known Exploited Vulnerability Activity",
+        "aliases": [
+          "KEV-linked exploitation activity",
+          "Fortinet and Chrome exploitation wave"
+        ],
+        "cluster": "Cross-actor exploitation of widely deployed technologies",
+        "suspected_actor": "Multiple actors",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Multiple threat actors",
+        "infrastructure": [
+          "Public-facing enterprise software",
+          "Browsers and malicious websites"
+        ],
+        "capability": [
+          "Exploit public-facing applications",
+          "Drive-by compromise",
+          "Initial access"
+        ],
+        "victim": [
+          "Enterprises",
+          "Government users",
+          "Broad internet user base"
+        ]
+      },
+      "name": "Fortinet・Chromeを含む実悪用脆弱性対応の継続",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "横断",
+        "政府機関",
+        "企業IT"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-03-31",
+      "last_seen": "2026-04-08",
+      "summary": "4月上旬にFortinet FortiClient EMSおよびGoogle Chromeの実悪用脆弱性対応が続いており、4月8日時点でもKEV監視とパッチ適用の即応性が重要な継続課題である。",
+      "details": "確認できる代表例として、CISA KEV掲載の Fortinet FortiClient EMS の CVE-2026-35616 と、報道ベースで実悪用が指摘された Chrome の CVE-2026-5281 がある。高普及製品の実悪用脆弱性は、国家系諜報とサイバー犯罪の双方で初期侵入や権限取得に転用されやすい。",
+      "actors": [
+        {
+          "name": "Multiple threat actors",
+          "role": "probable exploit users"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1189 Drive-by Compromise",
+        "Initial access via known exploited vulnerabilities",
+        "CVE-2026-35616",
+        "CVE-2026-5281"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "FortiClient EMS",
+        "Google Chrome"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "enterprise",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "Multiple countries"
+        ],
+        "organization_types": [
+          "enterprises",
+          "government agencies",
+          "broad user population"
+        ]
+      },
+      "strategic_view": {
+        "general": "大規模な地政学インシデントの陰で、高普及製品の実悪用脆弱性が引き続き最も実務的な侵入起点になっている。",
+        "geopolitical": "国家系アクターも犯罪系アクターも同じ公開製品の脆弱性に乗るため、地政学監視と脆弱性運用を分離しない態勢が必要である。",
+        "business": "日本企業ではブラウザ更新統制や周辺管理ソフトの迅速な更新に改善余地が大きい。",
+        "research_direction": "KEV入り製品と日本国内の普及製品群を重ね、どの製品が国内で高い実害潜在性を持つか継続評価するとよい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "高普及製品の実悪用脆弱性は広範な被害につながりやすく、国家系・犯罪系双方の活動基盤となるため。",
+        "delta_from_previous": "4月8日時点でもKEV追随とパッチ適用の継続監視が必要であり、単発の修正情報で終わらない。"
+      },
+      "related_campaigns": [],
+      "related_reports": [
+        "2026/04/06_サイバー事象概要",
+        "2026/04/07_サイバー事象概要"
+      ],
+      "tags": [
+        "KEV",
+        "Fortinet",
+        "Chrome",
+        "zero_day",
+        "vulnerability_management"
+      ],
+      "sources": [
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-08"
+        },
+        {
+          "title": "Weekly Recap: Axios Hack, Chrome 0-Day, Fortinet Vulnerability, npm Supply Chain Attack, CISA Advisories and More",
+          "url": "https://thehackernews.com/2026/04/weekly-recap-axios-hack-chrome-0-day.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-06"
+        }
+      ]
+    }
+  ]
 }
