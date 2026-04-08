@@ -16,3 +16,8 @@ Public repository for campaign-based cyber threat daily logs.
 
 ## Security Note
 This is a public repository. Do not upload confidential, sensitive, personal, or non-public information.
+
+## Disclaimer
+ - This repository is a project work to develpo a platform for the automated collection and storage of CTI information using generative AI and Git.
+ - Development is ongoing, and the material provided may not have undergone complete fact-checking. Therefore, please verify the source information (URL) before using it.
+ - To prevent information leaks, I am utilizing tools such as git -filter and git-leaks.

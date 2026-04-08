@@ -1,3 +1,5 @@
+次に、以下のschemaに従い、JSON形式でこの日のインシデント情報を整理してください
+
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Campaign Daily Log Schema v1.0",
