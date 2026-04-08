@@ -1,0 +1,770 @@
+{
+  "date": "2026-04-07",
+  "timezone": "Asia/Tokyo",
+  "title": "2026/04/07_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-07_iran_ot_ics_campaign",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "Iran-affiliated OT/ICS Disruption Activity",
+        "aliases": [
+          "Iranian-affiliated cyber actors targeting PLCs/SCADA"
+        ],
+        "cluster": "Iran-linked OT disruption",
+        "suspected_actor": "Iran-affiliated cyber actors",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Iran-affiliated cyber actors",
+        "infrastructure": [
+          "Internet-exposed PLCs",
+          "SCADA/HMI environments"
+        ],
+        "capability": [
+          "PLC manipulation",
+          "SCADA display manipulation",
+          "Project data extraction"
+        ],
+        "victim": [
+          "US government services",
+          "Water and wastewater sector",
+          "Energy sector"
+        ]
+      },
+      "name": "イラン系アクターによる米重要インフラ向けOT/ICS攻撃警告",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "水道",
+        "エネルギー",
+        "OT/ICS"
+      ],
+      "region": [
+        "米国",
+        "中東"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-07",
+      "summary": "米政府は、イラン系アクターによる米重要インフラ向けサイバー活動の増加を公表した。対象は政府サービス、水・下水、エネルギー分野で、公開状態のPLCやSCADA機器が狙われ、一部では運用障害と金銭的損失が発生したとされた。",
+      "details": "FBI、NSA、CISA、EPA、DOE、USCYBERCOM/CNMFの共同警告。攻撃は中東情勢の緊張激化と並行して増勢しており、OTへの直接干渉を通じた威嚇・限定的混乱造成の性格が強い。",
+      "actors": [
+        {
+          "name": "Iran-affiliated cyber actors",
+          "role": "suspected operator",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T0831 Manipulation of View",
+        "T0803 Block Command Message",
+        "T0814 Denial of Control",
+        "OT asset exposure exploitation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Internet-exposed PLCs",
+        "SCADA/HMI systems"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government services",
+          "Water and wastewater",
+          "Energy"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Critical infrastructure operators",
+          "Government entities"
+        ]
+      },
+      "strategic_view": {
+        "general": "中東正面の軍事・外交緊張が、米本土重要インフラに対するサイバー威嚇として波及している。",
+        "geopolitical": "イランは正規軍事衝突を補完する低コスト手段として、OT妨害を含むサイバー行動を活用している可能性が高い。",
+        "business": "日本企業にとっても、海外拠点や委託先を含むOT資産の露出管理と遠隔保守経路の再点検が必要。",
+        "research_direction": "対象PLC製品群、露出ポート、被害の実運用影響、過去のCyberAv3ngers系TTPとの重複を継続確認。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "サイバー空間から物理的・公共サービス上の影響を与える意図が明示された点で重大。",
+        "delta_from_previous": "象徴的改ざんや威嚇に加え、実際の運用障害と金銭的損失が当局公表で確認された。"
+      },
+      "related_campaigns": [
+        "Iran-linked regional cyber escalation"
+      ],
+      "related_reports": [
+        "2026/04/06_サイバー事象概要"
+      ],
+      "tags": [
+        "iran",
+        "ot",
+        "ics",
+        "critical_infrastructure",
+        "plc",
+        "scada"
+      ],
+      "sources": [
+        {
+          "title": "Iranian hackers' targeting of US critical infrastructure has escalated since start of war, US says",
+          "url": "https://www.reuters.com/world/middle-east/iranian-hackers-targeting-us-critical-infrastructure-has-escalated-since-start-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a",
+          "publisher": "CISA",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_apt28_dns_hijack_router_network",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "APT28 SOHO Router DNS Hijacking",
+        "aliases": [
+          "Fancy Bear",
+          "Sofacy",
+          "Forest Blizzard",
+          "Sednit",
+          "Pawn Storm"
+        ],
+        "cluster": "GRU Unit 26165 espionage infrastructure",
+        "suspected_actor": "Russia GRU Military Unit 26165",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "APT28 / GRU Unit 26165",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Hijacked DNS settings"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Traffic interception",
+          "Credential and intelligence collection"
+        ],
+        "victim": [
+          "Military",
+          "Government",
+          "Critical infrastructure targets worldwide"
+        ]
+      },
+      "name": "APT28によるSOHOルータ悪用DNSハイジャック網に対する米独連携対処",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "防衛",
+        "重要インフラ",
+        "通信"
+      ],
+      "region": [
+        "米国",
+        "ドイツ",
+        "欧州",
+        "グローバル"
+      ],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-07",
+      "summary": "米司法省とFBIは、GRU Unit 26165（APT28）が侵害したSOHOルータ群の米国内部分を無力化したと公表した。APT28はこれらのルータを用い、軍・政府・重要インフラ関係者を含む標的に対しDNSハイジャック型の諜報活動を実施していた。",
+      "details": "4月7日に米司法省が裁判所承認の技術的措置を公表し、同日ドイツBfVもTP-Linkルータ悪用を警告した。国家級標的そのものではなく、周辺の民生・小規模拠点機器を大量侵害して諜報基盤化する構図が明確化した。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "operator",
+          "country": "Russia"
+        },
+        {
+          "name": "GRU Military Unit 26165",
+          "role": "sponsoring organization",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "DNS hijacking",
+        "SOHO router compromise",
+        "Credential collection"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Compromised TP-Link routers",
+        "Hijacked DNS infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "Military",
+          "Government",
+          "Critical infrastructure"
+        ],
+        "countries": [
+          "Germany",
+          "United States",
+          "Worldwide"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Military personnel",
+          "Critical infrastructure operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "エッジ機器の大量侵害を通じた広域諜報基盤構築が可視化された。",
+        "geopolitical": "ロシアの対欧米サイバー諜報は、正面の軍事・外交標的だけでなくその周辺接続点まで含めた多層構造に移行している。",
+        "business": "日本でも在外拠点、研究者、サプライヤ、委託先のルータや小規模拠点機器が諜報チェーンに組み込まれるリスクが高い。",
+        "research_direction": "対象ルータ機種、初期侵入経路、DNS変更後の情報窃取手法、APT28の過去作戦との連続性を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家級諜報が民生機器を大規模に取り込み、周辺面から本命標的に到達する構図を示した。",
+        "delta_from_previous": "APT28の標的型侵入中心イメージに対し、SOHOルータ群を活用した持続的AitM基盤の側面が前面化した。"
+      },
+      "related_campaigns": [
+        "Russian state espionage against Europe"
+      ],
+      "related_reports": [
+        "2026/04/03_サイバー事象概要",
+        "2026/04/06_サイバー事象概要"
+      ],
+      "tags": [
+        "apt28",
+        "gru",
+        "dns_hijack",
+        "router",
+        "espionage",
+        "tp_link"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "US disrupts Russian military-run DNS hijacking network, Justice Department says",
+          "url": "https://www.reuters.com/business/media-telecom/us-disrupts-russian-military-run-dns-hijacking-network-justice-department-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_ta416_eu_taiwan_middleeast_targeting",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "TA416 European, Taiwan-related, and Middle East Diplomatic Targeting",
+        "aliases": [
+          "TA416",
+          "RedDelta",
+          "Mustang Panda overlap"
+        ],
+        "cluster": "China-aligned diplomatic espionage",
+        "suspected_actor": "China-aligned threat actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "speedifynews.com-related infrastructure",
+          "Spoofed and compromised email accounts",
+          "Web bug URLs"
+        ],
+        "capability": [
+          "Reconnaissance via web bugs",
+          "Phishing",
+          "Malware delivery",
+          "PlugX-related delivery chains"
+        ],
+        "victim": [
+          "European government entities",
+          "Diplomatic missions to the EU",
+          "Mailboxes associated with diplomatic missions to Taiwan",
+          "Middle Eastern government and diplomatic entities"
+        ]
+      },
+      "name": "中国系TA416の欧州・台湾関連・中東外交標的キャンペーン更新",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "外交",
+        "防衛",
+        "エネルギー政策"
+      ],
+      "region": [
+        "欧州",
+        "台湾",
+        "中国",
+        "中東"
+      ],
+      "first_seen": "2025-07-01",
+      "last_seen": "2026-04-01",
+      "summary": "Proofpointは、TA416が2025年後半から2026年初頭にかけて欧州政府・外交対象への活動を再活性化し、外交ミッションや台湾関連メールボックスを標的にしていたほか、2026年3月中旬には中東の政府・外交機関にも対象を拡大したと報告した。",
+      "details": "2025年7月のEU-China summit直後のweb bug偵察、2025年秋の欧州防衛・外務省向けマルウェア配布、2026年1-2月のEU外交ミッションおよび台湾関連メールボックスへの標的化、さらに2026年3月中旬には中東政府・外交機関へのフィッシング展開が確認された。Proofpointは、この中東拡張がイラン戦争の勃発と強く関連している可能性を示している。",
+      "actors": [
+        {
+          "name": "TA416",
+          "role": "operator",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "Web bug reconnaissance",
+        "Compromised account abuse",
+        "DLL side-loading",
+        "PlugX delivery chain"
+      ],
+      "malware": [
+        "PlugX"
+      ],
+      "infrastructure": [
+        "speedifynews.com",
+        "Spoofed Gmail accounts",
+        "Compromised diplomatic email accounts"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government",
+          "Defense",
+          "Diplomacy",
+          "Energy policy"
+        ],
+        "countries": [
+          "European countries",
+          "Taiwan",
+          "Multiple Middle Eastern countries"
+        ],
+        "organization_types": [
+          "Ministries of foreign affairs",
+          "Ministries of defense",
+          "Diplomatic missions",
+          "Embassies"
+        ]
+      },
+      "strategic_view": {
+        "general": "中国系アクターが欧州・台湾を横断する外交情報収集を継続しつつ、中東にも対象を拡大している。",
+        "geopolitical": "中台情勢の直接当事者だけでなく、EUや中東の外交・防衛情報を経由して広域の地政学情報を収集する構図が示唆される。",
+        "business": "日本企業・研究機関でも、欧州拠点や外交・政策コミュニティとの接点を持つ部門、エネルギー・国際事業部門が周辺標的となり得る。",
+        "research_direction": "TA416とMustang Panda系クラスターの重複、PlugX系ローダの変化、台湾関連標的化に加え中東拡張の継続性を観測。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "中国系サイバー諜報が、台湾だけでなく欧州と中東の外交空間を含む広い情報生態系を対象化している。",
+        "delta_from_previous": "従来の台湾・東南アジア中心イメージから、EU外交対象に加えて2026年3月中旬の中東政府・外交機関への拡張が確認された。"
+      },
+      "related_campaigns": [
+        "China-linked diplomatic espionage"
+      ],
+      "related_reports": [
+        "2026/04/06_中台関連事象概要",
+        "2026/04/05_サイバー事象概要"
+      ],
+      "tags": [
+        "china",
+        "ta416",
+        "taiwan",
+        "europe",
+        "middle_east",
+        "diplomacy",
+        "plugx"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage campaigns",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_flowise_ninja_forms_exploitation",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Rapid Exploitation of Publicly Known Web and AI Platform Vulnerabilities",
+        "aliases": [
+          "Flowise CVE-2025-59528 exploitation",
+          "Ninja Forms CVE-2026-0740 exploitation"
+        ],
+        "cluster": "opportunistic mass exploitation",
+        "suspected_actor": "Unspecified threat actors",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unspecified threat actors",
+        "infrastructure": [
+          "Exposed Flowise instances",
+          "Vulnerable WordPress/Ninja Forms installations"
+        ],
+        "capability": [
+          "Remote code execution",
+          "Arbitrary file upload",
+          "Mass internet scanning"
+        ],
+        "victim": [
+          "AI application operators",
+          "WordPress site operators"
+        ]
+      },
+      "name": "FlowiseおよびNinja Forms脆弱性の実攻撃化",
+      "category": "脆弱性悪用",
+      "industry": [
+        "ソフトウェア",
+        "Web",
+        "生成AI基盤"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-03-19",
+      "last_seen": "2026-04-07",
+      "summary": "FlowiseのCVE-2025-59528とWordPress向けNinja Forms File UploadsのCVE-2026-0740について、2026年4月7日時点で実攻撃の活発化が報じられた。AI基盤やノーコード/プラグイン生態系の攻撃面化が鮮明である。",
+      "details": "Flowiseでは任意JavaScript注入からコード実行とファイルシステムアクセスに至る。Ninja Formsでは認証不要ファイルアップロードが可能で、Wordfenceは24時間で3,600件超の攻撃をブロックした。Ninja Forms側では、1月8日に報告受領、2月10日のv3.3.25は部分修正、3月19日のv3.3.27で完全修正が行われており、4月7日は脆弱性公表日ではなく攻撃活発化の報告日として扱うのが適切である。",
+      "actors": [
+        {
+          "name": "Unspecified threat actors",
+          "role": "operator"
+        }
+      ],
+      "ttp": [
+        "Internet-wide scanning",
+        "RCE exploitation",
+        "Arbitrary file upload",
+        "Post-disclosure exploitation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Exposed Flowise instances",
+        "WordPress sites using vulnerable File Upload add-on"
+      ],
+      "targeting": {
+        "sectors": [
+          "Software",
+          "Web services",
+          "Enterprise AI projects"
+        ],
+        "countries": [
+          "Worldwide"
+        ],
+        "organization_types": [
+          "AI platform operators",
+          "Website operators",
+          "SMBs",
+          "Enterprises"
+        ]
+      },
+      "strategic_view": {
+        "general": "AI/ノーコード基盤が、PoCや実験用途のまま露出し新たな攻撃面となっている。",
+        "geopolitical": "国家系作戦というよりも、公開後即悪用されるグローバルな犯罪・機会主義的活動の典型。",
+        "business": "日本企業内のAI試作環境、部門導入のLLMワークフロー、外注Webプラグインの資産棚卸しが急務。",
+        "research_direction": "国内露出状況、PoC環境の継続運用実態、Flowise系AI基盤の他脆弱性連鎖、WordPressプラグイン運用の更新遅延を調査。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "企業が見落としがちなAI開発基盤と汎用Webプラグインが、短期間で実攻撃対象になっている。",
+        "delta_from_previous": "既存のWebプラグイン悪用に加え、生成AI開発基盤そのものが高優先の攻撃面として顕在化した。Ninja Formsについては4/7を脆弱性発生日ではなく、悪用急増の報告日として整理し直した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [
+        "2026/04/06_サイバー事象概要"
+      ],
+      "tags": [
+        "flowise",
+        "cve-2025-59528",
+        "ninja_forms",
+        "cve-2026-0740",
+        "rce",
+        "ai_security"
+      ],
+      "sources": [
+        {
+          "title": "Max severity Flowise RCE vulnerability now exploited in attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/max-severity-flowise-rce-vulnerability-now-exploited-in-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Hackers exploit critical flaw in Ninja Forms WordPress plugin",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-flaw-in-ninja-forms-wordpress-plugin/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_japan_crypto_cyber_policy",
+      "type": "policy",
+      "status": "更新",
+      "campaign": {
+        "name": "Japan Cryptoasset Exchange Cybersecurity Strengthening",
+        "aliases": [],
+        "cluster": "financial cyber resilience policy",
+        "suspected_actor": "Financial Services Agency of Japan",
+        "attribution_confidence": "high"
+      },
+      "name": "日本の暗号資産交換業者向けサイバーセキュリティ強化方針の再周知",
+      "category": "政策",
+      "industry": [
+        "金融",
+        "暗号資産"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-07",
+      "summary": "金融庁は4月3日に、暗号資産交換業者等のサイバーセキュリティ強化に向けた取組方針のパブコメ結果等を公表し、4月7日週次レビューでも再掲した。",
+      "details": "暗号資産分野を、脅威の高度化・多様化に対応すべき個別ハイリスク領域として位置づけている。今後、監視、委託先管理、認証強化、インシデント対応の底上げが求められる方向性が確認できる。",
+      "actors": [
+        {
+          "name": "Financial Services Agency",
+          "role": "policy issuer",
+          "country": "Japan"
+        }
+      ],
+      "strategic_view": {
+        "general": "日本は金融の中でも暗号資産を個別重点管理領域として扱い始めている。",
+        "geopolitical": "越境資産移転や制裁回避、犯罪収益流通との接点がある分野であり、サイバー対策は経済安全保障とも接続する。",
+        "business": "交換業者だけでなく、関連ウォレット、決済、委託先、監査支援事業者にも実務的影響が波及しうる。",
+        "research_direction": "FSA文書の具体的要求事項、監督上の評価指標、既存金融セクター指針との差分を整理。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "日本の金融規制におけるサイバー要求の実務レベルが暗号資産分野でさらに具体化しつつある。",
+        "delta_from_previous": "一般論ではなく、交換業者向けの個別方針として明示された点が重要。"
+      },
+      "related_campaigns": [],
+      "related_reports": [
+        "2026/04/03_サイバー事象概要"
+      ],
+      "tags": [
+        "japan",
+        "fsa",
+        "cryptoasset",
+        "policy",
+        "financial_sector"
+      ],
+      "sources": [
+        {
+          "title": "FSA Weekly Review No.682 April 7, 2026",
+          "url": "https://www.fsa.go.jp/en/newsletter/weekly2026/682.html",
+          "publisher": "Financial Services Agency",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_nist_ai_rmf_critical_infrastructure_profile",
+      "type": "policy",
+      "status": "新規",
+      "campaign": {
+        "name": "NIST AI RMF Critical Infrastructure Profile Development",
+        "aliases": [
+          "AI RMF Trustworthy AI in Critical Infrastructure Profile"
+        ],
+        "cluster": "AI governance for critical infrastructure",
+        "suspected_actor": "NIST",
+        "attribution_confidence": "high"
+      },
+      "name": "NISTによる重要インフラ向けAI RMFプロファイル策定開始",
+      "category": "政策",
+      "industry": [
+        "重要インフラ",
+        "AI",
+        "OT/ICS"
+      ],
+      "region": [
+        "米国"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-07",
+      "summary": "NISTは4月7日、重要インフラにおけるTrustworthy AIのためのAI RMFプロファイルのコンセプトノートを公開した。AI導入をIT、OT、ICSまで含めてリスク管理対象として整理する動きである。",
+      "details": "重要インフラ運用でAIエージェントやAIツールを利用する際の安全性、信頼性、サプライチェーン上の要求事項を整理する枠組みとして進められる。サイバー防御だけでなく、AI導入そのものの統制設計に関わる。",
+      "actors": [
+        {
+          "name": "NIST",
+          "role": "policy developer",
+          "country": "United States"
+        }
+      ],
+      "strategic_view": {
+        "general": "AI活用は攻撃・防御双方の議論から、重要インフラ導入時の制度設計へ進みつつある。",
+        "geopolitical": "米国主導のAI安全・インフラ統治枠組みは、同盟国・規制当局・ベンダーにも実質的な参照軸となりうる。",
+        "business": "日本のOT、エネルギー、交通、公共領域でAI導入を進める企業にとって、将来の基準先行事例として重要。",
+        "research_direction": "NIST CSF/AI RMF、AI向け800-53系補助資料、日本のRMF・統一基準群との接続を検討。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "重要インフラへのAI導入を、実装前提で統制・説明可能性・信頼性まで含めて扱い始めたため。",
+        "delta_from_previous": "一般的なAI RMFから、重要インフラという高リスク環境向けの具体プロファイル策定に進んだ。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "nist",
+        "ai_rmf",
+        "critical_infrastructure",
+        "policy",
+        "ot"
+      ],
+      "sources": [
+        {
+          "title": "AI RMF Profile on Trustworthy AI in Critical Infrastructure",
+          "url": "https://www.nist.gov/programs-projects/concept-note-ai-rmf-profile-trustworthy-ai-critical-infrastructure",
+          "publisher": "NIST",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_anthropic_project_glasswing_claude_mythos_preview",
+      "type": "business_tech",
+      "status": "新規",
+      "campaign": {
+        "name": "Project Glasswing",
+        "aliases": [
+          "Anthropic defensive cybersecurity initiative"
+        ],
+        "cluster": "defensive cybersecurity AI initiative",
+        "suspected_actor": "Anthropic",
+        "attribution_confidence": "high"
+      },
+      "name": "Anthropicの防御向けAI構想『Project Glasswing』と Claude Mythos Preview 公表",
+      "category": "ビジネス・技術",
+      "industry": [
+        "AI",
+        "サイバーセキュリティ"
+      ],
+      "region": [
+        "米国",
+        "グローバル"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-07",
+      "summary": "Anthropicは、防御目的のサイバーセキュリティ取り組み『Project Glasswing』を公表し、その枠組みの中で未公開汎用モデル『Claude Mythos Preview』を選定組織に提供すると発表した。",
+      "details": "Project Glasswingは構想・取り組み名であり、Claude Mythos Previewはその中で提供される未公開モデル名である。AnthropicはAmazon、Microsoft、Apple、Google、Nvidia、CrowdStrike、Palo Alto Networksなどと連携し、利用クレジット1億ドルとオープンソースセキュリティ向け寄付400万ドルも表明した。",
+      "actors": [
+        {
+          "name": "Anthropic",
+          "role": "initiative leader",
+          "country": "United States"
+        }
+      ],
+      "strategic_view": {
+        "general": "AI企業とセキュリティ企業が、モデル能力を防御基盤へ組み込む方向に進んでいる。",
+        "geopolitical": "先進国のAI・サイバー企業連携は、防御能力の格差を広げる可能性がある。",
+        "business": "SOC、AppSec、脆弱性診断の現場で、AIは補助から半自律的解析へ移行する前提で体制設計が必要。",
+        "research_direction": "実利用組織、検出実績、誤検知率、脆弱性報告フローへの組み込み方を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "生成AIを防御側に本格適用する産業連携として、実運用への波及可能性が高い。",
+        "delta_from_previous": "Project GlasswingとClaude Mythos Previewの区別を明示し、構想名とモデル名の混同を解消した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "anthropic",
+        "ai_security",
+        "glasswing",
+        "claude_mythos_preview",
+        "appsec",
+        "soc"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic touts AI cybersecurity project with Big Tech partners",
+          "url": "https://www.reuters.com/legal/litigation/anthropic-touts-ai-cybersecurity-project-with-big-tech-partners-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-07_microsoft_japan_ai_cyber_investment",
+      "type": "business_tech",
+      "status": "継続",
+      "campaign": {
+        "name": "Microsoft Japan AI and Cyber Defence Expansion",
+        "aliases": [],
+        "cluster": "Japan AI infrastructure and cyber cooperation",
+        "suspected_actor": "Microsoft",
+        "attribution_confidence": "high"
+      },
+      "name": "Microsoftの対日AI・サイバー投資計画の継続的重要性",
+      "category": "ビジネス・技術",
+      "industry": [
+        "クラウド",
+        "AI",
+        "サイバーセキュリティ"
+      ],
+      "region": [
+        "日本",
+        "米国"
+      ],
+      "first_seen": "2026-04-03",
+      "last_seen": "2026-04-07",
+      "summary": "Microsoftは2026年から2029年に日本へ100億ドルを投資し、AI基盤拡張と日本政府とのサイバー協力強化を進める計画を4月3日に公表した。4月7日時点でも業界上の重要継続案件である。",
+      "details": "国内でのAI計算資源確保、Azure利用のローカル性強化、人材育成、脅威情報共有や犯罪対策協力が含まれる。日本のAI主権、クラウド依存、官民サイバー連携の観点から影響が大きい。",
+      "actors": [
+        {
+          "name": "Microsoft",
+          "role": "investor",
+          "country": "United States"
+        }
+      ],
+      "strategic_view": {
+        "general": "AI投資であると同時に、サイバー協力と国内計算基盤整備を束ねた経済安全保障案件である。",
+        "geopolitical": "日米の技術・サイバー連携を具体資本投下で補強する動きとして位置付けられる。",
+        "business": "国内クラウド、SOC、脅威インテリジェンス、AI人材育成市場に波及が見込まれる。",
+        "research_direction": "政府向け協力の具体領域、国内提携先、既存クラウド・セキュリティ市場への競争影響を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "日本のAI・サイバー基盤整備に対する外資主導の大型投資として影響が大きい。",
+        "delta_from_previous": "単なるデータセンター投資ではなく、政府とのサイバー協力を明示した点が重要。"
+      },
+      "related_campaigns": [],
+      "related_reports": [
+        "2026/04/03_サイバー事象概要"
+      ],
+      "tags": [
+        "microsoft",
+        "japan",
+        "ai",
+        "cyber_defence",
+        "cloud"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft to invest $10 billion in Japan for AI and cyber defence expansion",
+          "url": "https://www.reuters.com/business/media-telecom/microsoft-invest-10-billion-japan-ai-cyber-defence-expansion-2026-04-03/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-03"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,930 @@
 {
   "date": "2026-04-06",
   "timezone": "Asia/Tokyo",
-  "title": "2026/04/06_サイバー攻撃キャンペーン日次概要",
-  "items": []
+  "title": "2026/04/06_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-06_forticlient_ems_zero_day",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "FortiClient EMS Active Exploitation",
+        "aliases": [
+          "CVE-2026-35616 exploitation"
+        ],
+        "cluster": "edge_security_management_exploitation",
+        "suspected_actor": "不特定（犯罪系・国家系双方が利用可能）",
+        "attribution_confidence": "low"
+      },
+      "name": "FortiClient EMSの重大脆弱性CVE-2026-35616の活発な悪用",
+      "category": "ゼロデイ脆弱性悪用",
+      "industry": [
+        "IT",
+        "政府機関",
+        "重要インフラ",
+        "MSP"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-04-04",
+      "last_seen": "2026-04-06",
+      "summary": "FortinetのFortiClient EMSにおけるCVE-2026-35616が4月上旬に公表され、4月6日時点で各国当局・主要メディアが活発な悪用への注意喚起を実施した。管理基盤への侵入を許す性質上、単一製品の脆弱性ではなく、端末管理・認証・セキュリティ運用全体に波及しうる事案として注視が必要。",
+      "details": "Fortinetは2026-04-04にFG-IR-26-099を公開し、CVE-2026-35616を重大脆弱性として公表した。4月6日にはシンガポールCSAが活発悪用を警告し、同日CISAもKEV Catalogへ追加した。現時点で大規模被害組織名は限定的だが、公開直後から防御側の即応が求められている。これは境界装置だけでなく、クライアント管理サーバー自体が攻撃面となる点で重要。",
+      "actors": [
+        {
+          "name": "不明",
+          "role": "脆弱性悪用主体"
+        },
+        {
+          "name": "Fortinet",
+          "role": "ベンダ"
+        },
+        {
+          "name": "CISA",
+          "role": "警戒情報発出"
+        },
+        {
+          "name": "CSA Singapore",
+          "role": "警戒情報発出",
+          "country": "Singapore"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "CVE-2026-35616"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "FortiClient EMS"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "企業IT",
+          "重要インフラ",
+          "サービスプロバイダ"
+        ],
+        "countries": [
+          "グローバル"
+        ],
+        "organization_types": [
+          "FortiClient EMS利用組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "防御製品・管理製品そのものが侵入点となる構図が改めて示された。公開直後の高危険度脆弱性への対応速度が被害有無を左右する。",
+        "geopolitical": "特定国家への帰属は未確定だが、国家系・犯罪系双方が短期間で乗る可能性が高く、平時から有事まで横断的なリスクとなる。",
+        "business": "Fortinet利用組織、特に複数拠点・多数端末を管理する日本企業や公共部門では、管理基盤停止や不正配布の二次被害まで想定すべき。",
+        "research_direction": "国内露出面の把握、FortiClient EMSの普及業種、パッチ適用遅延の傾向を継続監視。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "悪用が現に観測され、当局レベルで即時是正対象となっているため。",
+        "delta_from_previous": "4月4日のベンダ公表段階から、4月6日には当局・メディアが活発悪用前提の運用フェーズに移行した。"
+      },
+      "related_campaigns": [
+        "Fortinet edge exploitation trends"
+      ],
+      "related_reports": [
+        "2026/04/05_サイバー事象概要"
+      ],
+      "tags": [
+        "fortinet",
+        "zero-day",
+        "kev",
+        "patch-priority"
+      ],
+      "sources": [
+        {
+          "title": "API authentication and authorization bypass",
+          "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-099",
+          "publisher": "Fortinet",
+          "published_at": "2026-04-04"
+        },
+        {
+          "title": "Active Exploitation of Critical Vulnerability in FortiClient EMS",
+          "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-031/",
+          "publisher": "Cyber Security Agency of Singapore",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/04/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_medusa_storm1175_campaign",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Storm-1175 Medusa Operations",
+        "aliases": [
+          "Medusa ransomware operations"
+        ],
+        "cluster": "high-tempo-ransomware",
+        "suspected_actor": "Storm-1175",
+        "attribution_confidence": "medium"
+      },
+      "name": "Storm-1175による高テンポなMedusaランサムウェア運用",
+      "category": "サイバー犯罪",
+      "industry": [
+        "医療",
+        "教育",
+        "金融",
+        "専門サービス"
+      ],
+      "region": [
+        "北米",
+        "欧州",
+        "オセアニア"
+      ],
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-04-06",
+      "summary": "Microsoftは4月6日、Storm-1175が脆弱な外部公開資産を狙い、侵入からデータ窃取・Medusa展開までを短時間で進める運用を整理した。ランサムウェア事案というより、脆弱性公開後すぐに実害化する“運用速度”そのものが脅威の中心である。",
+      "details": "Microsoftは、Storm-1175が複数の公開向けシステムの脆弱性を初期侵入に使い、場合によっては侵害後24時間以内に影響拡大・暗号化へ進むケースを示した。16件超の脆弱性悪用が挙げられており、n-dayの即時武器化が顕著。被害対象は医療、教育、金融等で、公開資産のパッチ遅延が直接的なリスクとなっている。",
+      "actors": [
+        {
+          "name": "Storm-1175",
+          "role": "侵入オペレーター"
+        },
+        {
+          "name": "Medusa",
+          "role": "ランサムウェア運用"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1078 Valid Accounts",
+        "T1021 Remote Services",
+        "T1562 Impair Defenses",
+        "T1486 Data Encrypted for Impact"
+      ],
+      "malware": [
+        "Medusa"
+      ],
+      "infrastructure": [
+        "脆弱な外部公開Web資産",
+        "VPN",
+        "RMM/遠隔管理経路"
+      ],
+      "targeting": {
+        "sectors": [
+          "医療",
+          "教育",
+          "金融",
+          "専門サービス"
+        ],
+        "countries": [
+          "米国",
+          "英国",
+          "豪州"
+        ],
+        "organization_types": [
+          "公開Web資産保有組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "公開済み脆弱性の修正遅延が即ランサム被害につながる時代であり、初動監視の時間的猶予が大幅に縮小している。",
+        "geopolitical": "国家系ではないが、医療・教育など社会機能に近い部門へ広く波及しうるため、社会的混乱という意味では戦略影響が大きい。",
+        "business": "日本企業では承認手続きの長いパッチ運用がボトルネックになりやすく、被害の再現性が高い。",
+        "research_direction": "国内医療・教育・地方組織の公開資産管理、脆弱性是正リードタイム、ランサム前段活動の検知を重点調査。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "ランサムの脅威本体が暗号化よりも“高速侵入・高速展開”へ移っていることを明確に示したため。",
+        "delta_from_previous": "個別被害報道中心だった従来と比べ、4月6日は運用速度と侵入手口の体系的整理が示された。"
+      },
+      "related_campaigns": [
+        "2025-2026 ransomware acceleration trends"
+      ],
+      "related_reports": [
+        "2026/04/05_サイバー事象概要"
+      ],
+      "tags": [
+        "medusa",
+        "storm-1175",
+        "ransomware",
+        "n-day"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "Medusa ransomware group using zero-days to launch attacks within 24 hours of breach, Microsoft says",
+          "url": "https://therecord.media/medusa-ransomware-group-zero-days-microsoft",
+          "publisher": "The Record",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_iran_m365_password_spray",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "Iran-nexus M365 Password Spray",
+        "aliases": [
+          "Middle East M365 password spraying"
+        ],
+        "cluster": "cloud-credential-access",
+        "suspected_actor": "Iran-linked threat actor",
+        "attribution_confidence": "medium"
+      },
+      "name": "イラン系アクターによる中東Microsoft 365パスワードスプレー作戦",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "自治体",
+        "エネルギー",
+        "民間企業"
+      ],
+      "region": [
+        "中東",
+        "欧州",
+        "北米"
+      ],
+      "first_seen": "2026-03-03",
+      "last_seen": "2026-04-06",
+      "summary": "Check Point Researchが3月の3波にわたるイラン系パスワードスプレー作戦を公表し、4月6日時点でも注目が継続。主標的はイスラエルとUAEのMicrosoft 365環境で、自治体を中心に300超組織が狙われた。",
+      "details": "攻撃は2026-03-03、03-13、03-23に確認され、Tor出口ノードからのスプレー、WindscribeやNordVPNを用いたログイン、IE10偽装User-Agentなどが観測された。Check Pointは、標的にミサイル被害を受けた自治体が含まれる点から、物理攻撃後の状況把握やBDA支援の可能性を示唆している。",
+      "actors": [
+        {
+          "name": "Iran-linked threat actor",
+          "role": "攻撃主体",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1110.003 Password Spraying",
+        "T1078 Valid Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Tor exit nodes",
+        "Windscribe VPN",
+        "NordVPN",
+        "Microsoft 365"
+      ],
+      "targeting": {
+        "sectors": [
+          "自治体",
+          "政府",
+          "エネルギー",
+          "民間"
+        ],
+        "countries": [
+          "Israel",
+          "United Arab Emirates",
+          "Saudi Arabia",
+          "United Kingdom",
+          "United States"
+        ],
+        "organization_types": [
+          "Microsoft 365利用組織",
+          "自治体",
+          "政府機関"
+        ]
+      },
+      "strategic_view": {
+        "general": "認証情報窃取が単なる情報窃取にとどまらず、軍事・行政対応の状況認識に結びついている可能性がある。",
+        "geopolitical": "中東の物理紛争とクラウド認証攻撃が結び付いた事例であり、サイバーが独立した戦場ではなく、作戦支援の情報層として機能していることを示す。",
+        "business": "自治体・重要インフラのM365運用は日本でも一般化しており、MFA・条件付きアクセス・ログ監視の未成熟は同様の弱点となりうる。",
+        "research_direction": "中東情勢と連動するクラウド認証攻撃、自治体標的化、Gray Sandstorm系との関係を継続観測。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "軍事衝突とクラウド認証攻撃が連動している可能性が示され、物理戦とサイバーの接続を理解する上で重要。",
+        "delta_from_previous": "4月6日時点では、3月の断続的な活動が単発ではなく、地域紛争支援の文脈で再評価されている。"
+      },
+      "related_campaigns": [
+        "Gray Sandstorm credential access patterns"
+      ],
+      "related_reports": [
+        "2026/03_中東関連サイバー動向"
+      ],
+      "tags": [
+        "iran",
+        "m365",
+        "password-spraying",
+        "middle-east"
+      ],
+      "sources": [
+        {
+          "title": "Iran-nexus Password Spray Campaign Targeting Cloud Environments, with a Focus on the Middle East",
+          "url": "https://blog.checkpoint.com/research/iran-nexus-password-spray-campaign-targeting-cloud-environments-with-a-focus-on-the-middle-east/",
+          "publisher": "Check Point Research",
+          "published_at": "2026-03-31"
+        },
+        {
+          "title": "6th April – Threat Intelligence Report",
+          "url": "https://research.checkpoint.com/2026/6th-march-threat-intelligence-report-2/",
+          "publisher": "Check Point Research",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_russia_revisiting_old_breaches",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "Russian Revisit Access Operations",
+        "aliases": [
+          "revisiting old breaches"
+        ],
+        "cluster": "persistent-war-access",
+        "suspected_actor": "Russian state-linked actors",
+        "attribution_confidence": "medium"
+      },
+      "name": "ロシア系アクターによる過去侵害基盤への再アクセス確認",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "防衛"
+      ],
+      "region": [
+        "ウクライナ",
+        "欧州"
+      ],
+      "first_seen": "2025-07-01",
+      "last_seen": "2026-04-03",
+      "summary": "CERT-UAは、ロシア系攻撃者が過去に侵害した環境へ再度アクセスを試み、脆弱性修正の有無や既取得資格情報の有効性を確認していると警告した。派手な破壊よりも、再利用可能な侵入経路の温存が重視されている。",
+      "details": "報道によれば、攻撃者は以前の侵害で使ったアクセスを再確認し、パッチ未適用や資格情報が残存している場合に再侵入へ成功している。2025年後半以降、ロシア側は単発侵入よりも持続アクセスの保持へ重心を移しているとみられる。",
+      "actors": [
+        {
+          "name": "Russian state-linked actors",
+          "role": "攻撃主体",
+          "country": "Russia"
+        },
+        {
+          "name": "CERT-UA",
+          "role": "警戒情報発出",
+          "country": "Ukraine"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1190 Exploit Public-Facing Application",
+        "T1098 Account Manipulation",
+        "T1133 External Remote Services"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "過去侵害済みの外部公開資産",
+        "既存資格情報"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "重要インフラ",
+          "防衛"
+        ],
+        "countries": [
+          "Ukraine"
+        ],
+        "organization_types": [
+          "過去に侵害経験のある組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "インシデント対応の本当の終わりは“封じ込め”ではなく、根本原因除去と再侵入監査であることを示す。",
+        "geopolitical": "ロシア・ウクライナ正面では、サイバーは単独決定打よりも、長期戦を支える継戦的情報優越手段として機能している。",
+        "business": "日本企業でも一度収束した事案の再点検が不十分なことが多く、教訓性が高い。",
+        "research_direction": "再侵入型オペレーション、ロシア軍事・諜報系アクターの長期アクセス維持手法、インシデント後監査実務の差異を追跡。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "破壊型インシデントだけでは見えにくい、戦時サイバーの持続運用モデルを示しているため。",
+        "delta_from_previous": "2025年前半の単発侵入型より、2025年後半以降は再利用前提のアクセス維持へ重心が移っていると整理された。"
+      },
+      "related_campaigns": [
+        "Russia-Ukraine wartime cyber persistence"
+      ],
+      "related_reports": [
+        "2026/03_ロシア・ウクライナ関連サイバー事象"
+      ],
+      "tags": [
+        "russia",
+        "ukraine",
+        "persistence",
+        "re-entry"
+      ],
+      "sources": [
+        {
+          "title": "Ukraine warns Russian hackers are revisiting past breaches to prepare new attacks",
+          "url": "https://therecord.media/ukraine-warns-russian-hackers-revisiting-old-attacks",
+          "publisher": "The Record",
+          "published_at": "2026-04-03"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_ta416_europe_middle_east_shift",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "TA416 Renewed Geopolitical Espionage",
+        "aliases": [
+          "Mustang Panda",
+          "Twill Typhoon"
+        ],
+        "cluster": "china-diplomatic-espionage",
+        "suspected_actor": "China-linked threat actor",
+        "attribution_confidence": "medium"
+      },
+      "name": "中国系TA416の欧州・中東外交対象への再重点化",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "外交",
+        "政府機関",
+        "国際機関"
+      ],
+      "region": [
+        "欧州",
+        "中東"
+      ],
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-01",
+      "summary": "Proofpoint分析として報じられたところによれば、中国系TA416は近年のアジア偏重から再び欧州政府・NATO/EU関連や中東政府・外交対象へ比重を移しつつある。中台情勢のみならず、欧州・中東を含む広域的外交情報収集の一環として理解すべき動きである。",
+      "details": "報道では、標的はNATO・EU関連の外交ミッションや政府関係者で、EU・中国関係の緊張、ロシア・ウクライナ戦争、レアアースを巡る摩擦など地政学テーマに連動している。中国系APTの関心が台湾正面だけでなく複数の外交正面へ分散していることを示す。",
+      "actors": [
+        {
+          "name": "TA416",
+          "role": "攻撃主体",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1078 Valid Accounts",
+        "T1583 Acquire Infrastructure",
+        "T1584 Compromise Infrastructure"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "標的型メール基盤",
+        "外交テーマの誘導文書",
+        "クラウドアカウント悪用基盤"
+      ],
+      "targeting": {
+        "sectors": [
+          "外交",
+          "政府",
+          "国際機関"
+        ],
+        "countries": [
+          "欧州諸国",
+          "中東諸国"
+        ],
+        "organization_types": [
+          "外交ミッション",
+          "NATO関連組織",
+          "EU関連組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "中国系APTの重点が単一地域でなく、同時多正面の外交情報収集へ拡張している。",
+        "geopolitical": "台湾正面だけでなく、欧州・中東を含む政策同期のための情報取得を重視している可能性がある。",
+        "business": "外交・政策のみならず、対中輸出管理やサプライチェーン政策に関わる企業も間接的標的になりうる。",
+        "research_direction": "中台正面と欧州・中東正面を横断する中国系APTの標的選定、外交テーマの変化、官民境界領域への波及を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本が主に対処すべき脅威アクターとしての中国系APTの広域性を示すため。",
+        "delta_from_previous": "台湾・モンゴル・東南アジア中心の観測から、欧州・中東の外交標的への再接近が明確になった。"
+      },
+      "related_campaigns": [
+        "China-linked diplomatic espionage",
+        "Taiwan-related PRC cyber operations"
+      ],
+      "related_reports": [
+        "2026/04/05_中台関連事象概要"
+      ],
+      "tags": [
+        "china",
+        "ta416",
+        "espionage",
+        "europe",
+        "middle-east"
+      ],
+      "sources": [
+        {
+          "title": "European-Chinese geopolitical issues drive renewed cyberespionage campaign",
+          "url": "https://cyberscoop.com/european-chinese-geopolitical-issues-drive-renewed-cyberespionage-campaign/",
+          "publisher": "CyberScoop",
+          "published_at": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_european_commission_trivy_breach",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "European Commission Trivy Supply Chain Breach",
+        "aliases": [
+          "Europa.eu AWS breach"
+        ],
+        "cluster": "oss-supply-chain-government-cloud",
+        "suspected_actor": "TeamPCP",
+        "attribution_confidence": "high"
+      },
+      "name": "Trivyサプライチェーン侵害を起点とする欧州委員会クラウド侵害",
+      "category": "サプライチェーン侵害",
+      "industry": [
+        "政府機関",
+        "クラウド運用"
+      ],
+      "region": [
+        "欧州"
+      ],
+      "first_seen": "2026-03-19",
+      "last_seen": "2026-04-04",
+      "summary": "CERT-EUは4月2日、Trivyサプライチェーン侵害が欧州委員会のAWS環境侵害につながったと公表し、4月4日までに外部報道でも詳細が補強された。OSSスキャナー起点の政府系クラウド侵害という点で、供給網・CI/CD・秘密情報管理のリスクが一段と可視化された。",
+      "details": "CERT-EUによれば、2026-03-19にTrivyサプライチェーン侵害を通じてAWS secretが窃取され、Europa.eu基盤に関わる複数AWSアカウントへのアクセスが発生した。脅威アクターはTruffleHogを用いて追加シークレット探索を実施。4月初旬時点では、約91.7GB圧縮相当、約340GB非圧縮相当のデータ流出が説明され、少なくとも29のUnion entitiesへの影響可能性も示された。",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "初期侵害主体"
+        },
+        {
+          "name": "ShinyHunters",
+          "role": "流出データ公開主体"
+        },
+        {
+          "name": "CERT-EU",
+          "role": "分析・公表"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1552 Unsecured Credentials",
+        "T1083 File and Directory Discovery",
+        "T1087 Account Discovery"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Trivy",
+        "AWS",
+        "TruffleHog",
+        "europa.eu platform"
+      ],
+      "targeting": {
+        "sectors": [
+          "EU機関",
+          "政府クラウド"
+        ],
+        "countries": [
+          "EU"
+        ],
+        "organization_types": [
+          "欧州委員会",
+          "Union entities"
+        ]
+      },
+      "strategic_view": {
+        "general": "開発・スキャン用OSSの侵害が、本番クラウドや政府業務基盤へ直結することを示した。",
+        "geopolitical": "国家帰属事案ではないが、EU機関という政策中枢への影響が大きく、制度運用・情報公開・連携対応の試金石となった。",
+        "business": "日本の官公庁・重要企業でもOSS依存とクラウド依存が深く、SBOM、秘密情報分離、CI/CD監査の優先度を再評価すべき。",
+        "research_direction": "OSSサプライチェーン侵害と政府クラウド侵害の接続、TeamPCPやShinyHuntersの分業構造、検知・公表プロセスを継続追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "OSSサプライチェーン侵害が政府クラウドへ実被害を与えた具体例であり、教訓性が高い。",
+        "delta_from_previous": "初期の侵害公表から、4月2日以降はTrivy起点・AWS secret窃取・影響範囲の詳細が明確化した。"
+      },
+      "related_campaigns": [
+        "OSS supply chain compromises",
+        "TeamPCP activity"
+      ],
+      "related_reports": [
+        "2026/04/05_サイバー事象概要"
+      ],
+      "tags": [
+        "trivy",
+        "supply-chain",
+        "aws",
+        "eu"
+      ],
+      "sources": [
+        {
+          "title": "European Commission cloud breach: a supply-chain compromise",
+          "url": "https://cert.europa.eu/blog/european-commission-cloud-breach-trivy-supply-chain",
+          "publisher": "CERT-EU",
+          "published_at": "2026-04-02"
+        },
+        {
+          "title": "European Commission Confirms Data Breach Linked to Trivy Supply Chain Attack",
+          "url": "https://www.securityweek.com/european-commission-confirms-data-breach-linked-to-trivy-supply-chain-attack/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-04"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_us_cisa_kev_fortinet",
+      "type": "policy",
+      "status": "新規",
+      "campaign": {
+        "name": "US Vulnerability Prioritization",
+        "aliases": [
+          "KEV operationalization"
+        ],
+        "cluster": "defensive-policy-response",
+        "suspected_actor": "CISA",
+        "attribution_confidence": "high"
+      },
+      "name": "米国CISAがFortinet脆弱性CVE-2026-35616をKEV Catalogへ追加",
+      "category": "サイバー政策",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "企業IT"
+      ],
+      "region": [
+        "米国"
+      ],
+      "first_seen": "2026-04-06",
+      "last_seen": "2026-04-06",
+      "summary": "CISAは4月6日、Fortinet FortiClient EMSのCVE-2026-35616をKnown Exploited Vulnerabilities Catalogへ追加した。これは米政府における優先是正運用の対象化を意味し、活発悪用脆弱性への政策的優先順位付けが即日で進んだ。",
+      "details": "CISAの4月6日付Alertでは、CVE-2026-35616が頻出攻撃経路となる種類の脆弱性であると説明され、連邦機関に対して是正期限の下で対応を求める実務運用へ接続している。単なる注意喚起よりも、連邦防御の優先順位を実際に変更する点が重要。",
+      "actors": [
+        {
+          "name": "CISA",
+          "role": "政策主体",
+          "country": "United States"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "KEV Catalog"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "重要インフラ"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "連邦機関",
+          "KEV参照組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "脆弱性管理は情報公開だけでなく、優先順位付けと期限管理の運用で差が出ることを示す。",
+        "geopolitical": "米国は悪用中脆弱性に対する実務オーケストレーション能力を維持しており、官民全体の防御テンポ形成に影響する。",
+        "business": "日本企業にとっても、KEV型の優先管理リストを内部運用へ取り込む価値が高い。",
+        "research_direction": "日本の脆弱性優先管理の制度・運用との比較、政府横断の是正期限モデルの適用可能性を検討。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "技術情報が政策・運用優先順位に落とし込まれた具体例であるため。",
+        "delta_from_previous": "4月4日のベンダ公表から、4月6日には米政府の優先是正対象へ格上げされた。"
+      },
+      "related_campaigns": [
+        "US federal vulnerability response"
+      ],
+      "related_reports": [],
+      "tags": [
+        "cisa",
+        "kev",
+        "policy",
+        "fortinet"
+      ],
+      "sources": [
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/04/06/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_japan_retail_isac_launch",
+      "type": "business_tech",
+      "status": "新規",
+      "campaign": {
+        "name": "Japan Retail ISAC Formation",
+        "aliases": [
+          "流通ISAC"
+        ],
+        "cluster": "industry-collective-defense",
+        "suspected_actor": "Asahi Group Japan / NTT / Trial / Mitsubishi Shokuhin",
+        "attribution_confidence": "high"
+      },
+      "name": "日本で流通業界初の「流通ISAC」設立を発表",
+      "category": "サイバー関連ビジネス・技術",
+      "industry": [
+        "流通",
+        "製造",
+        "卸",
+        "小売"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2026-04-06",
+      "last_seen": "2026-04-06",
+      "summary": "アサヒグループジャパン、NTT、トライアルホールディングス、三菱食品などは4月6日、製造・卸・小売を横断する流通業界初のISAC設立を公表した。IoCや被害事例、脆弱性情報の共有を通じ、サプライチェーン全体の集団防御力向上を狙う。",
+      "details": "公表文では、流通業界は三層構造ゆえに一社の侵害が製造停止、物流混乱、店舗営業停止へ連鎖しうると説明され、業界横断の情報共有と分析の必要性が強調された。4月中の正式設立を目指し、脅威情報共有、ベストプラクティス整理、人材育成を活動の柱とする。",
+      "actors": [
+        {
+          "name": "アサヒグループジャパン",
+          "role": "設立発起人",
+          "country": "Japan"
+        },
+        {
+          "name": "NTT",
+          "role": "設立発起人・事務局",
+          "country": "Japan"
+        },
+        {
+          "name": "トライアルホールディングス",
+          "role": "設立発起人",
+          "country": "Japan"
+        },
+        {
+          "name": "三菱食品",
+          "role": "設立発起人",
+          "country": "Japan"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "ISAC",
+        "IoC sharing",
+        "industry working groups"
+      ],
+      "targeting": {
+        "sectors": [
+          "流通",
+          "食品",
+          "日用品"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "organization_types": [
+          "製造業",
+          "卸売業",
+          "小売業"
+        ]
+      },
+      "strategic_view": {
+        "general": "個社防御から業界単位の集団防御への移行を示す日本で重要な動きである。",
+        "geopolitical": "有事や大規模災害時における生活物資供給の安定性にも関わり、経済安全保障の観点でも意義がある。",
+        "business": "今後は物流、医薬、半導体装置など他業界への横展開可能性が高く、国内サイバー市場の実務需要にも影響する。",
+        "research_direction": "ISACの実効性、参加企業拡大、共有情報の深さ、官民連携との接続を継続観測。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "日本のサプライチェーン防御を業界横断で底上げする具体的な制度・実務の進展だから。",
+        "delta_from_previous": "従来の個社対策・個別連携から、業界横断の正式枠組み設立へ進んだ。"
+      },
+      "related_campaigns": [
+        "Japan collective cyber defense initiatives"
+      ],
+      "related_reports": [],
+      "tags": [
+        "japan",
+        "isac",
+        "retail",
+        "collective-defense"
+      ],
+      "sources": [
+        {
+          "title": "流通業界初、サイバーセキュリティ強化に向けて製造・卸・小売業界横断で情報共有・分析を行う「流通ISAC」を設立",
+          "url": "https://group.ntt/jp/newsrelease/2026/04/06/260406a.html",
+          "publisher": "NTT",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "流通業界初、サイバーセキュリティ強化に向けて 製造・卸・小売業界横断で情報共有・分析を行う「流通ISAC」を設立",
+          "url": "https://www.mitsubishi-shokuhin.com/news/news_file/file/260406ReleaseHP.pdf",
+          "publisher": "三菱食品",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-06_microsoft_ai_device_code_phishing",
+      "type": "business_tech",
+      "status": "新規",
+      "campaign": {
+        "name": "AI-enabled Device Code Phishing",
+        "aliases": [
+          "dynamic device code phishing"
+        ],
+        "cluster": "ai-enabled-identity-abuse",
+        "suspected_actor": "不明",
+        "attribution_confidence": "low"
+      },
+      "name": "MicrosoftがAI活用型Device Code Phishingの詳細分析を公表",
+      "category": "サイバー関連ビジネス・技術",
+      "industry": [
+        "IT",
+        "SaaS",
+        "全業種"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-04-06",
+      "last_seen": "2026-04-06",
+      "summary": "Microsoftは4月6日、AIと自動化を組み合わせたDevice Code Phishingキャンペーンの詳細を公表した。脅威アクターは動的にデバイスコードを生成し、正規のmicrosoft.com/deviceloginフローを悪用してアカウント乗っ取り成功率を高めている。",
+      "details": "分析では、標的メールアドレスの事前有効性確認、ブラウザ内ブラウザ型UI、動的デバイスコード生成、クリップボード書き込み、自動化されたバックエンド処理などが示された。パスワード窃取よりも正規認証フローの悪用が中心であり、ユーザー教育だけでは防ぎにくい。",
+      "actors": [
+        {
+          "name": "不明",
+          "role": "攻撃主体"
+        },
+        {
+          "name": "Microsoft",
+          "role": "分析公表"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1078 Valid Accounts",
+        "T1111 Multi-Factor Authentication Interception",
+        "OAuth 2.0 Device Authorization Grant abuse"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "microsoft.com/devicelogin",
+        "domain shadowing",
+        "brand-impersonating subdomains"
+      ],
+      "targeting": {
+        "sectors": [
+          "全業種"
+        ],
+        "countries": [
+          "グローバル"
+        ],
+        "organization_types": [
+          "Microsoft identity利用組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "AIは攻撃自体を自律化するというより、偵察・誘導・タイミング最適化を通じて成功率を上げる方向で実装されている。",
+        "geopolitical": "現時点で国家帰属は不明だが、アイデンティティ侵害は民間・政府を問わず横断的に利用可能である。",
+        "business": "日本企業でもEntra IDやM365への依存が高く、認証フロー監視・条件付きアクセス・高リスクサインイン制御の重要性が増す。",
+        "research_direction": "Device code abuse、OAuth悪用、AIによるフィッシング最適化の実装差分を継続監視。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "AIを用いたソーシャルエンジニアリングと正規認証フロー悪用の実務的な融合例であるため。",
+        "delta_from_previous": "抽象的なAI脅威論から、動的デバイスコード生成という具体的オペレーションへ話が進んだ。"
+      },
+      "related_campaigns": [
+        "identity-centric phishing",
+        "OAuth abuse"
+      ],
+      "related_reports": [],
+      "tags": [
+        "ai",
+        "phishing",
+        "device-code",
+        "identity"
+      ],
+      "sources": [
+        {
+          "title": "Inside an AI-enabled device code phishing campaign",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/ai-enabled-device-code-phishing-campaign-april-2026/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        }
+      ]
+    }
+  ]
 }
