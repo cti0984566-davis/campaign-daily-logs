@@ -3,10 +3,157 @@
   "timezone": "Asia/Tokyo",
   "campaign": {
     "name": "APT29",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "aliases": [
+      "Cozy Bear",
+      "The Dukes",
+      "NOBELIUM",
+      "Midnight Blizzard"
+    ],
+    "cluster": "Russian SVR cyber espionage campaign",
+    "suspected_actor": "Russian Foreign Intelligence Service (SVR)",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-09_apt29_continuous_cloud_and_phishing_activity",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT29によるクラウド認証基盤・外交対象フィッシングを中心とした継続諜報活動",
+      "category": "国家系サイバー作戦/諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "北米",
+          "グローバル"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "防衛",
+          "学術",
+          "シンクタンク",
+          "IT"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "防衛関係組織",
+          "研究機関",
+          "政党",
+          "クラウドサービス利用組織"
+        ]
+      },
+      "first_seen": "2024-02-26",
+      "last_seen": "2026-04-09",
+      "activity_summary": "2026-04-09時点でAPT29に関する当日固有の新規公開事案は確認できていないが、APT29は直近公開情報ベースで、クラウド初期アクセス、セッション・認証情報悪用、外交・政党・政府系対象へのスピアフィッシングを軸とする継続的な諜報活動を実施している。",
+      "activity_details": "CISAおよび国際パートナーは2024-02-26、SVR系アクターがクラウド環境への初期アクセスと長期維持のために、パスワードスプレー、トークンや認証情報悪用、クラウド設定・権限の悪用を含むTTPへ適応していると公表した。Mandiant/Google Cloudは2024-03-22、APT29がドイツ政党を標的にWINELOADERを用いたキャンペーンを確認した。Microsoftは2024-10-29、Midnight BlizzardがRDPファイルを添付した大規模スピアフィッシングを実施していると公表し、CISAも2024-10-31に注意喚起した。Check Pointは2025-04-15、欧州外交組織を対象とした継続キャンペーンで、WINELOADER系活動の延長としてGRAPELOADERを報告した。したがって、本項目は『当日新規事件』ではなく、『直近既知活動に基づく継続監視』として扱う。",
+      "ttp": [
+        "T1078",
+        "T1110.003",
+        "T1528",
+        "T1550",
+        "T1566.001",
+        "T1204.002"
+      ],
+      "malware_and_tools": [
+        "WINELOADER",
+        "GRAPELOADER",
+        "RDP files",
+        "OAuth application abuse",
+        "Cloud-native administrative tooling",
+        "WellMess (historical)",
+        "WellMail (historical)"
+      ],
+      "infrastructure": [
+        "Cloud identity infrastructure",
+        "Compromised accounts",
+        "Phishing email infrastructure",
+        "Malicious lure documents and RDP attachments"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は端末侵害よりも、認証・セッション・クラウド設定といった検知の遅れやすい領域へ重心を移している。",
+        "geopolitical": "SVR系の長期諜報活動は、ロシアの対外政策・戦争遂行を支える情報優位確保の一環として継続している。外交機関、政党、政策形成コミュニティへの標的化はその性格をよく示す。",
+        "business": "企業防御の重点はマルウェア検知だけでなく、ID基盤、トークン失効、OAuth統制、セッション保護へ移っている。政府・防衛関連と接点を持つ企業や委託先も同様のリスクを負う。",
+        "research_direction": "2026年時点では、APT29を『当日インシデント』として追うより、クラウド認証侵害、RDP添付型フィッシング、外交対象ルアーの継続監視対象として扱う方が妥当。日本向けには、政府・外交・委託先でのトークン管理、OAuthアプリ監査、添付型初期侵入の検知設計を重点評価すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT29は依然として高水準の戦略諜報アクターであり、クラウド認証基盤や外交対象フィッシングを通じて長期的・静的な侵害を成立させる能力を持つため。",
+        "delta_from_previous": "2026-04-09時点で重大な新規公開差分は未確認。直近の重要既報としては、2024年のクラウド初期アクセスTTP整理、WINELOADERを用いたドイツ政党標的化、RDP添付スピアフィッシング、2025年のGRAPELOADERを伴う欧州外交対象キャンペーンが重い。"
+      },
+      "related_campaigns": [
+        "SVR cloud access operations",
+        "WINELOADER campaign",
+        "RDP attachment spearphishing campaign",
+        "GRAPELOADER diplomatic phishing campaign"
+      ],
+      "tags": [
+        "APT29",
+        "Midnight Blizzard",
+        "SVR",
+        "cloud",
+        "credential theft",
+        "token abuse",
+        "phishing",
+        "RDP",
+        "WINELOADER",
+        "GRAPELOADER"
+      ],
+      "sources": [
+        {
+          "title": "SVR Cyber Actors Adapt Tactics for Initial Cloud Access",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-057a",
+          "publisher": "CISA",
+          "published_at": "2024-02-26"
+        },
+        {
+          "title": "APT29 Uses WINELOADER to Target German Political Parties",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/apt29-wineloader-german-political-parties",
+          "publisher": "Google Cloud / Mandiant",
+          "published_at": "2024-03-22"
+        },
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Foreign Threat Actor Conducting Large-Scale Spearphishing Campaign with RDP Attachments",
+          "url": "https://www.cisa.gov/news-events/alerts/2024/10/31/foreign-threat-actor-conducting-large-scale-spearphishing-campaign-rdp-attachments",
+          "publisher": "CISA",
+          "published_at": "2024-10-31"
+        },
+        {
+          "title": "Renewed APT29 Phishing Campaign Against European Diplomacy",
+          "url": "https://research.checkpoint.com/2025/apt29-phishing-campaign/",
+          "publisher": "Check Point Research",
+          "published_at": "2025-04-15"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard / SVR",
+        "infrastructure": [
+          "Phishing email infrastructure",
+          "Cloud identity systems",
+          "Malicious lure attachments including RDP files"
+        ],
+        "capability": [
+          "Initial cloud access",
+          "Credential and token theft",
+          "Spear phishing",
+          "Loader deployment for espionage persistence"
+        ],
+        "victim": [
+          "Government entities",
+          "Diplomatic organizations",
+          "Political parties",
+          "Defense-related entities",
+          "Research institutions"
+        ]
+      }
+    }
+  ]
 }

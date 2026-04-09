@@ -3,10 +3,137 @@
   "timezone": "Asia/Tokyo",
   "campaign": {
     "name": "TA416",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
+    "aliases": [
+      "RedDelta",
+      "Mustang Panda",
+      "DarkPeony",
+      "Red Lich",
+      "SmugX",
+      "UNC6384",
+      "Vertigo Panda"
+    ],
+    "cluster": "China-aligned espionage targeting diplomatic and government entities in Europe, Taiwan-related missions, and the Middle East",
+    "suspected_actor": "China-aligned threat actor",
     "attribution_confidence": "medium"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-09_ta416_europe_middle_east_espionage",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416による欧州政府・外交対象への攻撃再開と中東への標的拡大",
+      "category": "国家系サイバー作戦/諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "中東",
+          "台湾関連外交ミッション"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "防衛"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "国防機関",
+          "NATO・EU関連外交ミッション"
+        ]
+      },
+      "first_seen": "2025-09-01",
+      "last_seen": "2026-04-09",
+      "activity_summary": "2026-04-09時点で、TA416は2025年後半以降に欧州の政府・外交組織への標的化を再開し、2026年3月にはイラン戦争勃発後の中東政府・外交機関にも標的を拡大したことが直近の重要公開情報として確認されている。",
+      "activity_details": "Proofpointは2026-04-01、TA416が2025年9月以降、欧州の国防省・外務省、NATOおよびEU関連の外交ミッションを対象とした複数のマルウェア配布キャンペーンを実施したと報告した。2026年1月から2月には、EUおよび台湾への外交ミッションに関連する個人やメールボックスを狙う活動も観測された。さらに2026年3月には、イラン戦争勃発後に中東の政府・外交機関を狙う複数のキャンペーンが確認され、従来あまり継続的に狙っていなかった地域へ拡大した。攻撃では、侵害済みの外交メールアカウント、web bug reconnaissance、DLL sideloading triads を用いて custom PlugX variant を配布していた。",
+      "ttp": [
+        "T1566.001",
+        "T1071",
+        "T1055",
+        "T1574.002",
+        "T1059",
+        "T1114"
+      ],
+      "malware_and_tools": [
+        "PlugX",
+        "Custom PlugX variant",
+        "Web bug reconnaissance",
+        "DLL sideloading",
+        "OAuth-based phishing"
+      ],
+      "infrastructure": [
+        "Compromised diplomatic email accounts",
+        "Spoofed diplomatic identities",
+        "Command-and-control servers",
+        "Malware delivery infrastructure"
+      ],
+      "iocs": [
+        "office2000005@gmail[.]com",
+        "hsuhalingaye26@gmail[.]com"
+      ],
+      "strategic_view": {
+        "general": "TA416は長年の外交・政府対象TTPを維持しつつ、初期感染チェーンと防御回避機能を継続的に更新している。",
+        "geopolitical": "欧州への再注力はEU・NATO関連情報収集の強化を示し、中東への拡大はイラン戦争後の地政学的変化に即応した情報要求を反映している。台湾関連外交ミッションへの標的化も継続しており、中台文脈は依然重要。",
+        "business": "政府や外交と接点を持つ企業、シンクタンク、委託先も巻き込まれ得るため、メールセキュリティ、外部アイデンティティ検証、OAuthと添付ファイル防御の強化が必要。",
+        "research_direction": "今後はTA416を『台湾中心』ではなく、『欧州政府再開＋中東拡大＋台湾関連外交標的の継続』として追跡し、外交メール侵害とPlugX感染チェーンの相関を重点監視すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "中国系アクターが欧州と中東の外交・政府対象へ攻撃軸を拡張しており、地域紛争や対中関係の変化と連動した諜報収集の柔軟性を示しているため。",
+        "delta_from_previous": "前回整理の『台湾中心の継続活動』から、直近の公開情報では『欧州政府への回帰』と『中東への新たな標的拡大』が重要な更新点。台湾関連標的は消えたのではなく、より広い外交対象の一部として継続している。"
+      },
+      "related_campaigns": [
+        "China-linked diplomatic phishing campaigns",
+        "Mustang Panda / RedDelta activity",
+        "PlugX espionage campaigns"
+      ],
+      "tags": [
+        "TA416",
+        "RedDelta",
+        "Mustang Panda",
+        "China",
+        "Europe",
+        "Middle East",
+        "Taiwan",
+        "diplomatic targeting",
+        "PlugX",
+        "OAuth phishing"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage campaigns",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Compromised diplomatic mailboxes",
+          "Phishing delivery infrastructure",
+          "PlugX delivery chain"
+        ],
+        "capability": [
+          "Spear phishing",
+          "Malware delivery",
+          "Reconnaissance via web bugs",
+          "DLL sideloading",
+          "Credential and access abuse"
+        ],
+        "victim": [
+          "European ministries",
+          "Diplomatic missions to the EU and NATO",
+          "Middle Eastern diplomatic and government entities",
+          "Taiwan-related diplomatic targets"
+        ]
+      }
+    }
+  ]
 }
