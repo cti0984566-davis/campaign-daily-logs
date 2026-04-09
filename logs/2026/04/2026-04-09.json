@@ -1,6 +1,463 @@
 {
   "date": "2026-04-09",
   "timezone": "Asia/Tokyo",
-  "title": "2026/04/09_サイバー攻撃キャンペーン日次概要",
-  "items": []
+  "title": "2026-04-09_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-09_apt28_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "APT28 Router DNS Hijacking",
+        "aliases": [
+          "Fancy Bear",
+          "Forest Blizzard",
+          "Sednit",
+          "Sofacy",
+          "Pawn Storm"
+        ],
+        "cluster": "GRU Unit 26165 router-enabled credential interception campaign",
+        "suspected_actor": "Russia GRU Military Unit 26165",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "APT28 / GRU Unit 26165",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Rogue DNS infrastructure",
+          "Router-based traffic redirection layer"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Adversary-in-the-middle interception",
+          "Credential and token theft"
+        ],
+        "victim": [
+          "Government personnel",
+          "Military-related users",
+          "Critical infrastructure-linked users",
+          "Cloud and Microsoft 365 users"
+        ]
+      },
+      "name": "APT28によるSOHOルーター悪用DNSハイジャック作戦の摘発",
+      "category": "国家系サイバー作戦/諜報",
+      "industry": [
+        "政府機関",
+        "軍事",
+        "重要インフラ",
+        "IT"
+      ],
+      "region": [
+        "米国",
+        "欧州",
+        "グローバル"
+      ],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-07",
+      "summary": "米司法省とFBIは、ロシアGRU第26165部隊（APT28）が支配していたSOHOルーター群の米国内部分に対し、裁判所承認の技術的妨害措置を実施したと公表した。作戦では、侵害ルーターのDNS設定改変を通じて標的通信を攻撃者支配下に誘導し、認証情報やトークンを窃取していた。",
+      "details": "APT28は、TP-Link等を含む小規模オフィス/家庭向けルーターを侵害し、DNSハイジャックを用いた中間者的な情報窃取を実施していた。公表時点では、政府、軍、重要インフラ関連の利用者に対する諜報活動の一環として位置づけられている。従来の端末侵害中心ではなく、境界機器を先に確保して認証情報を静かに刈り取る作戦形態が特徴。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "suspected actor",
+          "country": "Russia"
+        },
+        {
+          "name": "GRU Military Unit 26165",
+          "role": "attributed operator",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1040",
+        "T1528"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Compromised SOHO routers",
+        "Malicious DNS resolvers",
+        "Traffic redirection infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government",
+          "Military",
+          "Critical Infrastructure",
+          "Cloud Services"
+        ],
+        "countries": [
+          "United States",
+          "Ukraine",
+          "European states"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Military-affiliated entities",
+          "Critical infrastructure operators",
+          "Cloud and email service users"
+        ]
+      },
+      "strategic_view": {
+        "general": "境界機器を諜報の前進拠点として使う手法が改めて可視化された。端末にマルウェアを置かずに認証情報を奪うため、検知が遅れやすい。",
+        "geopolitical": "ロシアの対外諜報活動はウクライナ戦争と並行して第三国にも広がっており、平時の民生機器管理不備が国家安全保障上の弱点となる。",
+        "business": "企業・自治体・委託先で利用されるSOHOルーターや小規模拠点機器のライフサイクル管理不備が、認証基盤侵害の入口になり得る。",
+        "research_direction": "日本の地方拠点、委託先、小規模ネットワーク機器に対する露出管理とDNS改変監視の実態把握が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家系アクターが小規模機器を大規模諜報基盤へ転換する現実性を示したため。",
+        "delta_from_previous": "APT28の継続脅威自体は既知だが、ルーター/DNS層の大規模悪用と法執行による実地妨害が明確に公表された点が更新。"
+      },
+      "related_campaigns": [
+        "APT28 credential theft operations",
+        "Router-based interception campaigns"
+      ],
+      "related_reports": [
+        "2026/04/08_サイバー事象概要"
+      ],
+      "tags": [
+        "APT28",
+        "Forest Blizzard",
+        "DNS hijacking",
+        "SOHO router",
+        "credential theft",
+        "Russia"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "US disrupts Russian military-run DNS hijacking network, Justice Department says",
+          "url": "https://www.reuters.com/business/media-telecom/us-disrupts-russian-military-run-dns-hijacking-network-justice-department-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-09_iran_ot_plc_targeting",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Iran-linked OT and PLC Targeting Campaign",
+        "aliases": [
+          "Iran-linked hacking groups"
+        ],
+        "cluster": "Critical infrastructure OT disruption activity",
+        "suspected_actor": "Iran-linked cyber actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-linked cyber actors",
+        "infrastructure": [
+          "Internet-exposed PLCs",
+          "SCADA-connected environments",
+          "Remote management interfaces"
+        ],
+        "capability": [
+          "OT device discovery",
+          "Display manipulation",
+          "Project information extraction",
+          "Operational disruption"
+        ],
+        "victim": [
+          "Water facilities",
+          "Energy sector entities",
+          "Government services",
+          "Critical infrastructure operators"
+        ]
+      },
+      "name": "イラン系アクターによる米重要インフラOT/PLC標的化警戒",
+      "category": "国家系サイバー作戦/破壊的作戦準備",
+      "industry": [
+        "インフラ",
+        "エネルギー",
+        "水道",
+        "政府機関",
+        "OT"
+      ],
+      "region": [
+        "米国",
+        "中東"
+      ],
+      "first_seen": "2026-03-01",
+      "last_seen": "2026-04-07",
+      "summary": "米当局は、イラン系ハッカーによる米重要インフラ向けOT/PLC攻撃が戦争開始以降にエスカレートしたとして合同警告を発出した。対象はPLCやSCADA環境で、一部では運用妨害や金銭的損失が発生したと報じられている。",
+      "details": "Reuters報道によれば、FBI、NSA、CISA、EPA、DOE、Cyber National Mission Forceなどが、インターネット露出した制御機器に対する攻撃の増加を警告した。攻撃者は表示データの改変やプロジェクト情報抽出を実施しており、政府サービス、水道、エネルギー分野を中心に影響が懸念されている。",
+      "actors": [
+        {
+          "name": "Iran-linked cyber actors",
+          "role": "suspected actor",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "ICS Discovery",
+        "Modify Controller Tasking",
+        "Manipulation of View",
+        "Program Download"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Internet-exposed PLCs",
+        "SCADA systems",
+        "Remote access services"
+      ],
+      "targeting": {
+        "sectors": [
+          "Water and Wastewater",
+          "Energy",
+          "Government Services"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Critical infrastructure operators",
+          "Local government entities",
+          "Industrial control system owners"
+        ]
+      },
+      "strategic_view": {
+        "general": "OT/ICS環境への攻撃は、情報窃取よりも運用妨害や心理的威嚇を含む段階に寄っている。",
+        "geopolitical": "中東情勢の緊張が米国内重要インフラに対するサイバー威嚇へ波及しており、サイバー空間が地域紛争の補助戦域として機能している。",
+        "business": "日本でも露出した遠隔保守機能や小規模インフラOTが狙われ得るため、ネットワーク分離と遠隔管理の棚卸しが急務。",
+        "research_direction": "国内の中小インフラOT、病院設備、地方水道など『大規模ではないが社会機能に直結するOT』の露出実態を継続監視すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "物理的影響を伴い得るOT標的化であり、地域紛争のサイバー波及を示すため。",
+        "delta_from_previous": "イラン系OT脅威は既知だが、2026年4月時点では戦争と連動したエスカレーションとして米政府が横断的に警戒を強めた点が更新。"
+      },
+      "related_campaigns": [
+        "Iran-linked critical infrastructure targeting",
+        "OT disruption activity"
+      ],
+      "related_reports": [
+        "2026/04/07_サイバー事象概要"
+      ],
+      "tags": [
+        "Iran",
+        "OT",
+        "PLC",
+        "SCADA",
+        "critical infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Iranian hackers' targeting of US critical infrastructure has escalated since start of war, US says",
+          "url": "https://www.reuters.com/world/middle-east/iranian-hackers-targeting-us-critical-infrastructure-has-escalated-since-start-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-09_chipsoft_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "ChipSoft Ransomware Incident"
+      },
+      "diamond_model": {
+        "adversary": "Unknown ransomware actor",
+        "infrastructure": [
+          "ChipSoft web services",
+          "Digital patient/provider services"
+        ],
+        "capability": [
+          "Ransomware deployment",
+          "Service disruption"
+        ],
+        "victim": [
+          "ChipSoft",
+          "Dutch healthcare providers",
+          "Patients using digital services"
+        ]
+      },
+      "name": "オランダ医療ITベンダーChipSoftへのランサムウェア攻撃",
+      "category": "サイバー犯罪",
+      "industry": [
+        "医療",
+        "IT"
+      ],
+      "region": [
+        "オランダ",
+        "欧州"
+      ],
+      "first_seen": "2026-04-09",
+      "last_seen": "2026-04-09",
+      "summary": "オランダの医療ソフトウェア企業ChipSoftがランサムウェア攻撃を受け、同社ウェブサイトと患者・医療提供者向けデジタルサービスを停止した。ChipSoftはオランダ病院で広く使われるEHR製品HiXの提供元であり、医療ITサプライチェーンへの影響が懸念される。",
+      "details": "公開情報では、ChipSoftが攻撃を受けたことにより外部向けサービス停止が生じている。臨床運用への直接影響範囲やデータ漏えいの有無は継続調査中だが、単一病院ではなく医療ITベンダー層が被弾した点が重要である。",
+      "actors": [
+        {
+          "name": "Unknown ransomware actor",
+          "role": "unknown"
+        }
+      ],
+      "ttp": [],
+      "malware": [
+        "Ransomware"
+      ],
+      "infrastructure": [
+        "ChipSoft website",
+        "Patient digital services",
+        "Healthcare provider digital services"
+      ],
+      "targeting": {
+        "sectors": [
+          "Healthcare",
+          "Health IT"
+        ],
+        "countries": [
+          "Netherlands"
+        ],
+        "organization_types": [
+          "Healthcare software vendors",
+          "Hospitals",
+          "Patients"
+        ]
+      },
+      "strategic_view": {
+        "general": "病院単体ではなくEHRベンダーを狙うことで、複数医療機関に波及し得るサプライチェーン型リスクが示された。",
+        "geopolitical": "国家系ではなく犯罪主体でも、医療分野では社会的影響が極めて大きく、公共機能の混乱を招きやすい。",
+        "business": "日本でも電子カルテ、予約、検査、問診など共通基盤ベンダーの障害を前提としたBCP設計が必要。",
+        "research_direction": "国内医療DXで集中度の高い共通ベンダーと、単一点障害化し得るSaaS/クラウド依存点の洗い出しが重要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "医療ITベンダー層への攻撃は、個別病院より広範な運用影響を生み得るため。",
+        "delta_from_previous": "医療機関単体の被害事例は多いが、EHR供給ベンダー自体への攻撃として目立つ更新。"
+      },
+      "related_campaigns": [
+        "Healthcare ransomware activity"
+      ],
+      "related_reports": [],
+      "tags": [
+        "ransomware",
+        "healthcare",
+        "EHR",
+        "Netherlands",
+        "supply chain"
+      ],
+      "sources": [
+        {
+          "title": "Healthcare IT solutions provider ChipSoft hit by ransomware attack",
+          "url": "https://www.bleepingcomputer.com/news/security/healthcare-it-solutions-provider-chipsoft-hit-by-ransomware-attack/amp/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-09"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-09_bitcoin_depot_wallet_theft",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Bitcoin Depot Wallet Theft Incident"
+      },
+      "diamond_model": {
+        "adversary": "Unknown financially motivated actor",
+        "infrastructure": [
+          "Corporate IT systems",
+          "Digital asset settlement accounts",
+          "Company-managed wallets"
+        ],
+        "capability": [
+          "Credential theft",
+          "Unauthorized asset transfer"
+        ],
+        "victim": [
+          "Bitcoin Depot"
+        ]
+      },
+      "name": "Bitcoin Depotに対する不正アクセスと暗号資産流出",
+      "category": "サイバー犯罪",
+      "industry": [
+        "金融",
+        "暗号資産"
+      ],
+      "region": [
+        "米国"
+      ],
+      "first_seen": "2026-03-23",
+      "last_seen": "2026-04-06",
+      "summary": "Bitcoin Depotは、ITシステムへの不正アクセスにより決済口座関連の資格情報が窃取され、会社管理ウォレットから50.903 BTCが不正送金されたとSECに開示した。顧客プラットフォームや個人情報への影響は現時点で確認されていないとしている。",
+      "details": "同社の8-Kによれば、2026年3月23日に不正アクセスを検知し、調査の結果、digital asset settlement accountsに関する資格情報が侵害され、約366.5万ドル相当のBTCが無断送金された。侵入経路や悪用脆弱性は開示されていないが、ID/資格情報の防御が主要論点となる。",
+      "actors": [
+        {
+          "name": "Unknown financially motivated actor",
+          "role": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1078"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "IT systems",
+        "Settlement account credentials",
+        "Company-managed cryptocurrency wallets"
+      ],
+      "targeting": {
+        "sectors": [
+          "Cryptocurrency",
+          "Financial Services"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Crypto ATM operators",
+          "Digital asset service providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "暗号資産窃取の主戦場はブロックチェーン固有の欠陥だけでなく、企業側のID・清算運用・内部接続へ広がっている。",
+        "geopolitical": "暗号資産分野の侵害は、犯罪収益移転や制裁回避など下流利用と接続しやすく、戦略的観点でも看過できない。",
+        "business": "日本の暗号資産事業者でも、ウォレットそのもの以上に、清算口座、権限設計、バックオフィス接続の統制強化が重要。",
+        "research_direction": "国内事業者の認証情報保護、送金承認フロー、多要素承認、権限分離の実装実態を比較評価すべき。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "公開企業による正式開示であり、資格情報侵害から直接暗号資産流出に至る実例であるため。",
+        "delta_from_previous": "DeFiやブリッジ侵害中心の注目から、企業内運用・清算資格情報悪用による窃取へ視点を広げる必要がある。"
+      },
+      "related_campaigns": [
+        "Financially motivated crypto theft"
+      ],
+      "related_reports": [],
+      "tags": [
+        "cryptocurrency",
+        "wallet theft",
+        "credential compromise",
+        "Bitcoin Depot",
+        "financial crime"
+      ],
+      "sources": [
+        {
+          "title": "Bitcoin Depot Inc. Form 8-K",
+          "url": "https://www.sec.gov/Archives/edgar/data/1901799/000119312526147772/btm-20260406.htm",
+          "publisher": "U.S. Securities and Exchange Commission",
+          "published_at": "2026-04-06"
+        }
+      ]
+    }
+  ]
 }
