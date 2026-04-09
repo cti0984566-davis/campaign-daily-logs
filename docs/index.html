@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Daily Log</title>
+</head>
+<body>
+  <h1>Cyber Daily Log</h1>
+  <p>最新ログ：</p>
+
+  <pre id="output"></pre>
+
+  <script>
+    fetch("../logs/2026/04/2026-04-09.json")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("output").textContent =
+          JSON.stringify(data, null, 2);
+      });
+  </script>
+</body>
+</html>
