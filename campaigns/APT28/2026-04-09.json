@@ -1,0 +1,120 @@
+{
+  "date": "2026-04-09",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sednit",
+      "Sofacy",
+      "Pawn Storm"
+    ],
+    "cluster": "GRU Unit 26165 router-enabled interception campaign",
+    "suspected_actor": "Russian GRU",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-09_apt28_router_dns_campaign",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "APT28によるSOHOルーター悪用DNSハイジャック作戦（Operation Masquerade）",
+      "category": "国家系サイバー作戦/諜報",
+      "targeting": {
+        "regions": [
+          "米国",
+          "欧州",
+          "ウクライナ",
+          "グローバル"
+        ],
+        "industries": [
+          "政府",
+          "軍事",
+          "重要インフラ",
+          "IT"
+        ],
+        "organization_types": [
+          "政府機関",
+          "軍関係者",
+          "重要インフラ事業者",
+          "クラウドサービス利用者"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-07",
+      "activity_summary": "APT28（GRU Unit 26165）は、SOHOルーターを侵害しDNS設定を改変することで、標的通信を攻撃者インフラに誘導し認証情報を窃取する大規模な諜報作戦を継続していた。2026年4月、米司法省およびFBIが裁判所承認のもと、当該インフラの一部を無効化した。",
+      "activity_details": "攻撃者はTP-Link等のSOHOルーターを侵害し、DNS設定を攻撃者管理リゾルバに変更。これにより、特定サービス（特にWebメールやクラウド）への通信を中間者的に取得し、パスワードやセッショントークンを窃取した。マルウェアをエンドポイントに展開せず、ネットワーク層で認証情報を取得するため検知が困難。ピーク時には数万台規模のルーターが利用されたと報告されている。",
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1040",
+        "T1528",
+        "T1078"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised SOHO routers",
+        "Malicious DNS resolvers",
+        "Traffic interception infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28はエンドポイント侵害から、境界機器を活用した認証情報窃取へ戦術を進化させている。",
+        "geopolitical": "ロシアはウクライナ戦争と並行して第三国の政府・インフラに対する諜報活動を継続しており、グローバルな情報優勢確保を図っている。",
+        "business": "企業・自治体の小規模拠点や委託先ネットワーク機器が盲点となり、クラウド認証基盤への侵害経路となる。",
+        "research_direction": "DNS設定改変検知、ルーター管理露出の棚卸し、セッションハイジャック対策の実装状況の調査が重要。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "境界機器を利用した大規模認証情報窃取という戦術は、従来の防御モデルを回避するため。",
+        "delta_from_previous": "APT28は従来フィッシングやマルウェアを中心としていたが、ルーター/DNS層を用いた非侵入型の認証窃取へとシフトした点が重要な変化。"
+      },
+      "related_campaigns": [
+        "APT28 credential harvesting campaigns",
+        "Router-based interception operations"
+      ],
+      "tags": [
+        "APT28",
+        "Forest Blizzard",
+        "DNS hijacking",
+        "SOHO router",
+        "credential theft",
+        "Russia",
+        "network layer attack"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "US disrupts Russian military-run DNS hijacking network, Justice Department says",
+          "url": "https://www.reuters.com/business/media-telecom/us-disrupts-russian-military-run-dns-hijacking-network-justice-department-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 (GRU Unit 26165)",
+        "infrastructure": [
+          "Compromised routers",
+          "Malicious DNS infrastructure"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Adversary-in-the-middle",
+          "Credential harvesting"
+        ],
+        "victim": [
+          "Government users",
+          "Military-affiliated users",
+          "Cloud service users"
+        ]
+      }
+    }
+  ]
+}

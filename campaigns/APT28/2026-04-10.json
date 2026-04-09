@@ -1,0 +1,12 @@
+{
+  "date": "2026-04-10",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "APT28",
+    "aliases": [],
+    "cluster": "",
+    "suspected_actor": "",
+    "attribution_confidence": "medium"
+  },
+  "items": []
+}
