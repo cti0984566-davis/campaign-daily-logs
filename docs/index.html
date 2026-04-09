@@ -11,12 +11,21 @@
   <pre id="output"></pre>
 
   <script>
-    fetch("../logs/2026/04/2026-04-09.json")
-      .then(res => res.json())
-      .then(data => {
+    fetch("/campaign-daily-logs/logs/2026/04/2026-04-09.json")
+        .then(res => {
+        if (!res.ok) {
+            throw new Error("HTTP error " + res.status);
+        }
+        return res.json();
+        })
+        .then(data => {
         document.getElementById("output").textContent =
-          JSON.stringify(data, null, 2);
-      });
+            JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+        document.getElementById("output").textContent =
+            "Error: " + err;
+        });
   </script>
 </body>
 </html>
