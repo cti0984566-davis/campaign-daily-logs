@@ -53,14 +53,10 @@
   <h1>Cyber Daily Log</h1>
   <p class="meta">ログ一覧（クリックで詳細表示）</p>
 
-  <!-- 一覧 -->
-  <div id="list" class="log-list">
-    Loading...
-  </div>
+  <div id="list" class="log-list">Loading...</div>
 
   <hr>
 
-  <!-- 詳細表示 -->
   <div class="viewer">
     <h2>詳細</h2>
     <pre id="viewer">ログを選択してください</pre>
@@ -69,7 +65,24 @@
   <script>
     const BASE_PATH = "/campaign-daily-logs/logs/";
 
-    // 一覧を取得
+    function loadLog(path) {
+      fetch(BASE_PATH + path)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("HTTP error " + res.status);
+          }
+          return res.json();
+        })
+        .then(data => {
+          document.getElementById("viewer").textContent =
+            JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          document.getElementById("viewer").textContent =
+            "Error: " + err;
+        });
+    }
+
     fetch(BASE_PATH + "index.json")
       .then(res => {
         if (!res.ok) {
@@ -81,31 +94,20 @@
         const container = document.getElementById("list");
         container.innerHTML = "";
 
-        // 新しい順に並べたい場合
         list.reverse();
+
+        if (list.length > 0) {
+          loadLog(list[0]);
+        }
 
         list.forEach(path => {
           const link = document.createElement("a");
-
-          // 表示用（ファイル名だけにする）
+          link.href = "#";
           link.textContent = path;
 
-          link.onclick = () => {
-            fetch(BASE_PATH + path)
-              .then(res => {
-                if (!res.ok) {
-                  throw new Error("HTTP error " + res.status);
-                }
-                return res.json();
-              })
-              .then(data => {
-                document.getElementById("viewer").textContent =
-                  JSON.stringify(data, null, 2);
-              })
-              .catch(err => {
-                document.getElementById("viewer").textContent =
-                  "Error: " + err;
-              });
+          link.onclick = (event) => {
+            event.preventDefault();
+            loadLog(path);
           };
 
           container.appendChild(link);
