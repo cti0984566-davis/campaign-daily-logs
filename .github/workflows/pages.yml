@@ -36,6 +36,13 @@ jobs:
             cp -r campaigns/. docs/campaigns/
           fi
 
+          echo "=== check target file ==="
+          ls -l logs/2026/04/2026-04-09.json || true
+          ls -l docs/logs/2026/04/2026-04-09.json || true
+
+          echo "=== docs tree ==="
+          find docs -type f | sort
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
