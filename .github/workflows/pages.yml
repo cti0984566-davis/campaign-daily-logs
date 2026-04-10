@@ -1,12 +1,22 @@
-name: Deploy GitHub Pages
+name: Update for GitHub pages
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,13 +28,30 @@ jobs:
           mkdir -p docs/logs
           mkdir -p docs/campaigns
 
-          cp -r logs/* docs/logs/ || true
-          cp -r campaigns/* docs/campaigns/ || true
+          if [ -d logs ]; then
+            cp -r logs/. docs/logs/
+          fi
 
-      - name: Deploy to GitHub Pages
+          if [ -d campaigns ]; then
+            cp -r campaigns/. docs/campaigns/
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs
 
-      - name: Deploy
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
