@@ -2,14 +2,30 @@
 set -euo pipefail
 
 ERRORS=0
+TARGETS=()
 
-if [ $# -ge 1 ]; then
-  TARGETS=("$@")
+if [ "$#" -ge 1 ]; then
+  for campaign in "$@"; do
+    dir="campaigns/$campaign"
+
+    if [ ! -d "$dir" ]; then
+      echo "Directory not found: $dir"
+      ERRORS=$((ERRORS + 1))
+      echo "--------------------"
+      continue
+    fi
+
+    while IFS= read -r file; do
+      TARGETS+=("$file")
+    done < <(find "$dir" -type f -name "*.json" | sort)
+  done
 else
-  mapfile -t TARGETS < <(find logs campaigns -type f -name "*.json" | sort)
+  while IFS= read -r file; do
+    TARGETS+=("$file")
+  done < <(find logs campaigns -type f -name "*.json" | sort)
 fi
 
-if [ ${#TARGETS[@]} -eq 0 ]; then
+if [ "${#TARGETS[@]}" -eq 0 ]; then
   echo "No JSON files found."
   exit 0
 fi
