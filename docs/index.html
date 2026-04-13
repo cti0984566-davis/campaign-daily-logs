@@ -14,9 +14,6 @@
       --muted: #9fb0cc;
       --accent: #6ea8fe;
       --accent-2: #8bd3ff;
-      --good: #37c871;
-      --warn: #f4c430;
-      --danger: #ff6b6b;
       --shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
 
@@ -333,7 +330,7 @@
 <body>
   <header>
     <h1>CTI / OSINT Portal</h1>
-    <p>Campaign を actor 単位で整理し、時系列で閲覧できる最小ビュー</p>
+    <p>Campaign を actor 単位で整理し、時系列で閲覧できるビュー</p>
     <div class="toolbar">
       <input id="searchInput" type="text" placeholder="actor名で検索（例: APT29, TA416）" />
     </div>
@@ -354,7 +351,7 @@
       <section class="panel daily-panel">
         <div class="panel-header">
           <h3>Daily Logs</h3>
-          <div class="sub">従来の日次ログ一覧も維持</div>
+          <div class="sub">日次ログ一覧</div>
         </div>
         <div id="dailyList" class="daily-list">
           <div class="loading">Daily一覧を読み込み中...</div>
@@ -372,7 +369,7 @@
           </div>
         </div>
         <div class="empty">
-          左側の Campaigns から actor を選ぶと、その actor 配下の JSON を日付順に並べて表示します。
+          左側の Campaigns から actor を選ぶと、その actor 配下の JSON を日付順に表示します。
         </div>
       </div>
     </section>
@@ -403,48 +400,11 @@
       return res.json();
     }
 
-    function normalizeToPaths(data) {
-      const paths = [];
-
-      function walk(value) {
-        if (value == null) return;
-
-        if (typeof value === "string") {
-          if (value.endsWith(".json")) {
-            paths.push(value);
-          }
-          return;
-        }
-
-        if (Array.isArray(value)) {
-          value.forEach(walk);
-          return;
-        }
-
-        if (typeof value === "object") {
-          const candidateKeys = ["path", "file", "filepath", "name", "url"];
-          for (const key of candidateKeys) {
-            if (typeof value[key] === "string" && value[key].endsWith(".json")) {
-              paths.push(value[key]);
-            }
-          }
-          Object.values(value).forEach(walk);
-        }
-      }
-
-      walk(data);
-
-      return [...new Set(paths)];
-    }
-
     function normalizePath(path) {
       if (!path) return path;
-
       let p = path.trim();
-
       p = p.replace(/^\.?\//, "");
       p = p.replace(/^docs\//, "");
-
       return p;
     }
 
@@ -487,7 +447,7 @@
         }
       }
 
-      const result = Array.from(groups.values())
+      return Array.from(groups.values())
         .map(group => {
           group.files.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
           return group;
@@ -497,8 +457,6 @@
           if (dateCompare !== 0) return dateCompare;
           return a.actor.localeCompare(b.actor);
         });
-
-      return result;
     }
 
     function summarizeRecord(record, fallbackPath) {
@@ -514,7 +472,6 @@
         record.title ||
         record.name ||
         record.campaign_summary ||
-        record.summary?.slice?.(0, 120) ||
         fallbackPath;
 
       let summary = "";
@@ -688,7 +645,7 @@
 
     function renderDailyList(paths) {
       const root = document.getElementById("dailyList");
-      const normalized = paths
+      const normalized = [...new Set(paths)]
         .map(normalizePath)
         .filter(p => p.startsWith("logs/"))
         .sort((a, b) => b.localeCompare(a));
@@ -711,20 +668,13 @@
 
     async function init() {
       try {
-        const [campaignIndex, dailyIndex] = await Promise.all([
+        const [campaignPaths, dailyPaths] = await Promise.all([
           fetchJson(CAMPAIGN_INDEX_URL),
-          fetchJson(DAILY_INDEX_URL).catch(() => [])
+          fetchJson(DAILY_INDEX_URL)
         ]);
 
-        const campaignPaths = normalizeToPaths(campaignIndex)
-          .map(normalizePath)
-          .filter(p => p.startsWith("campaigns/"));
-
         state.campaignGroups = groupCampaignPaths(campaignPaths);
-
         renderCampaignList();
-
-        const dailyPaths = normalizeToPaths(dailyIndex);
         renderDailyList(dailyPaths);
 
         if (state.campaignGroups.length > 0) {
@@ -737,7 +687,7 @@
           <div class="error">Campaign一覧の読み込みに失敗しました: ${escapeHtml(err.message || err)}</div>
         `;
         document.getElementById("dailyList").innerHTML = `
-          <div class="error">Daily一覧の読み込みに失敗しました。</div>
+          <div class="error">Daily一覧の読み込みに失敗しました: ${escapeHtml(err.message || err)}</div>
         `;
       }
     }
