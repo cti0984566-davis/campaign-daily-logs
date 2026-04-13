@@ -1,0 +1,95 @@
+{
+  "date": "2026-04-12",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "APT29 Campaign",
+    "aliases": [
+      "Cozy Bear",
+      "NOBELIUM",
+      "Midnight Blizzard",
+      "The Dukes"
+    ],
+    "cluster": "SVR-linked",
+    "suspected_actor": "Russia",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-12_apt29_no_significant_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29キャンペーン継続観測（更新なし）",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "North America",
+          "Europe"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "IT",
+          "防衛"
+        ],
+        "organization_types": [
+          "政府機関",
+          "ITベンダ",
+          "国際機関"
+        ]
+      },
+      "first_seen": "2010-01-01",
+      "last_seen": "2026-04-12",
+      "activity_summary": "APT29（SVR系）は、クラウド・認証基盤を中心とした高度な持続的諜報活動を継続しているが、2026年4月10〜12日時点で新たな大規模公開キャンペーンは確認されていない。",
+      "activity_details": "APT29は、クラウドサービス（特にMicrosoft 365等）やサプライチェーン侵害を通じた長期的アクセス維持を特徴とする。過去にはSolarWinds事案やクラウド認証情報窃取が知られている。近年はトークン窃取、セッションハイジャック、OAuth悪用など、認証基盤への攻撃に重点を置く。本期間では新規の大規模活動は公表されていないが、静的潜伏・長期監視型の特性から引き続き高リスク。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1550 Use of Authentication Tokens",
+        "T1557 Adversary-in-the-Middle",
+        "T1528 Steal Application Access Token",
+        "Cloud credential abuse",
+        "OAuth abuse"
+      ],
+      "malware_and_tools": [
+        "WellMess",
+        "GoldMax",
+        "Teardrop"
+      ],
+      "infrastructure": [
+        "cloud infrastructure",
+        "compromised identity providers",
+        "proxy networks"
+      ],
+      "strategic_view": {
+        "general": "検知回避と長期潜伏に特化した高高度諜報アクター。",
+        "geopolitical": "ロシア対外情報庁（SVR）の情報収集能力の中核を担う。",
+        "business": "クラウド依存が高い企業ほどリスクが増大。認証基盤防御が重要。",
+        "research_direction": "セッショントークン保護、DBSC等新技術との攻防、クラウド横断侵害の検知手法。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "短期の騒がしさはないが、最も検知困難で影響の大きい長期諜報主体の一つ。",
+        "delta_from_previous": "本期間における顕著な新規活動公開はなし。ただし継続的脅威としての重要性は不変。"
+      },
+      "related_campaigns": [
+        "SolarWinds campaign",
+        "Cloud credential theft campaigns"
+      ],
+      "tags": [
+        "APT29",
+        "Russia",
+        "SVR",
+        "cloud",
+        "identity"
+      ],
+      "sources": [
+        {
+          "title": "APT29 overview and historical activity",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-008a",
+          "publisher": "CISA",
+          "published_at": "2021-01-06"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "date": "2026-04-12",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "APT28 DNS Hijacking Campaign",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sofacy"
+    ],
+    "cluster": "GRU Unit 26165",
+    "suspected_actor": "Russian GRU",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-12_router_dns_hijack_update",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "SOHOルータを用いたDNSハイジャック作戦の摘発",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "Global",
+          "United States"
+        ],
+        "industries": [
+          "政府",
+          "軍事",
+          "重要インフラ"
+        ],
+        "organization_types": [
+          "政府機関",
+          "軍関係者",
+          "民間企業"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-07",
+      "activity_summary": "APT28は、TP-Link等のSOHOルータを侵害しDNS設定を書き換えることで、特定標的に対するActor-in-the-Middle攻撃を実施していた。2026年4月、米司法省が裁判所承認のもとインフラ妨害を実施。",
+      "activity_details": "GRU Unit 26165は、数千台規模のルータを侵害し、DNSリクエストをGRU管理サーバへ転送。特定標的に対しては、Microsoft Outlook Web Accessを模した偽応答を返し、認証情報やセッショントークンを窃取した。英国NCSCも同日付で技術詳細を公開。",
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "DNS hijacking",
+        "router credential compromise",
+        "malicious DNS resolver redirection"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "TP-Link routers",
+        "compromised SOHO routers",
+        "GRU-controlled DNS servers"
+      ],
+      "strategic_view": {
+        "general": "ネットワーク境界機器を掌握し、上位認証を突破する低コスト高効率の諜報モデル。",
+        "geopolitical": "露宇戦争下におけるロシアの持続的諜報能力を示す。",
+        "business": "地方拠点や委託先ネットワークが企業防御の盲点となる。",
+        "research_direction": "侵害ルータの機種・脆弱性、DNSリダイレクトのロジック分析が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "認証情報窃取を回避する従来防御（MFA等）を迂回可能。",
+        "delta_from_previous": "ルータ規模とDNSレベルの中間者攻撃の詳細が公式に公開された。"
+      },
+      "related_campaigns": [
+        "APT28 long-term espionage"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "DNS hijacking",
+        "router compromise"
+      ],
+      "sources": [
+        {
+          "title": "DOJ DNS hijacking disruption",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "DOJ",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/sites/default/files/2026-04/NCSC_APT28-exploit-routers-to-enable-DNS-hijacking-operations.pdf",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28",
+        "infrastructure": [
+          "compromised routers",
+          "malicious DNS servers"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "AiTM",
+          "credential theft"
+        ],
+        "victim": [
+          "government",
+          "military",
+          "critical infrastructure"
+        ]
+      }
+    }
+  ]
+}

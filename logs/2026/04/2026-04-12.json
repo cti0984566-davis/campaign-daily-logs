@@ -1,0 +1,300 @@
+{
+  "date": "2026-04-12",
+  "timezone": "Asia/Tokyo",
+  "title": "2026/04/12_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-12_storm_1175_medusa_operations",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Storm-1175",
+        "aliases": [
+          "Medusa affiliate activity"
+        ],
+        "cluster": "financially motivated cybercrime",
+        "suspected_actor": "Storm-1175",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "vulnerable web-facing assets",
+          "public-facing enterprise applications"
+        ],
+        "capability": [
+          "rapid exploitation of recently disclosed vulnerabilities",
+          "limited zero-day exploitation before disclosure",
+          "credential theft",
+          "ransomware deployment"
+        ],
+        "victim": [
+          "healthcare organizations",
+          "education organizations",
+          "professional services firms",
+          "finance organizations"
+        ]
+      },
+      "name": "Storm-1175による脆弱なWeb公開資産悪用とMedusa展開",
+      "category": "サイバー犯罪",
+      "industry": [
+        "医療",
+        "教育",
+        "専門サービス",
+        "金融"
+      ],
+      "region": [
+        "Australia",
+        "United Kingdom",
+        "United States"
+      ],
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-04-06",
+      "summary": "Storm-1175は、公開済み脆弱性を高速に武器化して外部公開資産へ侵入し、短期間でデータ窃取とMedusaランサムウェア展開に至る高テンポな攻撃を継続している。",
+      "details": "Microsoftは、Storm-1175が2023年以降に16件超の脆弱性を悪用したとし、Exchange、PaperCut、Ivanti、ScreenConnectなど複数製品のCVEを列挙している。さらに、CVE-2025-31324（SAP NetWeaver）については公表翌日に悪用を観測。CVE-2025-10035（GoAnywhere MFT）およびCVE-2026-23760（SmarterMail）は公表前に悪用されたゼロデイとして位置付けられている。",
+      "actors": [
+        {
+          "name": "Storm-1175",
+          "role": "intrusion operator",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1078 Valid Accounts",
+        "T1486 Data Encrypted for Impact",
+        "N-day rapid exploitation",
+        "Observed zero-day exploitation",
+        "CVE-2025-31324",
+        "CVE-2025-10035",
+        "CVE-2026-23760"
+      ],
+      "malware": [
+        "Medusa"
+      ],
+      "infrastructure": [
+        "public-facing servers",
+        "RMM tools",
+        "web shells"
+      ],
+      "targeting": {
+        "sectors": [
+          "healthcare",
+          "education",
+          "professional services",
+          "finance"
+        ],
+        "countries": [
+          "Australia",
+          "United Kingdom",
+          "United States"
+        ],
+        "organization_types": [
+          "enterprise"
+        ]
+      },
+      "strategic_view": {
+        "general": "脆弱性公表から侵入までの時間差を極小化した高速侵入型ランサムウェアオペレーション。",
+        "geopolitical": "国家系ではないが社会機能への影響は大きい。",
+        "business": "外部公開資産の管理不備が直接的な侵入要因となる。",
+        "research_direction": "ゼロデイとN-dayの比率および侵入速度の変化を継続観測。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "公開資産を持つあらゆる組織にとって即時リスクとなる。",
+        "delta_from_previous": "CVE列挙を整理し、ゼロデイ/N-dayの区別を明確化。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware"
+      ],
+      "related_reports": [],
+      "tags": [
+        "ransomware",
+        "N-day",
+        "zero-day"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-12_iran_plc_attacks",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Iran PLC attacks",
+        "aliases": [],
+        "cluster": "state-linked",
+        "suspected_actor": "Iranian-affiliated actors",
+        "attribution_confidence": "medium"
+      },
+      "name": "イラン関係主体によるPLC/SCADA妨害",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "エネルギー",
+        "水道",
+        "政府"
+      ],
+      "region": [
+        "United States"
+      ],
+      "first_seen": "2026-03-01",
+      "last_seen": "2026-04-10",
+      "summary": "イラン関係主体がPLCおよびSCADA環境に対して妨害行為を実施し、重要インフラの運用に影響。",
+      "details": "CISAおよび州当局は、インターネット接続されたPLCを標的とした操作・妨害を確認し、ポート監視とネットワーク分離を推奨。",
+      "actors": [
+        {
+          "name": "Iranian-affiliated actors",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "ICS manipulation",
+        "OT exposure exploitation",
+        "port abuse 44818 2222 102 502"
+      ],
+      "targeting": {
+        "sectors": [
+          "water",
+          "energy",
+          "government"
+        ],
+        "countries": [
+          "United States"
+        ]
+      },
+      "strategic_view": {
+        "general": "OTを直接狙う妨害型攻撃。",
+        "geopolitical": "中東情勢と連動する可能性。",
+        "business": "日本のOT露出資産も同様にリスク。",
+        "research_direction": "対象機器・制御ロジック変更の詳細分析。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "物理プロセス停止に直結。",
+        "delta_from_previous": "複数セクターへの波及が明確化。"
+      },
+      "sources": [
+        {
+          "title": "Iranian-Affiliated Cyber Actors Exploit PLCs",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a",
+          "publisher": "CISA",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-12_apt28_dns_hijack",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "APT28 DNS hijacking",
+        "aliases": [
+          "Fancy Bear"
+        ],
+        "cluster": "GRU Unit 26165",
+        "suspected_actor": "APT28",
+        "attribution_confidence": "high"
+      },
+      "name": "APT28によるDNSハイジャック",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府",
+        "軍事",
+        "通信"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-07",
+      "summary": "APT28がルータを侵害しDNS設定を改ざん、AiTM攻撃を実施。",
+      "details": "TP-Linkルータを侵害しDNSをGRU管理サーバへ誘導、認証情報窃取を実施。",
+      "actors": [
+        {
+          "name": "APT28",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "DNS hijacking"
+      ],
+      "strategic_view": {
+        "general": "通信基盤レベルの諜報。",
+        "geopolitical": "露宇文脈での継続作戦。",
+        "business": "拠点ルータが盲点。",
+        "research_direction": "侵害機器特定。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "認証フロー自体が破壊される。",
+        "delta_from_previous": "大規模ルータ悪用が明確化。"
+      },
+      "sources": [
+        {
+          "title": "DOJ DNS disruption",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "DOJ",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-12_adobe_zero_day",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Adobe CVE-2026-34621",
+        "aliases": [],
+        "cluster": "unknown",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "Adobe Acrobatゼロデイ",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "横断"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-11",
+      "last_seen": "2026-04-12",
+      "summary": "Adobe Readerのゼロデイ脆弱性が実地悪用。",
+      "details": "Prototype Pollutionにより任意コード実行。4月12日にCVSS更新。",
+      "ttp": [
+        "T1204.002",
+        "CVE-2026-34621"
+      ],
+      "strategic_view": {
+        "general": "文書経由侵入の典型。",
+        "geopolitical": "主体不明だが汎用性高い。",
+        "business": "PDF依存環境でリスク高。",
+        "research_direction": "配布経路分析。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "利用者母数が極大。",
+        "delta_from_previous": "CVSS修正反映。"
+      },
+      "sources": [
+        {
+          "title": "Adobe APSB26-43",
+          "url": "https://helpx.adobe.com/security/products/acrobat/apsb26-43.html",
+          "publisher": "Adobe",
+          "published_at": "2026-04-11"
+        }
+      ]
+    }
+  ]
+}

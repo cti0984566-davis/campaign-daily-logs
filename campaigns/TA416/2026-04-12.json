@@ -1,0 +1,90 @@
+{
+  "date": "2026-04-12",
+  "timezone": "Asia/Tokyo",
+  "campaign": {
+    "name": "TA416 Campaign",
+    "aliases": [
+      "RedDelta",
+      "Mustang Panda (overlap)"
+    ],
+    "cluster": "China-linked espionage cluster",
+    "suspected_actor": "China",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-12_ta416_no_significant_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416キャンペーン継続観測（更新なし）",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "Asia-Pacific",
+          "Europe"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "シンクタンク",
+          "宗教団体"
+        ],
+        "organization_types": [
+          "政府機関",
+          "NGO",
+          "研究機関"
+        ]
+      },
+      "first_seen": "2019-01-01",
+      "last_seen": "2026-04-12",
+      "activity_summary": "TA416（RedDelta系）は、外交・宗教・政策関連組織を対象としたスピアフィッシングおよびマルウェア配布を中心とする諜報活動を継続しているが、2026年4月10〜12日時点で新たな大規模キャンペーン更新は確認されていない。",
+      "activity_details": "TA416はこれまで、宗教関連組織や政府関係者を標的とし、偽装文書やイベント招待を装ったメールを用いて侵入、RAT展開および長期潜伏を行ってきた。近年はPlugXやShadowPad系ツールの使用、インフラの短命化、クラウドサービスの悪用が観測されている。本期間では新規TTPや大規模活動の更新は確認されないが、継続的な活動主体として監視が必要。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1204 User Execution",
+        "T1059 Command Execution",
+        "T1105 Ingress Tool Transfer",
+        "Cloud service abuse",
+        "Living-off-the-land techniques"
+      ],
+      "malware_and_tools": [
+        "PlugX",
+        "ShadowPad"
+      ],
+      "infrastructure": [
+        "compromised websites",
+        "cloud hosting services",
+        "short-lived domains"
+      ],
+      "strategic_view": {
+        "general": "低強度ながら持続的な諜報活動を行う典型的中国系APTクラスター。",
+        "geopolitical": "中国の対外影響力および外交情報収集の一環として位置付けられる。",
+        "business": "日本企業では直接標的になる頻度は限定的だが、政府・シンクタンク経由の間接的影響に注意。",
+        "research_direction": "Mustang Panda系とのクラスタリング関係、ツールセットの更新、クラウド悪用の進展を追跡。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "短期的なインパクトは限定的だが、中長期的な情報窃取能力は依然高い。",
+        "delta_from_previous": "本期間における顕著な新規キャンペーン更新は確認されていない。"
+      },
+      "related_campaigns": [
+        "Mustang Panda activity"
+      ],
+      "tags": [
+        "China",
+        "TA416",
+        "espionage",
+        "phishing"
+      ],
+      "sources": [
+        {
+          "title": "Historical reporting on TA416 / RedDelta activity",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/reddelta-targeting",
+          "publisher": "Proofpoint",
+          "published_at": "2021-01-01"
+        }
+      ]
+    }
+  ]
+}
