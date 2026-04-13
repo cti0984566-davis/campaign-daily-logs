@@ -1,4 +1,4 @@
-name: Update for GitHub pages
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -23,56 +23,67 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Prepare docs content
+      - name: Prepare docs directory
         run: |
-          mkdir -p docs/logs
-          mkdir -p docs/campaigns
+          set -euo pipefail
+
+          mkdir -p docs
+          rm -rf docs/logs docs/campaigns
+          mkdir -p docs/logs docs/campaigns
 
           if [ -d logs ]; then
-            cp -r logs/. docs/logs/
+            cp -R logs/. docs/logs/
           fi
 
           if [ -d campaigns ]; then
-            cp -r campaigns/. docs/campaigns/
+            cp -R campaigns/. docs/campaigns/
           fi
 
-          find docs/logs -type f -name "*.json" \
-            ! -name "index.json" \
-            | sed 's#^docs/logs/##' \
-            | sort \
-            > docs/logs/index.json
+      - name: Generate logs index.json
+        run: |
+          set -euo pipefail
 
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
+          mkdir -p docs/logs
 
-          p = Path("docs/logs/index.json")
-          lines = [line.strip() for line in p.read_text().splitlines() if line.strip()]
-          p.write_text(json.dumps(lines, ensure_ascii=False, indent=2), encoding="utf-8")
-          PY
+          if find docs/logs -type f -name "*.json" ! -name "index.json" | grep -q .; then
+            find docs/logs -type f -name "*.json" ! -name "index.json" \
+              | sort \
+              | sed 's#^docs/##' \
+              | jq -R . \
+              | jq -s . > docs/logs/index.json
+          else
+            echo '[]' > docs/logs/index.json
+          fi
 
-          find docs/campaigns -type f -name "*.json" \
-            ! -name "index.json" \
-            | sed 's#^docs/campaigns/##' \
-            | sort \
-            > docs/campaigns/index.json
+      - name: Generate campaigns index.json
+        run: |
+          set -euo pipefail
 
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
+          mkdir -p docs/campaigns
 
-          p = Path("docs/campaigns/index.json")
-          lines = [line.strip() for line in p.read_text().splitlines() if line.strip()]
-          p.write_text(json.dumps(lines, ensure_ascii=False, indent=2), encoding="utf-8")
-          PY
+          if find docs/campaigns -type f -name "*.json" ! -name "index.json" | grep -q .; then
+            find docs/campaigns -type f -name "*.json" ! -name "index.json" \
+              | sort \
+              | sed 's#^docs/##' \
+              | jq -R . \
+              | jq -s . > docs/campaigns/index.json
+          else
+            echo '[]' > docs/campaigns/index.json
+          fi
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Verify generated files
+        run: |
+          set -euo pipefail
+          echo "===== docs/logs/index.json ====="
+          cat docs/logs/index.json
+          echo
+          echo "===== docs/campaigns/index.json ====="
+          cat docs/campaigns/index.json
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: docs
 
   deploy:
     needs: build
