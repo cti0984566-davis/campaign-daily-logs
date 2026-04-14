@@ -1,82 +1,53 @@
 {
   "date": "2026-04-13",
   "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は公開資産を迅速悪用し、短時間でランサムウェア展開。",
+  "change_summary": [
+    "侵害から実害までの時間が大幅短縮",
+    "Medusaとの関連強化"
+  ],
+  "operational_relevance": "即日対応が必要な高速攻撃モデル。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開資産の即時パッチ",
+    "侵入検知のリアルタイム化",
+    "バックアップ強化"
+  ],
   "campaign": {
-    "name": "Storm-1175 High-Tempo Ransomware Operations",
-    "aliases": ["Storm-1175", "Medusa-linked activity"],
-    "cluster": "Financially motivated rapid exploitation and ransomware deployment",
-    "suspected_actor": "Financially motivated actor tracked by Microsoft",
+    "name": "Storm-1175 Ransomware Operations",
+    "aliases": ["Storm-1175"],
+    "cluster": "High-tempo ransomware",
+    "suspected_actor": "Financially motivated actor",
     "attribution_confidence": "medium"
   },
   "items": [
     {
-      "id": "2026-04-13_storm_1175_web_facing_ransomware",
+      "id": "2026-04-13_storm1175_activity",
       "type": "campaign_activity",
       "status": "継続",
-      "name": "公開Web資産を起点とする高速ランサムウェア展開",
+      "name": "高速ランサムウェア攻撃",
       "category": "サイバー犯罪",
       "targeting": {
-        "regions": ["北米", "欧州", "オセアニア", "グローバル"],
-        "industries": ["医療", "教育", "金融", "専門サービス"],
-        "organization_types": ["病院", "学校", "金融機関", "企業"]
+        "regions": ["グローバル"],
+        "industries": ["医療", "教育", "金融"],
+        "organization_types": ["企業", "病院"]
       },
       "first_seen": "2025-01-01",
       "last_seen": "2026-04-13",
-      "activity_summary": "Microsoftは4月6日、Storm-1175が公開Web資産の脆弱性を悪用し、場合によっては24時間以内にデータ窃取とMedusa展開へ進む高テンポ作戦を公表した。4月13日時点で重要な継続案件。",
-      "activity_details": "Storm-1175は、公開Webアプリケーションや外部公開サービスのN-day脆弱性を素早く武器化し、初期侵入から権限昇格、ラテラルムーブメント、データ窃取、ランサムウェア実行までを極めて短時間で進める。Microsoftはこの速度変化自体を主要な脅威として強調しており、防御側にとっては『数日以内対応』ではなく『同日封じ込め』が必要な相手と位置づけられる。",
-      "ttp": [
-        "T1190 Exploit Public-Facing Application",
-        "T1486 Data Encrypted for Impact",
-        "T1041 Exfiltration Over C2 Channel",
-        "Rapid post-compromise lateral movement"
-      ],
-      "malware_and_tools": ["Medusa ransomware"],
-      "infrastructure": [
-        "Compromised web-facing assets",
-        "Ransomware deployment infrastructure",
-        "Data exfiltration channels"
-      ],
-      "iocs": [],
-      "strategic_view": {
-        "general": "公開面1点の弱点から短時間で実害化する犯罪モデルであり、防御の時間的前提を崩している。",
-        "geopolitical": "国家系ではないが、医療・公共性の高い分野に対する影響は社会的安定や政策対応に直結する。",
-        "business": "日本企業でも外部公開資産の資産管理、翌営業日対応前提の脆弱性運用では間に合わない可能性が高い。",
-        "research_direction": "Storm-1175の初期侵入元プロダクト、Medusaとの関係、被害業種の偏りを継続追跡。"
-      },
-      "assessment": {
-        "significance": "high",
-        "confidence": "high",
-        "why_it_matters": "侵害からランサムウェアまでの時間圧縮が進み、従来の対応SLAでは防ぎきれないから。",
-        "delta_from_previous": "4月6日のMicrosoft分析により、Storm-1175の危険性は個別事案ではなく“速度”そのものにあることが明確化した。"
-      },
-      "related_campaigns": ["Medusa ransomware"],
-      "tags": ["Storm-1175", "Medusa", "ransomware", "web-facing assets", "high tempo"],
+      "activity_summary": "侵入から24時間以内に暗号化まで到達。",
+      "activity_details": "公開Web脆弱性を即時悪用。",
+      "ttp": ["T1190", "T1486"],
+      "malware_and_tools": ["Medusa"],
+      "infrastructure": ["Compromised web assets"],
       "sources": [
         {
-          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets",
           "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
           "publisher": "Microsoft",
           "published_at": "2026-04-06"
         }
-      ],
-      "diamond_model": {
-        "adversary": "Storm-1175",
-        "infrastructure": [
-          "Vulnerable web-facing systems",
-          "Ransomware infrastructure"
-        ],
-        "capability": [
-          "Rapid exploitation",
-          "Exfiltration",
-          "Ransomware deployment"
-        ],
-        "victim": [
-          "Healthcare",
-          "Education",
-          "Financial services",
-          "Professional services"
-        ]
-      }
+      ]
     }
   ]
 }
