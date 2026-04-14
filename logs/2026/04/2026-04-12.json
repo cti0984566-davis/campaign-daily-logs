@@ -1,298 +1,510 @@
 {
-  "date": "2026-04-12",
-  "timezone": "Asia/Tokyo",
-  "title": "2026/04/12_サイバー事象概要",
+  "date": "2026-04-13",
+  "timezone": "JST",
+  "title": "2026/04/13_サイバー事象概要",
   "items": [
     {
-      "id": "2026-04-12_storm_1175_medusa_operations",
+      "id": "2026-04-13_apt28_router_aitm",
       "type": "incident",
       "status": "継続",
       "campaign": {
-        "name": "Storm-1175",
-        "aliases": [
-          "Medusa affiliate activity"
-        ],
-        "cluster": "financially motivated cybercrime",
-        "suspected_actor": "Storm-1175",
+        "name": "APT28 Router AitM Espionage",
+        "aliases": ["APT28", "Fancy Bear", "Forest Blizzard", "FrostArmada"],
+        "cluster": "GRU-linked espionage via SOHO routers; Microsoft also links a subgroup tracked as Storm-2754",
+        "suspected_actor": "Russia GRU-linked actor",
         "attribution_confidence": "high"
       },
       "diamond_model": {
-        "adversary": "Storm-1175",
+        "adversary": "APT28 / Forest Blizzard",
         "infrastructure": [
-          "vulnerable web-facing assets",
-          "public-facing enterprise applications"
+          "Compromised TP-Link routers",
+          "Compromised MikroTik routers",
+          "Actor-controlled DNS resolvers",
+          "AitM proxy infrastructure"
         ],
         "capability": [
-          "rapid exploitation of recently disclosed vulnerabilities",
-          "limited zero-day exploitation before disclosure",
-          "credential theft",
-          "ransomware deployment"
+          "Adversary-in-the-Middle interception",
+          "DNS/DHCP configuration tampering",
+          "Credential and token harvesting"
         ],
         "victim": [
-          "healthcare organizations",
-          "education organizations",
-          "professional services firms",
-          "finance organizations"
+          "Government agencies",
+          "Military-related entities",
+          "Critical infrastructure organizations",
+          "Third-party email providers"
         ]
       },
-      "name": "Storm-1175による脆弱なWeb公開資産悪用とMedusa展開",
-      "category": "サイバー犯罪",
-      "industry": [
-        "医療",
-        "教育",
-        "専門サービス",
-        "金融"
-      ],
-      "region": [
-        "Australia",
-        "United Kingdom",
-        "United States"
-      ],
-      "first_seen": "2023-01-01",
-      "last_seen": "2026-04-06",
-      "summary": "Storm-1175は、公開済み脆弱性を高速に武器化して外部公開資産へ侵入し、短期間でデータ窃取とMedusaランサムウェア展開に至る高テンポな攻撃を継続している。",
-      "details": "Microsoftは、Storm-1175が2023年以降に16件超の脆弱性を悪用したとし、Exchange、PaperCut、Ivanti、ScreenConnectなど複数製品のCVEを列挙している。さらに、CVE-2025-31324（SAP NetWeaver）については公表翌日に悪用を観測。CVE-2025-10035（GoAnywhere MFT）およびCVE-2026-23760（SmarterMail）は公表前に悪用されたゼロデイとして位置付けられている。",
+      "name": "APT28によるSOHOルーター悪用AitMスパイ活動",
+      "category": "諜報活動",
+      "industry": ["政府機関", "防衛", "重要インフラ", "通信"],
+      "region": ["米国", "欧州", "グローバル"],
+      "first_seen": "2025-08-01",
+      "last_seen": "2026-04-13",
+      "summary": "APT28が脆弱なTP-LinkおよびMikroTikルーターを侵害し、DNS/DHCP設定改変を通じてAitM環境を構築、軍・政府・重要インフラ関連を中心に認証情報や通信内容を収集していた事案。4月8日の米当局妨害措置後も、4月13日時点で継続監視対象。",
+      "details": "米司法省・FBIは4月8日、ロシアが利用していた侵害済みSOHOルーター網の妨害措置を発表した。MicrosoftはForest Blizzardに加え、そのサブグループとしてStorm-2754の関与を説明している。Lumenは同キャンペーンをFrostArmadaとして追跡している。CVE-2023-50224の悪用とdnsmasq利用によるDNS処理の説明は公開情報と整合する。",
       "actors": [
         {
-          "name": "Storm-1175",
-          "role": "intrusion operator",
-          "country": "unknown"
+          "name": "APT28",
+          "role": "攻撃主体",
+          "country": "ロシア"
+        },
+        {
+          "name": "FBI",
+          "role": "対応機関",
+          "country": "米国"
+        },
+        {
+          "name": "Microsoft",
+          "role": "分析支援",
+          "country": "米国"
         }
       ],
       "ttp": [
         "T1190 Exploit Public-Facing Application",
-        "T1078 Valid Accounts",
-        "T1486 Data Encrypted for Impact",
-        "N-day rapid exploitation",
-        "Observed zero-day exploitation",
-        "CVE-2025-31324",
-        "CVE-2025-10035",
-        "CVE-2026-23760"
+        "T1557 Adversary-in-the-Middle",
+        "T1040 Network Sniffing",
+        "T1565 Data Manipulation",
+        "CVE-2023-50224"
       ],
-      "malware": [
-        "Medusa"
-      ],
+      "malware": ["dnsmasq utility abuse"],
       "infrastructure": [
-        "public-facing servers",
-        "RMM tools",
-        "web shells"
+        "Actor-controlled DNS resolvers",
+        "Proxy VPS infrastructure",
+        "Compromised SOHO routers"
       ],
       "targeting": {
-        "sectors": [
-          "healthcare",
-          "education",
-          "professional services",
-          "finance"
-        ],
-        "countries": [
-          "Australia",
-          "United Kingdom",
-          "United States"
-        ],
-        "organization_types": [
-          "enterprise"
-        ]
+        "sectors": ["Government", "Defense", "Critical Infrastructure", "Communications"],
+        "countries": ["United States", "Germany", "Global"],
+        "organization_types": ["Government agency", "Military-related organization", "Email provider", "Infrastructure operator"]
       },
       "strategic_view": {
-        "general": "脆弱性公表から侵入までの時間差を極小化した高速侵入型ランサムウェアオペレーション。",
-        "geopolitical": "国家系ではないが社会機能への影響は大きい。",
-        "business": "外部公開資産の管理不備が直接的な侵入要因となる。",
-        "research_direction": "ゼロデイとN-dayの比率および侵入速度の変化を継続観測。"
+        "general": "端末侵害よりも通信経路掌握を重視するロシア系諜報作戦の継続例であり、SOHO機器管理の弱さが国家レベル諜報の侵入口となっている。",
+        "geopolitical": "欧州安全保障・ウクライナ関連の情報優位確保を狙う平時諜報の一環とみられ、危機時の通信妨害準備とも接続しうる。",
+        "business": "日本企業でも小規模拠点・委託先・在外拠点のルーターが盲点となり得るため、境界機器の管理責任の明確化が必要。",
+        "research_direction": "侵害ルーターの再利用性、標的ドメイン選別ロジック、Authentic Antics系との接続、IOC横断相関を継続分析。"
       },
       "assessment": {
         "significance": "high",
         "confidence": "high",
-        "why_it_matters": "公開資産を持つあらゆる組織にとって即時リスクとなる。",
-        "delta_from_previous": "CVE列挙を整理し、ゼロデイ/N-dayの区別を明確化。"
+        "why_it_matters": "通信経路の乗っ取りは認証情報窃取だけでなく、標的選別・将来の追加侵入・情報操作の基盤となるため。",
+        "delta_from_previous": "APT28の別名整理を修正し、Storm-2754は完全同義語ではなくMicrosoftが追跡する関連サブグループとして位置付けた。"
       },
-      "related_campaigns": [
-        "Medusa ransomware"
-      ],
-      "related_reports": [],
-      "tags": [
-        "ransomware",
-        "N-day",
-        "zero-day"
-      ],
+      "related_campaigns": ["Authentic Antics"],
+      "related_reports": ["2026/04/07_サイバー事象概要", "2026/04/08_サイバー事象概要"],
+      "tags": ["APT28", "Forest Blizzard", "SOHO router", "AitM", "DNS hijacking"],
       "sources": [
         {
-          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets",
-          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
-          "publisher": "Microsoft",
-          "published_at": "2026-04-06"
+          "title": "US Disrupts Russian Espionage Operation Involving Hacked Routers and DNS Hijacking",
+          "url": "https://www.securityweek.com/us-disrupts-russian-espionage-operation-involving-hacked-routers-and-dns-hijacking/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-08"
+        },
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
         }
       ]
     },
     {
-      "id": "2026-04-12_iran_plc_attacks",
+      "id": "2026-04-13_iran_plc_critical_infrastructure",
       "type": "incident",
       "status": "継続",
       "campaign": {
-        "name": "Iran PLC attacks",
-        "aliases": [],
-        "cluster": "state-linked",
-        "suspected_actor": "Iranian-affiliated actors",
+        "name": "Iran-affiliated PLC Disruption Campaign",
+        "aliases": ["CyberAv3ngers-related activity"],
+        "cluster": "Iran-linked OT targeting",
+        "suspected_actor": "Iran-affiliated threat actors",
         "attribution_confidence": "medium"
       },
-      "name": "イラン関係主体によるPLC/SCADA妨害",
-      "category": "国家系サイバー作戦",
-      "industry": [
-        "エネルギー",
-        "水道",
-        "政府"
-      ],
-      "region": [
-        "United States"
-      ],
+      "diamond_model": {
+        "adversary": "Iran-affiliated cyber actors",
+        "infrastructure": [
+          "Internet-exposed PLCs",
+          "Remote engineering access paths",
+          "Industrial control interfaces"
+        ],
+        "capability": [
+          "OT manipulation",
+          "Disruptive effects on PLC-managed processes",
+          "Use of valid access and exposed services"
+        ],
+        "victim": [
+          "Water and wastewater operators",
+          "Energy sector entities",
+          "Government services organizations"
+        ]
+      },
+      "name": "イラン系による米重要インフラPLC標的化",
+      "category": "軍事作戦",
+      "industry": ["インフラ", "エネルギー", "水道", "政府機関"],
+      "region": ["米国", "中東"],
       "first_seen": "2026-03-01",
-      "last_seen": "2026-04-10",
-      "summary": "イラン関係主体がPLCおよびSCADA環境に対して妨害行為を実施し、重要インフラの運用に影響。",
-      "details": "CISAおよび州当局は、インターネット接続されたPLCを標的とした操作・妨害を確認し、ポート監視とネットワーク分離を推奨。",
+      "last_seen": "2026-04-13",
+      "summary": "米連邦当局が4月7日に共同警告した、イラン関連アクターによるインターネット露出PLCへの侵入・妨害活動。4月13日時点でも中東情勢連動の重要継続案件。",
+      "details": "CISA、FBI、NSA、EPA、DOE、USCYBERCOMは共同で、イラン関連アクターが複数の米重要インフラ部門でPLCへの悪意ある操作を行い、業務中断や金銭的損失を生じさせていると警告した。対象にはRockwell Automation / Allen-Bradley系PLCが含まれ、水・エネルギー・政府サービス部門が挙げられている。4月13日時点では、Unitronics事案に続くイラン系OT圧力の拡大型案件として評価される。",
       "actors": [
         {
-          "name": "Iranian-affiliated actors",
-          "country": "Iran"
+          "name": "Iran-affiliated cyber actors",
+          "role": "攻撃主体",
+          "country": "イラン"
+        },
+        {
+          "name": "CISA",
+          "role": "警告発出",
+          "country": "米国"
+        },
+        {
+          "name": "FBI",
+          "role": "共同対応",
+          "country": "米国"
         }
       ],
       "ttp": [
-        "ICS manipulation",
-        "OT exposure exploitation",
-        "port abuse 44818 2222 102 502"
+        "T0829 Loss of Safety",
+        "T0842 Modify Controller Tasking",
+        "T0809 Damage to Property",
+        "Use of internet-exposed PLC management interfaces",
+        "Use of valid or weak remote access pathways"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Internet-facing PLCs",
+        "Rockwell Automation / Allen-Bradley devices",
+        "Remote access services"
       ],
       "targeting": {
-        "sectors": [
-          "water",
-          "energy",
-          "government"
-        ],
-        "countries": [
-          "United States"
-        ]
+        "sectors": ["Water and Wastewater", "Energy", "Government Services"],
+        "countries": ["United States"],
+        "organization_types": ["Municipality", "Infrastructure operator", "Government service provider"]
       },
       "strategic_view": {
-        "general": "OTを直接狙う妨害型攻撃。",
-        "geopolitical": "中東情勢と連動する可能性。",
-        "business": "日本のOT露出資産も同様にリスク。",
-        "research_direction": "対象機器・制御ロジック変更の詳細分析。"
+        "general": "イラン系は破壊そのものよりも、社会不安・政治的シグナル・報復圧力としてOTを使う傾向を強めている。",
+        "geopolitical": "中東正面の緊張が米本土のインフラ圧力へ波及する典型例であり、サイバー空間が地政学的報復の即応手段となっている。",
+        "business": "日本でも露出OTの棚卸しと遠隔保守経路の統制が不十分な組織は同様のリスクを抱える。",
+        "research_direction": "CyberAv3ngers等既知IRGC系クラスターとのTTP一致、使用ポート、認証回避手口、地理的拡張を継続調査。"
       },
       "assessment": {
         "significance": "high",
         "confidence": "medium",
-        "why_it_matters": "物理プロセス停止に直結。",
-        "delta_from_previous": "複数セクターへの波及が明確化。"
+        "why_it_matters": "OTへの低コスト攻撃でも社会・政治・規制コストは大きく、平時の抑止・報復手段として有効だから。",
+        "delta_from_previous": "2023-2024年のUnitronics中心の議論から、2026年はより広い米重要インフラ部門への横展開として警告が強まった。"
       },
+      "related_campaigns": ["CyberAv3ngers"],
+      "related_reports": ["2026/04/07_サイバー事象概要"],
+      "tags": ["Iran", "OT", "PLC", "critical infrastructure", "ICS"],
       "sources": [
         {
-          "title": "Iranian-Affiliated Cyber Actors Exploit PLCs",
+          "title": "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers in US Critical Infrastructure Sectors",
           "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a",
           "publisher": "CISA",
           "published_at": "2026-04-07"
-        }
-      ]
-    },
-    {
-      "id": "2026-04-12_apt28_dns_hijack",
-      "type": "incident",
-      "status": "更新",
-      "campaign": {
-        "name": "APT28 DNS hijacking",
-        "aliases": [
-          "Fancy Bear"
-        ],
-        "cluster": "GRU Unit 26165",
-        "suspected_actor": "APT28",
-        "attribution_confidence": "high"
-      },
-      "name": "APT28によるDNSハイジャック",
-      "category": "国家系サイバー作戦",
-      "industry": [
-        "政府",
-        "軍事",
-        "通信"
-      ],
-      "region": [
-        "Global"
-      ],
-      "first_seen": "2024-01-01",
-      "last_seen": "2026-04-07",
-      "summary": "APT28がルータを侵害しDNS設定を改ざん、AiTM攻撃を実施。",
-      "details": "TP-Linkルータを侵害しDNSをGRU管理サーバへ誘導、認証情報窃取を実施。",
-      "actors": [
+        },
         {
-          "name": "APT28",
-          "country": "Russia"
-        }
-      ],
-      "ttp": [
-        "T1557 Adversary-in-the-Middle",
-        "DNS hijacking"
-      ],
-      "strategic_view": {
-        "general": "通信基盤レベルの諜報。",
-        "geopolitical": "露宇文脈での継続作戦。",
-        "business": "拠点ルータが盲点。",
-        "research_direction": "侵害機器特定。"
-      },
-      "assessment": {
-        "significance": "high",
-        "confidence": "high",
-        "why_it_matters": "認証フロー自体が破壊される。",
-        "delta_from_previous": "大規模ルータ悪用が明確化。"
-      },
-      "sources": [
-        {
-          "title": "DOJ DNS disruption",
-          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
-          "publisher": "DOJ",
+          "title": "Iran-Linked Hackers Disrupt US Critical Infrastructure via PLC Attacks",
+          "url": "https://www.securityweek.com/iran-linked-hackers-disrupt-us-critical-infrastructure-via-plc-attacks/",
+          "publisher": "SecurityWeek",
           "published_at": "2026-04-07"
         }
       ]
     },
     {
-      "id": "2026-04-12_adobe_zero_day",
+      "id": "2026-04-13_cpuid_trojanized_downloads",
       "type": "incident",
       "status": "新規",
       "campaign": {
-        "name": "Adobe CVE-2026-34621",
-        "aliases": [],
-        "cluster": "unknown",
-        "suspected_actor": "unknown",
-        "attribution_confidence": "low"
+        "name": "CPUID Trojanized Download Campaign",
+        "aliases": ["STX RAT delivery via CPUID"],
+        "cluster": "Software distribution channel compromise",
+        "suspected_actor": "Unknown likely Russian-speaking actor",
+        "attribution_confidence": "medium"
       },
-      "name": "Adobe Acrobatゼロデイ",
-      "category": "ゼロデイ脆弱性",
-      "industry": [
-        "横断"
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "Compromised CPUID side API",
+          "Malicious download domain",
+          "Trojanized installer chain"
+        ],
+        "capability": [
+          "Software distribution compromise",
+          "Credential theft",
+          "RAT delivery",
+          "DLL sideloading"
+        ],
+        "victim": [
+          "Users of CPU-Z",
+          "Users of HWMonitor",
+          "Enterprise endpoints in multiple sectors"
+        ]
+      },
+      "name": "CPUID配布基盤侵害によるCPU-Z/HWMonitor汚染配布",
+      "category": "サイバー犯罪",
+      "industry": ["ソフトウェア", "製造", "通信", "小売"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-09",
+      "last_seen": "2026-04-13",
+      "summary": "CPUIDのダウンロードページが侵害され、CPU-ZやHWMonitor等の正規ツール配布が一時的にトロイ化インストーラへ差し替えられた。4月13日に詳細報道が出ており、当日の新規重視案件。",
+      "details": "攻撃者はCPUID側のサイドAPIを侵害し、公式サイト利用者を悪性ドメイン上のトロイ化インストーラへ誘導した。公開報道では侵害は約6時間とされるが、日付ベースでは4月9日から4月10日にかけての時間帯を含む可能性があるため、first_seenは4月9日に修正した。最終ペイロードはSTX RATで、認証情報窃取やDLL sideloadingが確認されている。",
+      "actors": [
+        {
+          "name": "Unknown threat actor",
+          "role": "攻撃主体"
+        },
+        {
+          "name": "CPUID",
+          "role": "被害組織"
+        },
+        {
+          "name": "Kaspersky",
+          "role": "分析支援"
+        }
       ],
-      "region": [
-        "Global"
-      ],
-      "first_seen": "2026-04-11",
-      "last_seen": "2026-04-12",
-      "summary": "Adobe Readerのゼロデイ脆弱性が実地悪用。",
-      "details": "Prototype Pollutionにより任意コード実行。4月12日にCVSS更新。",
       "ttp": [
-        "T1204.002",
-        "CVE-2026-34621"
+        "T1189 Drive-by Compromise",
+        "T1574 DLL Search Order Hijacking",
+        "T1105 Ingress Tool Transfer",
+        "T1555 Credentials from Password Stores"
       ],
+      "malware": ["STX RAT"],
+      "infrastructure": [
+        "Compromised CPUID API",
+        "Malicious redirect domain",
+        "Trojanized ZIP/installer packages"
+      ],
+      "targeting": {
+        "sectors": ["Software", "Manufacturing", "Retail", "Telecommunications"],
+        "countries": ["Global"],
+        "organization_types": ["Enterprise user", "Administrator workstation", "Individual user"]
+      },
       "strategic_view": {
-        "general": "文書経由侵入の典型。",
-        "geopolitical": "主体不明だが汎用性高い。",
-        "business": "PDF依存環境でリスク高。",
-        "research_direction": "配布経路分析。"
+        "general": "一般利用ソフトの公式配布面が侵害されることで、供給網攻撃が開発者だけでなく幅広い運用現場へ拡大している。",
+        "geopolitical": "国家系の専売特許だった供給網汚染が犯罪側にも普及し、境界が曖昧化している。",
+        "business": "日本企業でも保守・検証用フリーウェアの黙認利用が多く、アプリ許可制と取得経路統制の再点検が必要。",
+        "research_direction": "FileZillaトロイ化とのインフラ・コード再利用、STX RAT系統、侵害期間の確定を深掘りすべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "管理者端末や検証環境で使われやすいツールが汚染されたため、単純なダウンロード改ざん以上に横展開余地が大きい。",
+        "delta_from_previous": "侵害期間の起点を4月10日から4月9日に修正し、時間窓をより保守的に表現した。"
+      },
+      "related_campaigns": ["FileZilla trojanized distribution"],
+      "related_reports": ["2026/04/13_サイバー事象概要"],
+      "tags": ["supply chain", "CPUID", "CPU-Z", "HWMonitor", "STX RAT"],
+      "sources": [
+        {
+          "title": "CPUID Hacked to Serve Trojanized CPU-Z and HWMonitor Downloads",
+          "url": "https://www.securityweek.com/cpuid-hacked-to-serve-trojanized-cpu-z-and-hwmonitor-downloads/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-13"
+        },
+        {
+          "title": "HWMonitor and CPU-Z developer CPUID breached by unknown attackers - cyberattack forced users to download malware instead of valid apps for six hours",
+          "url": "https://www.tomshardware.com/tech-industry/cyber-security/hwmonitor-and-cpu-z-developer-cpuid-breached-by-unknown-attackers-cyberattack-forced-users-to-download-malware-instead-of-valid-apps-for-approximately-six-hours",
+          "publisher": "Tom's Hardware",
+          "published_at": "2026-04-10"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-13_openai_axios_supply_chain",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Axios npm Supply Chain Compromise",
+        "aliases": ["Axios compromise", "Sapphire Sleet activity"],
+        "cluster": "Open source dependency compromise",
+        "suspected_actor": "North Korea-linked Sapphire Sleet",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Sapphire Sleet",
+        "infrastructure": [
+          "Compromised maintainer account",
+          "Malicious npm package versions",
+          "GitHub Actions workflows",
+          "Actor C2 infrastructure"
+        ],
+        "capability": [
+          "Supply chain compromise",
+          "Cross-platform malware delivery",
+          "Signing workflow exposure"
+        ],
+        "victim": [
+          "OpenAI",
+          "Developers using Axios",
+          "CI/CD environments"
+        ]
+      },
+      "name": "Axios供給網侵害によるOpenAI証明書ローテーション事案",
+      "category": "サイバー犯罪",
+      "industry": ["AI", "ソフトウェア", "クラウド"],
+      "region": ["米国", "グローバル"],
+      "first_seen": "2026-03-31",
+      "last_seen": "2026-04-13",
+      "summary": "2026年3月31日に侵害された悪性Axiosパッケージにより、OpenAIのmacOSアプリ署名ワークフローが影響を受け、旧証明書のローテーションと5月8日失効対応が進められている事案。",
+      "details": "OpenAIは、2026年3月31日（UTC）にGitHub Actionsワークフローが悪性Axios 1.14.1を取得・実行したと説明している。このワークフローはChatGPT Desktop、Codex、Codex-cli、Atlasの署名・公証素材へアクセス可能だった。OpenAIは証明書の流出成功を示す証拠は確認していないが、予防的にローテーションと失効を進めている。MicrosoftはAxios npm compromise を北朝鮮国家アクターSapphire Sleetへ帰属している。",
+      "actors": [
+        {
+          "name": "Sapphire Sleet",
+          "role": "攻撃主体",
+          "country": "北朝鮮"
+        },
+        {
+          "name": "OpenAI",
+          "role": "影響組織",
+          "country": "米国"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1078 Valid Accounts",
+        "T1552 Unsecured Credentials",
+        "Compromised npm package publication"
+      ],
+      "malware": ["Malicious Axios package", "Second-stage RAT payload"],
+      "infrastructure": [
+        "npm registry",
+        "Compromised maintainer access",
+        "GitHub Actions CI workflows",
+        "Sapphire Sleet-attributed C2"
+      ],
+      "targeting": {
+        "sectors": ["AI", "Software Development", "Cloud Services"],
+        "countries": ["United States", "Global"],
+        "organization_types": ["AI company", "Developer organization", "CI/CD operator"]
+      },
+      "strategic_view": {
+        "general": "最先端AI企業でも、まず突かれるのは一般的なソフトウェア供給網と署名基盤であることを示した。",
+        "geopolitical": "北朝鮮系の資金獲得・情報窃取志向がAI産業にも接続し、国家系と犯罪系の境界が一層曖昧になっている。",
+        "business": "日本企業でもGitHub Actionsや外部依存パッケージへの信頼前提を見直し、バージョン固定・コミット固定・リリース年齢制限・署名分離が必要。",
+        "research_direction": "Sapphire Sleetの依存関係汚染手法、npm以外への横展開、署名鍵露出の後続悪用を継続監視。"
       },
       "assessment": {
         "significance": "high",
         "confidence": "high",
-        "why_it_matters": "利用者母数が極大。",
-        "delta_from_previous": "CVSS修正反映。"
+        "why_it_matters": "AI企業の実被害有無に関わらず、署名基盤の信頼性低下はエコシステム全体に波及するため。",
+        "delta_from_previous": "アクター帰属をUNC1069からSapphire Sleetへ更新し、first_seenもOpenAI公式記載に合わせて2026-03-31へ修正した。"
       },
+      "related_campaigns": ["North Korea-linked npm supply chain compromises"],
+      "related_reports": ["2026/04/13_サイバー事象概要"],
+      "tags": ["Axios", "OpenAI", "Sapphire Sleet", "supply chain", "GitHub Actions"],
       "sources": [
         {
-          "title": "Adobe APSB26-43",
-          "url": "https://helpx.adobe.com/security/products/acrobat/apsb26-43.html",
-          "publisher": "Adobe",
+          "title": "Our response to the Axios developer tool compromise",
+          "url": "https://openai.com/index/axios-developer-tool-compromise/",
+          "publisher": "OpenAI",
           "published_at": "2026-04-11"
+        },
+        {
+          "title": "Mitigating the Axios npm supply chain compromise",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/01/mitigating-the-axios-npm-supply-chain-compromise/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "OpenAI identifies security issue involving third-party tool, says user data was not accessed",
+          "url": "https://www.reuters.com/business/openai-identifies-security-issue-involving-third-party-tool-says-user-data-was-2026-04-11/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-11"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-13_adobe_reader_zero_day",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Adobe Reader Zero-Day Exploitation",
+        "aliases": ["CVE-2026-34621 exploitation"],
+        "cluster": "Document-based zero-day activity",
+        "suspected_actor": "Unknown possibly APT-linked actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "Malicious PDF lure files",
+          "Client-side exploitation chain"
+        ],
+        "capability": [
+          "Client-side zero-day exploitation",
+          "Potential arbitrary code execution",
+          "Document lure delivery"
+        ],
+        "victim": [
+          "Adobe Reader users",
+          "Potential spearphishing targets"
+        ]
+      },
+      "name": "Adobe Readerゼロデイ脆弱性CVE-2026-34621の継続悪用",
+      "category": "サイバー犯罪",
+      "industry": ["全業種"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-09",
+      "last_seen": "2026-04-13",
+      "summary": "Adobe Acrobat/ReaderのゼロデイCVE-2026-34621が、少なくとも数か月間悪用されていたとされる事案。4月12日にAdobeが緊急修正し、4月13日にCISA KEV追加。",
+      "details": "研究者は4月9日に本脆弱性を報告し、Adobeは4月12日に修正版を公開した。SecurityWeekによれば、悪用は少なくとも数か月継続していた可能性があり、ロシア語文書や油ガス分野の時事を参照する誘導ファイルが確認されている。4月13日にCISAがKEVへ追加したことで、単なる脆弱性公表ではなく、実際の運用中ゼロデイとしての重要度が確定した。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "攻撃主体"
+        },
+        {
+          "name": "Adobe",
+          "role": "対応組織",
+          "country": "米国"
+        },
+        {
+          "name": "CISA",
+          "role": "KEV追加",
+          "country": "米国"
+        }
+      ],
+      "ttp": [
+        "T1566.001 Spearphishing Attachment",
+        "T1203 Exploitation for Client Execution",
+        "CVE-2026-34621"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Malicious PDF files",
+        "Email delivery channels"
+      ],
+      "targeting": {
+        "sectors": ["Cross-sector"],
+        "countries": ["Global"],
+        "organization_types": ["Enterprise user", "Government user", "Energy-related target"]
+      },
+      "strategic_view": {
+        "general": "PDFは依然として普遍的な侵入口であり、ゼロデイの静かな長期運用が続いている可能性を示す。",
+        "geopolitical": "ロシア語誘導文書や油ガス文脈は、国家系または高度標的型での利用可能性を示唆するが、帰属は未確定。",
+        "business": "多くの組織でAdobe Readerは必須ソフトであり、パッチ遅延が横断的リスクになる。",
+        "research_direction": "実際のペイロード、標的業種、文書テーマ、他の文書型ゼロデイとの関連を継続調査。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "KEV入りした運用中ゼロデイであり、全業種に共通するクライアント面の大規模リスクだから。",
+        "delta_from_previous": "大きな修正は不要。4月12日修正、4月13日KEV追加の時系列で維持。"
+      },
+      "related_campaigns": [],
+      "related_reports": ["2026/04/12_サイバー事象概要"],
+      "tags": ["Adobe", "zero-day", "PDF", "KEV", "client-side exploitation"],
+      "sources": [
+        {
+          "title": "Adobe Patches Reader Zero-Day Exploited for Months",
+          "url": "https://www.securityweek.com/adobe-patches-reader-zero-day-exploited-for-months/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-12"
+        },
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-13"
         }
       ]
     }

@@ -9,12 +9,20 @@
       --bg: #0b1020;
       --panel: #131a2a;
       --panel-2: #1a2338;
+      --panel-3: #101728;
       --border: #2a3550;
       --text: #e8edf7;
       --muted: #9fb0cc;
       --accent: #6ea8fe;
       --accent-2: #8bd3ff;
       --shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      --high: #ff6b6b;
+      --medium: #f4c430;
+      --low: #57cc99;
+      --monitor: #8d99ae;
+      --new: #57cc99;
+      --ongoing: #8bd3ff;
+      --assessment: #f4c430;
     }
 
     * {
@@ -194,18 +202,18 @@
     .timeline {
       padding: 18px;
       display: grid;
-      gap: 14px;
+      gap: 16px;
     }
 
     .timeline-item {
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--panel-2);
       overflow: hidden;
     }
 
     .timeline-main {
-      padding: 14px 16px;
+      padding: 14px 16px 18px;
     }
 
     .timeline-date {
@@ -215,25 +223,75 @@
       font-weight: 600;
     }
 
-    .timeline-title {
-      margin: 0 0 8px;
-      font-size: 1rem;
+    .summary-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel-3);
+      overflow: hidden;
+    }
+
+    .summary-card-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .summary-card-title {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    .summary-card-subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.86rem;
       line-height: 1.5;
     }
 
-    .timeline-summary {
-      margin: 0;
+    .summary-card-body {
+      padding: 14px 16px 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 0.78rem;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .field-value {
+      font-size: 0.95rem;
       line-height: 1.65;
+      color: var(--text);
       white-space: pre-wrap;
       word-break: break-word;
     }
 
-    .timeline-meta {
+    .field-value.compact {
+      font-size: 0.9rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
     }
 
     .badge {
@@ -245,9 +303,69 @@
       color: var(--text);
     }
 
+    .status-new {
+      border-color: rgba(87, 204, 153, 0.5);
+      color: var(--new);
+    }
+
+    .status-ongoing {
+      border-color: rgba(139, 211, 255, 0.5);
+      color: var(--ongoing);
+    }
+
+    .status-assessment_update {
+      border-color: rgba(244, 196, 48, 0.5);
+      color: var(--assessment);
+    }
+
+    .urgency-high {
+      border-color: rgba(255, 107, 107, 0.5);
+      color: var(--high);
+    }
+
+    .urgency-medium {
+      border-color: rgba(244, 196, 48, 0.5);
+      color: var(--medium);
+    }
+
+    .urgency-low {
+      border-color: rgba(87, 204, 153, 0.5);
+      color: var(--low);
+    }
+
+    .urgency-monitor {
+      border-color: rgba(141, 153, 174, 0.5);
+      color: var(--monitor);
+    }
+
+    .supplementary-card {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .supplementary-title {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .inline-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     details.raw-json {
-      border-top: 1px solid var(--border);
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
       background: rgba(0, 0, 0, 0.14);
+      overflow: hidden;
     }
 
     details.raw-json summary {
@@ -256,6 +374,11 @@
       padding: 12px 16px;
       color: var(--muted);
       font-size: 0.88rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    details.raw-json[open] summary {
+      border-bottom-color: var(--border);
     }
 
     details.raw-json summary::-webkit-details-marker {
@@ -268,7 +391,7 @@
 
     .json-block {
       margin: 0;
-      padding: 0 16px 16px;
+      padding: 12px 16px 16px;
       overflow: auto;
       font-size: 0.83rem;
       line-height: 1.55;
@@ -324,13 +447,17 @@
       .layout {
         grid-template-columns: 1fr;
       }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>CTI / OSINT Portal</h1>
-    <p>Campaign を actor 単位で整理し、時系列で閲覧できるビュー</p>
+    <p>Campaign を actor 単位で整理し、結論先行で閲覧できるビュー</p>
     <div class="toolbar">
       <input id="searchInput" type="text" placeholder="actor名で検索（例: APT29, TA416）" />
     </div>
@@ -364,8 +491,8 @@
         <div class="hero">
           <h2 class="hero-title">Campaignを選択してください</h2>
           <div class="hero-meta">
-            <span class="hero-chip">actorカード → 時系列ビュー</span>
-            <span class="hero-chip">JSON生表示は折りたたみ</span>
+            <span class="hero-chip">結論先行の要約カード</span>
+            <span class="hero-chip">必要時のみ JSON 参照</span>
           </div>
         </div>
         <div class="empty">
@@ -459,51 +586,140 @@
         });
     }
 
-    function summarizeRecord(record, fallbackPath) {
-      if (!record || typeof record !== "object") {
-        return {
-          title: fallbackPath,
-          summary: "JSONの読み込み結果を要約できませんでした。",
-          badges: []
-        };
+    function pickFirstActorConfidence(record) {
+      if (!record || !Array.isArray(record.items)) return null;
+
+      for (const item of record.items) {
+        if (Array.isArray(item.actors) && item.actors.length > 0) {
+          const confidence = item.actors[0]?.confidence;
+          if (confidence) return confidence;
+        }
       }
+      return null;
+    }
 
-      const title =
-        record.title ||
-        record.name ||
-        record.campaign_summary ||
-        fallbackPath;
+    function pickFirstItemName(record) {
+      if (!record || !Array.isArray(record.items) || record.items.length === 0) return null;
+      const first = record.items[0];
+      return first.name || first.title || null;
+    }
 
-      let summary = "";
+    function pickFirstItemSummary(record) {
+      if (!record || !Array.isArray(record.items) || record.items.length === 0) return null;
+      const first = record.items[0];
+      return first.summary || null;
+    }
 
-      if (typeof record.campaign_summary === "string" && record.campaign_summary.trim()) {
-        summary = record.campaign_summary.trim();
-      } else if (typeof record.summary === "string" && record.summary.trim()) {
-        summary = record.summary.trim();
-      } else if (typeof record.assessment_delta === "string" && record.assessment_delta.trim()) {
-        summary = record.assessment_delta.trim();
-      } else if (Array.isArray(record.change_summary) && record.change_summary.length > 0) {
-        summary = record.change_summary.join(" / ");
-      } else if (Array.isArray(record.items) && record.items.length > 0) {
-        const first = record.items[0];
-        summary =
-          first.summary ||
-          first.name ||
-          first.title ||
-          "items配下に記録あり";
-      } else {
-        summary = "要約フィールド未設定";
+    function firstNonEmpty(...values) {
+      for (const value of values) {
+        if (typeof value === "string" && value.trim()) return value.trim();
       }
+      return "";
+    }
 
-      const badges = [];
+    function asArray(value) {
+      if (Array.isArray(value)) return value.filter(v => String(v ?? "").trim());
+      if (typeof value === "string" && value.trim()) return [value.trim()];
+      return [];
+    }
 
-      if (record.update_type) badges.push(String(record.update_type));
-      if (record.status) badges.push(String(record.status));
-      if (Array.isArray(record.tags)) {
-        record.tags.slice(0, 4).forEach(tag => badges.push(String(tag)));
-      }
+    function joinList(value) {
+      const arr = asArray(value);
+      return arr.length ? arr.join(" / ") : "";
+    }
 
-      return { title, summary, badges };
+    function buildCardData(record, fallbackPath, fallbackDate, actorName) {
+      const campaignOrActor = firstNonEmpty(
+        record.campaign?.name,
+        record.campaign_name,
+        record.name,
+        actorName,
+        pickFirstItemName(record),
+        fallbackPath
+      );
+
+      const status = firstNonEmpty(record.update_type, record.status, "ongoing");
+
+      const executiveSummary = firstNonEmpty(
+        record.executive_summary,
+        record.campaign_summary,
+        record.summary,
+        pickFirstItemSummary(record),
+        "要約未設定"
+      );
+
+      const changeSummary = joinList(record.change_summary);
+
+      const executiveCombined = changeSummary
+        ? `${executiveSummary}\n\n前回からの主な差分: ${changeSummary}`
+        : executiveSummary;
+
+      const operationalRelevance = firstNonEmpty(
+        record.operational_relevance,
+        record.assessment_delta,
+        record.strategic_view?.general,
+        "記載なし"
+      );
+
+      const urgency = firstNonEmpty(record.urgency, "monitor");
+
+      const recommendedAction = joinList(record.recommended_action) || "記載なし";
+
+      const confidence = firstNonEmpty(
+        record.confidence,
+        record.attribution_confidence,
+        pickFirstActorConfidence(record),
+        "未設定"
+      );
+
+      const aliases = asArray(
+        record.campaign?.aliases ||
+        record.aliases
+      );
+
+      const suspectedActor = firstNonEmpty(
+        record.campaign?.suspected_actor,
+        record.suspected_actor
+      );
+
+      const tags = asArray(record.tags);
+
+      return {
+        campaignOrActor,
+        date: fallbackDate || "-",
+        status,
+        executiveCombined,
+        operationalRelevance,
+        urgency,
+        recommendedAction,
+        confidence,
+        aliases,
+        suspectedActor,
+        tags
+      };
+    }
+
+    function statusLabel(value) {
+      const v = String(value || "").toLowerCase();
+      if (v === "new") return "新規";
+      if (v === "ongoing") return "継続";
+      if (v === "assessment_update" || v === "update_assessment") return "評価更新";
+      return value || "未設定";
+    }
+
+    function urgencyLabel(value) {
+      const v = String(value || "").toLowerCase();
+      if (v === "high") return "高";
+      if (v === "medium") return "中";
+      if (v === "low") return "低";
+      if (v === "monitor") return "監視";
+      return value || "未設定";
+    }
+
+    function cssSafe(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]/g, "_");
     }
 
     function renderCampaignList() {
@@ -546,6 +762,50 @@
       });
     }
 
+    function renderSupplementaryCard(card) {
+      const aliasHtml = card.aliases.length
+        ? `
+          <div class="field">
+            <div class="field-label">Aliases</div>
+            <div class="inline-list">
+              ${card.aliases.map(alias => `<span class="badge">${escapeHtml(alias)}</span>`).join("")}
+            </div>
+          </div>
+        `
+        : "";
+
+      const actorHtml = card.suspectedActor
+        ? `
+          <div class="field">
+            <div class="field-label">Suspected Actor</div>
+            <div class="field-value compact">${escapeHtml(card.suspectedActor)}</div>
+          </div>
+        `
+        : "";
+
+      const tagsHtml = card.tags.length
+        ? `
+          <div class="field">
+            <div class="field-label">Tags</div>
+            <div class="inline-list">
+              ${card.tags.map(tag => `<span class="badge">${escapeHtml(tag)}</span>`).join("")}
+            </div>
+          </div>
+        `
+        : "";
+
+      if (!aliasHtml && !actorHtml && !tagsHtml) return "";
+
+      return `
+        <div class="supplementary-card">
+          <h4 class="supplementary-title">Supplementary Information</h4>
+          ${actorHtml}
+          ${aliasHtml}
+          ${tagsHtml}
+        </div>
+      `;
+    }
+
     async function renderSelectedActor() {
       const content = document.getElementById("contentArea");
       const actor = state.selectedActor;
@@ -555,9 +815,6 @@
         content.innerHTML = `
           <div class="hero">
             <h2 class="hero-title">Campaignを選択してください</h2>
-            <div class="hero-meta">
-              <span class="hero-chip">actorカード → 時系列ビュー</span>
-            </div>
           </div>
           <div class="empty">左側から actor を選択してください。</div>
         `;
@@ -570,7 +827,7 @@
           <div class="hero-meta">
             <span class="hero-chip">記録件数: ${group.count}</span>
             <span class="hero-chip">最新更新日: ${escapeHtml(group.latestDate || "-")}</span>
-            <span class="hero-chip">JSON生表示: 折りたたみ</span>
+            <span class="hero-chip">結論先行表示</span>
           </div>
         </div>
         <div class="loading">時系列データを読み込み中...</div>
@@ -590,28 +847,85 @@
 
         const timelineHtml = records.map(({ file, data, ok }) => {
           const date = file.date || "-";
-          const meta = summarizeRecord(data, file.path);
           const jsonText = JSON.stringify(data, null, 2);
+
+          if (!ok) {
+            return `
+              <article class="timeline-item">
+                <div class="timeline-main">
+                  <div class="timeline-date">${escapeHtml(date)}</div>
+                  <div class="error">読み込み失敗: ${escapeHtml(data._error || "unknown error")}</div>
+                  <details class="raw-json">
+                    <summary>Appendix: JSONを表示</summary>
+                    <pre class="json-block">${escapeHtml(jsonText)}</pre>
+                  </details>
+                </div>
+              </article>
+            `;
+          }
+
+          const card = buildCardData(data, file.path, date, group.actor);
 
           return `
             <article class="timeline-item">
               <div class="timeline-main">
                 <div class="timeline-date">${escapeHtml(date)}</div>
-                <h3 class="timeline-title">${escapeHtml(meta.title)}</h3>
-                <p class="timeline-summary">${
-                  ok
-                    ? escapeHtml(meta.summary)
-                    : `読み込み失敗: ${escapeHtml(data._error || "unknown error")}`
-                }</p>
-                <div class="timeline-meta">
-                  ${meta.badges.map(b => `<span class="badge">${escapeHtml(b)}</span>`).join("")}
-                  <span class="badge">${escapeHtml(file.path)}</span>
-                </div>
+
+                <section class="summary-card">
+                  <div class="summary-card-header">
+                    <div>
+                      <h3 class="summary-card-title">${escapeHtml(card.campaignOrActor)}</h3>
+                      <div class="summary-card-subtitle">
+                        最新の事象日付: ${escapeHtml(card.date)}
+                      </div>
+                    </div>
+                    <div class="badge-row">
+                      <span class="badge status-${cssSafe(card.status)}">${escapeHtml(statusLabel(card.status))}</span>
+                      <span class="badge urgency-${cssSafe(card.urgency)}">緊急度: ${escapeHtml(urgencyLabel(card.urgency))}</span>
+                    </div>
+                  </div>
+
+                  <div class="summary-card-body">
+                    <div class="two-col">
+                      <div class="field">
+                        <div class="field-label">Campaign / Actor</div>
+                        <div class="field-value">${escapeHtml(card.campaignOrActor)}</div>
+                      </div>
+                      <div class="field">
+                        <div class="field-label">Confidence</div>
+                        <div class="field-value">${escapeHtml(card.confidence)}</div>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label">Executive Summary</div>
+                      <div class="field-value">${escapeHtml(card.executiveCombined)}</div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label">Operational Relevance</div>
+                      <div class="field-value">${escapeHtml(card.operationalRelevance)}</div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label">Urgency / Immediate Action</div>
+                      <div class="field-value">${escapeHtml(urgencyLabel(card.urgency))}</div>
+                    </div>
+
+                    <div class="field">
+                      <div class="field-label">Recommended Action</div>
+                      <div class="field-value">${escapeHtml(card.recommendedAction)}</div>
+                    </div>
+                  </div>
+                </section>
+
+                ${renderSupplementaryCard(card)}
+
+                <details class="raw-json">
+                  <summary>Appendix: raw JSON を表示</summary>
+                  <pre class="json-block">${escapeHtml(jsonText)}</pre>
+                </details>
               </div>
-              <details class="raw-json">
-                <summary>JSONを表示</summary>
-                <pre class="json-block">${escapeHtml(jsonText)}</pre>
-              </details>
             </article>
           `;
         }).join("");
