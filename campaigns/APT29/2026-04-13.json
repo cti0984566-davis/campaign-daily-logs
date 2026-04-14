@@ -1,12 +1,89 @@
 {
   "date": "2026-04-13",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
   "campaign": {
-    "name": "APT29",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "name": "APT29 Diplomatic and Credential Collection Operations",
+    "aliases": ["APT29", "Midnight Blizzard", "Cozy Bear", "The Dukes", "NOBELIUM"],
+    "cluster": "SVR-linked diplomatic espionage",
+    "suspected_actor": "Russia SVR-linked actor",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-13_apt29_continuity_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "4月13日時点のAPT29継続監視評価",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["欧州", "北米", "グローバル"],
+        "industries": ["政府", "外交", "政策", "研究"],
+        "organization_types": ["外務省", "大使館", "政治関係者", "政策研究機関"]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-13",
+      "activity_summary": "4月13日時点でAPT29に関する新たな大規模公開は限定的だが、2025年のdevice code phishing、application-specific passwords悪用、外交機関狙いの作戦の延長線上で継続監視対象と評価する。",
+      "activity_details": "公開OSINTでは4月13日当日にAPT29の新規大型インシデント公表は確認できなかった。一方で、AmazonやGoogle/Mandiant系の2025年後半までの開示は、APT29が外交・政治・政策関係者に対し、従来型フィッシングに加えてdevice code認証やアプリパスワード悪用のような低ノイズ・高成功率の認証型手法へ重点を移していることを示している。したがって、当日は“静かな継続脅威”として扱うのが妥当。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1078 Valid Accounts",
+        "T1111 Multi-Factor Authentication Interception",
+        "Device code phishing",
+        "Application-specific password abuse"
+      ],
+      "malware_and_tools": ["WINELOADER", "GRAPELOADER"],
+      "infrastructure": [
+        "Compromised legitimate websites",
+        "Actor-controlled phishing infrastructure",
+        "Cloud-hosted redirect domains"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は目立つ破壊よりも、外交・政策情報の静かな長期収集を主眼とするため、日次では“何も起きていないように見える”期間も警戒が必要。",
+        "geopolitical": "ロシアの対欧州・対NATO情報要求を支える中核アクターであり、政治判断・制裁・安全保障政策の先読みを狙う。",
+        "business": "企業でも政策渉外、シンクタンク連携、在外拠点など“外交周辺”にいる人材が狙われやすい。",
+        "research_direction": "2026年に入ってからのAPT29新規公開が限定的な理由が、作戦沈静化なのか、未検知なのかを継続確認する必要がある。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "4月13日に新規大規模公開がなくても、APT29は高い継続性と戦略的重要性を持つため。",
+        "delta_from_previous": "当日新情報は薄いが、前年から続く認証ベース侵害と外交標的化の延長線で継続監視とする。"
+      },
+      "related_campaigns": ["Device code phishing", "Application-specific password abuse"],
+      "tags": ["APT29", "Midnight Blizzard", "SVR", "diplomatic targeting", "credential theft"],
+      "sources": [
+        {
+          "title": "Amazon disrupts APT29 watering hole campaign abusing Microsoft device code authentication",
+          "url": "https://thehackernews.com/2025/08/amazon-disrupts-apt29-watering-hole.html",
+          "publisher": "The Hacker News",
+          "published_at": "2025-08-29"
+        },
+        {
+          "title": "2026 Cyber Threat Assessment",
+          "url": "https://www.cyber.nj.gov/threat-landscape/2026-cyber-threat-assessment",
+          "publisher": "NJCCIC",
+          "published_at": "2026-01-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": [
+          "Credential phishing sites",
+          "Compromised watering-hole sites",
+          "Cloud redirect infrastructure"
+        ],
+        "capability": [
+          "Credential collection",
+          "Low-noise diplomatic phishing",
+          "Account takeover"
+        ],
+        "victim": [
+          "Diplomatic entities",
+          "Political targets",
+          "Policy actors"
+        ]
+      }
+    }
+  ]
 }

@@ -1,12 +1,89 @@
 {
   "date": "2026-04-13",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
   "campaign": {
-    "name": "TA416",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
+    "name": "TA416 European Diplomatic Espionage",
+    "aliases": ["TA416", "RedDelta", "Mustang Panda overlap"],
+    "cluster": "China-aligned diplomatic espionage against Europe",
+    "suspected_actor": "China-aligned threat actor",
     "attribution_confidence": "medium"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-13_ta416_europe_diplomatic",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "欧州政府・外交機関に対するTA416の再活性化評価",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["欧州"],
+        "industries": ["政府", "外交", "安全保障"],
+        "organization_types": ["外交使節団", "EU関連組織", "NATO関連組織", "政府機関"]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-13",
+      "activity_summary": "Proofpointが4月1日に公表したとおり、TA416は2025年半ば以降、EU・NATO関連の外交機関に対してWeb bug、PlugX、OAuth悪用を含む作戦を再活性化している。4月13日時点では継続監視案件。",
+      "activity_details": "Proofpointは、TA416が一時的に欧州重視を弱めた後、2025年半ばから欧州の外交・政府標的へ回帰したと報告した。活動には、メール開封確認用のWeb bugで対象をプロファイリングした後、PlugX系マルウェア配布やOAuthを介した資格情報・アクセス獲得を狙う複数波のキャンペーンが含まれる。標的はEU・NATO加盟国の外交使節団が中心で、中国の対欧州政策・安全保障関心と整合する。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1056 Input Capture",
+        "T1090 Proxy",
+        "OAuth abuse",
+        "Web bug profiling"
+      ],
+      "malware_and_tools": ["PlugX", "Web bug tracking pixel"],
+      "infrastructure": [
+        "Phishing email infrastructure",
+        "Actor-controlled delivery URLs",
+        "OAuth consent abuse paths"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は単純なマルウェア配布だけでなく、開封確認・対象選別・認証悪用を組み合わせた運用成熟度を示している。",
+        "geopolitical": "欧州の外交政策、安全保障、対中議論を継続的に収集する中国系諜報の一環とみられる。",
+        "business": "日本企業でも欧州拠点や国際会議参加者、対外渉外担当は類似手口の対象となり得る。",
+        "research_direction": "TA416とMustang Pandaの重なり、PlugX系統、OAuth abuseの具体的実装差分を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "中国系アクターが欧州外交空間で再び活動量を上げていることは、中台・欧州・NATOをまたぐ政策情報収集の強化を示すため。",
+        "delta_from_previous": "4月1日のProofpoint公表を受け、TA416の重点が再び欧州外交標的へ移っていることがより明確になった。"
+      },
+      "related_campaigns": ["Mustang Panda activity", "PlugX campaigns"],
+      "tags": ["TA416", "China", "PlugX", "OAuth abuse", "diplomatic targeting"],
+      "sources": [
+        {
+          "title": "I'd Come Running Back to EU Again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Phishing infrastructure",
+          "Tracking pixel hosts",
+          "OAuth abuse workflows"
+        ],
+        "capability": [
+          "Target profiling",
+          "Credential and access theft",
+          "PlugX delivery"
+        ],
+        "victim": [
+          "EU diplomatic missions",
+          "NATO-related entities",
+          "European government organizations"
+        ]
+      }
+    }
+  ]
 }

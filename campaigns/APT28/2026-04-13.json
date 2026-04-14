@@ -1,12 +1,91 @@
 {
   "date": "2026-04-13",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
   "campaign": {
-    "name": "APT28",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "name": "APT28 Router AitM Espionage",
+    "aliases": ["APT28", "Fancy Bear", "Forest Blizzard", "FrostArmada"],
+    "cluster": "GRU-linked espionage via compromised SOHO routers",
+    "suspected_actor": "Russia GRU-linked actor",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-13_apt28_router_aitm",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "SOHOルーター侵害によるDNSハイジャック・AitM作戦の継続評価",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["欧州", "北米", "アジア", "グローバル"],
+        "industries": ["政府", "防衛", "重要インフラ", "通信"],
+        "organization_types": ["政府機関", "軍関連組織", "外務・外交機関", "メールサービス利用組織"]
+      },
+      "first_seen": "2025-08-01",
+      "last_seen": "2026-04-13",
+      "activity_summary": "APT28はTP-LinkおよびMikroTikルーターの侵害を基点に、悪性DNS解決とAitMで認証情報・トークンを収集する作戦を継続していた。4月13日時点では、4月7-8日に公表された米英独・Microsoftの一連の開示を受けた継続監視案件。",
+      "activity_details": "米司法省とFBIは4月8日に妨害措置を発表し、Microsoftは4月7日にForest Blizzardの詳細な攻撃チェーンを公表した。攻撃者はCVE-2023-50224や設定不備を利用してSOHOルーターへ侵入し、DHCP/DNS設定を書き換え、選別したトラフィックのみを不正DNS解決させてAitMを成立させた。標的は政府・軍事・重要インフラ分野が中心で、OutlookやMicrosoft 365関連認証情報の窃取が重視されている。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1557 Adversary-in-the-Middle",
+        "T1040 Network Sniffing",
+        "T1565 Data Manipulation",
+        "CVE-2023-50224"
+      ],
+      "malware_and_tools": ["dnsmasq", "悪性DNSリゾルバ", "AitM用プロキシ基盤"],
+      "infrastructure": [
+        "Compromised TP-Link routers",
+        "Compromised MikroTik routers",
+        "Actor-controlled DNS resolvers",
+        "Proxy infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "端末ではなく通信経路を掌握するロシア系諜報の回帰であり、従来のメール侵害より低可視・広域な収集モデルが前面化した。",
+        "geopolitical": "欧州安全保障とウクライナ戦争関連の情報収集に資する平時諜報であり、危機時の通信妨害準備とも接続し得る。",
+        "business": "在外拠点や小規模拠点の境界機器管理が弱い組織は、日本企業でも同様にリスクが高い。",
+        "research_direction": "侵害済みルーター群の再利用、Storm-2754との役割分担、標的ドメイン選別ロジックを継続分析。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "通信経路の支配は認証情報窃取だけでなく、追加侵入・標的選別・監視継続の基盤となるため。",
+        "delta_from_previous": "4月7-8日の公式公表により、APT28の最近の重点がSOHOルーター悪用とAitMにあることがより明確化した。"
+      },
+      "related_campaigns": ["Authentic Antics"],
+      "tags": ["APT28", "Forest Blizzard", "router compromise", "DNS hijacking", "AitM"],
+      "sources": [
+        {
+          "title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/07/soho-router-compromise-leads-to-dns-hijacking-and-adversary-in-the-middle-attacks/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "US disrupts Russian military-run DNS hijacking network, Justice Department says",
+          "url": "https://www.reuters.com/business/media-telecom/us-disrupts-russian-military-run-dns-hijacking-network-justice-department-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Forest Blizzard",
+        "infrastructure": [
+          "Compromised routers",
+          "Actor DNS servers",
+          "Proxy nodes"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "AitM interception",
+          "Credential theft"
+        ],
+        "victim": [
+          "Government",
+          "Defense",
+          "Critical infrastructure",
+          "Email users"
+        ]
+      }
+    }
+  ]
 }
