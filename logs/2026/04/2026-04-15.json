@@ -1,0 +1,628 @@
+{
+  "date": "2026-04-15",
+  "timezone": "JST",
+  "title": "2026/04/15_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-15_russia_ukraine_prosecutor_mailboxes",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "APT28-suspected espionage against Ukrainian prosecutors",
+        "aliases": [
+          "Fancy Bear",
+          "APT28",
+          "Sofacy"
+        ],
+        "cluster": "対ウクライナ・対欧州メール侵害作戦",
+        "suspected_actor": "APT28 / Fancy Bear が疑われるロシア系国家支援アクター",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "APT28（suspected）",
+        "infrastructure": [
+          "侵害メールボックス",
+          "メールサービス基盤"
+        ],
+        "capability": [
+          "メール収集",
+          "資格情報悪用",
+          "長期潜伏型諜報"
+        ],
+        "victim": [
+          "ウクライナ検察・捜査機関",
+          "ルーマニア空軍",
+          "ギリシャ・ブルガリア・セルビアの政府・軍関係者"
+        ]
+      },
+      "name": "ロシア系によるウクライナ検察・周辺欧州機関の大規模メール侵害（APT28関与の可能性）",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "司法",
+        "軍"
+      ],
+      "region": [
+        "ウクライナ",
+        "ルーマニア",
+        "ギリシャ",
+        "ブルガリア",
+        "セルビア",
+        "欧州"
+      ],
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-04-15",
+      "summary": "Reutersは2026年4月15日、ロシア系ハッカーが2024年9月以降、少なくとも284のメールボックスを侵害し、そのうち170超がウクライナの検察官・捜査官のものであったと報じた。Ctrl-Alt-IntelはAPT28（Fancy Bear）への帰属を指摘する一方、他研究者は確証に至らないと評価している。",
+      "details": "侵害対象には、対汚職捜査や対ロ協力者摘発に関与するウクライナの検察・捜査機関が含まれた。加えて、ルーマニア空軍の少なくとも67アカウント、ギリシャ、ブルガリア、セルビアの軍・政府関係アカウントも侵害対象に含まれていたと報じられている。Ctrl-Alt-Intelはインフラおよび収集データの特徴からFancy Bear（APT28）関与を示唆しているが、ESETやTrend Microの研究者は確証は不十分と評価している。",
+      "actors": [
+        {
+          "name": "APT28 (suspected)",
+          "role": "実行主体（推定）",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1114 Email Collection",
+        "T1078 Valid Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "メールアカウント",
+        "メールボックス",
+        "政府・軍のメール基盤"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "司法",
+          "軍"
+        ],
+        "countries": [
+          "Ukraine",
+          "Romania",
+          "Greece",
+          "Bulgaria",
+          "Serbia"
+        ],
+        "organization_types": [
+          "検察機関",
+          "捜査機関",
+          "軍",
+          "政府機関"
+        ]
+      },
+      "strategic_view": {
+        "general": "単なる情報窃取ではなく、戦時統治・法執行・対協力者摘発の意思決定過程を把握するための長期諜報活動とみられる。",
+        "geopolitical": "ロシア・ウクライナ戦争の文脈で、ウクライナ本体のみならず周辺欧州諸国の軍・政府機関も諜報対象として広域に監視していることを示す。",
+        "business": "メール基盤やID管理基盤が国家系諜報活動の主要標的であり、官民問わずメール監査、認証強化、侵害済みアカウントのハントが重要である。",
+        "research_direction": "Fancy Bearとの関連性を裏付けるインフラ・TTPの一致、他のAPT28キャンペーンとの重複、認証情報再利用の痕跡を継続監視すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "戦時下で検察・捜査・軍のメールが広域に侵害されていたことは、ロシアのサイバー活動が作戦支援型諜報として継続していることを示すため。",
+        "delta_from_previous": "従来のRussia-linked表現から、外部分析によりAPT28関与の可能性が提示されたが、研究者間で評価は分かれている。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "対ウクライナ継続諜報作戦"
+      ],
+      "related_reports": [
+        "2026/04/15_サイバー事象概要"
+      ],
+      "tags": [
+        "Russia",
+        "Ukraine",
+        "APT28",
+        "FancyBear",
+        "espionage",
+        "email-compromise",
+        "government"
+      ],
+      "sources": [
+        {
+          "title": "Exclusive: Russia-linked hackers compromised scores of Ukrainian prosecutors' email accounts, data shows",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Fancy Bear Overview",
+          "url": "https://ctrlaltintel.com/research/FancyBear/#overview",
+          "publisher": "Ctrl-Alt-Intel",
+          "published_at": "2026"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-15_sweden_heating_plant_attack",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Pro-Russian attack on Swedish heating plant",
+        "aliases": [
+          "Pro-Russian group attack on Swedish energy infrastructure"
+        ],
+        "cluster": "欧州重要インフラに対する親露系ハイブリッド作戦",
+        "suspected_actor": "親露系ハクティビストまたはロシア連携グループ",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "親露系グループ",
+        "infrastructure": [
+          "熱供給施設のOT環境",
+          "エネルギー管理システム"
+        ],
+        "capability": [
+          "OT侵入",
+          "重要インフラ妨害未遂"
+        ],
+        "victim": [
+          "スウェーデンの熱供給施設"
+        ]
+      },
+      "name": "スウェーデン、熱供給施設への攻撃を親露系として公表",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "エネルギー",
+        "重要インフラ",
+        "OT"
+      ],
+      "region": [
+        "スウェーデン",
+        "欧州"
+      ],
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-15",
+      "summary": "スウェーデン政府は2026年4月15日、2025年に発生した国内の熱供給施設に対するサイバー攻撃について、親露系グループによるものと公表した。攻撃は失敗し、被害は阻止された。",
+      "details": "公表によれば、標的はスウェーデン西部のheating plantであり、攻撃は保護機構により阻止された。政府はこれをロシアの情報・治安機関とつながる親露系の脅威活動の一環と位置付けており、ポーランド、ノルウェー、デンマーク、ラトビアでの関連事案と並ぶ動きとして警戒を強めている。",
+      "actors": [
+        {
+          "name": "Pro-Russian group",
+          "role": "実行主体",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T0866 Exploitation for Evasion",
+        "T0827 Manipulation of Control"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "OTシステム",
+        "熱供給プラント制御環境"
+      ],
+      "targeting": {
+        "sectors": [
+          "エネルギー",
+          "重要インフラ"
+        ],
+        "countries": [
+          "Sweden"
+        ],
+        "organization_types": [
+          "熱供給事業者",
+          "インフラ運営組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "親露系の活動がDDoSや情報攪乱にとどまらず、物理的影響を伴いうるOT環境への攻撃に広がっていることを示す。",
+        "geopolitical": "ロシアはウクライナ支援国に対し、軍事衝突に至らないグレーゾーンで社会コストを課す圧力手段を維持している。",
+        "business": "エネルギー事業者はITだけでなくOTネットワークの監視、冗長化、セーフティ機構との連携を再点検する必要がある。",
+        "research_direction": "侵害経路、遠隔接続環境の有無、類似の北欧・バルト地域事案との共通TTPを追跡すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "欧州で親露系によるOT攻撃未遂が政府公表されたことで、重要インフラへの現実的脅威として認識を改める必要があるため。",
+        "delta_from_previous": "従来の親露系活動はDDoSや象徴的攪乱の印象が強かったが、今回の公表でOT妨害を試みた事例として重みが増した。"
+      },
+      "related_campaigns": [
+        "親露系ハイブリッド作戦"
+      ],
+      "related_reports": [
+        "2026/04/15_サイバー事象概要"
+      ],
+      "tags": [
+        "Russia",
+        "Sweden",
+        "critical-infrastructure",
+        "OT",
+        "energy"
+      ],
+      "sources": [
+        {
+          "title": "Sweden blames pro-Russian group for cyberattack last year on its energy infrastructure",
+          "url": "https://apnews.com/article/de1fb8d8beb5e22122dc7300cd62f987",
+          "publisher": "AP News",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Sweden says hackers linked to Russia attacked power plant",
+          "url": "https://therecord.media/sweden-hackers-russia-power-plant",
+          "publisher": "The Record",
+          "published_at": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-15_eu_commission_trivy_breach",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "European Commission cloud breach via Trivy supply-chain compromise",
+        "aliases": [
+          "EU Commission AWS breach",
+          "Trivy supply-chain compromise"
+        ],
+        "cluster": "クラウド資格情報窃取型サプライチェーン侵害",
+        "suspected_actor": "TeamPCP",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP",
+        "infrastructure": [
+          "Trivy関連供給網",
+          "AWSアカウント",
+          "クラウド資格情報"
+        ],
+        "capability": [
+          "サプライチェーン侵害",
+          "クラウド資格情報窃取",
+          "機密データ流出"
+        ],
+        "victim": [
+          "欧州委員会",
+          "EU機関"
+        ]
+      },
+      "name": "欧州委員会AWS侵害、Trivy供給網侵害起点と高確度評価",
+      "category": "サプライチェーン侵害",
+      "industry": [
+        "政府機関",
+        "クラウド"
+      ],
+      "region": [
+        "EU",
+        "欧州"
+      ],
+      "first_seen": "2026-03-24",
+      "last_seen": "2026-04-15",
+      "summary": "CERT-EUは、欧州委員会のクラウド侵害について、Trivy supply-chain compromiseを起点とする高確度のサプライチェーン侵害と評価した。91.7GBの圧縮データが流出し、少なくとも29のEU機関等に影響し得るとされた。",
+      "details": "CERT-EUによれば、攻撃者はTrivy供給網侵害を利用してAWS secretやAPI keyを取得し、その後TruffleHogで追加のシークレット探索を実施した。流出データには氏名、メールアドレス、メール内容など個人データが含まれ、ダークウェブ上ではShinyHuntersが公開を行ったとされる。",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "初期侵入の帰属先",
+          "country": "Unknown"
+        },
+        {
+          "name": "ShinyHunters",
+          "role": "流出データ公開主体",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1552 Unsecured Credentials",
+        "T1528 Steal Application Access Token"
+      ],
+      "malware": [
+        "TruffleHog"
+      ],
+      "infrastructure": [
+        "Trivy supply chain",
+        "AWS account",
+        "API keys",
+        "Cloud secrets"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "クラウド"
+        ],
+        "countries": [
+          "European Union"
+        ],
+        "organization_types": [
+          "EU機関",
+          "政府組織"
+        ]
+      },
+      "strategic_view": {
+        "general": "クラウド資格情報とOSS/セキュリティツール供給網の侵害が、組織境界を越えて波及することを示した。",
+        "geopolitical": "EU機関が対象である点から、国家・準国家主体が関心を持つ高価値データの集積点として欧州機関が狙われ続けている可能性が高い。",
+        "business": "官民ともにSaaS、CI/CD、スキャンツール、クラウド権限の管理をセキュリティ本体として扱う必要がある。",
+        "research_direction": "Trivy供給網侵害の全体像、他組織への波及、漏えい資格情報の再利用状況を継続調査すべき。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "供給網侵害がEU機関のクラウド侵害と大規模データ流出に直結した実例であり、再発防止のためのクラウド権限統制と供給網管理の必要性が極めて高いため。",
+        "delta_from_previous": "3月時点の一般的な『EU委員会クラウド侵害』から、侵入経路、流出容量、影響組織数、帰属が大きく具体化した。"
+      },
+      "related_campaigns": [
+        "ShinyHunters",
+        "TeamPCP"
+      ],
+      "related_reports": [
+        "2026/04/15_サイバー事象概要"
+      ],
+      "tags": [
+        "EU",
+        "AWS",
+        "Trivy",
+        "supply-chain",
+        "cloud-breach"
+      ],
+      "sources": [
+        {
+          "title": "European Commission cloud breach: a supply-chain compromise",
+          "url": "https://cert.europa.eu/blog/european-commission-cloud-breach-trivy-supply-chain",
+          "publisher": "CERT-EU",
+          "published_at": "2026-04"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-15_apt28_dns_hijacking",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "APT28",
+        "aliases": [
+          "Fancy Bear",
+          "Forest Blizzard",
+          "Sofacy"
+        ],
+        "cluster": "DNSハイジャックを伴うルーター悪用諜報作戦",
+        "suspected_actor": "ロシア軍参謀本部情報総局（GRU）系",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "APT28",
+        "infrastructure": [
+          "脆弱なルーター",
+          "改ざんされたDNS設定"
+        ],
+        "capability": [
+          "DNSハイジャック",
+          "Adversary-in-the-Middle",
+          "認証情報窃取"
+        ],
+        "victim": [
+          "政府機関",
+          "企業",
+          "在宅勤務環境",
+          "小規模拠点"
+        ]
+      },
+      "name": "APT28のルーター悪用DNSハイジャック、継続脅威として再確認",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "通信",
+        "一般企業"
+      ],
+      "region": [
+        "欧州",
+        "グローバル"
+      ],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-15",
+      "summary": "英NCSCは、APT28が脆弱なルーターのDHCP/DNS設定を書き換え、AitMを通じて資格情報やトークンを窃取する作戦を実施していると公表しており、4月15日時点でも重要な継続脅威である。",
+      "details": "APT28は、脆弱なSOHOルーターや境界機器を侵害してDNS設定を書き換え、通信の中間者位置を確保し、資格情報やOAuthトークン等の高価値認証情報を窃取するとされる。NCSCは、被害は特定の高価値目標に限らず機会主義的に広く発生しうるとし、ルーター設定確認、パッチ適用、DNS設定監査、認証情報再設定を推奨している。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "実行主体",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "T1040 Network Sniffing",
+        "T1078 Valid Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "SOHO routers",
+        "DNS settings",
+        "DHCP settings"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "通信",
+          "企業"
+        ],
+        "countries": [
+          "United Kingdom",
+          "Europe",
+          "Global"
+        ],
+        "organization_types": [
+          "政府機関",
+          "企業",
+          "在宅勤務者",
+          "小規模拠点"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家系アクターが境界機器や在宅環境を足場にして認証基盤へ食い込む典型的な作戦形態である。",
+        "geopolitical": "APT28の活動はロシアの広域諜報活動の一部であり、軍事・外交・政策上の高価値情報の収集を支える。",
+        "business": "官民ともに本社ネットワークだけでなく、出先拠点、在宅勤務環境、委託先ネットワークまで監視対象に含める必要がある。",
+        "research_direction": "影響を受けるルーター製品群、DNS書き換えのIOC、トークン窃取後のアクセス先サービスを継続追跡すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "ルーター侵害とDNS改ざんは発見が遅れやすく、認証情報窃取と長期諜報に直結するため、実務上の危険性が高い。",
+        "delta_from_previous": "メールやOffice文書起点の諜報だけでなく、SOHOルーターや境界機器の管理不備が国家系諜報の踏み台になっていることがより明確になった。"
+      },
+      "related_campaigns": [
+        "対ウクライナ関連ロシア諜報作戦"
+      ],
+      "related_reports": [
+        "2026/04/14_サイバー事象概要",
+        "2026/04/15_サイバー事象概要"
+      ],
+      "tags": [
+        "APT28",
+        "DNS-hijacking",
+        "router-compromise",
+        "AitM",
+        "Russia"
+      ],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "NCSC UK",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-15_april_zero_day_patch_wave",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "April 2026 actively exploited vulnerabilities",
+        "aliases": [
+          "April Patch Tuesday",
+          "April zero-day and active exploitation wave"
+        ],
+        "cluster": "ゼロデイ脆弱性・活発悪用の集中対応",
+        "suspected_actor": "複数の国家系・犯罪系アクター",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "複数の国家系・犯罪系アクター",
+        "infrastructure": [
+          "公開サーバ",
+          "SharePoint Server",
+          "Defender",
+          "Nginx UI"
+        ],
+        "capability": [
+          "公開アプリケーション悪用",
+          "権限昇格",
+          "なりすまし",
+          "設定改ざん"
+        ],
+        "victim": [
+          "官公庁",
+          "企業",
+          "インターネット公開サーバ運用者"
+        ]
+      },
+      "name": "4月月例更新：SharePoint/Defender実悪用、Nginx UI活発悪用、Adobe更新",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "横断"
+      ],
+      "region": [
+        "グローバル",
+        "日本"
+      ],
+      "first_seen": "2026-04-14",
+      "last_seen": "2026-04-15",
+      "summary": "2026年4月の月例更新では、Microsoft DefenderおよびSharePoint Serverの脆弱性について実悪用または既知化が確認され、加えてNginx UIの重大脆弱性CVE-2026-33032やAdobe Acrobat/Readerの更新が重なったため、4月15日時点で緊急度の高い脆弱性対応日となった。",
+      "details": "MicrosoftはCVE-2026-33825（Microsoft Defender 特権昇格）とCVE-2026-32201（SharePoint Server なりすまし）などを4月の更新で公開した。IPAとJPCERT/CCは即日注意喚起を発出し、Adobe Acrobat/ReaderのAPSB26-44についても更新を促した。さらにSecurityWeekは、Nginx UIのCVE-2026-33032について、認証なしでNginx設定変更や再起動まで可能となる重大欠陥として活発悪用を報じた。",
+      "actors": [
+        {
+          "name": "Unknown threat actors",
+          "role": "脆弱性悪用主体",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1068 Exploitation for Privilege Escalation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Microsoft SharePoint Server",
+        "Microsoft Defender",
+        "Nginx UI",
+        "Adobe Acrobat/Reader"
+      ],
+      "targeting": {
+        "sectors": [
+          "政府",
+          "企業",
+          "重要インフラ"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "サーバ運用組織",
+          "官公庁",
+          "一般企業"
+        ]
+      },
+      "strategic_view": {
+        "general": "公開サーバと日常的に利用される業務製品が同時に狙われることで、攻撃面が広く即応が求められる局面となった。",
+        "geopolitical": "こうした実悪用脆弱性は国家系・犯罪系双方が利用しやすく、国際情勢に依らず短期間で広域に波及しうる。",
+        "business": "情シス・CSIRT・SOCは月例パッチ適用だけでなく、公開資産棚卸し、侵害ハント、トークン無効化、設定差分監査まで一体で進める必要がある。",
+        "research_direction": "CVE-2026-32201、CVE-2026-33825、CVE-2026-33032のPoC公開、実被害報告、攻撃観測の有無を継続監視すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "SharePoint、Defender、Nginx UI、Adobeなど広く使われる製品群で実悪用または重大欠陥が集中し、官民の防御態勢に直接影響するため。",
+        "delta_from_previous": "単なる月例更新ではなく、実悪用済みまたは活発悪用中の脆弱性が複数重なった点で緊急度が一段高い。"
+      },
+      "related_campaigns": [
+        "ToolShell",
+        "Fortinet悪用継続事案"
+      ],
+      "related_reports": [
+        "2026/04/14_サイバー事象概要",
+        "2026/04/15_サイバー事象概要"
+      ],
+      "tags": [
+        "zero-day",
+        "Patch-Tuesday",
+        "SharePoint",
+        "Defender",
+        "Nginx-UI"
+      ],
+      "sources": [
+        {
+          "title": "2026年4月のセキュリティ更新プログラム",
+          "url": "https://www.microsoft.com/msrc/blog/2026/04/202604-security-update",
+          "publisher": "Microsoft MSRC",
+          "published_at": "2026-04-14"
+        },
+        {
+          "title": "Microsoft 製品の脆弱性対策について(2026年4月)",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/0415-ms.html",
+          "publisher": "IPA",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "2026年4月マイクロソフトセキュリティ更新プログラムに関する注意喚起",
+          "url": "https://www.jpcert.or.jp/at/2026/at260010.html",
+          "publisher": "JPCERT/CC",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Adobe Acrobat および Reader の脆弱性対策について(2026年4月)_2",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/0415-adobereader.html",
+          "publisher": "IPA",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Adobe AcrobatおよびReaderの脆弱性（APSB26-44）に関する注意喚起",
+          "url": "https://www.jpcert.or.jp/at/2026/at260011.html",
+          "publisher": "JPCERT/CC",
+          "published_at": "2026-04-15"
+        }
+      ]
+    }
+  ]
+}
