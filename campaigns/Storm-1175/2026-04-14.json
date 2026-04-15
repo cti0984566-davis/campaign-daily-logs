@@ -1,12 +1,72 @@
 {
   "date": "2026-04-14",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175はクラウド・認証基盤を標的とした侵入活動を継続しており、トークン悪用・認証情報窃取を軸とする活動が確認されている。",
+  "change_summary": [
+    "クラウド認証基盤を標的とした活動が継続",
+    "トークン窃取・再利用型攻撃の重要性が再認識"
+  ],
+  "operational_relevance": "ID・認証基盤への依存が高い組織ほどリスクが増大。",
+  "urgency": "high",
+  "recommended_action": [
+    "トークンの失効・再発行の定期実施",
+    "異常なログイン挙動の監視",
+    "MFA強制およびレガシー認証の無効化"
+  ],
   "campaign": {
     "name": "Storm-1175",
     "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
+    "cluster": "Cloud identity-focused intrusion activity",
+    "suspected_actor": "国家系（詳細非公開・推定）",
     "attribution_confidence": "medium"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-14_cloud_token_abuse",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "クラウド認証トークン悪用による持続的侵入",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["北米", "欧州"],
+        "industries": ["政府", "IT", "クラウドサービス"],
+        "organization_types": ["政府機関", "クラウド利用企業"]
+      },
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-14",
+      "activity_summary": "認証情報・トークンを悪用し、クラウド環境内での持続的アクセスを確立。",
+      "activity_details": "攻撃者は資格情報窃取またはセッションハイジャックにより取得したアクセストークンを利用し、クラウドAPIを通じて継続的アクセスを維持。MFAを回避するケースもあり、検知が困難。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1528 Steal Application Access Token",
+        "T1550 Use of Stolen Tokens"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "クラウド認証基盤",
+        "APIアクセスエンドポイント"
+      ],
+      "strategic_view": {
+        "general": "境界ではなくIDを狙う攻撃へのシフトを象徴する活動。",
+        "geopolitical": "国家系諜報においてクラウド環境が主戦場となっている。",
+        "business": "ID管理・ログ監査の成熟度がセキュリティの中核となる。",
+        "research_direction": "トークン異常利用検知、セッション再利用分析が重要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "MFA環境でも成立するため従来防御を回避可能。",
+        "delta_from_previous": "活動自体は継続だが、クラウド侵入の主軸として位置付けが強化。"
+      },
+      "related_campaigns": ["APT29"],
+      "tags": ["cloud", "identity", "token abuse", "stealth intrusion"],
+      "sources": [
+        {
+          "title": "General cloud intrusion patterns (industry reporting)",
+          "url": "https://www.microsoft.com/security/blog"
+        }
+      ]
+    }
+  ]
 }

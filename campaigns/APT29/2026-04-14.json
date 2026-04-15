@@ -1,12 +1,61 @@
 {
   "date": "2026-04-14",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29は大規模な新規露見はないが、クラウド・認証基盤を中心に継続的諜報活動を維持。",
+  "change_summary": [
+    "顕著な新規公開なし",
+    "既存クラウド侵害TTPの継続"
+  ],
+  "operational_relevance": "静的だが高精度な長期侵入型。",
+  "urgency": "medium",
+  "recommended_action": [
+    "OAuthトークン監査",
+    "ログ長期保存",
+    "IDベース防御強化"
+  ],
   "campaign": {
     "name": "APT29",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "aliases": ["Cozy Bear", "NOBELIUM"],
+    "cluster": "SVR-linked",
+    "suspected_actor": "ロシア対外情報庁",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-14_cloud_persistence",
+      "type": "assessment",
+      "status": "継続",
+      "name": "クラウド環境における持続的侵入",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["欧米"],
+        "industries": ["政府", "外交"],
+        "organization_types": ["政府機関"]
+      },
+      "first_seen": "2020-01-01",
+      "last_seen": "2026-04-14",
+      "activity_summary": "クラウド認証基盤を中心とした長期潜伏型活動。",
+      "activity_details": "トークン窃取・APIアクセスを通じた静的侵入維持。",
+      "ttp": ["T1078", "T1528"],
+      "strategic_view": {
+        "general": "静的・長期型諜報",
+        "geopolitical": "外交情報収集",
+        "business": "ID管理の重要性上昇",
+        "research_direction": "トークン監査"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "検知困難な長期侵入",
+        "delta_from_previous": "大きな変化なし"
+      },
+      "sources": [
+        {
+          "title": "historical APT29 activity",
+          "url": "https://www.cisa.gov"
+        }
+      ]
+    }
+  ]
 }

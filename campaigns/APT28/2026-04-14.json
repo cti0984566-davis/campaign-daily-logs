@@ -1,12 +1,70 @@
 {
   "date": "2026-04-14",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28はSOHOルーター侵害とDNSハイジャックを用いたAitM諜報活動を継続。",
+  "change_summary": [
+    "米欧当局が作戦詳細を公開",
+    "DNSハイジャックによるトークン窃取が明確化"
+  ],
+  "operational_relevance": "通信経路乗っ取りは検知困難で長期潜伏に適する。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルーターの交換・初期化",
+    "DNS設定監査",
+    "トークン無効化・再発行"
+  ],
   "campaign": {
     "name": "APT28",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
-    "attribution_confidence": "medium"
+    "aliases": ["Fancy Bear", "Forest Blizzard"],
+    "cluster": "GRU Unit 26165",
+    "suspected_actor": "ロシアGRU",
+    "attribution_confidence": "high"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-14_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "SOHOルーターを用いたDNSハイジャック",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["米国", "欧州"],
+        "industries": ["政府", "防衛", "インフラ"],
+        "organization_types": ["政府機関", "軍関係"]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-14",
+      "activity_summary": "侵害ルーターを踏み台にDNSを書き換え、AitMで認証情報を窃取。",
+      "activity_details": "TP-Link等の脆弱機器を侵害し、DNS応答を改ざん。OWA等に対する中間者攻撃でトークン・資格情報を窃取。",
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1528"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "侵害SOHOルーター",
+        "攻撃者DNS"
+      ],
+      "strategic_view": {
+        "general": "通信層を狙う低可視性諜報",
+        "geopolitical": "対西側長期情報収集",
+        "business": "在宅勤務環境が弱点化",
+        "research_direction": "DNS改ざん検知"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "検知困難な広域諜報手法",
+        "delta_from_previous": "作戦の具体像が公開され明確化"
+      },
+      "sources": [
+        {
+          "title": "IC3 PSA260407",
+          "url": "https://www.ic3.gov/PSA/2026/PSA260407"
+        }
+      ]
+    }
+  ]
 }

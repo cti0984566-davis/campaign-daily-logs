@@ -1,12 +1,61 @@
 {
   "date": "2026-04-14",
-  "timezone": "Asia/Tokyo",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416（Mustang Panda系）は引き続き東南アジア・外交関係を中心にスピアフィッシングを継続。",
+  "change_summary": [
+    "活動継続、顕著な新規公開なし"
+  ],
+  "operational_relevance": "低コストで広範囲に影響可能。",
+  "urgency": "medium",
+  "recommended_action": [
+    "メールセキュリティ強化",
+    "マクロ制御",
+    "添付ファイル検査"
+  ],
   "campaign": {
     "name": "TA416",
-    "aliases": [],
-    "cluster": "",
-    "suspected_actor": "",
+    "aliases": ["Mustang Panda", "RedDelta"],
+    "cluster": "China-linked espionage",
+    "suspected_actor": "中国系APT",
     "attribution_confidence": "medium"
   },
-  "items": []
+  "items": [
+    {
+      "id": "2026-04-14_phishing_campaign",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "スピアフィッシングによる情報窃取",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["東南アジア"],
+        "industries": ["政府", "外交"],
+        "organization_types": ["政府機関"]
+      },
+      "first_seen": "2021-01-01",
+      "last_seen": "2026-04-14",
+      "activity_summary": "政治・外交テーマのフィッシング継続。",
+      "activity_details": "マルウェア添付文書・リンク誘導。",
+      "ttp": ["T1566"],
+      "malware_and_tools": ["PlugX（過去）"],
+      "strategic_view": {
+        "general": "伝統的だが有効",
+        "geopolitical": "中国の周辺国監視",
+        "business": "メール防御重要",
+        "research_direction": "言語テーマ分析"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "継続的外交情報収集",
+        "delta_from_previous": "変化なし"
+      },
+      "sources": [
+        {
+          "title": "Proofpoint reporting",
+          "url": "https://www.proofpoint.com"
+        }
+      ]
+    }
+  ]
 }
