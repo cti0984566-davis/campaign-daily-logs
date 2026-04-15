@@ -1,0 +1,67 @@
+{
+  "date": "2026-04-15",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175はWeb公開資産を狙う高テンポなランサムウェア作戦を展開し、Medusa活動と関連。",
+  "change_summary": [
+    "MicrosoftがWeb資産攻撃の活発化を報告",
+    "Medusa ransomwareとの関係が指摘"
+  ],
+  "operational_relevance": "公開サーバの脆弱性管理が最重要。",
+  "urgency": "high",
+  "recommended_action": [
+    "公開サーバの即時パッチ",
+    "外部露出資産の棚卸し"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": ["Medusa ransomware operators"],
+    "cluster": "ランサムウェア作戦",
+    "suspected_actor": "サイバー犯罪グループ",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-15_storm1175_web_exploitation",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Web公開資産への攻撃",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": ["グローバル"],
+        "industries": ["横断"],
+        "organization_types": ["企業", "政府"]
+      },
+      "first_seen": "2026-03-01",
+      "last_seen": "2026-04-15",
+      "activity_summary": "公開Web資産を狙い侵入後ランサム展開。",
+      "activity_details": "脆弱性悪用から横展開しデータ暗号化。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application"
+      ],
+      "malware_and_tools": ["Medusa"],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "高速展開型ランサム",
+        "geopolitical": "国家関係なし",
+        "business": "公開資産リスク顕在化",
+        "research_direction": "初期侵入経路分析"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "広範な被害",
+        "delta_from_previous": "活動活発化"
+      },
+      "related_campaigns": [],
+      "tags": ["Storm-1175", "ransomware"],
+      "sources": [
+        {
+          "title": "Storm-1175 Medusa ransomware",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/"
+        }
+      ]
+    }
+  ]
+}

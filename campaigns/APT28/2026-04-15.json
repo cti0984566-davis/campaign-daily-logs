@@ -1,0 +1,70 @@
+{
+  "date": "2026-04-15",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28はルーター侵害とDNSハイジャックを軸にAitM諜報を継続。境界機器を起点に認証情報を窃取する作戦が明確化。",
+  "change_summary": [
+    "NCSCがAPT28のルーター悪用・DNS改ざんを公表",
+    "AitM型の認証情報窃取リスクが継続",
+    "対ウクライナ・欧州諜報との接続可能性が上昇"
+  ],
+  "operational_relevance": "在宅環境・拠点ルーターが侵入口となるため、境界機器とDNSの監査が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "ルーターのパッチ適用と設定監査",
+    "DNS設定変更の監視",
+    "認証情報とトークンの再発行"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Sofacy", "Forest Blizzard"],
+    "cluster": "DNSハイジャック型諜報作戦",
+    "suspected_actor": "GRU系",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-15_apt28_dns_hijack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "ルーター侵害とDNSハイジャック",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州"],
+        "industries": ["政府", "軍", "インフラ"],
+        "organization_types": ["政府機関", "企業"]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-15",
+      "activity_summary": "APT28はDNS設定を書き換えAitMを成立させる。",
+      "activity_details": "通信経路を乗っ取り、Microsoft 365等の認証情報を窃取する。",
+      "ttp": [
+        "T1557 Adversary-in-the-Middle",
+        "T1078 Valid Accounts"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["SOHOルーター", "DNS設定"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "境界機器が攻撃軸に変化",
+        "geopolitical": "対欧州諜報の一部",
+        "business": "在宅環境がリスク源",
+        "research_direction": "DNS改ざんIOCの蓄積"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "検知困難な長期諜報を可能にする",
+        "delta_from_previous": "ルーター悪用が主軸に"
+      },
+      "related_campaigns": [],
+      "tags": ["APT28", "DNS", "AitM"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations"
+        }
+      ]
+    }
+  ]
+}

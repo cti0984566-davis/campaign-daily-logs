@@ -1,0 +1,66 @@
+{
+  "date": "2026-04-15",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416は引き続き欧州政府・外交を標的としたフィッシング活動を継続。",
+  "change_summary": [
+    "欧州外交・政府機関への標的型攻撃継続"
+  ],
+  "operational_relevance": "外交・政策系組織は警戒必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "メールフィルタ強化",
+    "ユーザ教育"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["RedDelta", "Mustang Panda"],
+    "cluster": "中国系外交諜報",
+    "suspected_actor": "中国系APT",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-15_ta416_phishing",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "欧州外交機関へのフィッシング",
+      "category": "諜報活動",
+      "targeting": {
+        "regions": ["欧州"],
+        "industries": ["政府"],
+        "organization_types": ["外交機関"]
+      },
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-15",
+      "activity_summary": "外交機関を標的にフィッシング実施。",
+      "activity_details": "中国の外交政策に関連する情報収集活動。",
+      "ttp": [
+        "T1566 Phishing"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "外交諜報活動",
+        "geopolitical": "対欧州影響工作",
+        "business": "外交関連企業も対象",
+        "research_direction": "テーマ分析"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "外交情報収集",
+        "delta_from_previous": "継続活動"
+      },
+      "related_campaigns": [],
+      "tags": ["TA416"],
+      "sources": [
+        {
+          "title": "General TA416 reporting",
+          "url": "https://www.proofpoint.com"
+        }
+      ]
+    }
+  ]
+}

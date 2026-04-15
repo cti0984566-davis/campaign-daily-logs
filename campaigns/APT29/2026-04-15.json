@@ -1,0 +1,68 @@
+{
+  "date": "2026-04-15",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29は本日新規大規模更新はないが、クラウド・ID基盤を狙う高成熟諜報として継続監視対象。",
+  "change_summary": [
+    "顕著な新規インシデントなし",
+    "過去のRDPフィッシング・クラウド侵害のリスク継続"
+  ],
+  "operational_relevance": "SaaS権限・OAuth監査が重要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuth権限監査",
+    "高権限アカウント棚卸し"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "NOBELIUM", "Midnight Blizzard"],
+    "cluster": "クラウド侵害型諜報",
+    "suspected_actor": "SVR",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-15_apt29_assessment",
+      "type": "assessment",
+      "status": "更新",
+      "name": "APT29継続評価",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["北米", "欧州"],
+        "industries": ["政府", "IT"],
+        "organization_types": ["政府機関", "企業"]
+      },
+      "first_seen": "2024-10-22",
+      "last_seen": "2026-04-15",
+      "activity_summary": "クラウドとID基盤を狙う活動は継続。",
+      "activity_details": "RDPファイルなどを利用したフィッシングが過去に確認。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1078 Valid Accounts"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["クラウド環境"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "高成熟諜報主体",
+        "geopolitical": "対西側諜報",
+        "business": "クラウド権限管理が重要",
+        "research_direction": "OAuth悪用の追跡"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "長期潜伏型脅威",
+        "delta_from_previous": "新規更新なし"
+      },
+      "related_campaigns": [],
+      "tags": ["APT29"],
+      "sources": [
+        {
+          "title": "General APT29 reporting",
+          "url": "https://www.cisa.gov"
+        }
+      ]
+    }
+  ]
+}
