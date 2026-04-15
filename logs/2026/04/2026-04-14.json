@@ -1,6 +1,441 @@
 {
   "date": "2026-04-14",
-  "timezone": "Asia/Tokyo",
-  "title": "2026/04/14_サイバー攻撃キャンペーン日次概要",
-  "items": []
+  "timezone": "JST",
+  "title": "2026/04/14_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-14_apt28_soho_router_dns_hijack",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "APT28 SOHOルーターDNSハイジャック作戦",
+        "aliases": ["APT28", "Fancy Bear", "Forest Blizzard", "Sofacy Group", "Sednit"],
+        "cluster": "GRU Unit 26165 related activity",
+        "suspected_actor": "ロシア軍参謀本部情報総局（GRU）系",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "GRU 85th Main Special Service Center / Unit 26165",
+        "infrastructure": [
+          "侵害済みSOHOルーター",
+          "攻撃者管理DNSリゾルバ",
+          "AitM用中継インフラ"
+        ],
+        "capability": [
+          "脆弱SOHOルーター侵害",
+          "DHCP/DNS設定改変",
+          "DNSハイジャック",
+          "AitMによる認証情報・トークン窃取"
+        ],
+        "victim": [
+          "政府機関",
+          "軍関係者",
+          "重要インフラ関係者",
+          "高価値情報を扱う在宅勤務者"
+        ]
+      },
+      "name": "APT28によるSOHOルーター悪用・DNSハイジャック作戦",
+      "category": "諜報活動",
+      "industry": ["政府機関", "防衛", "重要インフラ", "通信"],
+      "region": ["米国", "欧州", "グローバル"],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-14",
+      "summary": "APT28が少なくとも2024年以降、脆弱なSOHOルーターを侵害し、DNS設定改変とAitMにより軍・政府・重要インフラ関連の認証情報や通信内容を窃取していた継続案件。4月7日の米欧公表を受け、4月14日時点でも最重要継続脅威として整理。",
+      "details": "TP-Linkルーターを含む脆弱機器が侵害され、DHCP/DNS設定を攻撃者管理リゾルバへ変更。特定サービスに対し不正なDNS応答を返し、証明書警告を経由してOutlook Web Access等へのAitMを成立させることで、パスワード、認証トークン、メール、閲覧情報を窃取した。被害は広範な母集団から高価値対象を選別する形で生じている。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "実行主体",
+          "country": "ロシア"
+        },
+        {
+          "name": "GRU Unit 26165",
+          "role": "帰属先",
+          "country": "ロシア"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1557 Adversary-in-the-Middle",
+        "T1110 Brute Force/credential abuse (推定)",
+        "T1528 Steal Application Access Token",
+        "CVE-2023-50224"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "SOHOルーター",
+        "攻撃者管理DNS",
+        "AitM中継基盤"
+      ],
+      "targeting": {
+        "sectors": ["政府", "防衛", "重要インフラ"],
+        "countries": ["米国", "ウクライナ", "欧州各国", "その他グローバル"],
+        "organization_types": ["政府機関", "軍関係組織", "重要インフラ事業者", "高価値対象個人"]
+      },
+      "strategic_view": {
+        "general": "家庭用・小規模事業者向け機器を踏み台化し、通信経路を乗っ取る古典的だが検知困難な諜報手法が再強調された。",
+        "geopolitical": "ロシアの対西側長期諜報作戦の一環であり、軍事・外交・重要インフラ関連の情報優越獲得に直結する。",
+        "business": "在宅勤務や出張者の境界機器が企業防御の弱点であることを示し、ルーター健全性確認やDNS整合性監視の必要性を高める。",
+        "research_direction": "侵害済み家庭用ルーター群を利用した選別型諜報の検知手法、DNS改変痕跡、トークン窃取後の後続行動に注目すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "従来のフィッシング偏重理解を超え、SOHOルーター群を使う広域・長期・低可視性の国家諜報手法が具体化したため。",
+        "delta_from_previous": "4月7日の当局公表により、APT28の作戦が単なる認証情報窃取ではなくDNSハイジャックとAitMを中核とすることが明確化した。"
+      },
+      "related_campaigns": ["APT28", "Forest Blizzard"],
+      "related_reports": ["2026/04/13_サイバー事象概要"],
+      "tags": ["APT28", "DNS hijacking", "SOHO router", "AitM", "credential theft"],
+      "sources": [
+        {
+          "title": "Russian GRU Exploiting Vulnerable Routers to Steal Sensitive Information",
+          "url": "https://www.ic3.gov/PSA/2026/PSA260407",
+          "publisher": "IC3",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-14_iranian_plc_exploitation",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "イラン系APTによる米重要インフラPLC悪用",
+        "aliases": ["Iranian-affiliated cyber actors"],
+        "cluster": "Iran-affiliated OT exploitation",
+        "suspected_actor": "イラン関係APT",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-affiliated advanced persistent threat actors",
+        "infrastructure": [
+          "海外ホスティングIP",
+          "正規設定ソフトを用いた接続基盤",
+          "OT向けポート通信"
+        ],
+        "capability": [
+          "インターネット露出PLCへの接続",
+          "正規エンジニアリングツール悪用",
+          "プロジェクトファイル抽出",
+          "HMI/SCADA表示改ざん"
+        ],
+        "victim": [
+          "米重要インフラ事業者",
+          "水・下水",
+          "エネルギー",
+          "政府サービス"
+        ]
+      },
+      "name": "イラン関係APTによる米重要インフラ向けPLC攻撃",
+      "category": "国家系サイバー作戦",
+      "industry": ["重要インフラ", "OT/ICS", "エネルギー", "水道", "政府サービス"],
+      "region": ["米国"],
+      "first_seen": "2026-03-01",
+      "last_seen": "2026-04-14",
+      "summary": "イラン関係APTが、Rockwell Automation/Allen-Bradley製PLCを含むインターネット露出OT機器を標的にし、運用妨害や表示改ざんを伴う活動を継続。4月7日の共同アドバイザリ以降も高警戒案件。",
+      "details": "共同アドバイザリによれば、攻撃者は海外ベースのIPと第三者ホスティング環境を用い、Studio 5000 Logix Designerなど正規設定ソフトでPLCに accepted connection を形成。CompactLogixやMicro850が言及され、ポート44818、2222、102、22、502等に対する不審通信が観測された。プロジェクトファイル抽出とHMI/SCADA表示データ改ざんが確認され、運用停止と金銭的損失が発生している。",
+      "actors": [
+        {
+          "name": "Iranian-affiliated APT actors",
+          "role": "実行主体",
+          "country": "イラン"
+        }
+      ],
+      "ttp": [
+        "T0883 Internet Accessible Device",
+        "T0885 Commonly Used Port",
+        "T1219 Remote Access Software",
+        "T1565 Data Manipulation"
+      ],
+      "malware": ["Dropbear SSH"],
+      "infrastructure": [
+        "海外ホスティングIP",
+        "Studio 5000 Logix Designer利用環境",
+        "OT制御ポート経由通信"
+      ],
+      "targeting": {
+        "sectors": ["政府サービス", "水・下水", "エネルギー", "重要インフラ"],
+        "countries": ["米国"],
+        "organization_types": ["重要インフラ事業者", "OT運用組織"]
+      },
+      "strategic_view": {
+        "general": "インターネット露出PLCの直接悪用と、正規エンジニアリングツール悪用が組み合わさった実害志向のOT攻撃。",
+        "geopolitical": "中東情勢の緊張が、米国内重要インフラへのサイバー威嚇・妨害として表出している可能性を示す。",
+        "business": "OT機器の露出資産棚卸し、保守経路統制、正規設定ソフトの使用監査が企業防御の主要論点になる。",
+        "research_direction": "Rockwell系以外への横展開、ポート監視、プロジェクトファイル窃取後の改ざん挙動、委託保守経路の悪用有無を追う必要がある。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "水・エネルギー等の実運用に干渉し、物理的影響と経済損失を伴うOT攻撃であるため。",
+        "delta_from_previous": "過去のUnitronics中心の議論から、Rockwell/Allen-Bradleyを含む広範なOT環境と正規ソフト悪用が前面に出た。"
+      },
+      "related_campaigns": ["CyberAv3ngers related historical activity"],
+      "related_reports": ["2026/04/07_サイバー事象概要"],
+      "tags": ["Iran", "OT", "PLC", "Rockwell", "ICS"],
+      "sources": [
+        {
+          "title": "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure",
+          "url": "https://www.ic3.gov/CSA/2026/260407.pdf",
+          "publisher": "FBI / CISA / NSA / EPA / DOE / CNMF",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-14_forticlient_ems_cve_2026_35616",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "FortiClient EMS CVE-2026-35616悪用",
+        "aliases": ["FG-IR-26-099"],
+        "cluster": "FortiClient EMS API auth bypass exploitation",
+        "suspected_actor": "未特定",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定の脅威アクター",
+        "infrastructure": [
+          "FortiClient EMS公開API",
+          "インターネット露出管理基盤"
+        ],
+        "capability": [
+          "無認証アクセス",
+          "認証・認可バイパス",
+          "不正コードまたはコマンド実行"
+        ],
+        "victim": [
+          "FortiClient EMS運用組織",
+          "企業IT管理者",
+          "官公庁",
+          "MSP"
+        ]
+      },
+      "name": "FortiClient EMSの重大脆弱性CVE-2026-35616の悪用継続",
+      "category": "脆弱性悪用",
+      "industry": ["企業IT", "官公庁", "MSP", "一般企業"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-04",
+      "last_seen": "2026-04-14",
+      "summary": "FortiClient EMSのAPI認証・認可バイパス脆弱性CVE-2026-35616について、Fortinetが実環境での悪用観測を明示。4月14日時点でも未対処環境は高リスクの継続案件。",
+      "details": "Fortinetによれば、Improper Access Controlにより、無認証攻撃者が crafted requests を介して不正なコードまたはコマンドを実行できる。CVSSv3は9.1で、影響はEscalation of privilege。7.4.5および7.4.6向けホットフィックスが提供され、7.4.7以降で修正予定とされた。",
+      "actors": [
+        {
+          "name": "未特定脅威アクター",
+          "role": "悪用主体",
+          "country": ""
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "CVE-2026-35616"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "FortiClient EMS API",
+        "インターネット露出管理サーバ"
+      ],
+      "targeting": {
+        "sectors": ["企業IT", "官公庁", "マネージドサービス"],
+        "countries": ["グローバル"],
+        "organization_types": ["企業", "官公庁", "MSP", "セキュリティ運用組織"]
+      },
+      "strategic_view": {
+        "general": "EDR/端末管理系の中枢基盤が、外部公開時に即攻撃面となる典型例。",
+        "geopolitical": "国家系・犯罪系の双方が再利用し得る汎用的武器であり、特定地域に限定されない。",
+        "business": "Fortinet資産を多用する組織では、製品別ではなくベンダ単位で露出面とパッチ状況を横断管理する必要がある。",
+        "research_direction": "実悪用チェーン、初期侵入後の権限拡大・横展開、管理基盤経由の端末制御リスクの把握が重要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "無認証かつ実悪用観測済みであり、端末管理基盤侵害が組織全体の防御機能低下に直結するため。",
+        "delta_from_previous": "単なるベンダ脆弱性情報から、実環境悪用と緊急ホットフィックス適用が必要な運用案件として位置づけが固まった。"
+      },
+      "related_campaigns": [],
+      "related_reports": ["2026/04/13_サイバー事象概要"],
+      "tags": ["Fortinet", "FortiClient EMS", "CVE-2026-35616", "known exploited"],
+      "sources": [
+        {
+          "title": "API authentication and authorization bypass",
+          "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-099",
+          "publisher": "Fortinet PSIRT",
+          "published_at": "2026-04-04"
+        },
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-14_basic_fit_data_breach",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Basic-Fit会員情報漏えい事案",
+        "aliases": [],
+        "cluster": "Basic-Fit unauthorized data access",
+        "suspected_actor": "未特定",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定の侵害主体",
+        "infrastructure": [
+          "会員訪問記録システム"
+        ],
+        "capability": [
+          "不正アクセス",
+          "会員データ持ち出し"
+        ],
+        "victim": [
+          "Basic-Fit会員"
+        ]
+      },
+      "name": "Basic-Fitの大規模会員情報漏えい",
+      "category": "サイバー犯罪",
+      "industry": ["フィットネス", "会員制サービス", "リテール"],
+      "region": ["オランダ", "欧州"],
+      "first_seen": "2026-04-13",
+      "last_seen": "2026-04-14",
+      "summary": "欧州大手フィットネスチェーンBasic-Fitで不正アクセスが発生し、約100万人規模の会員情報漏えいが報じられた新規案件。オランダでは約20万人が影響。",
+      "details": "会社発表では、会員の来訪を記録するシステムに対する不正アクセスが監視プロセスで検知され、数分以内に停止。外部専門家の調査で一部データのダウンロードが判明した。対象データには、氏名、住所、メール、電話番号、生年月日、銀行口座情報が含まれる一方、身分証情報とパスワードは含まれないとされる。",
+      "actors": [
+        {
+          "name": "未特定脅威アクター",
+          "role": "侵害主体",
+          "country": ""
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts (推定)",
+        "T1190 Exploit Public-Facing Application (推定)"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "会員訪問記録システム"
+      ],
+      "targeting": {
+        "sectors": ["フィットネス", "会員制サービス"],
+        "countries": ["オランダ", "フランス", "ドイツ", "スペイン", "その他欧州諸国"],
+        "organization_types": ["民間企業", "会員サービス事業者"]
+      },
+      "strategic_view": {
+        "general": "決済情報と行動履歴に近い会員情報の組み合わせは、フィッシングや不正引落し、本人確認回避など二次被害リスクが高い。",
+        "geopolitical": "地政学色は薄いが、欧州域内の大規模個人情報侵害としてGDPR対応と通知実務の観点で注目。",
+        "business": "サブスクリプション型会員サービス全般で、CRM・来訪・決済周辺の統合基盤が主要な攻撃面であることを示す。",
+        "research_direction": "侵入経路、内部権限悪用の有無、流出データの転売・詐欺利用の観測を追うべき。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "約100万人規模の漏えいで、銀行口座情報を含む可能性があり、二次被害誘発力が高いため。",
+        "delta_from_previous": "4月13日の企業開示を受け、4月14日時点で国際報道により影響規模と主要リスクが明確化した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["data breach", "Basic-Fit", "PII", "bank account data"],
+      "sources": [
+        {
+          "title": "BASIC-FIT INFORMS MEMBERS ON AN UNAUTHORISED DATA ACCESS",
+          "url": "https://corporate.basic-fit.com/docs/Basic-Fit%20informs%20members%20of%20an%20unauthorised%20data%20access?q=3W97qQx2g4cDXrju5NrDeZ",
+          "publisher": "Basic-Fit",
+          "published_at": "2026-04-13"
+        },
+        {
+          "title": "Basic-Fit data breach exposes details of a million gym members",
+          "url": "https://www.reuters.com/business/basic-fit-says-data-breach-exposes-details-200000-members-netherlands-2026-04-13/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-13"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-14_hotel_okura_fukuoka_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "ホテルオークラ福岡人事クラウドサーバランサム被害",
+        "aliases": [],
+        "cluster": "Hotel Okura Fukuoka ransomware incident",
+        "suspected_actor": "未特定",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定のランサムウェア実行主体",
+        "infrastructure": [
+          "クラウド上の人事関係業務サーバ"
+        ],
+        "capability": [
+          "ランサムウェアによる暗号化",
+          "個人情報流出の可能性"
+        ],
+        "victim": [
+          "ホテルオークラ福岡",
+          "従業員・退職者"
+        ]
+      },
+      "name": "ホテルオークラ福岡の人事関連クラウドサーバに対するランサム被害",
+      "category": "サイバー犯罪",
+      "industry": ["ホスピタリティ", "人事・バックオフィス"],
+      "region": ["日本"],
+      "first_seen": "2026-03-12",
+      "last_seen": "2026-04-14",
+      "summary": "ホテルオークラ福岡で、クラウド上の人事関係業務サーバがランサムウェア被害を受け、退職者を含む従業員9,501人分の個人情報が流出した可能性が4月14日に公表された。",
+      "details": "3月12日に人事関係業務サーバでサイバー攻撃被害が発生し、サーバ内部データが暗号化。対象データには氏名、住所、電話番号、生年月日、性別、家族構成、給与口座、学歴、所属、役職、従業員番号などが含まれる。他システムへの影響は現時点で確認されていないと説明されている。",
+      "actors": [
+        {
+          "name": "未特定ランサムウェア実行主体",
+          "role": "攻撃主体",
+          "country": ""
+        }
+      ],
+      "ttp": [
+        "T1486 Data Encrypted for Impact",
+        "T1078 Valid Accounts (推定)",
+        "T1190 Exploit Public-Facing Application (推定)"
+      ],
+      "malware": ["ランサムウェア（系統未公表）"],
+      "infrastructure": [
+        "人事関連クラウドサーバ"
+      ],
+      "targeting": {
+        "sectors": ["ホスピタリティ", "バックオフィス業務"],
+        "countries": ["日本"],
+        "organization_types": ["民間企業"]
+      },
+      "strategic_view": {
+        "general": "宿泊システムではなく、HR/給与系クラウドが主要被害面となった点が特徴的。",
+        "geopolitical": "国家系要素は現時点で不明だが、日本国内サービス業における平時の情報窃取・恐喝型犯罪の持続性を示す。",
+        "business": "SaaS/クラウド上のバックオフィス資産も、個人情報と業務継続の両面で高価値標的であることを再確認させる。",
+        "research_direction": "初期侵入経路、委託先・管理者権限の悪用、暗号化前の持ち出し有無、恐喝サイト掲載有無を追跡すべき。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "被害人数が大きく、給与口座等を含むセンシティブ情報が対象であり、二次被害や労務面の影響が大きいため。",
+        "delta_from_previous": "攻撃自体は3月発生だが、4月14日の公表により人事クラウド起点・従業員9501人影響という被害像が具体化した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["ransomware", "Japan", "HR system", "employee data"],
+      "sources": [
+        {
+          "title": "クラウドサーバがランサム被害、従業員情報が流出か - ホテルオークラ福岡",
+          "url": "https://www.security-next.com/183382",
+          "publisher": "Security NEXT",
+          "published_at": "2026-04-14"
+        }
+      ]
+    }
+  ]
 }
