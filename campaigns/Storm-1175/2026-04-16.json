@@ -1,0 +1,91 @@
+{
+  "date": "2026-04-16",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は脆弱なWeb公開資産に対するN-day悪用を起点に、Medusaランサムウェア展開までを極短時間で完遂する高テンポ運用を続けており、4月16日時点でも最重要の金銭目的キャンペーンの一つである。",
+  "change_summary": [
+    "Microsoftが4月6日にStorm-1175の高テンポMedusa運用を公表",
+    "脆弱性公開から広範なパッチ適用までの短い窓を狙う戦術が明確化",
+    "侵入からデータ流出・ランサム展開まで24時間級で進む事例が示された"
+  ],
+  "operational_relevance": "Web公開資産のN-day管理遅延がそのままランサム被害につながるため、脆弱性管理と外部公開面の優先付けに直接影響する。",
+  "urgency": "high",
+  "recommended_action": [
+    "Web公開資産のN-day脆弱性を最優先で棚卸し・緩和する",
+    "初動24時間以内のラテラル移動・データ流出兆候を重点監視する",
+    "Medusa関連の侵害対応手順を短時間決戦型に見直す"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": ["Medusa-linked operations"],
+    "cluster": "Financially motivated ransomware activity",
+    "suspected_actor": "Storm-1175",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-16_storm1175_medusa_high_tempo",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "高テンポMedusaランサム運用",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": ["北米", "英国", "豪州"],
+        "industries": ["医療", "サービス", "インターネット公開資産を持つ各業種"],
+        "organization_types": ["民間企業", "医療機関", "サービス事業者"]
+      },
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-16",
+      "activity_summary": "Storm-1175は脆弱なWeb公開システムを狙って初期侵入し、データ流出とMedusaランサムウェア展開までを数日以内、場合によっては24時間以内で完了させる。",
+      "activity_details": "Microsoftによれば、Storm-1175は脆弱性公開後から広範なパッチ適用までの短い窓を狙い、Web-facing systemsへの侵入後、急速に権限昇格、横展開、データ流出、ランサム展開へ進む。医療やサービスを含む複数業種が標的であり、運用速度そのものが脅威の核心となっている。",
+      "ttp": [],
+      "malware_and_tools": ["Medusa ransomware"],
+      "infrastructure": [
+        "Vulnerable web-facing assets",
+        "Ransomware deployment infrastructure",
+        "Data exfiltration channels"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "ランサム運用の競争軸が潜伏の長さではなく、侵入後の速度へ移っていることを示す。",
+        "geopolitical": "国家系案件ではないが、医療や社会サービスに対する可用性リスクとして公共性が高い。",
+        "business": "外部公開資産の脆弱性管理と初動レスポンス時間短縮が経営リスク管理の中心課題になる。",
+        "research_direction": "初期侵入に使う脆弱性の傾向、侵入から暗号化までの時間短縮、業種別被害分布を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "脆弱性管理の遅れが短時間で致命的なランサム被害に直結するため。",
+        "delta_from_previous": "4月6日のMicrosoft報告で、Storm-1175の作戦速度とWeb公開資産偏重がより明確になった。"
+      },
+      "related_campaigns": [],
+      "tags": ["Storm-1175", "Medusa", "ransomware", "N-day", "web-facing"],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft Security Blog",
+          "published_at": "2026-04-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "Vulnerable web-facing systems",
+          "Ransomware infrastructure",
+          "Exfiltration channels"
+        ],
+        "capability": [
+          "Rapid exploitation",
+          "Data exfiltration",
+          "Ransomware deployment"
+        ],
+        "victim": [
+          "Healthcare organizations",
+          "Service providers",
+          "Internet-exposed enterprises"
+        ]
+      }
+    }
+  ]
+}

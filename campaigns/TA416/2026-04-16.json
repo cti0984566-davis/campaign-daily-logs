@@ -1,0 +1,97 @@
+{
+  "date": "2026-04-16",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416は欧州政府・外交機関に対するサイバー諜報活動を再開しており、PlugX系マルウェアやOAuthベースの誘導を含む複数波の活動が4月上旬に公開されたため、4月16日時点の重要継続監視対象である。",
+  "change_summary": [
+    "Proofpointが4月1日にTA416の欧州政府・外交標的化再開を公表",
+    "欧州連合・NATO関連外交ミッションへの複数波の作戦が確認された",
+    "PlugXおよびOAuth悪用を伴う継続的諜報作戦として再浮上"
+  ],
+  "operational_relevance": "中国系アクターの重点が欧州外交空間へ再び戻ったことを示し、日本としても外交・政策・国際機関との接点を持つ組織に対する同系統の監視が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "外交・政策系組織のメール誘導とOAuth承認ログを重点監視する",
+    "PlugX系挙動とWeb beaconを含む低ノイズなスパイ活動をハントする",
+    "国際会議・在外公館・国際機関接点の端末とアカウントを重点防御対象にする"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["RedDelta", "Mustang Panda-associated reporting"],
+    "cluster": "China-aligned espionage activity",
+    "suspected_actor": "China-aligned threat actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-16_ta416_europe_gov_resume",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "欧州政府・外交機関に対する標的化再開",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州"],
+        "industries": ["政府", "外交"],
+        "organization_types": ["政府機関", "EU関連外交ミッション", "NATO関連外交機関"]
+      },
+      "first_seen": "2025-07-01",
+      "last_seen": "2026-04-16",
+      "activity_summary": "TA416は2025年半ば以降、欧州政府・外交組織への標的化を再開し、複数波のWeb bugおよびマルウェア配信作戦を実施していた。",
+      "activity_details": "Proofpointによれば、TA416は2023年以降相対的に低下していた欧州重視を見直し、EUやNATOに関係する外交ミッションを含む標的に対して、Web beacon、PlugX、OAuthベースの誘導を用いたサイバー諜報を再開した。",
+      "ttp": [],
+      "malware_and_tools": ["PlugX", "OAuth-based phishing", "Web bug / beacon"],
+      "infrastructure": [
+        "Phishing infrastructure",
+        "OAuth abuse workflow",
+        "Web beacon delivery"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416の作戦軸が再び欧州外交空間に向いた点は、中国系諜報の優先順位変化を示す。",
+        "geopolitical": "EU・NATO関連外交組織への継続的アクセス獲得は、中国の対欧州政策・安全保障情報収集の一環とみられる。",
+        "business": "政策・規制・国際協調に関与する日本企業やシンクタンクも間接的標的になりうる。",
+        "research_direction": "配信インフラ、OAuth承認画面の悪用手法、PlugX変種、他の中国系クラスターとの重複を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "中国系APTが外交・政策空間への集中を再強化していることを示すため。",
+        "delta_from_previous": "4月1日のProofpoint公表で、欧州政府・外交標的化再開の具体像が明確化した。"
+      },
+      "related_campaigns": [],
+      "tags": ["TA416", "China", "Europe", "diplomacy", "PlugX", "OAuth"],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Phishing infrastructure",
+          "OAuth abuse workflow",
+          "Web beacon infrastructure"
+        ],
+        "capability": [
+          "Espionage",
+          "Credential theft",
+          "Malware delivery"
+        ],
+        "victim": [
+          "European governments",
+          "Diplomatic organizations",
+          "EU/NATO-related missions"
+        ]
+      }
+    }
+  ]
+}

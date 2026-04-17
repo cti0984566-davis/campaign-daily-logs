@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-16",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29については4月16日前後に新たな一次・有力公開の大きな更新は確認できず、直近では既知のクラウド初期アクセスやフィッシング能力を有する継続脅威として監視を継続する段階である。",
+  "change_summary": [
+    "4月16日前後の有意な新規公開は確認できず",
+    "既知のクラウド初期アクセス・外交標的化能力を持つ継続脅威として位置付け維持"
+  ],
+  "operational_relevance": "当日基準で無理に新展開を付与せず、既知のAPT29 TTPを土台に監視継続とする方が精度が高い。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "クラウド初期アクセスと認証情報悪用の検知ルールを継続運用する",
+    "外交・政策関連組織に対するフィッシングと不正デバイス登録を重点監視する",
+    "新たな一次ソース公表が出るまで、当日のログでは過剰評価を避ける"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Midnight Blizzard", "The Dukes", "NOBELIUM"],
+    "cluster": "SVR-linked espionage activity",
+    "suspected_actor": "Russian Foreign Intelligence Service-linked actors",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-16_apt29_no_major_delta",
+      "type": "assessment",
+      "status": "更新",
+      "name": "4月16日時点での有意な新展開不在",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "北米"],
+        "industries": ["政府", "外交", "政策機関", "クラウド利用組織"],
+        "organization_types": ["政府機関", "外交組織", "シンクタンク", "クラウド利用企業"]
+      },
+      "first_seen": "2024-02-26",
+      "last_seen": "2026-04-16",
+      "activity_summary": "APT29は既知のクラウド初期アクセス、認証悪用、フィッシング能力を有するが、4月16日前後の新規公開で大きな差分は確認できなかった。",
+      "activity_details": "公開情報ベースでは、APT29に関してこの日付近にAPT28やTA416のような新規レポート級更新は見当たらない。したがって、既知のSVR系クラウド侵入・外交標的化能力を前提とする継続監視案件として扱うのが適切である。",
+      "ttp": [],
+      "malware_and_tools": [],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は依然として高能力の国家級諜報主体だが、当日に無理に新規事象化しない方が精度を保てる。",
+        "geopolitical": "ロシアの対外諜報能力として引き続き重要だが、この日の公開情報では新たなエスカレーションは見えない。",
+        "business": "クラウド認証・メール・外交関連コミュニケーション基盤の保護が依然重要。",
+        "research_direction": "今後の一次ソース、特に政府・CERT・大手ベンダの新規レポートを待って差分更新する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "高能力APTの継続監視は必要だが、日次ログでの過剰な新規判定は避けるべきため。",
+        "delta_from_previous": "4月16日前後の有力な新規差分は確認できなかった。"
+      },
+      "related_campaigns": [],
+      "tags": ["APT29", "Midnight Blizzard", "monitoring"],
+      "sources": [
+        {
+          "title": "SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "UK NCSC",
+          "published_at": "2024-02-26"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked actors",
+        "infrastructure": [],
+        "capability": [
+          "Cloud initial access",
+          "Credential abuse",
+          "Espionage"
+        ],
+        "victim": [
+          "Government",
+          "Diplomatic organizations",
+          "Cloud-reliant entities"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "date": "2026-04-16",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は脆弱なSOHOルーターを侵害し、DNSハイジャックを通じたActor-in-the-Middle型の諜報作戦を継続していたことが4月上旬に米英当局から公表され、4月16日時点でも最重要の継続監視対象である。",
+  "change_summary": [
+    "米司法省が4月7日に裁判所承認の妨害措置を公表",
+    "FBI/NSA等の共同注意喚起でTP-LinkルーターへのCVE-2023-50224悪用が明記された",
+    "SOHOルーターを基盤とする国家級AitM諜報の全体像が明確化"
+  ],
+  "operational_relevance": "政府・防衛・重要インフラ関係者のみならず、在宅勤務環境や委託先、小規模拠点が国家級諜報の攻撃面になることを示しており、日本でも境界外の通信環境監視が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルーターや小規模拠点ルーターの棚卸しと交換計画を確認する",
+    "DNS設定改ざん、異常なリゾルバ変更、認証トークン窃取兆候を監視する",
+    "在宅勤務・委託先を含む周辺ネットワークを脅威ハンティング対象に加える"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Sofacy", "Sednit", "Pawn Storm"],
+    "cluster": "GRU Unit 26165 activity",
+    "suspected_actor": "Russian GRU Unit 26165",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-16_apt28_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "SOHOルーター悪用・DNSハイジャック作戦",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["北米", "欧州", "ウクライナ関連地域"],
+        "industries": ["政府", "防衛", "重要インフラ", "通信"],
+        "organization_types": ["政府機関", "軍関連組織", "委託先", "在宅勤務利用者"]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-16",
+      "activity_summary": "APT28は少なくとも2024年以降、脆弱なルーターを悪用し、DNSハイジャックとActor-in-the-Middle攻撃によって認証情報と通信を窃取していた。",
+      "activity_details": "DOJ、FBI/NSA等の共同注意喚起、NCSCによれば、APT28は既知脆弱性を悪用してTP-Linkルーターを中心に認証情報を窃取し、侵害済み機器を悪性インフラとして利用していた。共同注意喚起ではCVE-2023-50224の悪用が明記されている。DNS設定改ざんにより、Microsoft Outlook Web Access等を偽装した応答へ誘導し、パスワードや認証トークンの窃取を図った。",
+      "ttp": ["T1190", "T1557", "T1040", "CVE-2023-50224"],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised TP-Link routers",
+        "Modified DHCP/DNS settings",
+        "GRU-controlled DNS resolvers",
+        "Actor-in-the-Middle relay infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "安価な市販ルーターの既知脆弱性だけでも国家級諜報作戦が成立することを示した。",
+        "geopolitical": "対ウクライナ・対欧州を含むロシアの長期諜報活動の一環であり、同盟国の周辺通信環境全体が攻撃面となる。",
+        "business": "企業防御は本社境界だけでなく、在宅勤務や委託先、小拠点を含む構成へ再設計が必要。",
+        "research_direction": "侵害ルーター種別、再侵害の有無、DNS改ざんの地域的分布、被害セクターの拡大を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "APT28の活動は末端ネットワーク機器を国家級諜報基盤へ転化する現実を示しており、日本の官民双方に直結する。",
+        "delta_from_previous": "4月7日の公表で、ルーター侵害からDNS改ざん、Actor-in-the-Middle諜報までの作戦連鎖がより具体的になり、共同注意喚起ではCVE-2023-50224も示された。"
+      },
+      "related_campaigns": [],
+      "tags": ["APT28", "router", "dns-hijack", "AitM", "GRU", "CVE-2023-50224"],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Russian GRU Exploiting Vulnerable Routers to Steal Sensitive Information",
+          "url": "https://media.defense.gov/2026/Apr/07/2003907743/-1/-1/0/I-260407-PSA.PDF",
+          "publisher": "FBI / NSA and partners",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "UK NCSC",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU Unit 26165",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Hijacked DNS paths",
+          "AitM relay infrastructure"
+        ],
+        "capability": [
+          "Router exploitation",
+          "DNS hijacking",
+          "Credential and token theft"
+        ],
+        "victim": [
+          "Government personnel",
+          "Military-related users",
+          "Critical infrastructure-linked users",
+          "Remote workers"
+        ]
+      }
+    }
+  ]
+}
