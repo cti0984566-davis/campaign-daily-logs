@@ -1,0 +1,543 @@
+{
+  "date": "2026-04-16",
+  "timezone": "JST",
+  "title": "2026/04/16_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-16_apt28_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "APT28",
+        "aliases": ["Fancy Bear", "Forest Blizzard", "Sofacy", "Sednit", "Pawn Storm"],
+        "cluster": "GRU Unit 26165 activity",
+        "suspected_actor": "Russian GRU Unit 26165",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "APT28 / GRU Unit 26165",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Hijacked DNS paths",
+          "Actor-in-the-Middle relay infrastructure"
+        ],
+        "capability": [
+          "Router exploitation",
+          "DNS hijacking",
+          "Credential and token theft"
+        ],
+        "victim": [
+          "Government personnel",
+          "Military-related users",
+          "Critical infrastructure-linked users",
+          "Remote workers"
+        ]
+      },
+      "name": "SOHOルーター悪用・DNSハイジャック作戦",
+      "category": "国家系サイバー作戦",
+      "industry": ["政府機関", "軍事", "重要インフラ", "通信"],
+      "region": ["米国", "欧州", "ウクライナ関連地域"],
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-16",
+      "summary": "APT28が脆弱なSOHOルーターを侵害し、DNS設定改ざんとActor-in-the-Middleを通じて認証情報や通信内容を収集していた作戦について、米当局の妨害措置後も重要継続案件として監視が必要。",
+      "details": "米司法省とFBIは2026年4月7日、ロシアGRU第26165部隊に関連する作戦について裁判所承認の妨害措置を実施したと公表した。DOJによれば、同部隊は少なくとも2024年以降、TP-Linkルーターを中心に既知脆弱性を悪用して認証情報を窃取し、DNS設定を改ざんして、Microsoft Outlook Web Accessなどを模した不正DNS応答によりActor-in-the-Middle攻撃を実施していた。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "threat_actor",
+          "country": "Russia"
+        },
+        {
+          "name": "Russian GRU Unit 26165",
+          "role": "state_sponsor",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1040"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Compromised TP-Link routers",
+        "Modified DNS configurations",
+        "GRU-controlled DNS resolvers"
+      ],
+      "targeting": {
+        "sectors": ["Government", "Military", "Critical Infrastructure", "Telecommunications"],
+        "countries": ["United States", "Ukraine", "European countries"],
+        "organization_types": ["Government agencies", "Defense-linked entities", "Remote work environments", "Contractors"]
+      },
+      "strategic_view": {
+        "general": "既知脆弱性と周辺ネットワーク機器の悪用だけでも国家級諜報作戦が成立することを示した。",
+        "geopolitical": "対ウクライナ・対欧州を中心とするロシアの長期諜報活動の一環であり、同盟国全体の周辺通信環境が攻撃面となる。",
+        "business": "日本企業にとっても本社境界だけでなく、在宅勤務端末や小拠点、委託先を含む防御設計が必要である。",
+        "research_direction": "侵害ルーター機種、DNS改ざんパターン、被害地域分布、再侵害の有無を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "国家級アクターが末端のネットワーク機器を足場に戦略情報収集を実施しているため。",
+        "delta_from_previous": "4月7日の公表により、ルーター侵害からDNS改ざん、Actor-in-the-Middle諜報に至る作戦全体像がより明確になった。"
+      },
+      "related_campaigns": ["APT28"],
+      "related_reports": ["2026/04/15_サイバー事象概要"],
+      "tags": ["APT28", "router", "dns-hijack", "AitM", "GRU"],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Russian GRU Exploiting Vulnerable Routers to Steal Sensitive Information",
+          "url": "https://www.fbi.gov/investigate/cyber/alerts/2026/russian-gru-exploiting-vulnerable-routers-to-steal-sensitive-information",
+          "publisher": "FBI",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-16_iran_plc_critical_infrastructure",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "Iran-affiliated PLC Targeting",
+        "aliases": ["CyberAv3ngers-linked activity"],
+        "cluster": "Iranian critical infrastructure targeting",
+        "suspected_actor": "Iran-affiliated cyber actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-affiliated cyber actors",
+        "infrastructure": [
+          "Internet-facing OT devices",
+          "PLC environments",
+          "Remote management interfaces"
+        ],
+        "capability": [
+          "PLC exploitation",
+          "OT disruption",
+          "Critical infrastructure intrusion"
+        ],
+        "victim": [
+          "Water utilities",
+          "Energy facilities",
+          "Critical infrastructure operators"
+        ]
+      },
+      "name": "米重要インフラPLC悪用事案",
+      "category": "国家系サイバー作戦",
+      "industry": ["重要インフラ", "エネルギー", "水道", "産業制御"],
+      "region": ["米国", "中東関連"],
+      "first_seen": "2023-11-01",
+      "last_seen": "2026-04-16",
+      "summary": "イラン系アクターによるPLC・OT環境への侵入・妨害リスクについて、CISAの警告を受け継続監視が必要な案件。",
+      "details": "CISAは2026年4月7日、Iranian-affiliated APT actorsが米重要インフラのinternet-facing OT devicesを標的にしていると警告した。中東情勢の緊迫化と連動し、示威的または報復的な重要インフラ攻撃として位置付けられる。",
+      "actors": [
+        {
+          "name": "Iran-affiliated cyber actors",
+          "role": "threat_actor",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T0883",
+        "T0814",
+        "T0822"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Internet-facing OT devices",
+        "PLC/ICS management interfaces"
+      ],
+      "targeting": {
+        "sectors": ["Energy", "Water", "Critical Infrastructure"],
+        "countries": ["United States"],
+        "organization_types": ["Utility operators", "Industrial operators", "Public service entities"]
+      },
+      "strategic_view": {
+        "general": "OT環境の露出がそのまま国家系示威行動の攻撃面になっている。",
+        "geopolitical": "中東情勢の緊張が米国本土や同盟国の重要インフラへのサイバー圧力として現れている。",
+        "business": "日本でも中小のOT環境や遠隔保守経路の見直しが必要である。",
+        "research_direction": "具体的な露出機器種別、被害実例、イラン系既知クラスターとの重複を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "重要インフラに対するサイバー攻撃が地域紛争と直結しているため。",
+        "delta_from_previous": "OT障害の現実的リスクを強く前面に出した警告となった。"
+      },
+      "related_campaigns": ["CyberAv3ngers"],
+      "related_reports": ["2026/04/14_サイバー事象概要"],
+      "tags": ["Iran", "PLC", "OT", "critical-infrastructure"],
+      "sources": [
+        {
+          "title": "Iranian-Affiliated Cyber Actors Exploit Programmable Logic Controllers Across US Critical Infrastructure",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-097a",
+          "publisher": "CISA",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-16_russia_iran_cyber_support",
+      "type": "assessment",
+      "status": "更新",
+      "campaign": {
+        "name": "Russia-Iran Cyber Cooperation",
+        "aliases": [],
+        "cluster": "Cross-theater cyber collaboration",
+        "suspected_actor": "Russia- and Iran-linked cyber ecosystems",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Russia- and Iran-linked cyber actors",
+        "infrastructure": [
+          "Shared infrastructure",
+          "Telegram coordination channels",
+          "Leased VPS and domains"
+        ],
+        "capability": [
+          "Cyber support",
+          "Infrastructure sharing",
+          "Coordinated disruptive and espionage activity"
+        ],
+        "victim": [
+          "Ukraine-linked targets",
+          "Israeli and regional infrastructure",
+          "Government and communications sectors"
+        ]
+      },
+      "name": "露イラン間サイバー支援の示唆",
+      "category": "国家間サイバー連携",
+      "industry": ["政府機関", "通信", "重要インフラ"],
+      "region": ["ロシア", "イラン", "ウクライナ", "中東"],
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-16",
+      "summary": "ウクライナ側評価により、ロシアがイランに対してサイバー面の支援や連携を行っている可能性が改めて示唆された。",
+      "details": "Reuters報道によれば、ウクライナの情報評価は、ロシアがイランに対し衛星画像支援に加え、サイバー分野でも連携や支援を行っている可能性を示した。Telegram上の連携、インフラ共有、技術的支援が指摘されており、欧州正面と中東正面がサイバー面で接続される構図として注目される。",
+      "actors": [
+        {
+          "name": "Russia-linked cyber groups",
+          "role": "supporting_actor",
+          "country": "Russia"
+        },
+        {
+          "name": "Iran-linked cyber groups",
+          "role": "partner_actor",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1583",
+        "T1584",
+        "T1595",
+        "T1071"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Telegram-based coordination",
+        "Shared VPS infrastructure",
+        "Shared domains"
+      ],
+      "targeting": {
+        "sectors": ["Government", "Communications", "Critical Infrastructure"],
+        "countries": ["Ukraine", "Israel", "Iran", "Russia"],
+        "organization_types": ["Government agencies", "Infrastructure operators", "Regional service providers"]
+      },
+      "strategic_view": {
+        "general": "国家間または準国家間のサイバー協力が地域紛争を横断している可能性を示す。",
+        "geopolitical": "ロシア正面と中東正面がサイバー面で接続されれば、危機の同時多発的連動リスクが高まる。",
+        "business": "エネルギー、海運、通信など多地域展開企業は地域別リスクではなく連関リスクとして見る必要がある。",
+        "research_direction": "具体的な共有インフラ、共同作戦事例、関与クラスターの実体を継続精査する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "複数紛争正面を横断するサイバー連携の可能性は、脅威評価の前提を変えるため。",
+        "delta_from_previous": "従来の政治・軍事接近に加え、サイバー支援・インフラ共有の具体像が報じられた。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["Russia", "Iran", "cyber-cooperation", "hybrid-conflict"],
+      "sources": [
+        {
+          "title": "Russia supplies Iran with cyber support, spy imagery to hone attacks, Ukraine says",
+          "url": "https://www.reuters.com/world/europe/russia-supplies-iran-with-cyber-support-spy-imagery-hone-attacks-ukraine-says-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-16_uac0247_agingfly_ukraine",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "UAC-0247 AgingFly Campaign",
+        "aliases": ["AgingFly"],
+        "cluster": "CERT-UA tracked espionage cluster",
+        "suspected_actor": "UAC-0247",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "UAC-0247",
+        "infrastructure": [
+          "Phishing lures",
+          "Fake and compromised websites",
+          "Command-and-control infrastructure"
+        ],
+        "capability": [
+          "Credential theft",
+          "Remote access",
+          "Screen capture",
+          "Keylogging",
+          "Fake software updates"
+        ],
+        "victim": [
+          "Hospitals",
+          "Emergency medical services",
+          "Local governments",
+          "Defense-adjacent personnel"
+        ]
+      },
+      "name": "AgingFlyによるウクライナ医療・緊急機関標的化",
+      "category": "国家系サイバー作戦",
+      "industry": ["医療", "地方行政", "緊急サービス", "政府機関"],
+      "region": ["ウクライナ"],
+      "first_seen": "2026-02-16",
+      "last_seen": "2026-04-16",
+      "summary": "CERT-UAがUAC-0247によるAgingFly関連の新たな諜報キャンペーンを公表し、病院や救急医療機関、地方行政機関が標的となっている。",
+      "details": "The Recordによれば、CERT-UAは過去2か月にわたり、UAC-0247が人道支援や業務連絡を装う誘導で、病院、救急医療サービス、地方行政機関を標的化していたと公表した。AgingFly、SilentLoop、ChromeElevator、ZapixDeskなどのマルウェア群が用いられ、キーロギング、スクリーンショット取得、認証情報窃取、遠隔操作などが行われた。",
+      "actors": [
+        {
+          "name": "UAC-0247",
+          "role": "threat_actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1566",
+        "T1059",
+        "T1056",
+        "T1113",
+        "T1555",
+        "T1105"
+      ],
+      "malware": [
+        "AgingFly",
+        "SilentLoop",
+        "ChromeElevator",
+        "ZapixDesk"
+      ],
+      "infrastructure": [
+        "Phishing email infrastructure",
+        "Fake websites",
+        "Compromised legitimate sites",
+        "C2 nodes"
+      ],
+      "targeting": {
+        "sectors": ["Healthcare", "Emergency Services", "Local Government"],
+        "countries": ["Ukraine"],
+        "organization_types": ["Hospitals", "Emergency medical services", "Local administrations", "Defense-adjacent users"]
+      },
+      "strategic_view": {
+        "general": "戦時下で医療・救急・地方行政が継続的諜報の対象となっている。",
+        "geopolitical": "軍・中央政府だけでなく、地域社会の後方支援能力を削るハイブリッド戦の一環とみられる。",
+        "business": "医療・自治体・地域公共サービスは日本でも同様に脆弱な標的となりうる。",
+        "research_direction": "UAC-0247の過去事例、関連インフラ、他クラスターとの重複、実被害範囲を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "地域医療と行政を狙う作戦は社会持久力を直接損なうため。",
+        "delta_from_previous": "新規公表案件であり、標的が病院・救急・地方行政に広がっている点が重要である。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["Ukraine", "UAC-0247", "AgingFly", "healthcare", "espionage"],
+      "sources": [
+        {
+          "title": "Ukrainian emergency services and hospitals hit by espionage campaign using new AgingFly malware",
+          "url": "https://therecord.media/aging-fly-espionage-campaign-targets-ukraine-emergency-services",
+          "publisher": "The Record",
+          "published_at": "2026-04-16"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-16_sweden_energy_pro_russian",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Pro-Russian Sweden Energy Targeting",
+        "aliases": [],
+        "cluster": "Pro-Russian disruptive infrastructure targeting",
+        "suspected_actor": "Pro-Russian group linked to Russian security services",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Pro-Russian group",
+        "infrastructure": [
+          "Intrusion path into energy facility systems"
+        ],
+        "capability": [
+          "Disruptive OT targeting",
+          "Energy infrastructure intrusion"
+        ],
+        "victim": [
+          "Swedish thermal power plant / district heating-related facility"
+        ]
+      },
+      "name": "スウェーデン熱供給施設に対する親露系攻撃未遂",
+      "category": "国家系サイバー作戦",
+      "industry": ["エネルギー", "重要インフラ"],
+      "region": ["スウェーデン", "欧州"],
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-16",
+      "summary": "スウェーデン政府は、2025年に親露系グループが熱供給関連施設に破壊的影響を狙ったサイバー攻撃を試みたと公表した。",
+      "details": "Reutersによれば、スウェーデン政府は2025年に親露系グループがスウェーデンのthermal power plantを標的に運用妨害を試みたと述べた。重大結果は回避されたが、欧州支援国に対するロシア系グレーゾーン圧力がOT領域にも及んでいることを示す。",
+      "actors": [
+        {
+          "name": "Pro-Russian group",
+          "role": "threat_actor",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "Energy facility operational systems"
+      ],
+      "targeting": {
+        "sectors": ["Energy", "District Heating", "Critical Infrastructure"],
+        "countries": ["Sweden"],
+        "organization_types": ["Energy operators", "Public utility providers"]
+      },
+      "strategic_view": {
+        "general": "生活インフラを狙う破壊的・威圧的サイバー活動の継続を示す。",
+        "geopolitical": "ウクライナ支援国に対する対露抑止環境下のグレーゾーン圧力として理解できる。",
+        "business": "地域エネルギー・水道・発電を含む地方インフラ事業者のOT防御強化が必要である。",
+        "research_direction": "攻撃主体の実名、侵入経路、OT安全機構が阻止した具体像を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "欧州の生活インフラが破壊的影響を伴う親露系攻撃の対象となっているため。",
+        "delta_from_previous": "スウェーデン政府が具体的な重要インフラ事案として公表した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["Sweden", "energy", "OT", "pro-Russian", "critical-infrastructure"],
+      "sources": [
+        {
+          "title": "Swedish power plant targeted by pro-Russian group in 2025, government says",
+          "url": "https://www.reuters.com/world/swedish-power-plant-targeted-by-pro-russian-group-2025-government-says-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-16_mcgrawhill_autovista_crime",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Commercial Data Breach and Ransomware Cases",
+        "aliases": [],
+        "cluster": "Cybercrime activity",
+        "suspected_actor": "Multiple criminal actors",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Cybercriminal actors",
+        "infrastructure": [
+          "Compromised SaaS/CRM environments",
+          "Ransomware deployment infrastructure"
+        ],
+        "capability": [
+          "Data theft",
+          "Extortion",
+          "Ransomware execution"
+        ],
+        "victim": [
+          "Educational publisher",
+          "Automotive data services company"
+        ]
+      },
+      "name": "McGraw Hill漏えい事案およびAutovistaランサム事案",
+      "category": "サイバー犯罪",
+      "industry": ["教育", "情報サービス", "自動車関連サービス"],
+      "region": ["米国", "欧州", "豪州"],
+      "first_seen": "2026-04-14",
+      "last_seen": "2026-04-16",
+      "summary": "McGraw HillのSalesforce関連漏えいとAutovistaのランサムウェア被害が報じられ、SaaS設定不備と業務停止リスクが改めて顕在化した。",
+      "details": "McGraw-Hillは、Salesforce環境のmisconfigurationに関連する不正アクセスで限定的データが露出したと説明し、その後BleepingComputerはShinyHuntersによる1,350万アカウント流出を報じた。Autovistaは自社更新ページで、欧州と豪州の一部システムに影響するransomware incidentへの対応を公表した。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "claimed_threat_actor",
+          "country": "Unknown"
+        },
+        {
+          "name": "Unknown ransomware actor",
+          "role": "threat_actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1530",
+        "T1486"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Salesforce-hosted webpage environment",
+        "Ransomware-affected Autovista systems"
+      ],
+      "targeting": {
+        "sectors": ["Education", "Business Information Services", "Automotive Data Services"],
+        "countries": ["United States", "European countries", "Australia"],
+        "organization_types": ["Commercial enterprises", "Data service providers", "Educational content providers"]
+      },
+      "strategic_view": {
+        "general": "クラウド設定不備とランサムウェアは依然として民間被害の主要因である。",
+        "geopolitical": "国家系脅威ほどではないが、教育・事業データ・自動車関連分析サービスへの影響は広い。",
+        "business": "日本企業でもSaaS管理面と事業継続計画の両面強化が必要である。",
+        "research_direction": "侵入経路、恐喝主体、漏えい範囲、復旧状況を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "SaaS設定不備とランサムの双方が企業運用の基本リスクとして残っているため。",
+        "delta_from_previous": "McGraw Hillは個別記事と被害規模記事に更新し、Autovistaは公式障害告知を直接ソース化した。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": ["data-breach", "ransomware", "SaaS", "Salesforce", "Autovista"],
+      "sources": [
+        {
+          "title": "McGraw-Hill confirms data breach following extortion threat",
+          "url": "https://www.bleepingcomputer.com/news/security/mcgraw-hill-confirms-data-breach-following-extortion-threat/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-14"
+        },
+        {
+          "title": "Data breach at edtech giant McGraw Hill affects 13.5 million accounts",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-at-edtech-giant-mcgraw-hill-affects-135-million-accounts/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-16"
+        },
+        {
+          "title": "Update on Disruption of Autovista Applications",
+          "url": "https://autovista.com/service-update-1/",
+          "publisher": "JD Power Autovista",
+          "published_at": "2026-04-17"
+        }
+      ]
+    }
+  ]
+}
