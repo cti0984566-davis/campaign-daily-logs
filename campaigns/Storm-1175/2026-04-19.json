@@ -1,0 +1,111 @@
+{
+  "date": "2026-04-19",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [],
+    "cluster": "Financially motivated ransomware intrusion activity",
+    "suspected_actor": "Chinese-speaking financially motivated threat actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-19_storm_1175_medusa_high_tempo_operations",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Medusaランサムウェアを伴う高テンポ侵害の継続",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": ["米国", "英国", "オーストラリア", "グローバル"],
+        "industries": ["医療", "教育", "金融", "専門サービス"],
+        "organization_types": ["インターネット公開資産を持つ組織", "企業", "公共機関"]
+      },
+      "first_seen": "2025-01-01",
+      "last_seen": "2026-04-19",
+      "activity_summary": "MicrosoftはStorm-1175を、N-day脆弱性の公開からパッチ普及までの短い窓を突き、短期間で侵入・情報窃取・Medusa展開まで進む高テンポのランサムウェア運用主体として詳述した。",
+      "activity_details": "Storm-1175はWeb公開資産を重点的に狙い、公開済み脆弱性を連鎖利用しながら、場合によっては24時間以内に侵入からデータ窃取、暗号化まで到達する。MicrosoftはExchange, PaperCut, Ivanti Connect Secure, ConnectWise ScreenConnect, TeamCity, CrushFTP, BeyondTrustなど複数製品の脆弱性悪用を挙げている。",
+      "ttp": [
+        "Rapid exploitation of N-day vulnerabilities",
+        "T1190 Exploit Public-Facing Application",
+        "T1486 Data Encrypted for Impact",
+        "Rapid data exfiltration"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware"
+      ],
+      "infrastructure": [
+        "Vulnerable web-facing assets",
+        "Ransomware deployment infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "Storm-1175は、ゼロデイそのものよりも『公開済みだがまだ塞がれていない脆弱性』を高速で刈り取る脅威として、実務上きわめて危険である。",
+        "geopolitical": "国家系ではないが、中国語話者とされる点、広域多産業を狙う点から、地理的帰属より運用速度が脅威評価の中心になる。",
+        "business": "日本組織にとって重要なのは、脆弱性情報の取得速度ではなく、48〜96時間以内に公開資産へ優先適用する運用能力である。",
+        "research_direction": "悪用製品の追加、初期アクセスから暗号化までの時間圧縮、データ窃取先やアフィリエイト連携の有無を追うべきである。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "ゼロデイがなくても、N-day悪用だけで重大被害を短期間で生み出せることを示す代表例である。",
+        "delta_from_previous": "Microsoftの4月報告により、Storm-1175の標的業種、悪用製品群、侵害速度の実像がより具体化した。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware"
+      ],
+      "tags": [
+        "Storm-1175",
+        "Medusa",
+        "ransomware",
+        "N-day exploitation",
+        "web-facing assets"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "Storm-1175 and Medusa Ransomware: Anatomy of a Rapid Multi-Exploit Intrusion",
+          "url": "https://www.secpod.com/blog/storm-1175-and-medusa-ransomware-anatomy-of-a-rapid-multi-exploit-intrusion/",
+          "publisher": "SecPod",
+          "published_at": "2026-04-16"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "Internet-facing vulnerable systems",
+          "Ransomware and exfiltration infrastructure"
+        ],
+        "capability": [
+          "Rapid N-day exploitation",
+          "Fast lateral movement",
+          "Data exfiltration",
+          "Ransomware deployment"
+        ],
+        "victim": [
+          "Healthcare",
+          "Education",
+          "Finance",
+          "Professional services"
+        ]
+      }
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、公開済み脆弱性を高速悪用して短時間でMedusaランサムウェア展開まで到達する高テンポ侵害主体として、引き続き最重要の犯罪系監視対象である。",
+  "change_summary": [
+    "標的業種と悪用製品群がより具体化した",
+    "侵入から暗号化まで24時間級の速度が改めて強調された"
+  ],
+  "operational_relevance": "高",
+  "urgency": "high",
+  "recommended_action": [
+    "インターネット公開資産の脆弱性優先適用を48〜96時間以内で回す",
+    "ExchangeやScreenConnect等の高リスク製品の露出確認を行う",
+    "初期侵入後24時間以内を想定した封じ込め手順を整備する"
+  ]
+}

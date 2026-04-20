@@ -1,0 +1,102 @@
+{
+  "date": "2026-04-19",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Midnight Blizzard", "NOBELIUM", "The Dukes"],
+    "cluster": "Russian state-linked cyber espionage",
+    "suspected_actor": "SVR-linked Russian intelligence activity",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-19_apt29_no_major_new_public_update",
+      "type": "assessment",
+      "status": "更新",
+      "name": "4月17〜19日時点では大きな新規公開更新なし",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "北米"],
+        "industries": ["政府", "外交", "NGO", "ITサービス"],
+        "organization_types": ["政府機関", "外交機関", "NGO", "ITプロバイダ"]
+      },
+      "first_seen": "2024-10-22",
+      "last_seen": "2026-04-19",
+      "activity_summary": "4月17〜19日（JST）に確認できた公開ソースでは、APT29に関する同期間の大きな新規一次ソース更新は確認できなかった。",
+      "activity_details": "Microsoftの公開プロフィールおよび既往の2024年10月のRDPファイルを用いたスピアフィッシング報告は依然有効なベースラインである。一方で、この3日間にAPT28やTA416、Storm-1175と同程度の新規運用情報や大規模な追加開示は確認できず、今回はassessment_updateとして扱うのが妥当である。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1204 User Execution",
+        "RDP file lure usage"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は依然として西側政府・外交・ITサービスを主軸に長期諜報を継続する主要脅威だが、この3日間に限れば公開上の目立った新規変化は薄い。",
+        "geopolitical": "露宇戦争や対西側対立が続く中でも、APT29は中長期の静かな情報収集基盤として警戒すべき対象であり続ける。",
+        "business": "短期のニュース性は低くても、政府・大企業・ITサービス企業は継続的な認証保護、委託先管理、外交関係者のフィッシング対策を維持すべきである。",
+        "research_direction": "新規の2026年春季キャンペーン、政府・外交を狙うdevice codeやOAuth、RDPファイル系誘導の再燃有無を追う。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "APT29は大規模ニュースがなくても長期潜伏型であり、更新がないこと自体はリスク低下を意味しない。",
+        "delta_from_previous": "この3日間で大きな公開差分は確認できなかった。"
+      },
+      "related_campaigns": [],
+      "tags": [
+        "APT29",
+        "Midnight Blizzard",
+        "Cozy Bear",
+        "Russia",
+        "espionage"
+      ],
+      "sources": [
+        {
+          "title": "Midnight Blizzard (NOBELIUM) | Nation State Actors",
+          "url": "https://www.microsoft.com/en-us/security/security-insider/threat-landscape/midnight-blizzard",
+          "publisher": "Microsoft",
+          "published_at": "2026"
+        },
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": [
+          "Phishing infrastructure",
+          "Credential collection paths"
+        ],
+        "capability": [
+          "Long-term espionage",
+          "Credential theft",
+          "Targeted phishing"
+        ],
+        "victim": [
+          "Governments",
+          "Diplomatic entities",
+          "NGOs",
+          "IT service providers"
+        ]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "APT29は依然として最重要監視対象だが、4月17〜19日時点で他キャンペーンと比べて明確な新規公開更新は確認できず、今回は評価更新として整理する。",
+  "change_summary": [
+    "この3日間に大きな新規一次ソース更新は確認できなかった",
+    "脅威水準そのものが低下したことを意味するものではない"
+  ],
+  "operational_relevance": "中",
+  "urgency": "monitor",
+  "recommended_action": [
+    "外交・政府関係者への標的型フィッシング監視を継続する",
+    "高権限アカウントの認証保護と条件付きアクセスを維持する",
+    "新たな2026年春季運用情報が出た段階で再評価する"
+  ]
+}

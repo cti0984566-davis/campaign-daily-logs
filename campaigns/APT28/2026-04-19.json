@@ -1,0 +1,106 @@
+{
+  "date": "2026-04-19",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Sofacy"],
+    "cluster": "Russian state-linked cyber espionage",
+    "suspected_actor": "Likely linked to Russian military intelligence",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-19_ukraine_prosecutor_mailbox_campaign",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "ウクライナ検察・捜査当局メール侵害との関連が強く示唆",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["ウクライナ", "欧州"],
+        "industries": ["政府", "司法", "安全保障"],
+        "organization_types": ["検察機関", "捜査機関", "公的機関"]
+      },
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-04-19",
+      "activity_summary": "ReutersおよびThe Recordが報じたウクライナ検察・捜査当局メール侵害は、APT28系活動との関連が強く示唆されているが、公開時点で断定は避けるべき状況である。",
+      "activity_details": "Reutersはロシア関連ハッカーによる170超の検察官・捜査官メール侵害を報道し、The Recordはウクライナ当局者発言として、これが2023年以降追跡されているより広いキャンペーンの一部であり、APT28の可能性が高い旨を伝えた。現時点では、ロシア系帰属は強いが、APT28断定は慎重に扱うべきである。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1114 Email Collection",
+        "T1566 Phishing (推定)"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised email accounts",
+        "Unknown credential access infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は従来の軍事・政府監視に加え、司法・捜査機能に深く入り込むことで、戦時統治能力そのものを把握・妨害する方向に重点を置いている可能性がある。",
+        "geopolitical": "露宇戦争において、軍事情報だけでなく反協力者摘発や腐敗捜査に関わる情報へのアクセスは、政治工作や浸透把握と直結する。",
+        "business": "日本でも防衛・外交だけでなく、司法、監督、法執行、監査部門のメール保護と高感度アカウント監視を強化すべきである。",
+        "research_direction": "初期侵入経路、認証回避手法、メール転送ルール悪用、端末侵害やOAuth利用の有無を継続確認したい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT28が司法・捜査部門に重点を置くなら、これは単なる諜報でなく、統治能力への直接的な長期浸透を意味する。",
+        "delta_from_previous": "従来の軍・外交中心の観測に比べ、司法・検察という統治装置への重点化がより明確になった。"
+      },
+      "related_campaigns": [
+        "Russia-linked prosecutor email campaign"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "Ukraine",
+        "email compromise",
+        "government targeting"
+      ],
+      "sources": [
+        {
+          "title": "Russia-linked hackers compromised scores of Ukrainian prosecutors' email accounts, data shows",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Ukraine confirms suspected APT28 campaign targeting prosecutors",
+          "url": "https://therecord.media/ukraine-confirms-suspected-apt28-campaign-targeting-prosecutors",
+          "publisher": "The Record",
+          "published_at": "2026-04-17"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Likely APT28 / Russia-linked espionage operators",
+        "infrastructure": [
+          "Compromised mailboxes",
+          "Unknown credential theft infrastructure"
+        ],
+        "capability": [
+          "Credential compromise",
+          "Mailbox collection",
+          "Long-term surveillance"
+        ],
+        "victim": [
+          "Ukrainian prosecutors",
+          "Ukrainian investigators",
+          "Public-sector justice bodies"
+        ]
+      }
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "APT28に有力に関連づけられる対ウクライナ司法・捜査機関メール侵害が4月17日時点で改めて注目され、同グループの重点対象が軍事・外交にとどまらず統治機能へ広がっている可能性が示された。",
+  "change_summary": [
+    "ウクライナ当局者発言によりAPT28関連の見方が強まった",
+    "司法・検察部門への重点的標的化がより明確になった"
+  ],
+  "operational_relevance": "高",
+  "urgency": "monitor",
+  "recommended_action": [
+    "高感度部門メールの異常ログ、転送ルール、認証イベントを再点検する",
+    "司法・監督・法執行系アカウントの多要素認証と条件付きアクセスを強化する",
+    "関連キャンペーンをAPT28本体に統合するかは追加ソース確認後に判断する"
+  ]
+}

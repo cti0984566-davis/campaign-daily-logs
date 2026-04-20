@@ -1,0 +1,108 @@
+{
+  "date": "2026-04-19",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["RedDelta", "Red Lich", "DarkPeony", "SmugX", "Vertigo Panda"],
+    "cluster": "China-aligned cyber espionage",
+    "suspected_actor": "China-linked espionage operators",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-19_ta416_europe_middle_east_government_espionage",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "欧州政府・外交機関への活動再開と中東への拡張",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "中東"],
+        "industries": ["政府", "外交"],
+        "organization_types": ["政府機関", "外交ミッション", "NATO/EU関連組織"]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-19",
+      "activity_summary": "Proofpointは、TA416が2025年半ば以降に欧州関連活動を再開し、2026年3月には中東の外交・政府機関にも標的を拡張したと報告した。",
+      "activity_details": "Proofpointによれば、TA416はEUおよびNATO関連の外交ミッションを標的に複数波のスパイ活動を実施し、その後イラン紛争勃発後の数週間で中東の外交・政府組織にも対象を広げた。感染チェーンはCloudflare Turnstileの悪用、OAuthリダイレクト悪用、C# project file利用、PlugX系カスタムペイロード更新など、継続的に変化している。",
+      "ttp": [
+        "Cloudflare Turnstile abuse",
+        "OAuth redirect abuse",
+        "C# project file abuse",
+        "Web beacon delivery"
+      ],
+      "malware_and_tools": [
+        "PlugX"
+      ],
+      "infrastructure": [
+        "Phishing and beacon delivery infrastructure",
+        "OAuth redirect paths"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は、古典的な中国系諜報に見えつつも、感染チェーンの更新頻度と地理的拡張が高く、依然として実戦的な監視対象である。",
+        "geopolitical": "欧州政府・外交に加え中東の外交機関にも広がった点は、中国系諜報が地域情勢変化に応じて素早く情報要求を変えることを示す。",
+        "business": "日本の官公庁、シンクタンク、防衛・外交関連事業者も、同系統のOAuth悪用や外交テーマの誘導に備える必要がある。",
+        "research_direction": "PlugX派生系の差分、Cloudflare Turnstile悪用手口、外交テーマのルアー内容、対日関連標的化の有無を追跡したい。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "中国系脅威が欧州・中東の外交空間で再び活発化し、感染チェーンも現代的なSaaS/OAuth寄りに適応しているため。",
+        "delta_from_previous": "欧州再活性化に加え、中東外交・政府組織への拡張が新しい差分である。"
+      },
+      "related_campaigns": [],
+      "tags": [
+        "TA416",
+        "China",
+        "PlugX",
+        "government targeting",
+        "diplomatic espionage"
+      ],
+      "sources": [
+        {
+          "title": "I'd Come Running Back to EU Again: TA416 Resumes European Government Espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-03"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "OAuth redirect infrastructure",
+          "Beacon delivery servers"
+        ],
+        "capability": [
+          "Government espionage",
+          "Adaptive infection chains",
+          "PlugX delivery"
+        ],
+        "victim": [
+          "European governments",
+          "Diplomatic missions",
+          "Middle Eastern government and diplomatic entities"
+        ]
+      }
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "TA416は欧州政府・外交機関への活動を再開し、さらに中東の外交・政府組織へ対象を広げており、地政学変化に応じて標的と感染チェーンを更新する中国系諜報キャンペーンとして注目度が高い。",
+  "change_summary": [
+    "欧州政府・外交標的化が再活性化した",
+    "中東の外交・政府組織にも対象を拡張した",
+    "Cloudflare TurnstileやOAuth悪用など感染チェーンの更新が確認された"
+  ],
+  "operational_relevance": "高",
+  "urgency": "high",
+  "recommended_action": [
+    "外交・政府向けテーマのフィッシングとOAuth悪用を重点監視する",
+    "PlugX関連検知ルールとC# project file実行監視を見直す",
+    "対欧州・中東案件を扱う組織でメール・ID保護を強化する"
+  ]
+}
