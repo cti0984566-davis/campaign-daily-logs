@@ -1,0 +1,566 @@
+{
+  "date": "2026-04-19",
+  "timezone": "JST",
+  "title": "2026/04/19_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-19_russia_ukraine_prosecutor_mailboxes",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Russia-linked prosecutor email campaign",
+        "aliases": [
+          "Suspected APT28-linked campaign",
+          "Fancy Bear suspected"
+        ],
+        "cluster": "Russian cyber-espionage campaign",
+        "suspected_actor": "Russia-linked operators, likely aligned with Russian intelligence",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Russia-linked cyber-espionage operators",
+        "infrastructure": [
+          "Compromised email accounts",
+          "Unknown mail access infrastructure"
+        ],
+        "capability": [
+          "Credential compromise",
+          "Mailbox access",
+          "Long-term email collection"
+        ],
+        "victim": [
+          "Ukrainian prosecutors",
+          "Ukrainian investigators",
+          "Related public-sector entities"
+        ]
+      },
+      "name": "ウクライナ検察・捜査当局メール侵害の継続確認",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "司法",
+        "安全保障"
+      ],
+      "region": [
+        "ウクライナ",
+        "欧州"
+      ],
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-04-19",
+      "summary": "ロシア系とみられる攻撃者が、2024年9月から2026年3月にかけてウクライナ検察・捜査当局の多数のメールアカウントを侵害していた事案が継続事案として注目された。Reutersは170超の検察官・捜査官アカウント侵害を報じ、研究者分析では284超のメールボックス侵害が示された。",
+      "details": "公開情報では、ウクライナの司法・捜査機能に関わる機関が重点的に標的化されていた。Reutersはロシア関連ハッカーによる侵害と報じ、専門家の一部はAPT28/Fancy Bearとの関連を指摘しているが、公開時点で断定には至っていない。軍事情報ではなく、汚職捜査や対露協力者摘発に関わる統治・司法機能そのものが標的化されている点が重要である。",
+      "actors": [
+        {
+          "name": "Russia-linked hackers",
+          "role": "suspected intruder",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1114 Email Collection",
+        "T1566 Phishing (推定)"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Compromised mailboxes",
+        "Unknown credential access infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "justice",
+          "law enforcement"
+        ],
+        "countries": [
+          "Ukraine"
+        ],
+        "organization_types": [
+          "prosecutor offices",
+          "investigative bodies",
+          "public sector entities"
+        ]
+      },
+      "strategic_view": {
+        "general": "これは通常の情報窃取ではなく、戦時下の統治能力と法執行機能に対する長期的な浸透監視の一環とみるべき事案である。",
+        "geopolitical": "露宇戦争文脈で、軍事標的だけでなく司法・捜査機関が諜報対象として重視されていることを示す。",
+        "business": "日本でも防衛・外交のみならず、司法、監督、法執行、汚職監査等の高感度部門のメール防御を再点検すべきである。",
+        "research_direction": "初期侵入経路、認証方式、転送ルール悪用、OAuthや端末侵害の有無を継続監視する必要がある。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "国家の統治・法執行機能を狙う長期諜報活動であり、戦争遂行や影響工作と接続する可能性が高い。",
+        "delta_from_previous": "従来の対政府・対軍監視に比べ、司法・捜査部門への重点化がより明確になった。"
+      },
+      "related_campaigns": [
+        "APT28"
+      ],
+      "related_reports": [
+        "2026/04/16_サイバー事象概要"
+      ],
+      "tags": [
+        "Russia",
+        "Ukraine",
+        "email compromise",
+        "government targeting",
+        "APT28 suspected"
+      ],
+      "sources": [
+        {
+          "title": "Russia-linked hackers compromised scores of Ukrainian prosecutors' email accounts, data shows",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Ukraine confirms suspected APT28 campaign targeting prosecutors, anti-corruption agencies",
+          "url": "https://therecord.media/ukraine-confirms-suspected-apt28-campaign-targeting-prosecutors",
+          "publisher": "The Record",
+          "published_at": "2026-04-17"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-19_zionsiphon_israel_water_ot",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "ZionSiphon",
+        "aliases": [],
+        "cluster": "OT-focused malware activity",
+        "suspected_actor": "Unknown politically motivated or state-aligned actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor targeting Israeli water infrastructure",
+        "infrastructure": [
+          "USB propagation path",
+          "ICS/OT network scanning mechanisms"
+        ],
+        "capability": [
+          "Privilege escalation",
+          "Persistence",
+          "ICS scanning",
+          "OT process manipulation"
+        ],
+        "victim": [
+          "Water treatment plants",
+          "Desalination facilities"
+        ]
+      },
+      "name": "イスラエル水インフラを狙うOTマルウェア『ZionSiphon』",
+      "category": "重要インフラ攻撃",
+      "industry": [
+        "インフラ",
+        "水道",
+        "OT/ICS"
+      ],
+      "region": [
+        "イスラエル",
+        "中東"
+      ],
+      "first_seen": "2026-04-15",
+      "last_seen": "2026-04-19",
+      "summary": "Darktraceが、イスラエルの水処理・海水淡水化施設を想定したOT指向マルウェア『ZionSiphon』を公表した。権限昇格、永続化、USB経由拡散、ICSスキャン機能に加え、塩素処理や圧力制御への妨害を示唆する実装が確認された。",
+      "details": "現時点で物理破壊や大規模停止の公開確認はないが、OT/ICS工程に踏み込んだ設計が注目された。公開情報では帰属は未確定だが、対象選定や機能設計から、政治的動機や準国家的動機を帯びた重要インフラ破壊志向の可能性がある。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "suspected malware operator"
+        }
+      ],
+      "ttp": [
+        "T1091 Replication Through Removable Media",
+        "ICS Discovery (推定)",
+        "OT process manipulation (推定)"
+      ],
+      "malware": [
+        "ZionSiphon"
+      ],
+      "infrastructure": [
+        "USB propagation path",
+        "ICS network discovery functions"
+      ],
+      "targeting": {
+        "sectors": [
+          "water",
+          "critical infrastructure",
+          "industrial control systems"
+        ],
+        "countries": [
+          "Israel"
+        ],
+        "organization_types": [
+          "water treatment operators",
+          "desalination facilities"
+        ]
+      },
+      "strategic_view": {
+        "general": "OT破壊志向がコード実装レベルで具体化している点で、中東のサイバー脅威が一段階進んだ可能性がある。",
+        "geopolitical": "イスラエルを取り巻く中東情勢の緊張継続下で、重要インフラへの妨害志向がサイバー空間にも反映されている可能性がある。",
+        "business": "日本でも上下水道、化学注入、圧力制御などの工程制御系に対し、USB統制やOT監視強化が必要である。",
+        "research_direction": "サンプルの再利用性、ICSプロトコル対応範囲、既知ハクティビストや国家系ツールとのコード類似性を追うべきである。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "物理インフラへの妨害を想定したOTマルウェアであり、象徴的影響だけでなく安全性への直接リスクを持つ。",
+        "delta_from_previous": "従来のDDoSや情報流出中心の中東系活動に比べ、OT工程制御への具体的な妨害機能が強く示唆された。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "Israel",
+        "OT",
+        "ICS",
+        "water infrastructure",
+        "critical infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Inside ZionSiphon: Darktrace's Analysis of OT Malware Targeting Israeli Water Systems",
+          "url": "https://www.darktrace.com/blog/inside-zionsiphon-darktraces-analysis-of-ot-malware-targeting-israeli-water-systems",
+          "publisher": "Darktrace",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "ZionSiphon Malware Targets ICS in Water Facilities",
+          "url": "https://www.securityweek.com/zionsiphon-malware-targets-ics-in-water-facilities/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-17"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-19_operation_poweroff_ddos_for_hire",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Operation PowerOFF",
+        "aliases": [],
+        "cluster": "Global law-enforcement disruption of DDoS-for-hire ecosystem",
+        "suspected_actor": "Booter/Stresser service operators and users",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "DDoS-for-hire service operators",
+        "infrastructure": [
+          "Booter/stresser domains",
+          "Compromised smart devices used for DDoS"
+        ],
+        "capability": [
+          "Network denial of service",
+          "Commercialized attack services"
+        ],
+        "victim": [
+          "Web services",
+          "Online platforms",
+          "General internet-facing targets"
+        ]
+      },
+      "name": "Operation PowerOFF：DDoS-for-hire基盤への国際一斉摘発",
+      "category": "サイバー犯罪",
+      "industry": [
+        "横断",
+        "インターネット基盤"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-04-16",
+      "last_seen": "2026-04-19",
+      "summary": "Europol主導のOperation PowerOFFで、DDoS-for-hire基盤に対する国際一斉摘発が実施された。53ドメイン停止、4人逮捕、25件の捜索令状執行、75,000超の利用者への警告が公表された。",
+      "details": "本件は犯罪被害の公表ではなく、DDoSサービス市場への対抗措置である。利用者側に大量警告を送付し、ドメイン停止だけでなく需要側の抑止も狙った点が特徴である。DDoS-for-hireサービスは低技能利用者による嫌がらせ、恐喝、政治的パフォーマンスを容易化していた。",
+      "actors": [
+        {
+          "name": "Europol",
+          "role": "law enforcement coordinator"
+        },
+        {
+          "name": "DDoS-for-hire operators",
+          "role": "disrupted criminal service operators"
+        }
+      ],
+      "ttp": [
+        "T1498 Network Denial of Service"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "53 seized domains",
+        "Booter/stresser service infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "internet services",
+          "online businesses",
+          "public-facing services"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "DDoS-for-hire providers",
+          "criminal users"
+        ]
+      },
+      "strategic_view": {
+        "general": "DDoSは古典的脅威だが、依然として低コストで使いやすい妨害手段であり、紛争や情報工作と結びつきやすい。",
+        "geopolitical": "ハクティビズムや代理勢力が利用しやすい攻撃市場を縮小させる取り組みとして意味がある。",
+        "business": "日本でも行政、メディア、決済、交通案内等の短時間妨害に対する継続的備えが必要である。",
+        "research_direction": "停止された基盤の再建動向、代替サービス、利用者層の移動先を追跡する必要がある。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "犯罪インフラ市場を直接狙った国際摘発であり、DDoSの裾野拡大を抑止する効果が期待される。",
+        "delta_from_previous": "従来よりも利用者側への警告と需要抑止が前面に出た。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "DDoS",
+        "cybercrime",
+        "law enforcement",
+        "booter",
+        "stresser"
+      ],
+      "sources": [
+        {
+          "title": "Europol-supported global operation targets over 75 000 users engaged in DDoS attacks",
+          "url": "https://www.europol.europa.eu/media-press/newsroom/news/europol-supported-global-operation-targets-over-75-000-users-engaged-in-ddos-attacks",
+          "publisher": "Europol",
+          "published_at": "2026-04-16"
+        },
+        {
+          "title": "U.S. authorities conduct cyber operations as part of global crackdown on DDoS-for-hire services",
+          "url": "https://www.justice.gov/usao-ak/pr/us-authorities-conduct-cyber-operations-part-global-crackdown-ddos-hire-services",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-16"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-19_sharepoint_cve_2026_32201_exploitation",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "CVE-2026-32201 exploitation",
+        "aliases": [],
+        "cluster": "SharePoint Server exploitation activity",
+        "suspected_actor": "Unknown threat actors",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown threat actors exploiting SharePoint Server flaw",
+        "infrastructure": [
+          "Internet-facing or reachable SharePoint Server instances"
+        ],
+        "capability": [
+          "Spoofing vulnerability exploitation",
+          "Potential unauthorized access"
+        ],
+        "victim": [
+          "Organizations using Microsoft SharePoint Server"
+        ]
+      },
+      "name": "Microsoft SharePoint Server脆弱性 CVE-2026-32201 の悪用確認",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "横断",
+        "企業",
+        "政府機関",
+        "教育"
+      ],
+      "region": [
+        "グローバル",
+        "日本"
+      ],
+      "first_seen": "2026-04-15",
+      "last_seen": "2026-04-19",
+      "summary": "Microsoft SharePoint Server のなりすまし脆弱性 CVE-2026-32201 について、Microsoftが悪用の事実を確認済みであるとして、IPAおよびJPCERT/CCが4月15日に緊急注意喚起を出した。4月17〜19日も継続して優先対応案件であった。",
+      "details": "IPAは、CVE-2026-32201 が既に悪用されており、今後被害が拡大するおそれがあるとして早急な更新適用を促している。公開情報では具体的な被害組織や攻撃者の詳細は限定的だが、SharePointは多くの官民組織で利用されるため、影響範囲が広い。",
+      "actors": [
+        {
+          "name": "Unknown threat actors",
+          "role": "exploitation actor"
+        }
+      ],
+      "ttp": [
+        "CVE-2026-32201"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "SharePoint Server"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "enterprise",
+          "education",
+          "public sector"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "SharePoint Server operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "地政学的な国家系脅威と並行して、悪用確認済み共通基盤脆弱性が現場被害を拡大させる主要リスクであり続けている。",
+        "geopolitical": "特定地域の政治情勢とは別に、グローバルな横断的攻撃面として官民双方に影響する。",
+        "business": "日本組織ではPatch Tuesday後の優先適用体制、資産把握、公開到達性確認が極めて重要である。",
+        "research_direction": "悪用チェーン、PoC拡散状況、実被害事例、他の4月脆弱性との組み合わせ悪用を継続監視する必要がある。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "悪用確認済みであり、官民横断の共通基盤に波及しうるため即応性が求められる。",
+        "delta_from_previous": "単なる月例更新案件ではなく、悪用確認済み脆弱性として優先度が上がった。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "SharePoint",
+        "CVE-2026-32201",
+        "zero-day",
+        "exploitation",
+        "patching"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft 製品の脆弱性対策について(2026年4月)",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/0415-ms.html",
+          "publisher": "IPA",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "2026年4月マイクロソフトセキュリティ更新プログラムに関する注意喚起",
+          "url": "https://www.jpcert.or.jp/at/2026/at260010.html",
+          "publisher": "JPCERT/CC",
+          "published_at": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-19_saas_oauth_cloud_chain_intrusions",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "SaaS/OAuth cloud chain intrusions",
+        "aliases": [],
+        "cluster": "SaaS and OAuth-driven enterprise intrusion trend",
+        "suspected_actor": "Cybercriminal actors including data extortion groups",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Cybercriminal actors abusing SaaS and OAuth trust relationships",
+        "infrastructure": [
+          "Compromised OAuth applications",
+          "SaaS administrative environments",
+          "Cloud development platforms"
+        ],
+        "capability": [
+          "Account compromise",
+          "Token abuse",
+          "Data theft",
+          "Internal system access"
+        ],
+        "victim": [
+          "EdTech providers",
+          "Cloud platform users",
+          "Enterprise SaaS operators"
+        ]
+      },
+      "name": "McGraw Hill・Vercelに見るSaaS/OAuth連鎖型侵害",
+      "category": "サイバー犯罪",
+      "industry": [
+        "教育",
+        "クラウド",
+        "ソフトウェア開発基盤"
+      ],
+      "region": [
+        "米国",
+        "グローバル"
+      ],
+      "first_seen": "2026-04-16",
+      "last_seen": "2026-04-19",
+      "summary": "McGraw Hillの大規模データ侵害と、Vercelが公表した第三者AIツールのGoogle Workspace OAuthアプリ侵害を起点とする内部侵害事案は、SaaS/OAuth連鎖型侵害の実例として注目された。",
+      "details": "McGraw HillではShinyHuntersが1,350万件規模のアカウント情報流出を主張した。Vercelは、第三者AIツールのOAuthアプリ侵害が内部システム到達の起点となったと説明し、一部顧客影響と環境変数ローテーション等を案内した。両者は同一事件ではないが、SaaSやOAuthを介した信頼連鎖の悪用という共通テーマを持つ。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "claimed data theft actor"
+        },
+        {
+          "name": "Unknown actor",
+          "role": "OAuth compromise actor"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1528 Steal Application Access Token (推定)",
+        "OAuth abuse"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Salesforce environment",
+        "Google Workspace OAuth application",
+        "Cloud internal systems"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "cloud services",
+          "software development"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "SaaS operators",
+          "cloud platform providers",
+          "enterprise software users"
+        ]
+      },
+      "strategic_view": {
+        "general": "近年の侵害はOSやVPNだけでなく、SaaS運用、OAuth、周辺AIツールを経由する形へ重心が移っている。",
+        "geopolitical": "国家系脅威とは別軸だが、民間基盤全体の脆弱性として広範な経済影響を持つ。",
+        "business": "日本企業でもOAuth棚卸し、第三者AIツールの承認管理、環境変数やトークン管理の見直しが急務である。",
+        "research_direction": "OAuth同意画面悪用、Google WorkspaceやMicrosoft 365との連携権限、開発基盤特有の横展開経路を追うべきである。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "SaaSとAI支援ツールの導入拡大に伴い、ID連携と信頼連鎖が主要攻撃面になっていることを示す。",
+        "delta_from_previous": "AIツール経由のOAuth侵害が、単なるSaaS設定不備よりも具体的な攻撃経路として可視化された。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "SaaS",
+        "OAuth",
+        "Vercel",
+        "McGraw Hill",
+        "cloud intrusion"
+      ],
+      "sources": [
+        {
+          "title": "Data breach at edtech giant McGraw Hill affects 13.5 million accounts",
+          "url": "https://www.bleepingcomputer.com/news/security/data-breach-at-edtech-giant-mcgraw-hill-affects-135-million-accounts/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-16"
+        },
+        {
+          "title": "Vercel April 2026 security incident",
+          "url": "https://vercel.com/kb/bulletin/vercel-april-2026-security-incident",
+          "publisher": "Vercel",
+          "published_at": "2026-04-19"
+        }
+      ]
+    }
+  ]
+}
