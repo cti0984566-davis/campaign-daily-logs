@@ -4,25 +4,52 @@ set -euo pipefail
 ERRORS=0
 TARGETS=()
 
-if [ "$#" -ge 1 ]; then
-  for campaign in "$@"; do
-    dir="campaigns/$campaign"
-
-    if [ ! -d "$dir" ]; then
-      echo "Directory not found: $dir"
-      ERRORS=$((ERRORS + 1))
-      echo "--------------------"
-      continue
-    fi
-
-    while IFS= read -r file; do
-      TARGETS+=("$file")
-    done < <(find "$dir" -type f -name "*.json" | sort)
-  done
-else
+collect_all_json() {
   while IFS= read -r file; do
     TARGETS+=("$file")
   done < <(find logs campaigns -type f -name "*.json" | sort)
+}
+
+collect_updated_json() {
+  local files=()
+
+  # Git 管理下の変更済みファイル（未stage）
+  while IFS= read -r file; do
+    files+=("$file")
+  done < <(git diff --name-only -- logs campaigns 2>/dev/null || true)
+
+  # Git 管理下の変更済みファイル（stage済み）
+  while IFS= read -r file; do
+    files+=("$file")
+  done < <(git diff --cached --name-only -- logs campaigns 2>/dev/null || true)
+
+  # Git 未管理の新規ファイル
+  while IFS= read -r file; do
+    files+=("$file")
+  done < <(git ls-files --others --exclude-standard logs campaigns 2>/dev/null || true)
+
+  if [ "${#files[@]}" -eq 0 ]; then
+    return 0
+  fi
+
+  while IFS= read -r file; do
+    [ -n "$file" ] && TARGETS+=("$file")
+  done < <(printf '%s\n' "${files[@]}" | grep -E '\.json$' | sort -u)
+}
+
+if [ "$#" -ge 1 ]; then
+  if [ "$#" -eq 1 ] && [ "$1" = "*" ]; then
+    # 全 JSON を対象
+    collect_all_json
+  else
+    # 引数で指定されたファイルだけを対象
+    for file in "$@"; do
+      TARGETS+=("$file")
+    done
+  fi
+else
+  # 引数がない場合は更新ファイルのみ対象
+  collect_updated_json
 fi
 
 if [ "${#TARGETS[@]}" -eq 0 ]; then
@@ -41,8 +68,13 @@ for file in "${TARGETS[@]}"; do
   # スキーマ切り替え
   if [[ "$file" == campaigns/* ]]; then
     SCHEMA="schema/specific_campaign_schema.json"
-  else
+  elif [[ "$file" == logs/* ]]; then
     SCHEMA="schema/daily_campaign_schema.json"
+  else
+    echo "Unknown file type: $file"
+    ERRORS=$((ERRORS + 1))
+    echo "--------------------"
+    continue
   fi
 
   if [ ! -f "$SCHEMA" ]; then
