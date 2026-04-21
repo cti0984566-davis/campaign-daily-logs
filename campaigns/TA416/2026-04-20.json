@@ -1,0 +1,136 @@
+{
+  "date": "2026-04-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416は、欧州の政府・外交機関へのサイバー諜報を再活性化し、2026年3月には中東の外交・政府機関にも標的を拡大しており、対欧・対中東の中国系諜報キャンペーンとして重要である。",
+  "change_summary": [
+    "4月1日にProofpointが欧州政府・外交機関向け活動再開を公表",
+    "2026年3月には中東の外交・政府機関にも標的を拡大",
+    "Cloudflare Turnstile、OAuthリダイレクト、C#プロジェクトファイル、更新型PlugXなど感染チェーンの変化が確認"
+  ],
+  "operational_relevance": "外交・政府・国際機関対応部門、在外公館、対中政策関連組織でフィッシングとPlugX系感染を優先監視すべき。",
+  "urgency": "high",
+  "recommended_action": [
+    "外交・政策部門向け標的型メール監視強化",
+    "Cloudflare Turnstile悪用やOAuthリダイレクト悪用の検知ルール追加",
+    "PlugX系亜種とC#プロジェクトファイル利用のハント",
+    "在外公館・国際機関対応組織への注意喚起"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "RedDelta",
+      "Red Lich",
+      "Dark Peony",
+      "SmugX",
+      "Vertigo Panda"
+    ],
+    "cluster": "TA416",
+    "suspected_actor": "China-aligned espionage actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-20_ta416_europe_middleeast_diplomatic_espionage",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "欧州・中東の政府・外交機関に対する再活性化キャンペーン",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "中東"
+        ],
+        "industries": [
+          "政府",
+          "外交"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交ミッション",
+          "EU関連機関",
+          "NATO関連ミッション"
+        ]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-20",
+      "activity_summary": "Proofpointは、TA416が2025年半ば以降に欧州の政府・外交機関への標的化を再開し、2026年3月には中東の外交・政府機関にも活動を拡大したと報告した。",
+      "activity_details": "観測された活動には、EUおよびNATOへの外交ミッションを標的とした複数波のweb bugとマルウェア配信が含まれる。TA416は感染チェーンを頻繁に変更し、Cloudflare Turnstileのチャレンジページ悪用、OAuthリダイレクト悪用、C#プロジェクトファイル、更新型PlugXペイロードなどを使い分けていた。",
+      "ttp": [
+        "T1566",
+        "T1189",
+        "T1204",
+        "T1133"
+      ],
+      "malware_and_tools": [
+        "PlugX",
+        "Web bugs",
+        "Cloudflare Turnstile abuse",
+        "OAuth redirect abuse",
+        "C# project files"
+      ],
+      "infrastructure": [
+        "Malicious redirect chains",
+        "Web bug infrastructure",
+        "PlugX delivery infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "中国系諜報が欧州外交と中東情勢を横断して観測されており、対外政策・国際連携情報の収集が主目的とみられる。",
+        "geopolitical": "欧州・中東の外交空間に対する中国の情報収集需要の高まりを示し、対露・対中東紛争・対NATOの政策情報も含めて広く価値があるとみられる。",
+        "business": "外務・防衛受託企業、政策研究、国際会議支援、外交関連IT運用事業者にも同種標的化リスクがある。",
+        "research_direction": "PlugX亜種の差分、標的国の拡大、EU/NATOミッション周辺での継続観測、中東拡大の背景要因を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "中国系の外交・政策情報収集が、欧州と中東という二正面で再び可視化されたため。",
+        "delta_from_previous": "欧州向け再活性化に加え、2026年3月の中東拡大が重要な新要素。"
+      },
+      "related_campaigns": [
+        "PlugX espionage campaigns"
+      ],
+      "tags": [
+        "TA416",
+        "China",
+        "Diplomatic",
+        "Europe",
+        "MiddleEast",
+        "PlugX"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "European-Chinese geopolitical issues drive renewed cyberespionage campaign",
+          "url": "https://cyberscoop.com/european-chinese-geopolitical-issues-drive-renewed-cyberespionage-campaign/",
+          "publisher": "CyberScoop",
+          "published_at": "2026-04-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Web bug infrastructure",
+          "Malicious redirect chains",
+          "PlugX delivery infrastructure"
+        ],
+        "capability": [
+          "Targeted phishing",
+          "Credential capture",
+          "Malware delivery",
+          "Diplomatic espionage"
+        ],
+        "victim": [
+          "European government entities",
+          "Diplomatic missions to the EU and NATO",
+          "Middle Eastern government and diplomatic organizations"
+        ]
+      }
+    }
+  ]
+}

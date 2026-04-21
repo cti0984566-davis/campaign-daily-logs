@@ -1,0 +1,118 @@
+{
+  "date": "2026-04-20",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29については、4月20日時点で強い新規公開更新を確認できず、直近の重要既知活動を前提に監視継続と評価する。",
+  "change_summary": [
+    "4月20日時点で高信頼の新規公開更新は限定的",
+    "既知の重点論点は引き続き認証情報窃取と対政府・対シンクタンク諜報"
+  ],
+  "operational_relevance": "認証系、クラウドアイデンティティ、watering hole、対政府・対研究機関の標的化を継続監視すべき。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "政府・研究機関向け認証監視の継続",
+    "device code phishingやwatering holeの監視継続",
+    "APT29関連TTPの長期IOC/TTPベース再点検"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard",
+      "NOBELIUM",
+      "BlueBravo"
+    ],
+    "cluster": "APT29",
+    "suspected_actor": "Russian SVR-linked espionage actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-20_apt29_monitoring_assessment",
+      "type": "assessment",
+      "status": "更新",
+      "name": "APT29監視継続評価",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "北米",
+          "ウクライナ関連圏"
+        ],
+        "industries": [
+          "政府",
+          "研究",
+          "外交",
+          "重要インフラ"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交関連組織",
+          "研究者",
+          "重要インフラ事業者"
+        ]
+      },
+      "first_seen": "2024-10-01",
+      "last_seen": "2026-04-20",
+      "activity_summary": "4月20日時点で新規の強い公開更新は確認できないが、APT29は引き続き高優先度の対政府・対外交・対研究諜報アクターとして監視対象である。",
+      "activity_details": "最近の公開情報としては、AWSが2025年8月にAPT29のwatering holeキャンペーンを妨害したと公表しており、攻撃重点は認証情報窃取とインテリジェンス収集にある。4月20日時点では、この既知傾向を上書きする新規公開更新は限定的であるため、評価更新に留める。",
+      "ttp": [
+        "T1189",
+        "T1078",
+        "T1586"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised websites",
+        "Credential harvesting infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は依然として高水準のロシア対外諜報アクターであり、公開更新が薄い時期でも油断しにくい。",
+        "geopolitical": "露宇戦争と欧米対露政策の継続下で、外交・政策・制裁関連情報への需要は引き続き高い。",
+        "business": "政府受託、研究、防衛、シンクタンク、クラウド認証基盤を持つ企業は継続警戒が必要。",
+        "research_direction": "2026年春以降の新規公開レポート、認証基盤悪用、学術・外交対象の追加事例を重点監視。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "新規更新が薄い局面でも、APT29は長期的に戦略的重要性が高いアクターである。",
+        "delta_from_previous": "4月20日時点では新たな大きな公開変化は確認されていない。"
+      },
+      "related_campaigns": [
+        "APT29 watering hole campaign"
+      ],
+      "tags": [
+        "APT29",
+        "MidnightBlizzard",
+        "SVR",
+        "Monitoring"
+      ],
+      "sources": [
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia’s APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS Security Blog",
+          "published_at": "2025-08-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29",
+        "infrastructure": [
+          "Compromised websites",
+          "Credential harvesting infrastructure"
+        ],
+        "capability": [
+          "Credential theft",
+          "Watering hole operations",
+          "Intelligence collection"
+        ],
+        "victim": [
+          "Government agencies",
+          "Researchers",
+          "Diplomatic and policy targets"
+        ]
+      }
+    }
+  ]
+}

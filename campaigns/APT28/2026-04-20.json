@@ -1,0 +1,126 @@
+{
+  "date": "2026-04-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は、ウクライナの検察・反腐敗機関を中心とする長期メール侵害キャンペーンに関与した疑いが強く、4月20日時点でも対ウクライナ国家機能浸潤の重要事例として継続監視が必要である。",
+  "change_summary": [
+    "4月15日にReutersが侵害規模と対象組織を詳報",
+    "4月17日にウクライナ側関係者が継続キャンペーンとして確認",
+    "標的が軍事・外交に加えて司法・反腐敗分野へ及んでいる点が明確化"
+  ],
+  "operational_relevance": "政府・司法・外務・防衛部門のWebmail、メール認証、長期侵害ハントの優先度を引き上げる。",
+  "urgency": "high",
+  "recommended_action": [
+    "Webmail基盤と管理ログの緊急点検",
+    "高感度部門メールアカウントのMFA強化",
+    "長期メール侵害を前提とした過去ログ調査",
+    "Roundcube系を含む外部公開メール基盤の脆弱性管理強化"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard"
+    ],
+    "cluster": "APT28",
+    "suspected_actor": "Russian GRU-linked espionage actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-20_apt28_ukraine_prosecutor_mail_campaign",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "ウクライナ検察・反腐敗機関メール侵害キャンペーン",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "ウクライナ",
+          "欧州"
+        ],
+        "industries": [
+          "政府",
+          "司法",
+          "防衛関連"
+        ],
+        "organization_types": [
+          "検察機関",
+          "反腐敗機関",
+          "政府機関",
+          "防衛関連組織"
+        ]
+      },
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-04-20",
+      "activity_summary": "2024年9月から2026年3月にかけて、ウクライナの検察官・捜査官を中心に280超のメールアカウントが侵害されたと報じられ、APT28関与の疑いが強い長期諜報作戦として注目されている。",
+      "activity_details": "報道では、170超の侵害アカウントがウクライナの検察官・捜査官のもので、SAPO、ARMA、検察官訓練機関などが影響を受けた。周辺ではルーマニア空軍やギリシャ国防参謀本部関係者などへの波及も示唆された。戦場支援のみならず、司法・反腐敗・資産管理機能への浸潤を図る諜報活動として重要である。",
+      "ttp": [
+        "T1078",
+        "T1114",
+        "T1190"
+      ],
+      "malware_and_tools": [
+        "Roundcube-related access chain (reported)"
+      ],
+      "infrastructure": [
+        "Compromised webmail accounts",
+        "Roundcube-related email infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "国家機能の内部情報を長期取得することで、戦場支援を超えた統治妨害や情報優位確保を狙う作戦とみられる。",
+        "geopolitical": "ロシアはウクライナの司法・反腐敗能力を侵食することで、戦時国家の持久力と対露捜査能力を低下させようとしている可能性がある。",
+        "business": "政府・公共・防衛受託企業でもメール基盤侵害を前提にした防御設計と長期監視が必要。",
+        "research_direction": "Roundcube起点の具体的侵害チェーン、侵害メールの活用目的、NATO周辺国への横展開の有無を継続分析。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "対ウクライナ戦線で、軍事以外の国家機能中枢が継続的な標的となっていることを示す。",
+        "delta_from_previous": "従来の軍事・外交重視の観測に比べ、司法・反腐敗分野への重点化がより鮮明になった。"
+      },
+      "related_campaigns": [
+        "Russia-linked prosecutor email campaign"
+      ],
+      "tags": [
+        "APT28",
+        "Ukraine",
+        "GRU",
+        "Webmail",
+        "Espionage"
+      ],
+      "sources": [
+        {
+          "title": "Russia-linked hackers compromised scores of Ukrainian prosecutors' email accounts, data shows",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-of-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        },
+        {
+          "title": "Ukraine confirms suspected APT28 campaign targeting prosecutors, anti-corruption agencies",
+          "url": "https://therecord.media/ukraine-confirms-suspected-apt28-campaign-targeting-prosecutors",
+          "publisher": "The Record",
+          "published_at": "2026-04-17"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28",
+        "infrastructure": [
+          "Compromised webmail accounts",
+          "Roundcube-related infrastructure"
+        ],
+        "capability": [
+          "Mailbox compromise",
+          "Credential theft",
+          "Long-term intelligence collection"
+        ],
+        "victim": [
+          "Ukrainian prosecutors",
+          "Investigators",
+          "Anti-corruption bodies",
+          "Government-linked institutions"
+        ]
+      }
+    }
+  ]
+}
