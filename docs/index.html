@@ -112,13 +112,18 @@
       font-size: 0.88rem;
     }
 
-    .campaign-list {
+    .section-block + .section-block {
+      margin-top: 16px;
+    }
+
+    .campaign-list,
+    .daily-list {
       padding: 12px;
       display: grid;
       gap: 10px;
     }
 
-    .campaign-card {
+    .nav-card {
       background: var(--panel-2);
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -127,31 +132,31 @@
       transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     }
 
-    .campaign-card:hover {
+    .nav-card:hover {
       transform: translateY(-1px);
       border-color: var(--accent);
     }
 
-    .campaign-card.active {
+    .nav-card.active {
       border-color: var(--accent-2);
       background: rgba(110, 168, 254, 0.09);
     }
 
-    .campaign-top {
+    .nav-top {
       display: flex;
       justify-content: space-between;
       align-items: start;
       gap: 12px;
     }
 
-    .campaign-name {
+    .nav-title {
       font-size: 1rem;
       font-weight: 700;
       margin: 0;
       word-break: break-word;
     }
 
-    .campaign-count {
+    .nav-count {
       flex-shrink: 0;
       font-size: 0.82rem;
       color: var(--text);
@@ -161,7 +166,7 @@
       border-radius: 999px;
     }
 
-    .campaign-meta {
+    .nav-meta {
       margin-top: 10px;
       display: grid;
       gap: 4px;
@@ -288,7 +293,8 @@
       gap: 12px;
     }
 
-    .badge-row {
+    .badge-row,
+    .inline-list {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -303,17 +309,17 @@
       color: var(--text);
     }
 
-    .status-new {
+    .status-new, .status-新規 {
       border-color: rgba(87, 204, 153, 0.5);
       color: var(--new);
     }
 
-    .status-ongoing {
+    .status-ongoing, .status-継続 {
       border-color: rgba(139, 211, 255, 0.5);
       color: var(--ongoing);
     }
 
-    .status-assessment_update {
+    .status-assessment_update, .status-update_assessment, .status-更新 {
       border-color: rgba(244, 196, 48, 0.5);
       color: var(--assessment);
     }
@@ -352,12 +358,6 @@
       margin: 0;
       font-size: 0.92rem;
       color: var(--muted);
-    }
-
-    .inline-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
     }
 
     details.raw-json {
@@ -410,39 +410,6 @@
       color: #ffb4b4;
     }
 
-    .daily-panel {
-      margin-top: 16px;
-    }
-
-    .daily-list {
-      padding: 12px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .daily-item {
-      background: var(--panel-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 12px;
-      color: var(--text);
-      font-size: 0.9rem;
-      text-decoration: none;
-      display: block;
-    }
-
-    .daily-item:hover {
-      border-color: var(--accent);
-    }
-
-    .daily-path {
-      display: block;
-      color: var(--muted);
-      font-size: 0.78rem;
-      margin-top: 4px;
-      word-break: break-all;
-    }
-
     @media (max-width: 980px) {
       .layout {
         grid-template-columns: 1fr;
@@ -457,28 +424,28 @@
 <body>
   <header>
     <h1>CTI / OSINT Portal</h1>
-    <p>Campaign を actor 単位で整理し、結論先行で閲覧できるビュー</p>
+    <p>Campaign / Daily Logs を結論先行で閲覧できるビュー</p>
     <div class="toolbar">
-      <input id="searchInput" type="text" placeholder="actor名で検索（例: APT29, TA416）" />
+      <input id="searchInput" type="text" placeholder="campaign名・actor名・日付で検索" />
     </div>
   </header>
 
   <main class="layout">
     <aside class="sidebar">
-      <section class="panel">
+      <section class="panel section-block">
         <div class="panel-header">
           <h2>Campaigns</h2>
-          <div class="sub">actorカード表示 / 件数 / 最新更新日</div>
+          <div class="sub">actor単位 / 件数 / 最新更新日</div>
         </div>
         <div id="campaignList" class="campaign-list">
           <div class="loading">Campaign一覧を読み込み中...</div>
         </div>
       </section>
 
-      <section class="panel daily-panel">
+      <section class="panel section-block">
         <div class="panel-header">
           <h3>Daily Logs</h3>
-          <div class="sub">日次ログ一覧</div>
+          <div class="sub">日付単位 / クリックで右ペイン表示</div>
         </div>
         <div id="dailyList" class="daily-list">
           <div class="loading">Daily一覧を読み込み中...</div>
@@ -489,14 +456,14 @@
     <section class="content panel">
       <div id="contentArea">
         <div class="hero">
-          <h2 class="hero-title">Campaignを選択してください</h2>
+          <h2 class="hero-title">Campaign または Daily Log を選択してください</h2>
           <div class="hero-meta">
             <span class="hero-chip">結論先行の要約カード</span>
-            <span class="hero-chip">必要時のみ JSON 参照</span>
+            <span class="hero-chip">必要時のみ raw JSON 参照</span>
           </div>
         </div>
         <div class="empty">
-          左側の Campaigns から actor を選ぶと、その actor 配下の JSON を日付順に表示します。
+          左側の Campaigns または Daily Logs を選ぶと、右側に要約カードを表示します。
         </div>
       </div>
     </section>
@@ -508,7 +475,10 @@
 
     const state = {
       campaignGroups: [],
+      dailyPaths: [],
       selectedActor: null,
+      selectedDailyPath: null,
+      selectedMode: null,
       search: ""
     };
 
@@ -586,30 +556,6 @@
         });
     }
 
-    function pickFirstActorConfidence(record) {
-      if (!record || !Array.isArray(record.items)) return null;
-
-      for (const item of record.items) {
-        if (Array.isArray(item.actors) && item.actors.length > 0) {
-          const confidence = item.actors[0]?.confidence;
-          if (confidence) return confidence;
-        }
-      }
-      return null;
-    }
-
-    function pickFirstItemName(record) {
-      if (!record || !Array.isArray(record.items) || record.items.length === 0) return null;
-      const first = record.items[0];
-      return first.name || first.title || null;
-    }
-
-    function pickFirstItemSummary(record) {
-      if (!record || !Array.isArray(record.items) || record.items.length === 0) return null;
-      const first = record.items[0];
-      return first.summary || null;
-    }
-
     function firstNonEmpty(...values) {
       for (const value of values) {
         if (typeof value === "string" && value.trim()) return value.trim();
@@ -628,75 +574,10 @@
       return arr.length ? arr.join(" / ") : "";
     }
 
-    function buildCardData(record, fallbackPath, fallbackDate, actorName) {
-      const campaignOrActor = firstNonEmpty(
-        record.campaign?.name,
-        record.campaign_name,
-        record.name,
-        actorName,
-        pickFirstItemName(record),
-        fallbackPath
-      );
-
-      const status = firstNonEmpty(record.update_type, record.status, "ongoing");
-
-      const executiveSummary = firstNonEmpty(
-        record.executive_summary,
-        record.campaign_summary,
-        record.summary,
-        pickFirstItemSummary(record),
-        "要約未設定"
-      );
-
-      const changeSummary = joinList(record.change_summary);
-
-      const executiveCombined = changeSummary
-        ? `${executiveSummary}\n\n前回からの主な差分: ${changeSummary}`
-        : executiveSummary;
-
-      const operationalRelevance = firstNonEmpty(
-        record.operational_relevance,
-        record.assessment_delta,
-        record.strategic_view?.general,
-        "記載なし"
-      );
-
-      const urgency = firstNonEmpty(record.urgency, "monitor");
-
-      const recommendedAction = joinList(record.recommended_action) || "記載なし";
-
-      const confidence = firstNonEmpty(
-        record.confidence,
-        record.attribution_confidence,
-        pickFirstActorConfidence(record),
-        "未設定"
-      );
-
-      const aliases = asArray(
-        record.campaign?.aliases ||
-        record.aliases
-      );
-
-      const suspectedActor = firstNonEmpty(
-        record.campaign?.suspected_actor,
-        record.suspected_actor
-      );
-
-      const tags = asArray(record.tags);
-
-      return {
-        campaignOrActor,
-        date: fallbackDate || "-",
-        status,
-        executiveCombined,
-        operationalRelevance,
-        urgency,
-        recommendedAction,
-        confidence,
-        aliases,
-        suspectedActor,
-        tags
-      };
+    function cssSafe(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9_\-\u3040-\u30ff\u3400-\u9fff]/g, "_");
     }
 
     function statusLabel(value) {
@@ -704,6 +585,7 @@
       if (v === "new") return "新規";
       if (v === "ongoing") return "継続";
       if (v === "assessment_update" || v === "update_assessment") return "評価更新";
+      if (value === "新規" || value === "継続" || value === "更新") return value;
       return value || "未設定";
     }
 
@@ -716,50 +598,128 @@
       return value || "未設定";
     }
 
-    function cssSafe(value) {
-      return String(value || "")
-        .toLowerCase()
-        .replace(/[^a-z0-9_-]/g, "_");
+    function getCampaignConfidence(record) {
+      return firstNonEmpty(
+        record.confidence,
+        record.attribution_confidence,
+        record.campaign?.attribution_confidence
+      ) || "未設定";
     }
 
-    function renderCampaignList() {
-      const root = document.getElementById("campaignList");
-      const q = state.search.trim().toLowerCase();
+    function getDailyItemConfidence(item) {
+      return firstNonEmpty(
+        item.assessment?.confidence,
+        item.campaign?.attribution_confidence
+      ) || "未設定";
+    }
 
-      const filtered = state.campaignGroups.filter(group => {
-        if (!q) return true;
-        return group.actor.toLowerCase().includes(q);
-      });
+    function buildCampaignCardData(record, fallbackPath, fallbackDate, actorName) {
+      const campaignOrActor = firstNonEmpty(
+        record.campaign?.name,
+        record.campaign_name,
+        record.name,
+        actorName,
+        record.items?.[0]?.name,
+        fallbackPath
+      );
 
-      if (filtered.length === 0) {
-        root.innerHTML = `<div class="empty">該当するCampaignがありません。</div>`;
-        return;
-      }
+      const status = firstNonEmpty(record.update_type, record.status, "ongoing");
 
-      root.innerHTML = filtered.map(group => `
-        <article
-          class="campaign-card ${state.selectedActor === group.actor ? "active" : ""}"
-          data-actor="${escapeHtml(group.actor)}"
-        >
-          <div class="campaign-top">
-            <h3 class="campaign-name">${escapeHtml(group.actor)}</h3>
-            <div class="campaign-count">${group.count}件</div>
-          </div>
-          <div class="campaign-meta">
-            <div>最新更新日: ${escapeHtml(group.latestDate || "-")}</div>
-            <div>記録件数: ${group.count}</div>
-          </div>
-        </article>
-      `).join("");
+      const executiveSummary = firstNonEmpty(
+        record.executive_summary,
+        record.campaign_summary,
+        record.summary,
+        record.items?.[0]?.summary,
+        "要約未設定"
+      );
 
-      root.querySelectorAll(".campaign-card").forEach(el => {
-        el.addEventListener("click", () => {
-          const actor = el.dataset.actor;
-          state.selectedActor = actor;
-          renderCampaignList();
-          renderSelectedActor();
-        });
-      });
+      const changeSummary = joinList(record.change_summary);
+      const executiveCombined = changeSummary
+        ? `${executiveSummary}\n\n前回からの主な差分: ${changeSummary}`
+        : executiveSummary;
+
+      const operationalRelevance = firstNonEmpty(
+        record.operational_relevance,
+        record.assessment_delta,
+        record.strategic_view?.general,
+        "記載なし"
+      );
+
+      const urgency = firstNonEmpty(record.urgency, "monitor");
+      const recommendedAction = joinList(record.recommended_action) || "記載なし";
+      const confidence = getCampaignConfidence(record);
+
+      const aliases = asArray(record.campaign?.aliases || record.aliases);
+      const suspectedActor = firstNonEmpty(record.campaign?.suspected_actor, record.suspected_actor);
+      const tags = asArray(record.tags);
+
+      return {
+        title: campaignOrActor,
+        subtitle: `最新の事象日付: ${fallbackDate || "-"}`,
+        status,
+        executiveCombined,
+        operationalRelevance,
+        urgency,
+        recommendedAction,
+        confidence,
+        aliases,
+        suspectedActor,
+        tags
+      };
+    }
+
+    function buildDailyItemCardData(item, fallbackDate) {
+      const title = firstNonEmpty(
+        item.name,
+        item.campaign?.name,
+        "名称未設定"
+      );
+
+      const actor = firstNonEmpty(
+        item.campaign?.suspected_actor,
+        item.actors?.[0]?.name,
+        item.campaign?.name
+      );
+
+      const status = firstNonEmpty(item.status, "継続");
+      const executiveSummary = firstNonEmpty(
+        item.executive_summary,
+        item.summary,
+        "要約未設定"
+      );
+
+      const changeSummary = joinList(item.change_summary);
+      const executiveCombined = changeSummary
+        ? `${executiveSummary}\n\n前回からの主な差分: ${changeSummary}`
+        : executiveSummary;
+
+      const operationalRelevance = firstNonEmpty(
+        item.operational_relevance,
+        item.assessment?.why_it_matters,
+        item.strategic_view?.general,
+        "記載なし"
+      );
+
+      const urgency = firstNonEmpty(item.urgency, "monitor");
+      const recommendedAction = joinList(item.recommended_action) || "記載なし";
+      const confidence = getDailyItemConfidence(item);
+      const aliases = asArray(item.campaign?.aliases);
+      const suspectedActor = firstNonEmpty(item.campaign?.suspected_actor, actor);
+      const tags = asArray(item.tags);
+
+      return {
+        title,
+        subtitle: `事象日付: ${fallbackDate || "-"} / Actor: ${actor || "未設定"}`,
+        status,
+        executiveCombined,
+        operationalRelevance,
+        urgency,
+        recommendedAction,
+        confidence,
+        aliases,
+        suspectedActor,
+        tags
+      };
     }
 
     function renderSupplementaryCard(card) {
@@ -806,18 +766,150 @@
       `;
     }
 
-    async function renderSelectedActor() {
+    function renderSummaryCard(card) {
+      return `
+        <section class="summary-card">
+          <div class="summary-card-header">
+            <div>
+              <h3 class="summary-card-title">${escapeHtml(card.title)}</h3>
+              <div class="summary-card-subtitle">${escapeHtml(card.subtitle)}</div>
+            </div>
+            <div class="badge-row">
+              <span class="badge status-${cssSafe(card.status)}">${escapeHtml(statusLabel(card.status))}</span>
+              <span class="badge urgency-${cssSafe(card.urgency)}">緊急度: ${escapeHtml(urgencyLabel(card.urgency))}</span>
+            </div>
+          </div>
+
+          <div class="summary-card-body">
+            <div class="two-col">
+              <div class="field">
+                <div class="field-label">Item / Campaign</div>
+                <div class="field-value">${escapeHtml(card.title)}</div>
+              </div>
+              <div class="field">
+                <div class="field-label">Confidence</div>
+                <div class="field-value">${escapeHtml(card.confidence)}</div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-label">Executive Summary</div>
+              <div class="field-value">${escapeHtml(card.executiveCombined)}</div>
+            </div>
+
+            <div class="field">
+              <div class="field-label">Operational Relevance</div>
+              <div class="field-value">${escapeHtml(card.operationalRelevance)}</div>
+            </div>
+
+            <div class="field">
+              <div class="field-label">Urgency / Immediate Action</div>
+              <div class="field-value">${escapeHtml(urgencyLabel(card.urgency))}</div>
+            </div>
+
+            <div class="field">
+              <div class="field-label">Recommended Action</div>
+              <div class="field-value">${escapeHtml(card.recommendedAction)}</div>
+            </div>
+          </div>
+        </section>
+
+        ${renderSupplementaryCard(card)}
+      `;
+    }
+
+    function renderCampaignList() {
+      const root = document.getElementById("campaignList");
+      const q = state.search.trim().toLowerCase();
+
+      const filtered = state.campaignGroups.filter(group => {
+        if (!q) return true;
+        return group.actor.toLowerCase().includes(q);
+      });
+
+      if (filtered.length === 0) {
+        root.innerHTML = `<div class="empty">該当するCampaignがありません。</div>`;
+        return;
+      }
+
+      root.innerHTML = filtered.map(group => `
+        <article
+          class="nav-card ${state.selectedMode === "campaign" && state.selectedActor === group.actor ? "active" : ""}"
+          data-actor="${escapeHtml(group.actor)}"
+        >
+          <div class="nav-top">
+            <h3 class="nav-title">${escapeHtml(group.actor)}</h3>
+            <div class="nav-count">${group.count}件</div>
+          </div>
+          <div class="nav-meta">
+            <div>最新更新日: ${escapeHtml(group.latestDate || "-")}</div>
+            <div>記録件数: ${group.count}</div>
+          </div>
+        </article>
+      `).join("");
+
+      root.querySelectorAll(".nav-card").forEach(el => {
+        el.addEventListener("click", () => {
+          state.selectedMode = "campaign";
+          state.selectedActor = el.dataset.actor;
+          state.selectedDailyPath = null;
+          renderCampaignList();
+          renderDailyList();
+          renderSelectedCampaign();
+        });
+      });
+    }
+
+    function renderDailyList() {
+      const root = document.getElementById("dailyList");
+      const q = state.search.trim().toLowerCase();
+
+      const filtered = state.dailyPaths.filter(path => {
+        if (!q) return true;
+        return path.toLowerCase().includes(q);
+      });
+
+      if (filtered.length === 0) {
+        root.innerHTML = `<div class="empty">該当するDaily Logsがありません。</div>`;
+        return;
+      }
+
+      root.innerHTML = filtered.slice(0, 60).map(path => {
+        const date = extractDateFromPath(path) || path;
+        return `
+          <article
+            class="nav-card ${state.selectedMode === "daily" && state.selectedDailyPath === path ? "active" : ""}"
+            data-path="${escapeHtml(path)}"
+          >
+            <div class="nav-top">
+              <h3 class="nav-title">${escapeHtml(date)}</h3>
+            </div>
+            <div class="nav-meta">
+              <div>${escapeHtml(path)}</div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      root.querySelectorAll(".nav-card").forEach(el => {
+        el.addEventListener("click", () => {
+          state.selectedMode = "daily";
+          state.selectedDailyPath = el.dataset.path;
+          state.selectedActor = null;
+          renderCampaignList();
+          renderDailyList();
+          renderSelectedDaily();
+        });
+      });
+    }
+
+    async function renderSelectedCampaign() {
       const content = document.getElementById("contentArea");
       const actor = state.selectedActor;
       const group = state.campaignGroups.find(g => g.actor === actor);
 
       if (!group) {
-        content.innerHTML = `
-          <div class="hero">
-            <h2 class="hero-title">Campaignを選択してください</h2>
-          </div>
-          <div class="empty">左側から actor を選択してください。</div>
-        `;
+        content.innerHTML = `<div class="empty">Campaignが見つかりません。</div>`;
         return;
       }
 
@@ -827,10 +919,10 @@
           <div class="hero-meta">
             <span class="hero-chip">記録件数: ${group.count}</span>
             <span class="hero-chip">最新更新日: ${escapeHtml(group.latestDate || "-")}</span>
-            <span class="hero-chip">結論先行表示</span>
+            <span class="hero-chip">表示順: 新しい順</span>
           </div>
         </div>
-        <div class="loading">時系列データを読み込み中...</div>
+        <div class="loading">Campaign データを読み込み中...</div>
       `;
 
       try {
@@ -856,7 +948,7 @@
                   <div class="timeline-date">${escapeHtml(date)}</div>
                   <div class="error">読み込み失敗: ${escapeHtml(data._error || "unknown error")}</div>
                   <details class="raw-json">
-                    <summary>Appendix: JSONを表示</summary>
+                    <summary>Appendix: raw JSON を表示</summary>
                     <pre class="json-block">${escapeHtml(jsonText)}</pre>
                   </details>
                 </div>
@@ -864,63 +956,13 @@
             `;
           }
 
-          const card = buildCardData(data, file.path, date, group.actor);
+          const card = buildCampaignCardData(data, file.path, date, group.actor);
 
           return `
             <article class="timeline-item">
               <div class="timeline-main">
                 <div class="timeline-date">${escapeHtml(date)}</div>
-
-                <section class="summary-card">
-                  <div class="summary-card-header">
-                    <div>
-                      <h3 class="summary-card-title">${escapeHtml(card.campaignOrActor)}</h3>
-                      <div class="summary-card-subtitle">
-                        最新の事象日付: ${escapeHtml(card.date)}
-                      </div>
-                    </div>
-                    <div class="badge-row">
-                      <span class="badge status-${cssSafe(card.status)}">${escapeHtml(statusLabel(card.status))}</span>
-                      <span class="badge urgency-${cssSafe(card.urgency)}">緊急度: ${escapeHtml(urgencyLabel(card.urgency))}</span>
-                    </div>
-                  </div>
-
-                  <div class="summary-card-body">
-                    <div class="two-col">
-                      <div class="field">
-                        <div class="field-label">Campaign / Actor</div>
-                        <div class="field-value">${escapeHtml(card.campaignOrActor)}</div>
-                      </div>
-                      <div class="field">
-                        <div class="field-label">Confidence</div>
-                        <div class="field-value">${escapeHtml(card.confidence)}</div>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="field-label">Executive Summary</div>
-                      <div class="field-value">${escapeHtml(card.executiveCombined)}</div>
-                    </div>
-
-                    <div class="field">
-                      <div class="field-label">Operational Relevance</div>
-                      <div class="field-value">${escapeHtml(card.operationalRelevance)}</div>
-                    </div>
-
-                    <div class="field">
-                      <div class="field-label">Urgency / Immediate Action</div>
-                      <div class="field-value">${escapeHtml(urgencyLabel(card.urgency))}</div>
-                    </div>
-
-                    <div class="field">
-                      <div class="field-label">Recommended Action</div>
-                      <div class="field-value">${escapeHtml(card.recommendedAction)}</div>
-                    </div>
-                  </div>
-                </section>
-
-                ${renderSupplementaryCard(card)}
-
+                ${renderSummaryCard(card)}
                 <details class="raw-json">
                   <summary>Appendix: raw JSON を表示</summary>
                   <pre class="json-block">${escapeHtml(jsonText)}</pre>
@@ -936,7 +978,7 @@
             <div class="hero-meta">
               <span class="hero-chip">記録件数: ${group.count}</span>
               <span class="hero-chip">最新更新日: ${escapeHtml(group.latestDate || "-")}</span>
-              <span class="hero-chip">表示順: 新しい順</span>
+              <span class="hero-chip">Campaign detail view</span>
             </div>
           </div>
           <div class="timeline">
@@ -947,37 +989,75 @@
         content.innerHTML = `
           <div class="hero">
             <h2 class="hero-title">${escapeHtml(group.actor)}</h2>
-            <div class="hero-meta">
-              <span class="hero-chip">記録件数: ${group.count}</span>
-              <span class="hero-chip">最新更新日: ${escapeHtml(group.latestDate || "-")}</span>
-            </div>
           </div>
-          <div class="error">時系列ビューの生成に失敗しました: ${escapeHtml(err.message || err)}</div>
+          <div class="error">Campaign表示に失敗しました: ${escapeHtml(err.message || err)}</div>
         `;
       }
     }
 
-    function renderDailyList(paths) {
-      const root = document.getElementById("dailyList");
-      const normalized = [...new Set(paths)]
-        .map(normalizePath)
-        .filter(p => p.startsWith("logs/"))
-        .sort((a, b) => b.localeCompare(a));
+    async function renderSelectedDaily() {
+      const content = document.getElementById("contentArea");
+      const path = state.selectedDailyPath;
+      const date = extractDateFromPath(path) || path;
 
-      if (normalized.length === 0) {
-        root.innerHTML = `<div class="empty">Daily Logs が見つかりません。</div>`;
+      if (!path) {
+        content.innerHTML = `<div class="empty">Daily Logが選択されていません。</div>`;
         return;
       }
 
-      root.innerHTML = normalized.slice(0, 20).map(path => {
-        const date = extractDateFromPath(path) || path;
-        return `
-          <a class="daily-item" href="./${escapeHtml(path)}" target="_blank" rel="noopener noreferrer">
-            ${escapeHtml(date)}
-            <span class="daily-path">${escapeHtml(path)}</span>
-          </a>
+      content.innerHTML = `
+        <div class="hero">
+          <h2 class="hero-title">${escapeHtml(date)}</h2>
+          <div class="hero-meta">
+            <span class="hero-chip">Daily log detail view</span>
+            <span class="hero-chip">要約カード + Appendix</span>
+          </div>
+        </div>
+        <div class="loading">Daily Log を読み込み中...</div>
+      `;
+
+      try {
+        const data = await fetchJson(`./${path}`);
+        const items = Array.isArray(data.items) ? data.items : [];
+        const jsonText = JSON.stringify(data, null, 2);
+
+        const cardsHtml = items.map((item, index) => {
+          const card = buildDailyItemCardData(item, data.date || date);
+          return `
+            <article class="timeline-item">
+              <div class="timeline-main">
+                <div class="timeline-date">${escapeHtml(data.date || date)} / Item ${index + 1}</div>
+                ${renderSummaryCard(card)}
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        content.innerHTML = `
+          <div class="hero">
+            <h2 class="hero-title">${escapeHtml(data.title || date)}</h2>
+            <div class="hero-meta">
+              <span class="hero-chip">Date: ${escapeHtml(data.date || date)}</span>
+              <span class="hero-chip">Items: ${items.length}</span>
+              <span class="hero-chip">Timezone: ${escapeHtml(data.timezone || "-")}</span>
+            </div>
+          </div>
+          <div class="timeline">
+            ${cardsHtml || `<div class="empty">表示できる item がありません。</div>`}
+            <details class="raw-json">
+              <summary>Appendix: daily raw JSON を表示</summary>
+              <pre class="json-block">${escapeHtml(jsonText)}</pre>
+            </details>
+          </div>
         `;
-      }).join("");
+      } catch (err) {
+        content.innerHTML = `
+          <div class="hero">
+            <h2 class="hero-title">${escapeHtml(date)}</h2>
+          </div>
+          <div class="error">Daily Log表示に失敗しました: ${escapeHtml(err.message || err)}</div>
+        `;
+      }
     }
 
     async function init() {
@@ -988,13 +1068,19 @@
         ]);
 
         state.campaignGroups = groupCampaignPaths(campaignPaths);
+        state.dailyPaths = [...new Set(dailyPaths)]
+          .map(normalizePath)
+          .filter(p => p.startsWith("logs/"))
+          .sort((a, b) => b.localeCompare(a));
+
         renderCampaignList();
-        renderDailyList(dailyPaths);
+        renderDailyList();
 
         if (state.campaignGroups.length > 0) {
+          state.selectedMode = "campaign";
           state.selectedActor = state.campaignGroups[0].actor;
           renderCampaignList();
-          renderSelectedActor();
+          renderSelectedCampaign();
         }
       } catch (err) {
         document.getElementById("campaignList").innerHTML = `
@@ -1009,6 +1095,7 @@
     document.getElementById("searchInput").addEventListener("input", (e) => {
       state.search = e.target.value;
       renderCampaignList();
+      renderDailyList();
     });
 
     init();
