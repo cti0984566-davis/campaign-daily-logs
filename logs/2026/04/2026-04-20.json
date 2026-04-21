@@ -1,0 +1,642 @@
+{
+  "date": "2026-04-20",
+  "timezone": "JST",
+  "title": "2026/04/20_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-20_apt28_ukraine_prosecutor_mail_intrusions",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "APT28 Ukraine Prosecutor Mail Intrusions",
+        "aliases": [
+          "Fancy Bear",
+          "Forest Blizzard"
+        ],
+        "cluster": "APT28",
+        "suspected_actor": "Russian GRU-linked espionage actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "APT28",
+        "infrastructure": [
+          "Compromised webmail accounts",
+          "Roundcube-related email access infrastructure"
+        ],
+        "capability": [
+          "Credential theft",
+          "Mailbox compromise",
+          "Long-term intelligence collection"
+        ],
+        "victim": [
+          "Ukrainian prosecutors",
+          "Ukrainian investigators",
+          "Anti-corruption and asset recovery bodies",
+          "Select NATO and Balkan government-related accounts"
+        ]
+      },
+      "name": "APT28によるウクライナ検察・反腐敗機関メール侵害",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "政府機関",
+        "司法",
+        "防衛関連"
+      ],
+      "region": [
+        "ウクライナ",
+        "欧州"
+      ],
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-04-20",
+      "summary": "Reutersが4月15日に詳報したロシア系諜報活動で、2024年9月から2026年3月にかけて280超のメールアカウントが侵害され、170超がウクライナの検察官・捜査官に属していた。標的にはSAPO、ARMA、検察官訓練機関などが含まれ、周辺ではルーマニア空軍やギリシャ国防参謀本部関係者への波及も報じられた。",
+      "executive_summary": "APT28は対ウクライナ戦域支援にとどまらず、司法・反腐敗・資産管理といった国家機能の内部監視へ長期浸潤している可能性が高い。",
+      "change_summary": [
+        "4月15日にReutersが侵害規模と対象組織を詳報",
+        "単なる軍事情報収集ではなく司法・反腐敗分野への浸潤が明確化",
+        "NATO周辺国アカウントへの波及も確認"
+      ],
+      "operational_relevance": "日本の政府・司法・外務・防衛・規制当局におけるWebmail、文書基盤、外部共有アカウントの防護に直結する。",
+      "urgency": "high",
+      "recommended_action": [
+        "Webmailおよびメールゲートウェイの緊急点検",
+        "Roundcube等の外部公開メール基盤の脆弱性管理強化",
+        "高感度部門アカウントへのMFAと異常ログ監視徹底",
+        "過去ログを含む長期的なメール侵害ハント実施"
+      ],
+      "details": "公開情報では侵害の技術詳細は限定的だが、Roundcube Webmail関連の侵害が中核にあったと報じられている。侵害の狙いは、対露協力者捜査や資産管理、汚職対策情報の収集、場合によっては脅迫・捜査妨害に利用可能な情報優位の確保と考えられる。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "suspected intrusion actor",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1586",
+        "T1078",
+        "T1114",
+        "T1190"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Webmail accounts",
+        "Potential Roundcube-related access chain"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government",
+          "Justice",
+          "Defense-adjacent"
+        ],
+        "countries": [
+          "Ukraine",
+          "Romania",
+          "Greece",
+          "Bulgaria",
+          "Serbia"
+        ],
+        "organization_types": [
+          "Prosecutor offices",
+          "Anti-corruption bodies",
+          "Government agencies",
+          "Defense-related institutions"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家機能の内部情報に長期アクセスすることで、戦場支援を超えた統治妨害と情報優位確保を狙う作戦とみられる。",
+        "geopolitical": "ロシアはウクライナの後方統治・法執行・対露協力者摘発能力を削ぐことで、軍事・政治両面での持久力を低下させようとしている可能性がある。",
+        "business": "政府・公共・防衛関連受託企業でも同様のメール基盤侵害を前提とした防御設計が必要。",
+        "research_direction": "Roundcube起点の侵害手口、侵害メールボックスの利用目的、NATO周辺国への横展開有無を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "戦時下における国家機能中枢の監視・妨害を示す事例であり、対政府メール基盤防御の優先度を引き上げる。",
+        "delta_from_previous": "従来より軍事・外交標的中心と見られたAPT28活動に対し、司法・反腐敗機関への重点がより鮮明になった。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "Russia-linked prosecutor email campaign"
+      ],
+      "related_reports": [
+        "2026/04/16 サイバー事象"
+      ],
+      "tags": [
+        "APT28",
+        "Ukraine",
+        "GRU",
+        "Webmail",
+        "Espionage"
+      ],
+      "sources": [
+        {
+          "title": "Russia-linked hackers compromised scores of Ukrainian prosecutors' email accounts, data shows",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-of-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-20_uac0247_agingfly_ukraine_hospitals",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "UAC-0247 AGINGFLY Campaign",
+        "aliases": [
+          "AGINGFLY campaign"
+        ],
+        "cluster": "UAC-0247",
+        "suspected_actor": "Unattributed actor tracked by CERT-UA",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "UAC-0247",
+        "infrastructure": [
+          "Phishing-delivered HTA/HTML chains",
+          "WebSocket-based C2"
+        ],
+        "capability": [
+          "Credential theft",
+          "Browser data theft",
+          "WhatsApp data theft",
+          "Remote access"
+        ],
+        "victim": [
+          "Ukrainian hospitals",
+          "Municipal governments",
+          "Emergency medical services",
+          "FPV drone operators"
+        ]
+      },
+      "name": "UAC-0247によるAGINGFLYを用いたウクライナ医療・自治体標的化",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "医療",
+        "自治体",
+        "救急",
+        "政府機関"
+      ],
+      "region": [
+        "ウクライナ"
+      ],
+      "first_seen": "2026-03-01",
+      "last_seen": "2026-04-20",
+      "summary": "CERT-UAは、2026年3月から4月にかけて、地方自治体や病院、救急医療機関などを狙うUAC-0247の攻撃が強まったと公表した。攻撃ではAGINGFLYなどが使われ、Chromium系ブラウザやWhatsAppからの情報窃取が主目的とみられる。",
+      "executive_summary": "戦時下の医療・自治体・救急という社会持久力の中核に対し、継続的な情報窃取作戦が行われている点が重要である。",
+      "change_summary": [
+        "CERT-UAが4月中旬に新規公表",
+        "医療・自治体・救急にまたがる標的範囲が判明",
+        "AGINGFLYを中心とする複数ツール利用が判明"
+      ],
+      "operational_relevance": "自治体病院、消防、地方公共団体、救急搬送関連を抱える日本の地域インフラ防御に示唆が大きい。",
+      "urgency": "high",
+      "recommended_action": [
+        "HTA、LNK、JavaScript実行の制限",
+        "mshta.exe、wscript.exe、powershell.exeの監視強化",
+        "ブラウザ保存認証情報の保護・無効化検討",
+        "自治体・病院系ネットワークのフィッシング訓練強化"
+      ],
+      "details": "公開情報では、フィッシングからLNK/HTA連鎖を通じてAGINGFLY等を配布し、ブラウザデータやWhatsApp情報を窃取する。CERT-UAは、RAVENSHELL、SILENTLOOP、CHROMELEVATOR、ZAPIXDESKなどの関連ツールも挙げている。",
+      "actors": [
+        {
+          "name": "UAC-0247",
+          "role": "tracked threat cluster",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1566",
+        "T1204",
+        "T1218.005",
+        "T1059.001",
+        "T1053",
+        "T1555"
+      ],
+      "malware": [
+        "AGINGFLY",
+        "RAVENSHELL",
+        "SILENTLOOP",
+        "CHROMELEVATOR",
+        "ZAPIXDESK"
+      ],
+      "infrastructure": [
+        "Phishing emails",
+        "HTA/HTML payload chain",
+        "WebSocket C2"
+      ],
+      "targeting": {
+        "sectors": [
+          "Healthcare",
+          "Local government",
+          "Emergency services"
+        ],
+        "countries": [
+          "Ukraine"
+        ],
+        "organization_types": [
+          "Hospitals",
+          "Municipal governments",
+          "Emergency services",
+          "Drone-related operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "地方行政や医療など、国家の後方持久力を支える組織への継続的な情報窃取作戦である。",
+        "geopolitical": "ウクライナ戦線では、中央政府や軍だけでなく、地域行政と医療インフラも戦略的標的になっている。",
+        "business": "病院・自治体向けIT、MSP、地域ネットワーク事業者にも同種の対策需要が高まる。",
+        "research_direction": "UAC-0247の帰属、FPVドローン関連標的の意図、情報窃取データの具体的用途を継続分析。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "戦争下で社会基盤の持久力に直結する医療・自治体がサイバー諜報の重点標的であることを示す。",
+        "delta_from_previous": "従来の中央政府・軍重視の観測に対し、地域医療・救急への重点化がより明確になった。"
+      },
+      "related_campaigns": [
+        "UAC-0247"
+      ],
+      "related_reports": [],
+      "tags": [
+        "Ukraine",
+        "Healthcare",
+        "CERT-UA",
+        "AGINGFLY",
+        "Espionage"
+      ],
+      "sources": [
+        {
+          "title": "у фокусі кластера кіберзагроз UAC-0247 (UAC-0244)",
+          "url": "https://cert.gov.ua/article/6288271",
+          "publisher": "CERT-UA",
+          "published_at": "2026-04"
+        },
+        {
+          "title": "Ukrainian emergency services and hospitals hit by espionage campaign using new AgingFly malware",
+          "url": "https://therecord.media/aging-fly-espionage-campaign-targets-ukraine-emergency-services",
+          "publisher": "The Record",
+          "published_at": "2026-04-16"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-20_france_ants_identity_document_cyberattack",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "France ANTS Data Exposure Incident",
+        "aliases": [
+          "ANTS cyberattack"
+        ],
+        "cluster": "Unknown",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown",
+        "infrastructure": [
+          "French government online identity-document service"
+        ],
+        "capability": [
+          "Unauthorized access",
+          "Potential personal data exposure"
+        ],
+        "victim": [
+          "Applicants for passports",
+          "National ID card users",
+          "Residence permit users",
+          "Driver's license applicants"
+        ]
+      },
+      "name": "フランスANTS（身分証・運転免許手続サイト）へのサイバー攻撃",
+      "category": "不祥事",
+      "industry": [
+        "政府機関",
+        "住民サービス"
+      ],
+      "region": [
+        "フランス"
+      ],
+      "first_seen": "2026-04-20",
+      "last_seen": "2026-04-20",
+      "summary": "フランス内務省は、パスポート、国民ID、在留許可証、運転免許関連手続きを扱うANTSサイトへのサイバー攻撃により、利用者の個人データが露出した可能性があると公表した。",
+      "executive_summary": "住民向け行政サービス基盤が標的化され、国家のアイデンティティ管理に対する信頼性が問われる案件である。",
+      "change_summary": [
+        "4月20日に事案が表面化",
+        "行政ID・免許関連サービスへの影響が判明",
+        "漏えい範囲や攻撃手法はなお調査中"
+      ],
+      "operational_relevance": "行政DX、本人確認基盤、運転免許・在留・住民関連ポータルを持つ各国政府に共通する警戒事案。",
+      "urgency": "medium",
+      "recommended_action": [
+        "本人確認・行政手続ポータルのアクセスログ即時精査",
+        "個人情報保持システムの分離と権限見直し",
+        "後続のなりすまし・詐欺キャンペーン監視",
+        "住民向け注意喚起と認証強化の準備"
+      ],
+      "details": "公開時点では攻撃者や侵入経路は不明だが、行政手続データの露出は、後続の詐欺、口座不正、書類偽装、フィッシング高度化に転用されるリスクが高い。",
+      "actors": [],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": [
+        "ANTS website"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government services"
+        ],
+        "countries": [
+          "France"
+        ],
+        "organization_types": [
+          "Identity document agency",
+          "Residents and applicants"
+        ]
+      },
+      "strategic_view": {
+        "general": "政府住民サービスへの侵入は、個人情報流出だけでなく、行政手続基盤への信頼低下をもたらす。",
+        "geopolitical": "欧州では住民接点のデジタル行政基盤が広範に標的化されており、本件もその流れに位置づく。",
+        "business": "本人確認、行政SaaS、デジタルID、eKYC関連事業者にとっては防御強化需要を示す。",
+        "research_direction": "侵害範囲、後続の詐欺利用、認証方式や委託先を含むサプライチェーン起因の有無を確認。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "政府住民サービスのデジタル化が進む中、行政ID基盤の侵害は二次被害と制度不信を招きやすい。",
+        "delta_from_previous": "4月20日に新規表面化した案件で、技術詳細よりも制度的影響の大きさが先行している。"
+      },
+      "related_campaigns": [],
+      "related_reports": [],
+      "tags": [
+        "France",
+        "Government",
+        "Identity",
+        "DataExposure",
+        "ANTS"
+      ],
+      "sources": [
+        {
+          "title": "Cyberattack at French identity document agency may have exposed personal data",
+          "url": "https://therecord.media/france-cyberattack-agency-passports",
+          "publisher": "The Record",
+          "published_at": "2026-04-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-20_china_taiwan_information_warfare_amplification",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "China Taiwan Information Warfare Amplification",
+        "aliases": [
+          "Cognitive warfare against Taiwan"
+        ],
+        "cluster": "PRC influence operations",
+        "suspected_actor": "Chinese state-linked information operation apparatus",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Chinese state-linked information operators",
+        "infrastructure": [
+          "Douyin",
+          "Chinese state media distribution channels",
+          "Facebook",
+          "YouTube"
+        ],
+        "capability": [
+          "Narrative amplification",
+          "Psychological influence",
+          "Cross-platform repackaging"
+        ],
+        "victim": [
+          "Taiwanese public opinion",
+          "Taiwan political discourse",
+          "Taiwan defense morale"
+        ]
+      },
+      "name": "中国による台湾向け情報工作の増幅型運用",
+      "category": "影響力工作",
+      "industry": [
+        "政治",
+        "メディア"
+      ],
+      "region": [
+        "台湾",
+        "中国"
+      ],
+      "first_seen": "2025-10-01",
+      "last_seen": "2026-04-20",
+      "summary": "Reutersは、中国国営メディアが台湾野党政治家やインフルエンサーのDPP批判動画を大量に再利用し、DouyinからFacebookやYouTubeへ再包装・拡散していると報じた。台湾側統計では2025年に大量の偽アカウントと偽・誤情報が確認されている。",
+      "executive_summary": "中台正面では、サイバー侵入のみならず、台湾社会の内部対立を利用する認知戦が継続的主戦場になっている。",
+      "change_summary": [
+        "4月17日にReutersが詳細構図を報道",
+        "台湾内部の発言を利用した『内製化ナラティブ』がより鮮明化",
+        "防衛支出や抵抗意志を弱める心理的誘導の狙いが再確認"
+      ],
+      "operational_relevance": "日本でも選挙、対外危機、安保政策、基地・防衛予算論争をめぐり同型の増幅型情報工作が生じうる。",
+      "urgency": "monitor",
+      "recommended_action": [
+        "クロスプラットフォーム拡散経路の継続監視",
+        "国内政治発言の外国国家系再利用パターン分析",
+        "認知戦を含む日次監視項目の明示的追加",
+        "メディアリテラシーと官民共有の強化"
+      ],
+      "details": "特徴は、露骨な外部宣伝ではなく、台湾人自身の発言を素材化し、信頼性を高めたうえで拡散する点にある。公開報道では、DPPの戦争責任や防衛費増額の無意味さを訴える方向の動画増幅が目立つ。",
+      "actors": [
+        {
+          "name": "Chinese state media-linked operators",
+          "role": "information amplification actor",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "T1654"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Douyin",
+        "Facebook",
+        "YouTube",
+        "State media channels"
+      ],
+      "targeting": {
+        "sectors": [
+          "Politics",
+          "Media",
+          "Public discourse"
+        ],
+        "countries": [
+          "Taiwan"
+        ],
+        "organization_types": [
+          "Political parties",
+          "Influencers",
+          "General public",
+          "Media audiences"
+        ]
+      },
+      "strategic_view": {
+        "general": "サイバー空間を用いた心理戦・認知戦の典型事例であり、軍事圧力と組み合わせて社会の抵抗意志を削ぐ狙いがある。",
+        "geopolitical": "中国は中台正面で、軍事・経済・外交圧力に加え、情報空間での分断工作を恒常運用している。",
+        "business": "SNS、広告、コンテンツ監視、ブランド安全性、選挙関連監視の需要拡大を示唆する。",
+        "research_direction": "中国国営メディアと台湾発話者の結節点、再拡散ネットワーク、ナラティブの時系列変化を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "世論・政策支持・防衛意志を侵食するため、軍事侵攻未満のグレーゾーン競争で極めて重要。",
+        "delta_from_previous": "台湾内の声を素材に使う増幅モデルがより明示的に確認され、従来の対外宣伝より高度化している。"
+      },
+      "related_campaigns": [
+        "PRC influence operations against Taiwan"
+      ],
+      "related_reports": [
+        "2026/04/17 中台関連事象概要"
+      ],
+      "tags": [
+        "Taiwan",
+        "China",
+        "InfluenceOperations",
+        "CognitiveWarfare",
+        "InformationWarfare"
+      ],
+      "sources": [
+        {
+          "title": "China turns Taiwan's own voices against it in information war",
+          "url": "https://www.reuters.com/world/china/china-turns-taiwans-own-voices-against-it-information-war-2026-04-17/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-17"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-20_handala_stryker_disruption",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Handala Stryker Disruption",
+        "aliases": [
+          "Handala destructive campaign"
+        ],
+        "cluster": "Handala",
+        "suspected_actor": "Iran-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Handala",
+        "infrastructure": [
+          "Compromised Microsoft environment",
+          "Intune-managed endpoints"
+        ],
+        "capability": [
+          "Destructive disruption",
+          "Endpoint wiping",
+          "Operational sabotage"
+        ],
+        "victim": [
+          "Stryker",
+          "Medical device supply chain"
+        ]
+      },
+      "name": "イラン系HandalaによるStryker破壊的サイバー攻撃の継続影響",
+      "category": "国家系サイバー作戦",
+      "industry": [
+        "医療機器",
+        "製造",
+        "サプライチェーン"
+      ],
+      "region": [
+        "米国",
+        "グローバル"
+      ],
+      "first_seen": "2026-03-11",
+      "last_seen": "2026-04-20",
+      "summary": "3月11日のStryker事案では、イラン系とされるHandalaが犯行を主張し、同社のMicrosoft環境に大規模な混乱が生じた。Reutersやその後の報道では、端末ワイプやIntune悪用の可能性が重視され、米当局も関連リスクへの警告を発した。",
+      "executive_summary": "中東情勢連動のイラン系サイバーは、民間の医療サプライチェーン企業に対しても破壊的手段を取りうる局面に入っている。",
+      "change_summary": [
+        "3月11日の攻撃後も、Intune保護に関する当局警告が継続",
+        "通常のランサムウェアではなく管理基盤悪用による破壊的影響が注目点",
+        "医療機器供給網への実害リスクが鮮明化"
+      ],
+      "operational_relevance": "日本でも医療、物流、製造業のMDM/ID/クラウド管理基盤が侵害された場合の大規模業務停止を想定すべき。",
+      "urgency": "high",
+      "recommended_action": [
+        "Intune等MDM管理者権限の棚卸し",
+        "条件付きアクセスと管理者MFAの強制",
+        "遠隔ワイプ権限の監査と承認フロー強化",
+        "重要端末・製造端末の管理分離"
+      ],
+      "details": "Strykerはシステム障害により受注・製造・出荷に影響が出たと説明し、ReutersはHandalaの主張と米当局の懸念を報じた。のちにFBIとCISAは、Microsoft Intune保護強化を呼びかけた。",
+      "actors": [
+        {
+          "name": "Handala",
+          "role": "claimed intrusion actor",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1078",
+        "T1485",
+        "T1529"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Microsoft environment",
+        "Intune endpoint management"
+      ],
+      "targeting": {
+        "sectors": [
+          "Healthcare",
+          "Medical devices",
+          "Manufacturing"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Medical device manufacturer",
+          "Global supplier"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家間危機に連動し、民間サプライチェーン企業を破壊的に狙うモデルとして重要である。",
+        "geopolitical": "イラン系作戦は米・イスラエル関連緊張の延長で、報復・威嚇・混乱創出を民間領域でも行いうる。",
+        "business": "医療機器、製造、物流、クラウド管理サービスにおける管理基盤防御の優先順位を引き上げる。",
+        "research_direction": "Handalaの実行能力、Intune侵害手法、他の西側企業や医療供給網への波及を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "国家系または準国家系の破壊的サイバーが、重要民間供給網へ波及する具体例である。",
+        "delta_from_previous": "通常の情報窃取やリーク型より、運用停止を狙う破壊的性格が強く見えた。"
+      },
+      "related_campaigns": [
+        "Handala",
+        "Iran-linked retaliatory cyber activity"
+      ],
+      "related_reports": [],
+      "tags": [
+        "Iran",
+        "Handala",
+        "Stryker",
+        "Intune",
+        "Destructive"
+      ],
+      "sources": [
+        {
+          "title": "Iran-linked hackers claim responsibility for attack on US medical device maker Stryker",
+          "url": "https://www.reuters.com/technology/stryker-shares-fall-after-report-suspected-iran-linked-cyberattack-2026-03-11/",
+          "publisher": "Reuters",
+          "published_at": "2026-03-11"
+        },
+        {
+          "title": "US agency asks companies to secure Microsoft tool after Stryker cyberattack",
+          "url": "https://www.reuters.com/business/us-agency-asks-companies-secure-microsoft-tool-after-stryker-cyberattack-2026-03-19/",
+          "publisher": "Reuters",
+          "published_at": "2026-03-19"
+        }
+      ]
+    }
+  ]
+}
