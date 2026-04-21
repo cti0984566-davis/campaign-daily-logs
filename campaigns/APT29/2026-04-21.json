@@ -1,0 +1,127 @@
+{
+  "date": "2026-04-21",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29については2026年4月21日時点で有意な新規公開レポートは確認できないが、2024年のRDPファイル悪用、2025年の欧州外交標的GRAPELOADER/WINELOADER、Google ASPフィッシング、AWS watering holeの流れから、認証・信頼関係・正規機能悪用を軸とする高水準の諜報活動が継続しているとみるべきである。",
+  "change_summary": [
+    "2026年4月21日時点では新規大規模公表よりも評価更新が妥当",
+    "RDPファイル悪用、ASP悪用、watering holeなど認証・信頼関係悪用型の傾向を重視"
+  ],
+  "operational_relevance": "高価値ユーザーの保護、ASPやOAuth等の正規認証機能悪用対策、RDPファイル運用見直しが必要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "高リスク利用者に強化保護を適用する",
+    "ASPやアプリパスワード等の例外的認証機能を点検する",
+    "RDPファイルの配布・利用フローを見直す"
+  ],
+  "campaign": {
+    "name": "APT29 ongoing credential and diplomacy-focused espionage",
+    "aliases": ["APT29", "Midnight Blizzard", "Cozy Bear", "NOBELIUM"],
+    "cluster": "Russian intelligence-linked cyber espionage",
+    "suspected_actor": "Russian Foreign Intelligence Service-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-21_apt29_assessment_update",
+      "type": "assessment",
+      "status": "更新",
+      "name": "APT29の2024-2025公開情報に基づく継続評価",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "北米", "グローバル"],
+        "industries": ["政府", "外交", "学術", "防衛", "NGO", "クラウド利用組織"],
+        "organization_types": ["外交機関", "学識経験者", "ロシア批判者", "高価値ユーザー"]
+      },
+      "first_seen": "2024-10-22",
+      "last_seen": "2025-08-29",
+      "activity_summary": "直近の公開情報では、APT29は悪性RDPファイルを用いた標的型フィッシング、欧州外交機関を狙うGRAPELOADER/WINELOADER展開、ASP悪用によるメールボックス持続アクセス、watering holeによるMicrosoft device code認証悪用を行っていた。",
+      "activity_details": "Microsoftは2024年10月、Midnight Blizzardが数千人規模にRDPファイルを送付する標的型フィッシングを確認した。Check Pointは2025年4月、欧州外交機関を狙うGRAPELOADERとWINELOADER新亜種を報告した。Googleは2025年6月、ロシア関連の高価値標的に対するASP悪用フィッシングを報告し、低信頼度でAPT29関連と評価した。AWSは2025年8月、APT29によるwatering holeでのdevice code認証悪用キャンペーンを妨害した。さらにMicrosoftは2026年4月のWindows更新で、RDPファイルを用いたフィッシング対策を強化している。",
+      "ttp": [
+        "Spear-phishing using RDP files",
+        "Application-specific password abuse",
+        "Watering hole",
+        "Device code authentication abuse",
+        "DLL sideloading",
+        "Persistence through credentialed access"
+      ],
+      "malware_and_tools": [
+        "GRAPELOADER",
+        "WINELOADER",
+        "Malicious RDP configuration files"
+      ],
+      "infrastructure": [
+        "Compromised websites",
+        "Phishing domains",
+        "Credential harvesting infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は正規認証機能と信頼関係を悪用することで、痕跡を抑えた長期諜報を遂行している。",
+        "geopolitical": "ロシアの外交・対外情報収集の一環として、高価値な政策・外交・学術コミュニティを継続的に狙う傾向が続く。",
+        "business": "日本でも経営層、研究者、対外政策関係者、高度クラウド利用者が同型手法の対象となり得る。",
+        "research_direction": "ASP・device code・RDPファイルなど“正規機能悪用”の横断分析が重要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT29はゼロデイ依存よりも、正規機能と高精度ソーシャルエンジニアリングを組み合わせた持続的諜報を得意とするため。",
+        "delta_from_previous": "2026年4月21日時点では新規大規模公表より、既知の認証・信頼関係悪用型活動の継続評価が適切。"
+      },
+      "related_campaigns": ["APT29", "Midnight Blizzard"],
+      "tags": ["APT29", "Midnight Blizzard", "RDP", "ASP", "device code", "diplomacy", "watering hole"],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft Security Blog",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Renewed APT29 Phishing Campaign Against European Diplomats",
+          "url": "https://research.checkpoint.com/2025/apt29-phishing-campaign/",
+          "publisher": "Check Point Research",
+          "published_at": "2025-04-15"
+        },
+        {
+          "title": "What’s in an ASP? Creative Phishing Attack on Prominent Academics and Critics of Russia",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/creative-phishing-academics-critics-of-russia",
+          "publisher": "Google Cloud Blog",
+          "published_at": "2025-06-18"
+        },
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia’s APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS Security Blog",
+          "published_at": "2025-08-29"
+        },
+        {
+          "title": "April 14, 2026—KB5082127 (Monthly Rollup)",
+          "url": "https://support.microsoft.com/en-us/topic/april-14-2026-kb5082127-monthly-rollup-ad2262c2-03af-4ee9-a0cf-206c4c0330ad",
+          "publisher": "Microsoft Support",
+          "published_at": "2026-04-14"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": [
+          "Phishing domains",
+          "Compromised websites",
+          "Credential harvesting infrastructure"
+        ],
+        "capability": [
+          "Targeted phishing",
+          "Credential abuse",
+          "Watering hole",
+          "Malware staging"
+        ],
+        "victim": [
+          "Diplomatic entities",
+          "Academics",
+          "Critics of Russia",
+          "High-value cloud users"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "date": "2026-04-21",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416は2025年半ば以降、欧州の政府・外交機関への標的型活動を再活性化し、2026年3月には中東の政府・外交機関にも照準を広げた。PlugXを中核に維持しつつ、初期侵入チェーンを継続的に変化させている点が重要である。",
+  "change_summary": [
+    "欧州政府・外交機関への再集中が確認された",
+    "2026年3月には中東外交・政府標的へ拡張した",
+    "初期侵入手法がCloudflare風ページ、Entra IDアプリ悪用、CSPROJ系へ変遷した"
+  ],
+  "operational_relevance": "外交・政府関連組織では、LNK/ZIP smuggling、CSPROJ、Entra ID第三者アプリ悪用、PlugX系DLL sideloading監視が重要。",
+  "urgency": "high",
+  "recommended_action": [
+    "外交・政府関連メールのweb bugとLNK配布を重点監視する",
+    "Entra ID第三者アプリ承認と認可フローを点検する",
+    "DLL sideloading triadとPlugXロード痕跡の検知を強化する"
+  ],
+  "campaign": {
+    "name": "TA416 renewed government and diplomatic espionage campaigns",
+    "aliases": ["TA416", "Mustang Panda", "RedDelta"],
+    "cluster": "China-aligned espionage",
+    "suspected_actor": "China-aligned threat actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-21_ta416_eu_middleeast_espionage",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "欧州外交機関再標的化と中東政府標的への拡張",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "中東"],
+        "industries": ["政府", "外交", "防衛"],
+        "organization_types": ["外交使節団", "EU/NATO関連機関", "外務省", "国防省", "政府機関"]
+      },
+      "first_seen": "mid-2025",
+      "last_seen": "2026-03",
+      "activity_summary": "Proofpointは、TA416が2025年半ば以降に欧州政府・外交機関を再標的化し、2026年3月にはイラン戦争勃発後の中東政府・外交機関にも複数回のキャンペーンを行ったと報告した。",
+      "activity_details": "TA416は、web bugメールで配信・閲覧状況の偵察を行った後、Microsoft Azure Blob Storage、Google Drive、侵害済みSharePoint、アクター管理ドメイン等を介して悪性アーカイブを配布した。初期侵入は、偽Cloudflare Turnstileページ、Microsoft Entra ID第三者アプリ悪用、改名されたMSBuild実行ファイルと悪性C# project fileを含むアーカイブへと変遷したが、最終的な目的はDLL sideloading triadを通じたPlugX展開で一貫している。",
+      "ttp": [
+        "Web bug reconnaissance",
+        "Phishing via freemail and compromised mailboxes",
+        "ZIP smuggling using LNK files",
+        "Abuse of Microsoft Entra ID third-party applications",
+        "CSPROJ downloader",
+        "DLL sideloading"
+      ],
+      "malware_and_tools": [
+        "PlugX",
+        "Renamed MSBuild executable",
+        "Malicious C# project files",
+        "LNK files"
+      ],
+      "infrastructure": [
+        "Microsoft Azure Blob Storage",
+        "Google Drive",
+        "Compromised SharePoint instances",
+        "Actor-controlled domains",
+        "speedifynews[.]com"
+      ],
+      "iocs": [
+        "emmeline.voss@gmail[.]com",
+        "kordula.wehrli@gmail[.]com",
+        "kayden.beaufort@gmail[.]com",
+        "speedifynews[.]com"
+      ],
+      "strategic_view": {
+        "general": "TA416は標的・地理・侵入チェーンを柔軟に変えながら、外交・政府情報収集を継続している。",
+        "geopolitical": "EU–China摩擦や中東紛争に連動して標的地域を変える点は、中国系情報収集の優先順位変化を示唆する。",
+        "business": "外交・政府以外でも、防衛・研究・政策関連組織が二次標的化される可能性がある。",
+        "research_direction": "web bug偵察とPlugX配送の相関、Entra ID悪用パターン、欧州→中東への標的移行分析が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "TA416は単発のフィッシングではなく、外交・安全保障文脈に沿って標的地域と手法を調整しているため。",
+        "delta_from_previous": "欧州再重視に加えて、2026年3月の中東外交・政府標的への拡張が新たな含意を持つ。"
+      },
+      "related_campaigns": ["TA416", "Mustang Panda"],
+      "tags": ["TA416", "Mustang Panda", "PlugX", "EU", "Middle East", "diplomacy", "Entra ID"],
+      "sources": [
+        {
+          "title": "I’d come running back to EU again: TA416 resumes European government espionage campaigns",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416",
+        "infrastructure": [
+          "Freemail accounts",
+          "Compromised diplomatic mailboxes",
+          "Cloud storage and compromised SharePoint"
+        ],
+        "capability": [
+          "Web bug reconnaissance",
+          "PlugX delivery",
+          "DLL sideloading",
+          "Entra ID abuse"
+        ],
+        "victim": [
+          "European diplomatic missions",
+          "NATO/EU delegations",
+          "Middle Eastern government and diplomatic entities"
+        ]
+      }
+    }
+  ]
+}

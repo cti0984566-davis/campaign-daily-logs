@@ -1,0 +1,102 @@
+{
+  "date": "2026-04-21",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は2026年4月時点で、脆弱なルータのDHCP/DNS設定改変を通じて通信経路を乗っ取り、AitMによる資格情報窃取を可能にする作戦を継続的に実施している。端末侵害ではなく通信基盤支配に重点を置く点が重要である。",
+  "change_summary": [
+    "2026年4月7日のNCSC公表内容を、4月21日時点でも有効な継続キャンペーンとして整理",
+    "APT28の重点をメール侵入中心から通信経路支配型へ再評価"
+  ],
+  "operational_relevance": "境界ルータの資産管理、DNS設定変更監査、管理インターフェース制限、トークン窃取監視が重要。",
+  "urgency": "high",
+  "recommended_action": [
+    "脆弱なルータとSOHO機器の棚卸し・更新を優先する",
+    "DHCP/DNS設定変更の監査とアラートを有効化する",
+    "管理画面の公開停止と多要素認証を徹底する"
+  ],
+  "campaign": {
+    "name": "APT28 router DNS hijacking operations",
+    "aliases": ["APT28", "Fancy Bear", "Forest Blizzard"],
+    "cluster": "Russian cyber espionage",
+    "suspected_actor": "Russian military intelligence-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-21_apt28_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "脆弱ルータ悪用によるDNSハイジャックとAitM資格情報窃取",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": ["欧州", "英国", "グローバル"],
+        "industries": ["政府", "通信", "企業"],
+        "organization_types": ["政府機関", "企業", "脆弱な境界機器を運用する組織"]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-21",
+      "activity_summary": "NCSCはAPT28が脆弱なルータのDHCP/DNS設定を書き換え、攻撃者管理DNSへ通信を誘導することで、AitMを通じてパスワードやOAuthトークン等を窃取していたと公表した。",
+      "activity_details": "この活動は、エッジ機器侵害後にDNS設定を改変し、Webやメール関連サービスへの通信を攻撃者管理インフラ経由にする点が特徴である。NCSCは、結果として資格情報窃取、データ改ざん、広範な追加侵害のリスクが生じると説明している。4月21日時点でも、国家系アクターが境界機器を使って広域の通信信頼性を破壊し得る事例として重要である。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1557 Adversary-in-the-Middle",
+        "DHCP/DNS settings overwrite",
+        "Credential and token theft"
+      ],
+      "malware_and_tools": [
+        "Compromised routers",
+        "Attacker-controlled DNS servers"
+      ],
+      "infrastructure": [
+        "Vulnerable internet routers",
+        "Malicious DNS infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は端末侵害より一段上位の通信経路支配を行っており、防御側の前提を崩している。",
+        "geopolitical": "ロシア系アクターの諜報活動が、欧州安全保障環境の緊張下で持続していることを示す。",
+        "business": "日本企業でも支店・委託先・在宅網を含むルータ管理不備が重大な侵入起点になり得る。",
+        "research_direction": "対象製品、DNS改変後の通信パターン、ルータ設定異常検知ロジックの蓄積が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家系アクターが通信インフラを利用して認証と通信の信頼前提を崩す能力を示しているため。",
+        "delta_from_previous": "APT28の脅威評価を、メールや端末侵入中心からネットワーク経路支配まで拡張すべき段階にある。"
+      },
+      "related_campaigns": ["APT28"],
+      "tags": ["APT28", "Russia", "router", "DNS hijacking", "AitM", "credential theft"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "UK exposes Russian military intelligence hijacking vulnerable routers for cyber attacks",
+          "url": "https://www.ncsc.gov.uk/news/uk-exposes-russian-military-intelligence-hijacking-vulnerable-routers-for-cyber-attacks",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28",
+        "infrastructure": [
+          "Compromised routers",
+          "Attacker-controlled DNS servers"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Adversary-in-the-Middle",
+          "Credential theft"
+        ],
+        "victim": [
+          "Government organizations",
+          "Enterprise users",
+          "Organizations with vulnerable edge devices"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "date": "2026-04-21",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、公開直後のN-dayと一部ゼロデイを高速に武器化し、脆弱な外部公開資産から侵入して短期間でデータ窃取とMedusaランサムウェア展開に至る高テンポの攻撃キャンペーンを実施している。",
+  "change_summary": [
+    "2026年4月6日のMicrosoft公表を4月21日時点の重要継続案件として整理",
+    "Storm-1175は中国由来・金銭目的アクターとして位置づけられている",
+    "医療・教育・専門サービス・金融への被害集中が明示された"
+  ],
+  "operational_relevance": "インターネット公開資産、特にWeb-facingシステムの迅速パッチ適用、公開面の最小化、侵入後の横移動阻止が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "公開資産の脆弱性是正をKEV相当優先度で運用する",
+    "侵入後の新規アカウント作成とRMMツール投入を監視する",
+    "Medusa前段のデータ持ち出しと防御製品無効化を重点監視する"
+  ],
+  "campaign": {
+    "name": "Storm-1175 high-tempo Medusa ransomware operations",
+    "aliases": ["Storm-1175"],
+    "cluster": "Financially motivated cybercrime",
+    "suspected_actor": "China-based financially motivated threat actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-21_storm1175_medusa_operations",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "脆弱な外部公開資産を狙う高速Medusa展開",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": ["米国", "英国", "オーストラリア"],
+        "industries": ["医療", "教育", "専門サービス", "金融"],
+        "organization_types": ["外部公開資産を保有する組織"]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-04-21",
+      "activity_summary": "MicrosoftはStorm-1175が公開直後の脆弱性を迅速に悪用し、場合によっては公開前のゼロデイも活用して、数日以内、時には24時間以内にデータ窃取とMedusaランサムウェア展開へ進むと報告した。",
+      "activity_details": "Microsoftによれば、Storm-1175は2023年以来、16件超の脆弱性を悪用してきた。侵入後はWeb shellやリモートアクセスペイロードを配置し、新規アカウント作成、RMMソフト展開、資格情報窃取、防御製品改変を実施した上で、環境全体へランサムウェアを展開する。Linux環境では2024年後半にOracle WebLogicの脆弱なインスタンスも狙っていた。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "Web shell deployment",
+        "Remote monitoring and management software abuse",
+        "Credential theft",
+        "Defense evasion",
+        "Rapid ransomware deployment"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware",
+        "Web shells",
+        "Remote access payloads",
+        "RMM software"
+      ],
+      "infrastructure": [
+        "Vulnerable web-facing systems",
+        "Compromised perimeter assets"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "Storm-1175は公開資産の脆弱性管理失敗を最短時間で実被害へ転換するタイプの高速度アクターである。",
+        "geopolitical": "国家系ではなく金銭目的だが、中国由来の高技能アクターとして、国家系に近い運用成熟度を示す。",
+        "business": "日本でも公開資産のパッチ遅延が即ランサム被害に直結し得ることを示す。",
+        "research_direction": "悪用CVEsの時系列、24時間以内侵害事例、Medusa展開前兆の検知ロジック整備が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "脆弱性公表から広域パッチ適用までの短い隙を突き、極めて短時間で重大被害に到達するため。",
+        "delta_from_previous": "Storm-1175を単なるMedusa関連犯罪者ではなく、公開資産高速悪用の代表的プレイヤーとして優先監視すべき段階にある。"
+      },
+      "related_campaigns": ["Medusa ransomware"],
+      "tags": ["Storm-1175", "Medusa", "ransomware", "N-day", "zero-day", "web-facing assets"],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft Security Blog",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "Microsoft が脅威アクターに名前を付けする方法",
+          "url": "https://learn.microsoft.com/ja-jp/unified-secops/microsoft-threat-actor-naming",
+          "publisher": "Microsoft Learn"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "Exposed web applications",
+          "Compromised perimeter systems"
+        ],
+        "capability": [
+          "Rapid vulnerability weaponization",
+          "Credential theft",
+          "Lateral movement",
+          "Ransomware deployment"
+        ],
+        "victim": [
+          "Healthcare organizations",
+          "Education organizations",
+          "Professional services firms",
+          "Financial organizations"
+        ]
+      }
+    }
+  ]
+}
