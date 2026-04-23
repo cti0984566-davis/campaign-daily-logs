@@ -1,0 +1,79 @@
+{
+  "date": "2026-04-22",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Midnight Blizzard", "NOBELIUM", "The Dukes"],
+    "cluster": "russia_svr_cyber_espionage",
+    "suspected_actor": "Russia-linked actor widely assessed as tied to SVR",
+    "attribution_confidence": "high"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "2026年4月22日時点で、APT29について同日近傍の高確度な新規公開キャンペーン更新は確認できなかった。APT29は依然として最重要のロシア系諜報アクターだが、本日時点の日次ログでは『新しい公開更新が乏しい』こと自体を評価更新として記録する。",
+  "change_summary": [
+    "4月22日時点でAPT29に関する高確度の新規公開活動を確認できなかった",
+    "監視継続対象としての重要性は不変",
+    "直近の公開情報は過去既報や背景解説が中心で、同日差分は限定的"
+  ],
+  "operational_relevance": "APT29は更新がない日でも優先監視対象から外すべきではない。外交・政府・研究機関・防衛関連に対する静穏な長期諜報活動の代表例であるため、差分がない日も『継続中』として扱う必要がある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "外交・政府系メール環境の異常認証とOAuthアプリ利用を継続監視する",
+    "APT29既知のフィッシング・初期侵入手法に対する検知を維持する",
+    "公開更新が薄い期間でも優先監視対象から外さない"
+  ],
+  "items": [
+    {
+      "id": "2026-04-22_apt29_no_material_public_delta",
+      "type": "assessment",
+      "status": "更新",
+      "name": "APT29に関する4月22日時点の公開更新不在評価",
+      "category": "脅威評価",
+      "last_seen": "2026-04-22",
+      "activity_summary": "APT29について、4月22日時点で高確度の新規公開キャンペーン更新は確認できなかった。",
+      "activity_details": "検索した一次・準一次ソースでは、2026年4月22日前後のAPT29に関する新規の政府警告、ベンダ報告、Reuters報道を確認できなかった。したがって、本ログでは活動不存在ではなく『公開差分が乏しいため assessment_update として扱う』方針を採る。",
+      "strategic_view": {
+        "general": "APT29は情報公開が少ない時期でも危険性が低下したとは限らない。",
+        "geopolitical": "ロシアSVR系アクターは、露見しにくい長期潜伏型の諜報活動を得意とする。",
+        "business": "民間でも、特にクラウド・メール・外部委託経路を通じた静穏な侵入に注意が必要である。",
+        "research_direction": "欧州外交・ウクライナ支援関連・政府系クラウド侵害の新規報告有無を継続追跡すべき。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "APT29の重要性は依然高いが、同日差分としては新規公開更新が乏しいため。",
+        "delta_from_previous": "本日時点では『重大な新規公開差分なし』が差分である。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "Void Blizzard"
+      ],
+      "tags": [
+        "APT29",
+        "Midnight-Blizzard",
+        "assessment-update",
+        "no-confirmed-delta"
+      ],
+      "sources": [
+        {
+          "title": "How Microsoft names threat actors",
+          "url": "https://learn.microsoft.com/en-us/unified-secops/microsoft-threat-actor-naming",
+          "publisher": "Microsoft Learn",
+          "published_at": "2026-04-22"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked espionage actor",
+        "capability": [
+          "Long-term espionage",
+          "Stealthy phishing and cloud intrusion"
+        ],
+        "victim": [
+          "Diplomatic entities",
+          "Government organizations",
+          "Research and defense-adjacent institutions"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "date": "2026-04-22",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Sednit", "Sofacy"],
+    "cluster": "russia_gru_cyber_espionage",
+    "suspected_actor": "Russia-linked actor assessed by Western governments as tied to GRU",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "APT28は2026年4月時点で、TP-LinkおよびMikroTikルーターを悪用したDNSハイジャック基盤を用い、認証情報やトークン窃取を狙う継続的な作戦で注目されている。4月22日時点では新規の別件大規模公表よりも、4月7日に公表されたルーター悪用作戦の重要性が継続していると評価する。",
+  "change_summary": [
+    "4月7日に英国NCSCと独当局、米FBIがAPT28によるルーター悪用・DNSハイジャック作戦を公表",
+    "数千台規模のルーター侵害が示され、ドイツ国内でも影響が確認された",
+    "4月17日までにウクライナ当局者発言ベースで、検察・反汚職機関を狙う関連作戦へのAPT28関与疑いも強まった"
+  ],
+  "operational_relevance": "境界機器そのものが情報窃取基盤となるため、政府・軍・重要インフラ・外交関係組織はエンドポイント対策だけでなくルーターやDNS設定監査を優先すべきである。",
+  "urgency": "high",
+  "recommended_action": [
+    "TP-LinkおよびMikroTikルーターの緊急棚卸しと更新を行う",
+    "DNS設定、DHCP設定、管理者アカウントの不審変更を監査する",
+    "Outlook・Microsoft 365認証の多要素認証とトークン保護を再点検する"
+  ],
+  "items": [
+    {
+      "id": "2026-04-22_apt28_router_dns_hijack",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるルーター悪用・DNSハイジャック作戦",
+      "category": "サイバー諜報活動",
+      "targeting": {
+        "regions": ["欧州", "ウクライナ", "グローバル"],
+        "industries": ["政府", "軍事", "重要インフラ", "外交"],
+        "organization_types": ["政府機関", "軍事組織", "重要インフラ事業者", "外交関連組織"]
+      },
+      "first_seen": "2024",
+      "last_seen": "2026-04-22",
+      "activity_summary": "APT28は脆弱なTP-LinkおよびMikroTikルーターを悪用し、DNS設定変更を通じて adversary-in-the-middle を実現し、認証情報や認証トークン窃取を狙っている。",
+      "activity_details": "英国NCSCは、APT28がルーターの脆弱性を利用して悪性DNSリゾルバを設定し、Microsoft系認証トラフィックを攻撃者制御インフラへ迂回させることで、パスワードとトークン窃取を可能にしていたと説明した。Reutersは独BfVとBND、FBIの共同警告として、世界で数千台規模のルーター侵害があり、ドイツ国内でも約30台が影響を受けたと報じた。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1584.008 Compromise Infrastructure: Network Devices",
+        "T1557 Adversary-in-the-Middle",
+        "T1565.001 Stored Data Manipulation: DNS",
+        "T1556 Modify Authentication Process (推定)"
+      ],
+      "malware_and_tools": [
+        "Compromised TP-Link routers",
+        "Compromised MikroTik routers",
+        "Malicious DNS resolvers"
+      ],
+      "infrastructure": [
+        "Attacker-controlled DNS infrastructure",
+        "Hijacked SOHO/enterprise routers"
+      ],
+      "strategic_view": {
+        "general": "APT28は依然として機動的かつ広域のインフラ悪用を通じて諜報アクセスを確保する能力を維持している。",
+        "geopolitical": "欧州安全保障環境の緊張継続の下で、政府・軍事・外交対象への継続監視能力をロシア側が保持していることを示す。",
+        "business": "企業ネットワークでも境界機器の管理不備が直接的な認証情報窃取に結び付く。",
+        "research_direction": "侵害ルーターの地理分布、二次被害の有無、ウクライナ政府系標的との作戦接続を継続監視すべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "境界機器を使った認証窃取は被害者側で可視化しにくく、長期諜報活動に適するため。",
+        "delta_from_previous": "2026年4月に政府共同警告として作戦の技術的輪郭がより明瞭化した。"
+      },
+      "related_campaigns": [
+        "Ukraine prosecutor mailbox intrusion"
+      ],
+      "tags": [
+        "APT28",
+        "router-exploitation",
+        "dns-hijack",
+        "credential-theft"
+      ],
+      "sources": [
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Ukraine confirms suspected APT28 campaign targeting prosecutors, anti-corruption agencies",
+          "url": "https://therecord.media/ukraine-confirms-suspected-apt28-campaign-targeting-prosecutors",
+          "publisher": "The Record",
+          "published_at": "2026-04-17"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Russia-linked GRU-associated cyber espionage actor",
+        "infrastructure": [
+          "Compromised TP-Link routers",
+          "Compromised MikroTik routers",
+          "Attacker-controlled DNS nodes"
+        ],
+        "capability": [
+          "Router exploitation",
+          "DNS hijacking",
+          "Credential and token interception"
+        ],
+        "victim": [
+          "Government entities",
+          "Military-linked networks",
+          "Critical infrastructure operators",
+          "Ukrainian prosecutorial and anti-corruption bodies"
+        ]
+      }
+    }
+  ]
+}

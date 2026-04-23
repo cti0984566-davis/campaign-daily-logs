@@ -1,0 +1,103 @@
+{
+  "date": "2026-04-22",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["RedDelta", "Red Lich", "SmugX", "DarkPeony", "Vertigo Panda"],
+    "cluster": "china_linked_espionage",
+    "suspected_actor": "China-linked espionage actor",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "Proofpointが2026年4月初旬に公表したところによれば、TA416は欧州政府・外交機関への作戦を再活性化させ、さらに2026年3月にはイランでの紛争勃発後に中東の外交・政府機関へも標的を拡大していた。4月22日時点では、この作戦の継続的重要性が評価ポイントである。",
+  "change_summary": [
+    "欧州政府・外交機関向けの活動再開が公表された",
+    "2026年3月に中東の外交・政府機関へ標的拡大が観測された",
+    "感染チェーンにCloudflare Turnstile悪用、OAuthリダイレクト悪用、C#プロジェクトファイル利用などの変化が確認された"
+  ],
+  "operational_relevance": "EU・NATO・中東外交関連組織、またそれらと連絡する第三国組織は、外交テーマのソーシャルエンジニアリングとPlugX系配信の継続監視が必要である。",
+  "urgency": "high",
+  "recommended_action": [
+    "外交・政府系メールに対するテーマ別フィッシング監視を強化する",
+    "Cloudflare TurnstileやOAuthリダイレクトを悪用する誘導チェーンを検知対象に含める",
+    "PlugXおよび関連ローダーの検知を更新する"
+  ],
+  "items": [
+    {
+      "id": "2026-04-22_ta416_eu_middleeast_espionage",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416による欧州・中東の政府外交機関向け諜報活動",
+      "category": "サイバー諜報活動",
+      "targeting": {
+        "regions": ["欧州", "中東"],
+        "industries": ["政府", "外交"],
+        "organization_types": ["政府機関", "外交使節団", "EU関連組織", "NATO関連組織"]
+      },
+      "first_seen": "2025-mid",
+      "last_seen": "2026-04-22",
+      "activity_summary": "TA416は2025年半ば以降いったん減退していたEU関連活動を再開し、2026年3月には中東の政府・外交対象にも活動を拡大した。",
+      "activity_details": "Proofpointは、TA416が欧州各国のEU・NATO外交ミッションを狙う複数波のキャンペーンを実施し、その後イランでの紛争勃発後の数週間に中東の外交・政府機関へ標的を拡大したと報告した。感染チェーンではCloudflare Turnstile、OAuthリダイレクト、C# project file、更新されたカスタムPlugXペイロードが用いられた。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1204 User Execution",
+        "T1189 Drive-by Compromise (推定)",
+        "T1027 Obfuscated/Compressed Files and Information (推定)",
+        "OAuth redirect abuse",
+        "Cloudflare Turnstile abuse"
+      ],
+      "malware_and_tools": [
+        "PlugX",
+        "Custom PlugX payloads",
+        "C# project files"
+      ],
+      "strategic_view": {
+        "general": "TA416は標的地域と誘導チェーンを柔軟に変えながら外交情報収集を継続している。",
+        "geopolitical": "欧州に加えて中東外交対象へ拡張した点は、中国系アクターが地域横断で外交情報需要に応じて作戦を調整していることを示す。",
+        "business": "政府委託先やシンクタンク、国際会議運営主体も巻き込まれる可能性が高い。",
+        "research_direction": "中東拡大部分の具体対象、使用ドメイン、PlugX系派生ツールの更新点を追うべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "欧州と中東をまたぐ外交標的型スパイ活動として、地政学イベントと連動した運用柔軟性を示すため。",
+        "delta_from_previous": "2026年3月の中東拡大と感染チェーン変更が主な差分である。"
+      },
+      "related_campaigns": [
+        "PlugX espionage activity"
+      ],
+      "tags": [
+        "TA416",
+        "China-linked",
+        "diplomatic-targeting",
+        "PlugX"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / China-linked espionage actor",
+        "infrastructure": [
+          "Phishing infrastructure",
+          "OAuth redirect chains",
+          "Cloudflare Turnstile-abusing pages"
+        ],
+        "capability": [
+          "Government phishing",
+          "Payload delivery",
+          "PlugX deployment"
+        ],
+        "victim": [
+          "European government entities",
+          "EU and NATO diplomatic missions",
+          "Middle Eastern diplomatic and government organizations"
+        ]
+      }
+    }
+  ]
+}

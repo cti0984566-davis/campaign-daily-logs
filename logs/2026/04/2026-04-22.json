@@ -1,0 +1,195 @@
+{
+  "date": "2026-04-22",
+  "timezone": "JST",
+  "title": "2026/04/22_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-22_lotus_wiper_venezuela_energy",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Lotus Wiper activity",
+        "aliases": ["Lotus Wiper"],
+        "cluster": "destructive_wiper_activity",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "Windows domain shared paths",
+          "Batch script execution"
+        ],
+        "capability": [
+          "Disk wiping",
+          "Data destruction",
+          "Recovery inhibition"
+        ],
+        "victim": [
+          "Energy sector organizations in Venezuela",
+          "Utility providers"
+        ]
+      },
+      "name": "Lotus Wiper によるベネズエラ電力・公益分野攻撃",
+      "category": "軍事作戦",
+      "industry": ["エネルギー", "公益", "重要インフラ"],
+      "region": ["ベネズエラ", "中南米"],
+      "last_seen": "2026-04-22",
+      "summary": "Kasperskyにより2026年4月に公表されたLotus Wiperは、ベネズエラのエネルギー・公益分野を標的とする破壊型マルウェアであり、金銭目的ではなく不可逆的なデータ破壊と復旧妨害を主目的とする。",
+      "executive_summary": "純粋な破壊目的のワイパーであり、重要インフラへの可用性攻撃の再顕在化を示す。",
+      "change_summary": [
+        "2026年4月に技術分析が公開され新規認識",
+        "ランサムウェアではなく破壊目的である点が特徴",
+        "標的がエネルギー・公益分野であることが確認された"
+      ],
+      "operational_relevance": "重要インフラにおいて、バックアップと復旧能力の実効性検証が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "オフラインバックアップの検証",
+        "管理共有フォルダの監視強化",
+        "破壊系コマンドの検知ルール導入"
+      ],
+      "details": "Lotus Wiperはdiskpart等を用いたディスク消去や復元阻害を実施する。公開情報では侵入経路は明確ではない。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "suspected operator"
+        }
+      ],
+      "ttp": [
+        "T1485 Data Destruction (推定)",
+        "T1490 Inhibit System Recovery (推定)"
+      ],
+      "malware": ["Lotus Wiper"],
+      "targeting": {
+        "sectors": ["Energy", "Utilities"],
+        "countries": ["Venezuela"],
+        "organization_types": ["Critical infrastructure"]
+      },
+      "strategic_view": {
+        "general": "破壊型マルウェアの継続的使用が確認される。",
+        "geopolitical": "中南米でも地政学的緊張とサイバー攻撃の関連が示唆される。",
+        "business": "日本企業も可用性リスクに対する備えが必要。",
+        "research_direction": "侵入経路とアクター帰属の分析継続が必要。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "重要インフラに対する破壊攻撃であるため。",
+        "delta_from_previous": "新規分析公開により認識が拡大。"
+      },
+      "tags": ["wiper", "critical_infrastructure"],
+      "sources": [
+        {
+          "title": "Lotus Wiper analysis",
+          "url": "https://securelist.com/tr/lotus-wiper/119472/",
+          "publisher": "Kaspersky",
+          "published_at": "2026-04-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-22_france_ants_portal_breach",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "ANTS portal breach",
+        "aliases": ["France identity portal incident"],
+        "cluster": "government_data_exposure",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "フランスANTSポータル侵害",
+      "category": "不祥事",
+      "industry": ["政府機関"],
+      "region": ["フランス"],
+      "first_seen": "2026-04-20",
+      "last_seen": "2026-04-22",
+      "summary": "フランス内務省はANTSポータルのセキュリティインシデントを公表し、最大約1170万件のアカウントが影響を受ける可能性がある。",
+      "executive_summary": "行政ポータル侵害により大規模な個人情報悪用リスクが発生。",
+      "change_summary": [
+        "影響件数が約1170万件と判明",
+        "対象データの範囲が明確化"
+      ],
+      "operational_relevance": "本人確認情報を用いた二次攻撃リスクが高い。",
+      "urgency": "high",
+      "recommended_action": [
+        "パスワード変更の徹底",
+        "なりすまし対策強化"
+      ],
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国家レベルのID基盤への影響が大きい。",
+        "delta_from_previous": "続報で詳細が明確化。"
+      },
+      "sources": [
+        {
+          "title": "ANTS security incident",
+          "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/incident-de-securite-relatif-au-portail-antsgouvfr",
+          "publisher": "French Ministry of the Interior",
+          "published_at": "2026-04-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-22_uk_state_backed_threat_assessment",
+      "type": "assessment",
+      "status": "更新",
+      "campaign": {
+        "name": "UK state-backed cyber threat landscape",
+        "suspected_actor": "China, Iran, Russia",
+        "attribution_confidence": "medium"
+      },
+      "name": "英国NCSCによる国家支援型脅威評価",
+      "summary": "CYBERUK 2026において英国NCSCは国家支援型攻撃の増加を警告した。",
+      "executive_summary": "国家支援型サイバー攻撃が最も重大な脅威として再評価された。",
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "欧州全体の脅威認識に影響するため。",
+        "delta_from_previous": "国家系脅威の重要性が強調された。"
+      },
+      "sources": [
+        {
+          "title": "UK cyber threat warning",
+          "url": "https://www.reuters.com/legal/government/uk-must-brace-rise-state-backed-cyberattacks-security-chief-says-2026-04-22/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-22_ukraine_prosecutor_email_intrusion",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Ukraine prosecutor intrusion",
+        "suspected_actor": "Russia-linked",
+        "attribution_confidence": "medium"
+      },
+      "name": "ウクライナ検察官メール侵害",
+      "category": "軍事作戦",
+      "industry": ["政府機関"],
+      "region": ["ウクライナ"],
+      "first_seen": "2026-04-15",
+      "last_seen": "2026-04-22",
+      "summary": "ロシア系とされる攻撃者がウクライナ検察官のメールアカウントを侵害したと報道された。",
+      "executive_summary": "戦時下での司法機関に対する情報収集活動。",
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "国家運営に関わる機関への侵害であるため。",
+        "delta_from_previous": "継続監視対象。"
+      },
+      "sources": [
+        {
+          "title": "Ukraine prosecutor email hack",
+          "url": "https://www.reuters.com/world/russia-linked-hackers-compromised-scores-ukrainian-prosecutors-email-accounts-2026-04-15/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-15"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "date": "2026-04-22",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": ["Medusa-affiliated high-tempo intrusion activity"],
+    "cluster": "financially_motivated_ransomware_operations",
+    "suspected_actor": "Financially motivated threat actor tracked by Microsoft",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、公開直後のN-day脆弱性を高速悪用し、短時間でデータ窃取とMedusaランサムウェア展開まで進む高テンポ作戦で2026年4月に注目された。4月22日時点でも、特にWeb公開資産を持つ組織に対する実務上の優先脅威である。",
+  "change_summary": [
+    "Microsoftが4月6日にStorm-1175の高テンポMedusa作戦を公表",
+    "脆弱性公開から広範なパッチ適用までの短い時間差を主戦場としている点が明確化",
+    "一部事例では初期侵入から24時間以内にランサムウェア展開まで到達するとされた"
+  ],
+  "operational_relevance": "Web公開システムを持つ組織では、ゼロデイよりも『公開されたばかりのN-dayを即時に悪用される』現実的リスクへの対応が重要である。",
+  "urgency": "high",
+  "recommended_action": [
+    "Web公開資産に対する緊急パッチ運用を短縮する",
+    "Ivanti、Exchange、ScreenConnect、CrushFTP等の高リスク製品の曝露を再確認する",
+    "初期侵入から24時間以内の横展開・窃取・暗号化を想定した即応手順を整備する"
+  ],
+  "items": [
+    {
+      "id": "2026-04-22_storm1175_medusa_high_tempo_ops",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175による高テンポMedusaランサムウェア運用",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": ["グローバル"],
+        "industries": ["医療", "教育", "金融", "専門サービス"],
+        "organization_types": ["企業", "公共機関", "教育機関", "医療機関"]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-04-22",
+      "activity_summary": "Storm-1175は公開されたN-day脆弱性を急速に武器化し、成功後は短期間でデータ窃取とMedusaランサムウェア展開まで進む。",
+      "activity_details": "Microsoftは、Storm-1175が10製品以上で少なくとも16件超の脆弱性を悪用し、Web公開資産への侵入後、数日以内、場合によっては24時間以内にデータ窃取とMedusa展開まで進めると報告した。主な対象には医療、教育、金融、専門サービスが含まれる。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1133 External Remote Services",
+        "T1486 Data Encrypted for Impact",
+        "T1041 Exfiltration Over C2 Channel (推定)",
+        "T1021 Remote Services (推定)"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware"
+      ],
+      "strategic_view": {
+        "general": "Storm-1175は、ゼロデイそのものより『N-day exploitation at scale』の脅威を体現している。",
+        "geopolitical": "国家支援型ではないが、重要部門に対する短期高威力の混乱創出という点で戦略的影響は大きい。",
+        "business": "企業にとって最も差し迫った教訓は、脆弱性公表後の数日間が実戦的な危険期間であることだ。",
+        "research_direction": "新規悪用CVEs、初期侵入から暗号化までの平均時間、Medusaアフィリエイト構造の詳細を追うべき。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "多くの組織が現実に対処しなければならない『高速N-day悪用→即ランサム化』の代表例であるため。",
+        "delta_from_previous": "2026年4月のMicrosoft報告で作戦テンポと脆弱性悪用パターンが体系的に整理された。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware"
+      ],
+      "tags": [
+        "Storm-1175",
+        "Medusa",
+        "N-day",
+        "ransomware"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175 / financially motivated ransomware operator",
+        "infrastructure": [
+          "Compromised web-facing systems",
+          "Ransomware deployment infrastructure"
+        ],
+        "capability": [
+          "Rapid N-day exploitation",
+          "Data exfiltration",
+          "Ransomware deployment"
+        ],
+        "victim": [
+          "Healthcare organizations",
+          "Education sector",
+          "Financial services",
+          "Professional services firms"
+        ]
+      }
+    }
+  ]
+}
