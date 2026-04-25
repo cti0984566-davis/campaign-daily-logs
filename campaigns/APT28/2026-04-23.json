@@ -1,0 +1,134 @@
+{
+  "date": "2026-04-23",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は、2026年4月7日に米英独等が公表したルータ悪用・DNSハイジャック作戦の継続監視対象である。4月23日時点で新たな単独公表は確認できないが、欧州政府・軍事・重要インフラに対するロシアGRU系の長期諜報活動として高優先で追跡すべきである。",
+  "change_summary": [
+    "2026-04-23時点でAPT28に関する新規の主要公表は確認できない。",
+    "2026-04-07公表のルータ悪用・DNSハイジャック作戦を継続評価対象とする。"
+  ],
+  "operational_relevance": "脆弱なルータやネットワーク境界機器を悪用した認証情報窃取・中間者攻撃は、日本の政府、重要インフラ、防衛関連組織にも波及し得る。",
+  "urgency": "high",
+  "recommended_action": [
+    "TP-Link等のルータ、VPN、DNS設定の改ざん有無を確認する。",
+    "DNSリゾルバ設定、管理者アカウント、ファームウェア更新状況を点検する。",
+    "欧州・ウクライナ支援関連組織を標的とするロシア系活動として継続監視する。"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sofacy",
+      "UAC-0001",
+      "GRU Unit 26165"
+    ],
+    "cluster": "Russian GRU cyber espionage",
+    "suspected_actor": "Russian GRU",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-23_apt28_router_dns_hijacking_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるルータ悪用・DNSハイジャック作戦の継続監視",
+      "category": "国家支援型サイバー諜報 / ネットワーク機器悪用",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "United States",
+          "Global"
+        ],
+        "industries": [
+          "政府機関",
+          "軍事",
+          "重要インフラ",
+          "通信",
+          "物流"
+        ],
+        "organization_types": [
+          "政府機関",
+          "軍事関連組織",
+          "重要インフラ事業者",
+          "ネットワーク機器利用組織"
+        ]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-23",
+      "activity_summary": "APT28が脆弱なルータを悪用し、DNSハイジャックにより認証情報窃取や中間者攻撃を可能にしていた作戦について、4月23日時点でも継続監視対象とする。",
+      "activity_details": "米司法省、英NCSC、独当局等は、APT28が脆弱なルータを侵害してDNS設定を操作し、標的通信の傍受・認証情報窃取を試みたと公表している。4月23日に新たな主要アップデートは確認できないが、欧州・ウクライナ支援関連組織へのロシア系諜報活動として重要性は高い。",
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1556",
+        "T1040",
+        "T1090",
+        "T1584"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised routers",
+        "Hijacked DNS infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は、エンドポイントだけでなくネットワーク機器そのものを諜報基盤として活用している。",
+        "geopolitical": "ロシア・ウクライナ戦争を背景に、欧州政府、軍事、物流、支援関連組織への情報収集が継続している。",
+        "business": "ルータやDNS設定の管理不備は、組織全体の認証情報窃取・セッション窃取に直結する。",
+        "research_direction": "DNS改ざん、ルータ侵害、物流・軍事支援組織標的化の重複を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "ネットワーク機器を悪用した中間者攻撃は、パスワードや認証トークン窃取に直結し、検知も困難である。",
+        "delta_from_previous": "4月23日時点で新規公表はないが、4月7日公表事案を継続監視対象として維持する。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "Forest Blizzard",
+        "Russian GRU logistics targeting"
+      ],
+      "tags": [
+        "apt28",
+        "russia",
+        "gru",
+        "router",
+        "dns_hijacking",
+        "edge_device",
+        "ukraine"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "UK NCSC",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Russian GRU-linked APT28",
+        "infrastructure": [
+          "Compromised routers",
+          "Hijacked DNS infrastructure"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "Adversary-in-the-middle",
+          "Credential theft"
+        ],
+        "victim": [
+          "European government and military-related entities",
+          "Critical infrastructure and logistics-related targets"
+        ]
+      }
+    }
+  ]
+}

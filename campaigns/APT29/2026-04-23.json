@@ -1,0 +1,142 @@
+{
+  "date": "2026-04-23",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29について、2026年4月23日時点で新規の主要公表は確認できない。ただし、Microsoft侵害、RDPファイル型スピアフィッシング、欧州政府・外交機関向けキャンペーンの延長線上で、クラウドID、OAuth、RDP、正規サービス悪用を中心に継続監視すべきである。",
+  "change_summary": [
+    "2026-04-23時点でAPT29単独の新規主要レポートは確認できない。",
+    "過去のMicrosoft、Check Point等の報告に基づき、継続脅威として評価を維持する。"
+  ],
+  "operational_relevance": "APT29はクラウドID、OAuth、RDP、正規サービス悪用を得意とし、日本の政府・研究・外交・防衛関連組織にも適用可能なTTPである。",
+  "urgency": "medium",
+  "recommended_action": [
+    "MFA疲労攻撃、OAuth同意悪用、RDPファイル経由の初期アクセスを監視する。",
+    "Microsoft 365、Entra ID、OAuthアプリ、特権アカウントの監査ログを確認する。",
+    "政府、研究機関、外交関連組織向けのスピアフィッシングを継続監視する。"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Midnight Blizzard",
+      "Cozy Bear",
+      "The Dukes",
+      "NOBELIUM"
+    ],
+    "cluster": "Russian SVR cyber espionage",
+    "suspected_actor": "Russian Foreign Intelligence Service",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-23_apt29_cloud_identity_phishing_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウドID・正規サービス悪用型諜報活動の継続評価",
+      "category": "国家支援型サイバー諜報 / クラウドID侵害",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "United States",
+          "Global"
+        ],
+        "industries": [
+          "政府機関",
+          "外交",
+          "防衛",
+          "研究機関",
+          "NGO",
+          "IT"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "研究機関",
+          "防衛関連組織",
+          "クラウド利用企業"
+        ]
+      },
+      "first_seen": "2024-10-22",
+      "last_seen": "2026-04-23",
+      "activity_summary": "APT29は、RDPファイル型スピアフィッシングやクラウドID悪用を通じて政府、研究、防衛、NGO等を標的化してきた。4月23日時点で新規主要公表はないが、継続的な諜報脅威として扱う。",
+      "activity_details": "Microsoftは2024年にMidnight BlizzardによるRDPファイルを用いた大規模スピアフィッシングを報告している。また、APT29はMicrosoft侵害や欧州外交機関向けフィッシングなど、正規サービス・クラウドIDを悪用する傾向が強い。",
+      "ttp": [
+        "T1566",
+        "T1021.001",
+        "T1078",
+        "T1110",
+        "T1098",
+        "T1550",
+        "T1114",
+        "T1059"
+      ],
+      "malware_and_tools": [
+        "GRAPELOADER"
+      ],
+      "infrastructure": [
+        "RDP files",
+        "Microsoft cloud identity infrastructure",
+        "Phishing infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は、クラウドIDと正規サービスを悪用する低ノイズ型の諜報活動を継続している。",
+        "geopolitical": "ロシアSVRの戦略情報収集要求に沿い、欧米政府、外交、防衛、研究機関が主要標的となる。",
+        "business": "Microsoft 365やEntra IDのログ監査、OAuthアプリ管理、RDP制御が実務上の重要課題となる。",
+        "research_direction": "RDPファイル型フィッシング、OAuth悪用、MFA回避、クラウドメール窃取の変化を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT29のTTPは、日本の政府、外交、防衛、研究機関にも直接適用可能であり、クラウドID侵害は長期潜伏につながる。",
+        "delta_from_previous": "4月23日の新規公表は確認できないため、評価更新として継続監視する。"
+      },
+      "related_campaigns": [
+        "Midnight Blizzard RDP phishing",
+        "Microsoft corporate email compromise",
+        "APT29 European diplomatic phishing"
+      ],
+      "tags": [
+        "apt29",
+        "midnight_blizzard",
+        "russia",
+        "svr",
+        "cloud_identity",
+        "rdp",
+        "phishing"
+      ],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Renewed APT29 Phishing Campaign Against European Diplomats",
+          "url": "https://research.checkpoint.com/2025/apt29-phishing-campaign/",
+          "publisher": "Check Point Research",
+          "published_at": "2025-04-15"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Russian SVR-linked APT29",
+        "infrastructure": [
+          "Cloud identity infrastructure",
+          "RDP lure files",
+          "Phishing infrastructure"
+        ],
+        "capability": [
+          "Spear-phishing",
+          "Cloud identity abuse",
+          "Credential theft",
+          "Mailbox access"
+        ],
+        "victim": [
+          "Government agencies",
+          "Diplomatic entities",
+          "Defense and research organizations"
+        ]
+      }
+    }
+  ]
+}

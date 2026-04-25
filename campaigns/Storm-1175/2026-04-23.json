@@ -1,0 +1,139 @@
+{
+  "date": "2026-04-23",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、Microsoftが2026年4月6日に公表した高テンポなMedusaランサムウェア運用の継続監視対象である。4月23日時点で新規の主要公表は確認できないが、ゼロデイ・Nデイ脆弱性を短時間で悪用し、24時間以内にデータ窃取・ランサムウェア展開へ進む点から、日本企業にとって実務上の優先度は高い。",
+  "change_summary": [
+    "2026-04-23時点でStorm-1175単独の新規主要レポートは確認できない。",
+    "2026-04-06のMicrosoft報告に基づき、高速な脆弱性悪用型ランサムウェア運用として継続監視する。"
+  ],
+  "operational_relevance": "公開済み脆弱性のパッチ遅延が、数日以内または24時間以内のランサムウェア展開に直結するため、外部公開資産管理と脆弱性対応SLAが重要である。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開Web資産、VPN、ファイル転送製品、リモート管理製品の脆弱性を優先修正する。",
+    "Microsoft Exchange、Ivanti、ConnectWise、TeamCity、CrushFTP、BeyondTrust等の既知悪用製品を棚卸しする。",
+    "初期侵入から24時間以内の封じ込めを想定し、EDR、ログ、バックアップ、特権アカウント監視を確認する。"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [
+      "Storm-1175 Medusa ransomware operations"
+    ],
+    "cluster": "Financially motivated ransomware actor",
+    "suspected_actor": "Financially motivated Chinese-speaking cybercriminal actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-23_storm1175_medusa_ransomware_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175によるMedusaランサムウェア高テンポ運用の継続監視",
+      "category": "サイバー犯罪 / ランサムウェア / 脆弱性悪用",
+      "targeting": {
+        "regions": [
+          "United States",
+          "United Kingdom",
+          "Australia",
+          "Global"
+        ],
+        "industries": [
+          "医療",
+          "教育",
+          "専門サービス",
+          "金融",
+          "エンタープライズIT"
+        ],
+        "organization_types": [
+          "外部公開Web資産を持つ組織",
+          "パッチ適用が遅延している組織",
+          "中堅・大企業"
+        ]
+      },
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-04-23",
+      "activity_summary": "Storm-1175は、ゼロデイおよびNデイ脆弱性を悪用し、初期侵入から短期間でデータ窃取とMedusaランサムウェア展開に進む高テンポな犯罪アクターとして報告されている。",
+      "activity_details": "Microsoftは、Storm-1175が16件以上のCVEを悪用し、Microsoft Exchange、Papercut、Ivanti Connect Secure、ConnectWise ScreenConnect、JetBrains TeamCity、CrushFTP、BeyondTrust等を標的にしたと報告した。侵入後、数日以内、場合によっては24時間以内にランサムウェア展開へ進む。",
+      "ttp": [
+        "T1190",
+        "T1059",
+        "T1505.003",
+        "T1003",
+        "T1021",
+        "T1041",
+        "T1486",
+        "T1490",
+        "T1562"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware",
+        "Web shell",
+        "Remote access payloads"
+      ],
+      "infrastructure": [
+        "Exploited web-facing assets",
+        "Compromised remote access infrastructure",
+        "Ransomware leak site infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "Storm-1175は、脆弱性公開からパッチ普及までの短い時間差を突く高速犯罪運用を行う。",
+        "geopolitical": "国家支援型ではないが、中国語話者系犯罪エコシステムの成熟とゼロデイ・Nデイ悪用能力の高度化を示す。",
+        "business": "パッチ管理、外部攻撃面管理、ランサムウェア即応、バックアップ隔離の重要性が高まる。",
+        "research_direction": "悪用CVE、初期侵入製品、Medusa展開までの時間、IAB的連携の有無を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "日本企業でも同一製品群を利用している可能性が高く、パッチ遅延が即ランサムウェア被害に直結し得る。",
+        "delta_from_previous": "4月23日時点で新規更新はないが、4月6日のMicrosoft報告に基づく高優先監視を継続する。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware",
+        "Rapid vulnerability exploitation ransomware operations"
+      ],
+      "tags": [
+        "storm-1175",
+        "medusa",
+        "ransomware",
+        "zero_day",
+        "n_day",
+        "web_facing_assets",
+        "china-speaking"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "China-Linked Storm-1175 Exploits Zero-Days to Rapidly Deploy Medusa Ransomware",
+          "url": "https://thehackernews.com/2026/04/china-linked-storm-1175-exploits-zero.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Financially motivated Storm-1175",
+        "infrastructure": [
+          "Vulnerable web-facing assets",
+          "Remote access infrastructure",
+          "Ransomware leak infrastructure"
+        ],
+        "capability": [
+          "Zero-day and N-day exploitation",
+          "Rapid data exfiltration",
+          "Medusa ransomware deployment"
+        ],
+        "victim": [
+          "Healthcare organizations",
+          "Education organizations",
+          "Professional services firms",
+          "Financial sector organizations"
+        ]
+      }
+    }
+  ]
+}
