@@ -1,0 +1,142 @@
+{
+  "date": "2026-04-26",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年4月24〜26日に新規の大規模公開キャンペーンは確認できない。Microsoft侵害やRDPファイルを用いた大規模スピアフィッシング等、過去キャンペーンから続くクラウド・ID・外交/政府標的への諜報脅威として継続監視する。",
+  "change_summary": [
+    "期間中にAPT29の新規大規模レポートは確認できず",
+    "既存のMidnight Blizzardキャンペーン、特にクラウドID・Microsoft 365・RDPファイル悪用を継続脅威として整理"
+  ],
+  "operational_relevance": "日本の政府、研究機関、防衛関連、外交関連組織では、M365テナント、OAuth同意、RDPファイル、MFA疲労攻撃、サプライチェーン経由の侵害に対する監視を継続すべき。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "M365の不審なOAuthアプリ、外部テナント連携、異常なRDPファイル実行を監視する",
+    "管理者・外交・研究者アカウントに耐フィッシングMFAを適用する",
+    "APT29関連の過去IoCとIDログを用いた定期ハンティングを継続する"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Midnight Blizzard",
+      "Cozy Bear",
+      "NOBELIUM",
+      "The Dukes"
+    ],
+    "cluster": "Russia SVR-linked cyber espionage",
+    "suspected_actor": "Russian Foreign Intelligence Service-linked threat actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-26_apt29_midnight_blizzard_continued_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29 / Midnight Blizzardの継続監視評価",
+      "category": "state_sponsored_espionage",
+      "targeting": {
+        "regions": [
+          "United States",
+          "Europe",
+          "NATO countries",
+          "Ukraine-related diplomatic sphere"
+        ],
+        "industries": [
+          "government",
+          "diplomacy",
+          "defense",
+          "academia",
+          "technology"
+        ],
+        "organization_types": [
+          "government agencies",
+          "NGOs",
+          "think tanks",
+          "technology companies",
+          "research institutions"
+        ]
+      },
+      "first_seen": "2024-10",
+      "last_seen": "2026-04-26",
+      "activity_summary": "APT29は、政府、外交、防衛、研究機関を対象に、クラウドID、Microsoft 365、RDPファイル、スピアフィッシングを組み合わせた諜報活動を継続している。",
+      "activity_details": "2026年4月24〜26日の期間中に新規の大規模公表は確認できないため、既報キャンペーンの継続脅威として整理する。特にMicrosoftによる2024年以降のMidnight Blizzard観測、Microsoft侵害事案、RDPファイル悪用キャンペーンは、現在も防御上の参照点となる。",
+      "ttp": [
+        "T1566.001 - Spearphishing Attachment",
+        "T1021.001 - Remote Desktop Protocol",
+        "T1078 - Valid Accounts",
+        "T1110 - Brute Force",
+        "T1550 - Use Alternate Authentication Material",
+        "T1098 - Account Manipulation"
+      ],
+      "malware_and_tools": [
+        "malicious RDP files",
+        "cloud tenant abuse",
+        "credential phishing infrastructure"
+      ],
+      "infrastructure": [
+        "compromised Microsoft 365 tenants",
+        "phishing domains",
+        "cloud-hosted infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は短期的な破壊よりも、外交・政策・技術情報の長期収集を重視する諜報型アクターである。",
+        "geopolitical": "ロシアの対NATO、対ウクライナ、対欧米政策判断を支える情報収集活動の一部と評価される。",
+        "business": "クラウドIDとSaaS環境が主要標的であり、従来型EDRだけでは検知が困難な領域が多い。",
+        "research_direction": "RDPファイル悪用、OAuth同意悪用、MFA回避、委託先・小規模テナント悪用の継続有無を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "新規公表は限定的だが、APT29は日本の外交・安全保障・研究領域にも潜在的に波及し得る長期諜報脅威であるため。",
+        "delta_from_previous": "4月24〜26日の新規変化は限定的。評価は継続監視に据え置き。"
+      },
+      "related_campaigns": [
+        "Midnight Blizzard RDP spear-phishing campaign",
+        "Microsoft corporate email compromise"
+      ],
+      "tags": [
+        "APT29",
+        "Midnight Blizzard",
+        "Russia",
+        "SVR",
+        "cloud identity",
+        "RDP",
+        "spearphishing"
+      ],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Microsoft Breach by Midnight Blizzard (APT29): What Happened and What Now?",
+          "url": "https://www.mitiga.io/blog/microsoft-breach-by-midnight-blizzard-apt29-what-happened-and-what-now",
+          "publisher": "Mitiga",
+          "published_at": "2026-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": [
+          "compromised Microsoft 365 tenants",
+          "phishing infrastructure",
+          "cloud-hosted services"
+        ],
+        "capability": [
+          "spearphishing",
+          "malicious RDP files",
+          "cloud identity abuse",
+          "credential theft"
+        ],
+        "victim": [
+          "government agencies",
+          "diplomatic organizations",
+          "research institutions",
+          "technology companies"
+        ]
+      }
+    }
+  ]
+}

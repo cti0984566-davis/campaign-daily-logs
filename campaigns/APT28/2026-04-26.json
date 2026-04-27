@@ -1,0 +1,142 @@
+{
+  "date": "2026-04-26",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT28は、2026年4月24〜26日時点で新規の大規模公開事案は限定的だが、4月上旬に公表されたTP-Link等SOHOルーター悪用・DNSハイジャック作戦の重要性が継続している。欧州政府、軍事、重要インフラに対する偵察・認証情報窃取基盤として評価を維持する。",
+  "change_summary": [
+    "期間中の新規大規模公表は確認できず、既報のAPT28ルーター悪用キャンペーンを継続監視対象として整理",
+    "SOHO/家庭用ルーターを経由したDNSハイジャックが、企業・政府ネットワークへの間接アクセス手段として重要"
+  ],
+  "operational_relevance": "日本の官公庁、重要インフラ、関連企業でも、TP-Link等SOHO機器や委託先ネットワークが踏み台化されるリスクがある。境界機器の棚卸し、DNS設定監査、ルーター交換・初期化を優先すべき。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHO/小規模拠点ルーターの棚卸しと脆弱機器の交換を実施する",
+    "DNS設定改ざん、異常なリゾルバ設定、既知悪性インフラへの通信を確認する",
+    "政府・重要インフラ関連組織ではAPT28関連IoCを使ったハンティングを継続する"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Pawn Storm",
+      "UAC-0001"
+    ],
+    "cluster": "Russia GRU-linked cyber espionage",
+    "suspected_actor": "Russian GRU-linked threat actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-26_apt28_router_dns_hijacking_update",
+      "type": "assessment",
+      "status": "更新",
+      "name": "APT28によるSOHOルーター悪用・DNSハイジャック作戦の継続評価",
+      "category": "state_sponsored_espionage",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "Germany",
+          "United Kingdom",
+          "United States"
+        ],
+        "industries": [
+          "government",
+          "military",
+          "critical_infrastructure",
+          "telecommunications"
+        ],
+        "organization_types": [
+          "government agencies",
+          "defense-related entities",
+          "critical infrastructure operators"
+        ]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-04-26",
+      "activity_summary": "APT28は、脆弱または設定不備のあるSOHOルーターを侵害し、DNS設定改ざんやトラフィック誘導を通じて認証情報窃取・偵察を行っていると評価される。",
+      "activity_details": "2026年4月上旬に、英国NCSC、米国、ドイツ等がAPT28によるルーター悪用・DNSハイジャックに警告を発出。4月24〜26日の期間中に新規の大規模更新は確認できないが、欧州政府・軍事・重要インフラに対する長期的偵察基盤として継続的に重要。",
+      "ttp": [
+        "T1584 - Compromise Infrastructure",
+        "T1090 - Proxy",
+        "T1557 - Adversary-in-the-Middle",
+        "T1110 - Brute Force",
+        "T1040 - Network Sniffing",
+        "T1041 - Exfiltration Over C2 Channel"
+      ],
+      "malware_and_tools": [
+        "router-level DNS manipulation",
+        "attacker-controlled DNS infrastructure"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "TP-Link routers",
+        "attacker-controlled DNS servers"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "企業ネットワーク本体ではなく、周辺・委託先・家庭用機器を経由して侵入前の情報収集や認証情報窃取を行う傾向が重要。",
+        "geopolitical": "ロシアの対欧州・対ウクライナ諜報活動の一部として、軍事・政府・重要インフラに対する前方展開型のアクセス基盤を形成している可能性がある。",
+        "business": "企業は社内機器だけでなく、リモート拠点、委託先、役員宅・小規模拠点のネットワークもリスク管理対象に含める必要がある。",
+        "research_direction": "DNS改ざん事例、SOHOルーターIoC、APT28の既存フィッシング・クラウド悪用キャンペーンとの接続性を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT28の活動は単発のルーター侵害ではなく、政府・軍事・重要インフラを対象とする長期的アクセス基盤構築と評価できるため。",
+        "delta_from_previous": "4月24〜26日の新規公表は限定的だが、4月上旬の共同警告を踏まえ、監視対象としての優先度は維持。"
+      },
+      "related_campaigns": [
+        "Russia-Ukraine cyber operations",
+        "GRU-linked espionage operations"
+      ],
+      "tags": [
+        "APT28",
+        "Forest Blizzard",
+        "Russia",
+        "SOHO routers",
+        "DNS hijacking",
+        "critical infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "UK NCSC says APT28 exploits routers for DNS hijacking, enabling large-scale traffic interception",
+          "url": "https://industrialcyber.co/critical-infrastructure/uk-ncsc-says-apt28-exploits-routers-for-dns-hijacking-enabling-large-scale-traffic-interception/",
+          "publisher": "Industrial Cyber",
+          "published_at": "2026-04-09"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Forest Blizzard",
+        "infrastructure": [
+          "compromised TP-Link and SOHO routers",
+          "attacker-controlled DNS infrastructure"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "traffic interception",
+          "credential theft",
+          "proxy infrastructure"
+        ],
+        "victim": [
+          "European government entities",
+          "military-related organizations",
+          "critical infrastructure operators"
+        ]
+      }
+    }
+  ]
+}
