@@ -1,0 +1,166 @@
+{
+  "date": "2026-04-26",
+  "timezone": "JST",
+  "update_type": "new",
+  "executive_summary": "中国関連アクターによる侵害済みSOHOルーター、IoT機器、NAS等を用いた秘匿ネットワーク利用を、TA416等の個別APTとは別枠の監視対象として新設する。Volt Typhoon、Flax Typhoon、Raptor Train等に共通する、帰属困難化・長期潜伏・重要インフラ偵察のための作戦基盤として評価する。",
+  "change_summary": [
+    "個別アクターではなく、中国関連アクター横断の侵害済みデバイス基盤として分類",
+    "Volt Typhoon、Flax Typhoon、Raptor Train等を関連キャンペーンとして整理",
+    "日本を含む多国間共同アドバイザリーを踏まえ、重要インフラ防護上の優先監視枠に追加"
+  ],
+  "operational_relevance": "日本の重要インフラ、通信、地方自治体、委託先、中小企業において、SOHOルーターやIoT機器が踏み台化されることで、平時からの偵察・潜伏・有事前アクセス基盤として利用されるリスクがある。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルーター、IoTカメラ、NAS、VPN、エッジ機器の棚卸しを実施する",
+    "既知ボットネットIP、異常なプロキシ通信、長期ビーコン通信を監視する",
+    "重要インフラ関連組織では委託先・小規模拠点・リモート拠点を含めたリスク評価を行う",
+    "Volt Typhoon、Flax Typhoon、Raptor Train関連IoCを使ったハンティングを継続する"
+  ],
+  "campaign": {
+    "name": "China-linked Covert Network Operations",
+    "aliases": [
+      "China-linked covert networks",
+      "Chinese state-linked proxy botnet operations",
+      "Compromised SOHO/IoT relay infrastructure"
+    ],
+    "cluster": "China-linked compromised device infrastructure",
+    "suspected_actor": "China-linked state-sponsored actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-26_china_linked_covert_network_operations",
+      "type": "campaign_activity",
+      "status": "新規",
+      "name": "中国関連秘匿ネットワーク作戦の監視枠新設",
+      "category": "state_sponsored_intrusion_infrastructure",
+      "targeting": {
+        "regions": [
+          "Japan",
+          "United States",
+          "Europe",
+          "Asia-Pacific"
+        ],
+        "industries": [
+          "government",
+          "critical infrastructure",
+          "telecommunications",
+          "energy",
+          "transportation",
+          "SOHO/IoT"
+        ],
+        "organization_types": [
+          "government agencies",
+          "critical infrastructure operators",
+          "telecommunications providers",
+          "small and medium-sized businesses",
+          "managed service providers",
+          "home and branch office networks"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-26",
+      "activity_summary": "中国関連アクターは、侵害済みSOHOルーター、IoT機器、NAS等を中継・秘匿基盤として利用し、政府・重要インフラ・通信事業者等への偵察、潜伏、帰属困難化を図っている。",
+      "activity_details": "本分類は、TA416のような個別APTではなく、Volt Typhoon、Flax Typhoon、Raptor Train等に共通する侵害済みデバイス基盤を監視するための横断カテゴリである。日本を含む多国間アドバイザリーでは、中国関連アクターが家庭用・小規模拠点向け機器を侵害し、匿名化された作戦インフラとして利用している点が強調された。",
+      "ttp": [
+        "T1584 - Compromise Infrastructure",
+        "T1584.008 - Stage Capabilities: Network Devices",
+        "T1090 - Proxy",
+        "T1090.003 - Multi-hop Proxy",
+        "T1105 - Ingress Tool Transfer",
+        "T1041 - Exfiltration Over C2 Channel",
+        "T1027 - Obfuscated Files or Information",
+        "T1190 - Exploit Public-Facing Application"
+      ],
+      "malware_and_tools": [
+        "botnet proxy infrastructure",
+        "living-off-the-router techniques",
+        "compromised device relay infrastructure"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "compromised IoT devices",
+        "compromised NAS devices",
+        "compromised edge devices",
+        "proxy botnets",
+        "Raptor Train-related infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "侵害済みデバイス基盤は、端末EDRや通常の境界監視では検知が難しく、長期的な偵察・潜伏・中継に適している。",
+        "geopolitical": "台湾有事やインド太平洋の緊張を見据え、中国関連アクターが平時から重要インフラ周辺にアクセス基盤を形成している可能性がある。",
+        "business": "企業にとっては、自社ネットワークだけでなく、委託先、小規模拠点、役員宅、リモート拠点、MSP管理下機器もリスク管理対象になる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Raptor TrainのIoC、標的、インフラ重複、通信パターンを継続比較し、個別アクター分類と横断インフラ分類を併用する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "日本の重要インフラや通信、地方自治体、委託先ネットワークに波及し得る長期作戦基盤であり、単発の侵害ではなく有事前アクセス形成として評価すべきため。",
+        "delta_from_previous": "従来のTA416等の個別アクター監視とは別に、中国関連アクター横断の侵害済みデバイス基盤として新規分類を追加。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Raptor Train",
+        "China-linked critical infrastructure pre-positioning"
+      ],
+      "tags": [
+        "China",
+        "covert networks",
+        "SOHO routers",
+        "IoT",
+        "botnet",
+        "proxy infrastructure",
+        "critical infrastructure",
+        "Japan",
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Raptor Train"
+      ],
+      "sources": [
+        {
+          "title": "Japan Joins 10-Nation Advisory on China-Linked Covert Networks",
+          "url": "https://changeflow.com/govping/data-privacy-cybersecurity/japan-joins-10-nation-advisory-on-china-linked-covert-networ-2026-04-24",
+          "publisher": "GovPing / Changeflow",
+          "published_at": "2026-04-24"
+        },
+        {
+          "title": "People's Republic of China-linked Actors Compromise and Maintain Persistent Access to U.S. Critical Infrastructure",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
+          "publisher": "CISA",
+          "published_at": "2024-02-07"
+        },
+        {
+          "title": "People's Republic of China-Linked Actors Compromise Routers and IoT Devices for Botnet Operations",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038b",
+          "publisher": "CISA",
+          "published_at": "2024-09-18"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked state-sponsored actors",
+        "infrastructure": [
+          "compromised SOHO routers",
+          "compromised IoT devices",
+          "compromised NAS devices",
+          "proxy botnets",
+          "covert relay networks"
+        ],
+        "capability": [
+          "covert relay infrastructure",
+          "proxying",
+          "long-term reconnaissance",
+          "critical infrastructure pre-positioning",
+          "traffic obfuscation"
+        ],
+        "victim": [
+          "government agencies",
+          "critical infrastructure operators",
+          "telecommunications providers",
+          "small and medium-sized organizations",
+          "home and branch office networks"
+        ]
+      }
+    }
+  ]
+}
