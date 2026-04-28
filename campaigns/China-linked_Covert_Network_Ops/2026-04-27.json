@@ -1,0 +1,89 @@
+{
+  "date": "2026-04-27",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["UAT-4356", "Storm-1849", "ArcaneDoor-related activity", "Perimeter Device Persistence Campaign"],
+    "cluster": "China-linked covert network and perimeter device operations",
+    "suspected_actor": "China-linked state-aligned actor",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "China-linked_Covert_Network_Opsについては、Cisco ASA/FTD/Firepower機器へのFIRESTARTERバックドア展開により、境界機器を利用した長期潜伏・秘匿中継・将来作戦基盤化のリスクが改めて高まった。日本の政府・重要インフラでは最優先級で監視すべきである。",
+  "change_summary": [
+    "Cisco Talos、CISA、NCSC等がFIRESTARTERバックドアに関する情報を公表。",
+    "パッチ後も残存し得る永続化機構が確認され、単なる脆弱性対応から侵害前提確認へ評価を更新。",
+    "ArcaneDoor、UAT-4356、Storm-1849、Volt Typhoon系の境界機器悪用を横断する監視枠として整理。"
+  ],
+  "operational_relevance": "Cisco ASA/FTD/Firepower機器を利用する組織は、パッチ確認だけでなく、FIRESTARTER/LINE VIPER検出、再イメージ、VPN認証情報再発行、境界機器ログ分析が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "Cisco ASA/FTD/Firepower機器の利用有無を確認する。",
+    "Cisco TalosおよびCISAのFIRESTARTER検出手順を実施する。",
+    "侵害疑い機器は再起動ではなく再イメージを検討する。",
+    "VPNアカウント、管理者認証情報、境界機器ログを再点検する。",
+    "Volt Typhoon系・Flax Typhoon系・ArcaneDoor系を横断して境界機器監視を行う。"
+  ],
+  "items": [
+    {
+      "id": "2026-04-27_china_linked_covert_network_firestarter_cisco",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "FIRESTARTERによるCisco境界機器永続化とChina-linked Covert Network Ops評価更新",
+      "category": "国家支援型サイバー作戦／境界機器侵害／秘匿ネットワーク作戦",
+      "targeting": {
+        "regions": ["United States", "Europe", "Asia-Pacific", "Global"],
+        "industries": ["government", "critical infrastructure", "telecommunications", "large enterprises"],
+        "organization_types": ["public sector", "critical infrastructure operators", "network operators"]
+      },
+      "first_seen": "2025-09",
+      "last_seen": "2026-04-27",
+      "activity_summary": "UAT-4356 / Storm-1849に関連するFIRESTARTERバックドアがCisco Firepower機器に展開され、パッチ後も残存し得る永続化機能が報告された。",
+      "activity_details": "FIRESTARTERはCisco ASA/FTDのLINAプロセス内で任意コード実行を可能にするバックドアとして報告され、LINE VIPER等の関連ツールとともに、境界機器の長期潜伏基盤化に利用された可能性がある。",
+      "ttp": ["T1190", "T1068", "T1505", "T1542", "T1601", "CVE-2025-20333", "CVE-2025-20362"],
+      "malware_and_tools": ["FIRESTARTER", "LINE VIPER"],
+      "infrastructure": ["Cisco ASA", "Cisco FTD", "Cisco Firepower devices", "VPN infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "境界機器の永続化は、EDRの死角を突く長期潜伏型作戦であり、秘匿ネットワーク構築の中核になり得る。",
+        "geopolitical": "中国関連アクターが、政府・重要インフラの境界機器を将来の危機時アクセス、諜報、中継基盤として利用している可能性がある。",
+        "business": "日本企業では、ネットワーク機器を単なるインフラ資産ではなく、APTの作戦基盤として監視対象に含める必要がある。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Raptor Train、ArcaneDoor、UAT-4356/Storm-1849を横断し、境界機器・SOHO/IoT・VPN基盤の侵害を追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "パッチ後も残存し得る境界機器バックドアは、重要インフラや政府機関への長期アクセスに直結するため。",
+        "delta_from_previous": "Cisco脆弱性対応から、China-linked Covert Network Opsの中核事案として評価を更新。"
+      },
+      "related_campaigns": ["ArcaneDoor", "Volt Typhoon", "Flax Typhoon", "Raptor Train"],
+      "tags": ["China-linked", "Cisco", "FIRESTARTER", "UAT-4356", "Storm-1849", "perimeter-device", "covert-network"],
+      "sources": [
+        {
+          "title": "UAT-4356's Targeting of Cisco Firepower Devices",
+          "url": "https://blog.talosintelligence.com/uat-4356-firestarter/",
+          "publisher": "Cisco Talos",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "FIRESTARTER Backdoor",
+          "url": "https://www.cisa.gov/news-events/analysis-reports/ar26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "US Federal Agency's Cisco Firewall Infected With FIRESTARTER Backdoor",
+          "url": "https://www.securityweek.com/us-federal-agencys-cisco-firewall-infected-with-firestarter-backdoor/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-24"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "UAT-4356 / Storm-1849",
+        "infrastructure": ["Cisco ASA/FTD/Firepower devices", "VPN infrastructure", "compromised perimeter devices"],
+        "capability": ["FIRESTARTER", "LINE VIPER", "persistent network appliance implant"],
+        "victim": ["US federal civilian agency", "organizations using Cisco perimeter devices"]
+      }
+    }
+  ]
+}

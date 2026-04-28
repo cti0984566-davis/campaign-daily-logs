@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-27",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "The Dukes", "NOBELIUM", "Midnight Blizzard"],
+    "cluster": "Russia-linked foreign intelligence cyber activity",
+    "suspected_actor": "Russia SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年4月27日時点で当日付の重大な新規公表は確認できない。一方、クラウド、ID基盤、外交・政策部門への長期潜伏型アクセスという既存リスクは継続しており、監視優先度は維持する。",
+  "change_summary": [
+    "4月27日時点で、APT29に直接帰属される重大な新規インシデント公表は確認できない。",
+    "評価は、突発的な新規事案ではなく、クラウド・ID・外交分野への継続的リスクとして維持。",
+    "APT28と異なり、当日はゼロデイ悪用更新ではなく、潜伏型諜報リスクの継続監視とする。"
+  ],
+  "operational_relevance": "Microsoft 365、Entra ID、OAuthアプリ、サービスアカウント、メール転送ルール、クラウド監査ログの継続監視が必要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "高権限アカウントとOAuthアプリの棚卸しを継続する。",
+    "メールボックス監査、転送ルール、条件付きアクセス設定を確認する。",
+    "外交・政策・研究部門のクラウドログを長期保持する。",
+    "APT29関連の過去TTPと最新クラウド侵害手法を照合する。"
+  ],
+  "items": [
+    {
+      "id": "2026-04-27_apt29_no_major_new_public_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29継続監視：4月27日時点で重大な新規公表なし",
+      "category": "国家支援型サイバー作戦／継続評価",
+      "targeting": {
+        "regions": ["Europe", "United States", "Global"],
+        "industries": ["government", "diplomacy", "research", "technology"],
+        "organization_types": ["public sector", "think tanks", "cloud-dependent enterprises"]
+      },
+      "first_seen": "2020",
+      "last_seen": "2026-04-27",
+      "activity_summary": "APT29について、当日付の重大な新規インシデント公表は確認できないが、クラウド・ID基盤を狙う長期諜報リスクは継続。",
+      "activity_details": "APT29は、クラウド環境、OAuth、メール、ID基盤を通じた長期潜伏型アクセスを特徴とする。4月27日は新規IOCや新規キャンペーンではなく、既存リスクの継続評価として整理する。",
+      "ttp": ["T1078", "T1098", "T1114", "T1528", "T1550"],
+      "malware_and_tools": [],
+      "infrastructure": ["cloud identity infrastructure", "compromised accounts", "OAuth applications"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は、短期的な破壊よりも、政策・外交・研究情報への長期アクセス確保を重視する。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求と連動した諜報活動として継続監視が必要。",
+        "business": "日本企業では、クラウドIDとSaaS連携権限の監査がAPT29対策の中心となる。",
+        "research_direction": "新規マルウェアよりも、クラウド監査ログ、OAuth、サービスプリンシパル悪用を追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "当日新規公表はないが、APT29のクラウド・ID基盤侵害は検知困難で、国家機関・重要企業への影響が大きいため。",
+        "delta_from_previous": "新規事案ではなく、継続監視・評価維持。"
+      },
+      "related_campaigns": ["Midnight Blizzard cloud and identity intrusion activity"],
+      "tags": ["APT29", "Russia", "SVR", "cloud", "identity", "espionage"],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts targeted social engineering over Microsoft Teams",
+          "url": "https://www.microsoft.com/en-us/security/blog/2023/08/02/midnight-blizzard-conducts-targeted-social-engineering-over-microsoft-teams/",
+          "publisher": "Microsoft",
+          "published_at": "2023-08-02"
+        },
+        {
+          "title": "Russian SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/russian-svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "UK NCSC",
+          "published_at": "2024-02-26"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": ["cloud identity systems", "compromised accounts", "OAuth applications"],
+        "capability": ["cloud persistence", "mailbox access", "credential abuse"],
+        "victim": ["government", "diplomatic organizations", "research institutions"]
+      }
+    }
+  ]
+}

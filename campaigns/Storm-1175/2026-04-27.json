@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-27",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": ["Medusa ransomware affiliate activity"],
+    "cluster": "China-based financially motivated ransomware activity",
+    "suspected_actor": "China-based financially motivated actor",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、公開後間もないN-dayおよび一部ゼロデイを迅速に悪用し、Medusaランサムウェア展開まで短時間で移行する高テンポ攻撃として継続監視すべきである。",
+  "change_summary": [
+    "Microsoftが4月6日にStorm-1175の高テンポMedusaランサムウェア作戦を公表。",
+    "2023年以降、16件以上の脆弱性悪用と、24時間以内の侵入・展開事例が報告された。",
+    "4月27日時点では新規キャンペーンというより、公開済みMicrosoft報告を基礎とする継続監視。"
+  ],
+  "operational_relevance": "インターネット公開資産、ファイル転送、メール、Webアプリ、RMM悪用、Web shell、短期パッチ遅延を最優先で管理する必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "公開Web資産の脆弱性管理を日次で実施する。",
+    "ファイル転送、メール、WebアプリのN-day悪用状況を監視する。",
+    "Web shell、新規ローカルアカウント、RMMツール導入を検知する。",
+    "Medusaランサムウェア関連IOCとStorm-1175 TTPを照合する。"
+  ],
+  "items": [
+    {
+      "id": "2026-04-27_storm1175_medusa_high_tempo_operations",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175による高テンポMedusaランサムウェア作戦",
+      "category": "サイバー犯罪／ランサムウェア／N-day悪用",
+      "targeting": {
+        "regions": ["Global"],
+        "industries": ["multiple sectors", "public-facing enterprise systems"],
+        "organization_types": ["enterprises with exposed web-facing assets"]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-04-27",
+      "activity_summary": "Storm-1175は、公開Web資産の脆弱性を迅速に悪用し、認証情報窃取、Web shell、RMM、データ窃取、Medusaランサムウェア展開へ短時間で移行する。",
+      "activity_details": "Microsoftは、Storm-1175が16件以上の脆弱性を悪用し、場合によっては初期侵入から24時間以内にランサムウェア展開まで移行すると報告している。",
+      "ttp": ["T1190", "T1059", "T1505.003", "T1078", "T1021", "T1486", "T1567"],
+      "malware_and_tools": ["Medusa ransomware", "web shells", "legitimate RMM tools"],
+      "infrastructure": ["internet-facing vulnerable systems", "web shells", "RMM infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "Storm-1175は、従来のランサムウェア対応速度を上回るテンポで侵入から暗号化まで進む。",
+        "geopolitical": "中国拠点とされる金銭目的アクターであり、国家支援型とは別に中国内サイバー犯罪エコシステムの成熟を示す。",
+        "business": "日本企業では、パッチ適用の遅れが数日でも致命的になり得るため、公開資産管理と緊急パッチ運用が重要。",
+        "research_direction": "Storm-1175を、Medusaエコシステム、N-day悪用、IAB的初期アクセスの観点で追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "侵入からランサムウェア展開までの時間が短く、従来型の検知・対応サイクルでは間に合わない可能性があるため。",
+        "delta_from_previous": "通常のランサムウェア監視から、高速N-day悪用型アクターとして優先度を引き上げ。"
+      },
+      "related_campaigns": ["Medusa ransomware", "N-day exploitation ransomware operations"],
+      "tags": ["Storm-1175", "Medusa", "ransomware", "N-day", "China-based"],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "China-Linked Storm-1175 Exploits Zero-Days to Rapidly Deploy Medusa Ransomware",
+          "url": "https://thehackernews.com/2026/04/china-linked-storm-1175-exploits-zero.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": ["vulnerable web-facing assets", "web shells", "RMM infrastructure"],
+        "capability": ["N-day exploitation", "rapid lateral movement", "Medusa ransomware deployment"],
+        "victim": ["organizations operating vulnerable internet-facing systems"]
+      }
+    }
+  ]
+}

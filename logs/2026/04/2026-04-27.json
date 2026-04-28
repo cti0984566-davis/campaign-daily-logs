@@ -1,0 +1,839 @@
+{
+  "date": "2026-04-27",
+  "timezone": "JST",
+  "title": "2026/04/27_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-04-27_apt28_mshtml_lnk_patch_bypass",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "APT28 MSHTML/LNK exploitation",
+        "aliases": [
+          "APT28",
+          "Fancy Bear",
+          "Forest Blizzard"
+        ],
+        "cluster": "Russia-linked military intelligence activity",
+        "suspected_actor": "Russia GRU-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "APT28 / Forest Blizzard",
+        "infrastructure": [
+          "APT28-linked web infrastructure",
+          "malicious LNK delivery paths"
+        ],
+        "capability": [
+          "CVE-2026-21513",
+          "CVE-2026-32202",
+          "MSHTML security feature bypass",
+          "NTLM authentication coercion"
+        ],
+        "victim": [
+          "Ukraine-related entities",
+          "EU-related entities",
+          "government and defense-related organizations"
+        ]
+      },
+      "name": "APT28関連MSHTML/LNK悪用と不完全パッチに起因するCVE-2026-32202",
+      "category": "国家支援型サイバー作戦／ゼロデイ脆弱性",
+      "industry": [
+        "政府機関",
+        "防衛",
+        "外交"
+      ],
+      "region": [
+        "Ukraine",
+        "Europe"
+      ],
+      "first_seen": "2026-01-30",
+      "last_seen": "2026-04-27",
+      "summary": "APT28に関連付けられるCVE-2026-21513の悪用と、その不完全な修正に起因するCVE-2026-32202が報告された。LNKファイル等を通じてWindowsのMSHTML処理や認証挙動を悪用し、ゼロクリックで認証情報窃取につながる可能性がある。",
+      "executive_summary": "APT28の既存活動に、Windowsパッチ品質・レガシー機能を突く新たなリスクが加わった。日本の政府・防衛・重要インフラでは、LNKファイル、NTLM認証、外向きSMB通信の監視を強化すべきである。",
+      "change_summary": [
+        "CVE-2026-21513の不完全パッチに起因するCVE-2026-32202が報告された。",
+        "従来のユーザー操作前提のLNK悪用から、ゼロクリックの認証誘導リスクへ評価を更新。",
+        "APT28監視において、脆弱性単体ではなくWindows認証・Shell処理の悪用連鎖を重視する必要がある。"
+      ],
+      "operational_relevance": "日本組織では、メール添付・ダウンロードファイル・LNKファイルの隔離、NTLM制御、SMB外向き通信制御、Microsoft April 2026更新適用状況の確認が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "Microsoft April 2026更新の適用状況を確認する。",
+        "LNKファイル実行、UNCパス参照、外向きSMB通信を監視する。",
+        "NTLM利用の棚卸しと制限を進める。",
+        "APT28関連IOCと過去の欧州・ウクライナ向けキャンペーンを突合する。"
+      ],
+      "details": "CVE-2026-21513はMSHTMLの保護機構不備として悪用が報告され、CVE-2026-32202は不完全修正に起因する認証誘導型の問題として報告された。攻撃はLNKファイルやMSHTML処理を介し、認証情報窃取やセキュリティ機能回避につながる可能性がある。",
+      "actors": [
+        {
+          "name": "APT28",
+          "role": "suspected operator",
+          "country": "Russia"
+        }
+      ],
+      "ttp": [
+        "T1566.001",
+        "T1204.001",
+        "T1187",
+        "T1557",
+        "CVE-2026-21513",
+        "CVE-2026-32202"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "APT28-linked web infrastructure",
+        "malicious LNK artifacts"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "defense",
+          "diplomacy"
+        ],
+        "countries": [
+          "Ukraine",
+          "EU countries"
+        ],
+        "organization_types": [
+          "public sector",
+          "defense-related organizations"
+        ]
+      },
+      "strategic_view": {
+        "general": "APT28は、脆弱性悪用とWindowsのレガシー挙動を組み合わせ、初期アクセスと認証情報取得の成功率を高めている。",
+        "geopolitical": "ロシア・ウクライナ戦争および欧州正面における諜報・妨害活動の一環として評価される。",
+        "business": "日本企業でもWindows標準機能と認証基盤の弱点が攻撃面となるため、EDRだけでなく認証・通信制御の強化が必要。",
+        "research_direction": "APT28のLNK、MSHTML、Office、NTLM悪用を横断的に追跡し、TTP単位で継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT28の既存キャンペーンに、ゼロクリック型の認証誘導リスクが加わったため。",
+        "delta_from_previous": "従来のCVE-2026-21513悪用から、不完全パッチによるCVE-2026-32202へ評価を更新。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "Russia-linked prosecutor email campaign"
+      ],
+      "related_reports": [
+        "関連既報：APT28による欧州・ウクライナ向けLNK悪用キャンペーン"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "MSHTML",
+        "LNK",
+        "zero-day",
+        "NTLM"
+      ],
+      "sources": [
+        {
+          "title": "Incomplete Windows Patch Opens Door to Zero-Click Attacks",
+          "url": "https://www.securityweek.com/incomplete-windows-patch-opens-door-to-zero-click-attacks/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-27"
+        },
+        {
+          "title": "APT28 Tied to CVE-2026-21513 MSHTML 0-Day Exploited via Malicious LNK Files",
+          "url": "https://thehackernews.com/2026/03/apt28-tied-to-cve-2026-21513-mshtml-0.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-03-02"
+        },
+        {
+          "title": "CVE-2026-21513 Detail",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21513",
+          "publisher": "NVD",
+          "published_at": "2026-02-10"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-27_uat4356_cisco_firestarter",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "UAT-4356 Cisco Firepower persistence campaign",
+        "aliases": [
+          "UAT-4356",
+          "Storm-1849",
+          "ArcaneDoor-related activity"
+        ],
+        "cluster": "Perimeter device persistence campaign",
+        "suspected_actor": "Unknown state-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "UAT-4356 / Storm-1849",
+        "infrastructure": [
+          "compromised Cisco ASA/FTD devices",
+          "Cisco Firepower management paths"
+        ],
+        "capability": [
+          "FIRESTARTER",
+          "LINE VIPER",
+          "CVE-2025-20333",
+          "CVE-2025-20362",
+          "persistent implant on network perimeter devices"
+        ],
+        "victim": [
+          "US federal civilian agency",
+          "organizations operating Cisco ASA/FTD devices"
+        ]
+      },
+      "name": "Cisco ASA/FTD機器へのFIRESTARTERバックドア展開",
+      "category": "国家支援型サイバー作戦／境界機器侵害",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "通信",
+        "企業ネットワーク"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2025-09-01",
+      "last_seen": "2026-04-27",
+      "summary": "Cisco ASA/FTDおよびFirepower機器に関連し、FIRESTARTERバックドアがパッチ適用後も残存し得る永続化機能を持つことが公表された。",
+      "executive_summary": "境界機器への永続化は、ネットワーク内部への長期アクセス、秘匿中継、将来作戦の足場となる。日本組織でも、パッチ適用済みという判断だけでは不十分であり、再イメージやIOC確認を含む侵害前提の確認が必要である。",
+      "change_summary": [
+        "Cisco Talos、CISA、JPCERT等がFIRESTARTER関連の検出・対処情報を更新。",
+        "パッチ後も残存し得る永続化機能の存在により、対応方針をパッチ中心から侵害確認・再構築中心へ更新。",
+        "境界機器を単なるIT資産ではなく、APTの長期作戦基盤として評価。"
+      ],
+      "operational_relevance": "Cisco ASA/FTD利用組織は、CVE-2025-20333/CVE-2025-20362の修正確認だけでなく、FIRESTARTER/LINE VIPER検出、設定監査、再イメージ、通信ログ分析を行う必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "CiscoおよびJPCERTの注意喚起に基づき対象機器を確認する。",
+        "FIRESTARTERおよびLINE VIPERの検出手順を実施する。",
+        "侵害疑いがある機器は再起動のみでなく再イメージを検討する。",
+        "VPNアカウント、管理者認証情報、境界機器ログを再点検する。"
+      ],
+      "details": "Cisco Talosは、CVE-2025-20333およびCVE-2025-20362に関連する侵害と、FIRESTARTERによる永続化、Snort/ClamAV検出情報を公表した。JPCERTも2026年4月27日に注意喚起を更新している。",
+      "actors": [
+        {
+          "name": "UAT-4356",
+          "role": "suspected operator",
+          "country": "Unknown"
+        },
+        {
+          "name": "Storm-1849",
+          "role": "tracking cluster",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1068",
+        "T1505",
+        "T1542",
+        "T1601",
+        "CVE-2025-20333",
+        "CVE-2025-20362"
+      ],
+      "malware": [
+        "FIRESTARTER",
+        "LINE VIPER"
+      ],
+      "infrastructure": [
+        "Cisco ASA",
+        "Cisco FTD",
+        "Cisco Firepower devices"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "critical infrastructure",
+          "telecommunications"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "public sector",
+          "large enterprise",
+          "operators of perimeter security devices"
+        ]
+      },
+      "strategic_view": {
+        "general": "境界機器の永続化は、従来のエンドポイント中心防御では検知困難であり、APTの秘匿作戦基盤となる。",
+        "geopolitical": "国家支援型アクターが政府・重要インフラの境界機器を事前配置的に侵害する傾向を示す。",
+        "business": "日本企業では、ネットワーク機器の運用保守、ログ保存、再イメージ手順が経営リスク管理の対象となる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、ArcaneDoor、UAT-4356を横断するPerimeter Device Persistence Campaignとして監視する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "パッチ後も残存し得る境界機器バックドアは、重要インフラ・政府機関の長期侵害に直結するため。",
+        "delta_from_previous": "既知のCisco ASA/FTD脆弱性対応から、FIRESTARTER永続化確認と再イメージを含む対応へ評価を更新。"
+      },
+      "related_campaigns": [
+        "ArcaneDoor",
+        "Perimeter Device Persistence Campaign",
+        "China-linked covert network monitoring"
+      ],
+      "related_reports": [
+        "関連既報：Cisco ASA/FTD境界機器侵害",
+        "関連既報：ArcaneDoor"
+      ],
+      "tags": [
+        "Cisco",
+        "FIRESTARTER",
+        "ASA",
+        "FTD",
+        "perimeter-device",
+        "persistence"
+      ],
+      "sources": [
+        {
+          "title": "UAT-4356's Targeting of Cisco Firepower Devices",
+          "url": "https://blog.talosintelligence.com/uat-4356-firestarter/",
+          "publisher": "Cisco Talos",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "FIRESTARTER Backdoor",
+          "url": "https://www.cisa.gov/news-events/analysis-reports/ar26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "Cisco ASAおよびFTDにおける複数の脆弱性（CVE-2025-20333、CVE-2025-20362）に関する注意喚起",
+          "url": "https://www.jpcert.or.jp/at/2025/at250021.html",
+          "publisher": "JPCERT/CC",
+          "published_at": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-27_checkmarx_github_repository_leak",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Checkmarx supply chain incident",
+        "aliases": [
+          "Checkmarx GitHub repository data leak",
+          "March 2026 developer supply chain attack"
+        ],
+        "cluster": "Developer tool supply chain compromise",
+        "suspected_actor": "Unknown extortion or supply-chain actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "GitHub repositories",
+          "dark web leak sites",
+          "developer tool supply chain"
+        ],
+        "capability": [
+          "repository access",
+          "CI/CD and developer ecosystem abuse",
+          "data exposure"
+        ],
+        "victim": [
+          "Checkmarx",
+          "software security tool users"
+        ]
+      },
+      "name": "Checkmarx GitHubリポジトリ由来データのダークウェブ掲載",
+      "category": "サプライチェーン攻撃／情報漏洩",
+      "industry": [
+        "アプリケーションセキュリティ",
+        "ソフトウェア開発",
+        "DevSecOps"
+      ],
+      "region": [
+        "Israel",
+        "Global"
+      ],
+      "first_seen": "2026-03-23",
+      "last_seen": "2026-04-27",
+      "summary": "Checkmarxは、同社GitHubリポジトリに由来するとみられるデータがダークウェブ上に掲載されたと公表した。顧客本番環境とは分離され、現時点で顧客データ保存は確認されていないとしている。",
+      "executive_summary": "セキュリティ製品ベンダや開発支援ツールがサプライチェーン攻撃の標的となる傾向が継続している。日本企業は、セキュリティツールやCI/CD基盤を信頼済み前提にせず、認証情報・リポジトリ・拡張機能の監視を強化すべきである。",
+      "change_summary": [
+        "3月のCheckmarx関連サプライチェーン事案に、GitHubリポジトリ由来データ掲載という新展開が加わった。",
+        "顧客本番環境への影響は現時点で確認されていないが、開発者エコシステム全体への波及リスク評価を維持。",
+        "攻撃者名乗りや漏洩範囲については未確認部分が多く、帰属確度は低い。"
+      ],
+      "operational_relevance": "Checkmarxや関連ツールを利用する組織は、APIキー、GitHub token、CI/CD secret、SCA/SAST連携権限のローテーションと監査を実施すべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Checkmarx利用環境の連携トークンとAPIキーを棚卸しする。",
+        "GitHub Actions、CI/CD secret、SCA/SAST連携権限を確認する。",
+        "セキュリティ製品ベンダ由来の通知を継続監視する。",
+        "漏洩データに自組織情報が含まれるか確認する。"
+      ],
+      "details": "Checkmarxは2026年4月26日に、進行中のサプライチェーンセキュリティ事案に関し、GitHubリポジトリ由来データがダークウェブ上に掲載された可能性を公表した。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "suspected attacker",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195",
+        "T1552",
+        "T1588",
+        "T1608"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "GitHub",
+        "dark web leak infrastructure",
+        "developer supply chain"
+      ],
+      "targeting": {
+        "sectors": [
+          "software",
+          "application security",
+          "DevSecOps"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "security vendors",
+          "software development teams"
+        ]
+      },
+      "strategic_view": {
+        "general": "セキュリティ製品・開発ツールを狙う攻撃は、下流顧客への間接影響を持つため、単一企業の情報漏洩にとどまらない。",
+        "geopolitical": "現時点で国家関与は確認されていないが、国家系アクターが同様の開発者サプライチェーンを悪用する余地は大きい。",
+        "business": "日本企業では、開発・セキュリティツールのSaaS連携権限を第三者リスク管理に含める必要がある。",
+        "research_direction": "Trivy、Open VSX、Checkmarxなど、2026年春以降の開発者サプライチェーン攻撃を一連の潮流として追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "セキュリティベンダのGitHubリポジトリ由来データ流出は、顧客環境そのものに影響がなくても、認証情報・コード・攻撃研究情報の悪用リスクを持つ。",
+        "delta_from_previous": "3月のサプライチェーン攻撃から、4月26日のGitHubリポジトリ由来データ掲載へ更新。"
+      },
+      "related_campaigns": [
+        "Developer tool supply chain compromise",
+        "GlassWorm"
+      ],
+      "related_reports": [
+        "関連既報：Trivy supply chain attack",
+        "関連既報：Open VSX malicious extension campaign"
+      ],
+      "tags": [
+        "Checkmarx",
+        "GitHub",
+        "supply-chain",
+        "DevSecOps",
+        "dark-web"
+      ],
+      "sources": [
+        {
+          "title": "Checkmarx Security Update: April 26",
+          "url": "https://checkmarx.com/blog/checkmarx-security-update-april-26/",
+          "publisher": "Checkmarx",
+          "published_at": "2026-04-26"
+        },
+        {
+          "title": "Checkmarx Confirms GitHub Repository Data Posted on Dark Web",
+          "url": "https://thehackernews.com/2026/04/checkmarx-confirms-github-repository.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-27"
+        },
+        {
+          "title": "Ongoing supply-chain attack targets security, dev tools",
+          "url": "https://www.theregister.com/2026/04/27/supply_chain_campaign_targets_security/",
+          "publisher": "The Register",
+          "published_at": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-27_glassworm_openvsx_extensions",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "GlassWorm Open VSX extension campaign",
+        "aliases": [
+          "GlassWorm",
+          "GlassWorm v2",
+          "Open VSX sleeper extensions"
+        ],
+        "cluster": "Developer ecosystem malware campaign",
+        "suspected_actor": "Unknown financially motivated or espionage-capable actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown GlassWorm operator",
+        "infrastructure": [
+          "Open VSX marketplace",
+          "GitHub-hosted payloads",
+          "fake VS Code extension pages"
+        ],
+        "capability": [
+          "malicious IDE extensions",
+          "credential theft",
+          "cross-IDE malware delivery",
+          "sleeper extension activation"
+        ],
+        "victim": [
+          "software developers",
+          "AI developers",
+          "organizations using VS Code-compatible IDEs"
+        ]
+      },
+      "name": "GlassWorm v2によるOpen VSX偽装拡張機能キャンペーン",
+      "category": "ソフトウェアサプライチェーン攻撃／マルウェア",
+      "industry": [
+        "ソフトウェア開発",
+        "AI開発",
+        "クラウド"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2025-12-21",
+      "last_seen": "2026-04-27",
+      "summary": "Open VSX上で73件の偽装VS Code拡張機能が確認され、その一部がGlassWorm v2としてマルウェア配信に悪用されたと報告された。",
+      "executive_summary": "IDE拡張機能は、開発者端末・ソースコード・クラウド認証情報への高効率な侵入口になっている。日本企業は、VS Code系IDE拡張機能の許可リスト化とマーケットプレイス利用統制を急ぐべきである。",
+      "change_summary": [
+        "Open VSX上で73件の偽装・休眠拡張機能が報告された。",
+        "GlassWormの活動が、単発の悪性拡張機能から継続的な開発者エコシステム攻撃へ評価更新された。",
+        "VS Code、Cursor、Windsurf、VSCodium等のIDE横断リスクが明確化。"
+      ],
+      "operational_relevance": "開発者端末に導入されたIDE拡張機能、VSIXファイル、拡張機能更新履歴、GitHub token、クラウド認証情報の確認が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "Open VSXおよびVS Code拡張機能を棚卸しする。",
+        "IDE拡張機能の許可リスト運用を導入する。",
+        "GitHub token、npm token、クラウド認証情報の漏洩有無を確認する。",
+        "開発者端末で未知のVSIX、外部GitHubペイロード取得を監視する。"
+      ],
+      "details": "The Hacker NewsおよびSocket系の報告によれば、Open VSXに正規拡張機能を模倣した73件の拡張機能が登録され、その一部がGlassWorm v2の配信に使われた。",
+      "actors": [
+        {
+          "name": "GlassWorm operator",
+          "role": "suspected malware operator",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195.002",
+        "T1204.002",
+        "T1552",
+        "T1059",
+        "T1105"
+      ],
+      "malware": [
+        "GlassWorm v2"
+      ],
+      "infrastructure": [
+        "Open VSX",
+        "GitHub-hosted payloads",
+        "VS Code-compatible IDE extension ecosystem"
+      ],
+      "targeting": {
+        "sectors": [
+          "software",
+          "cloud",
+          "AI development"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "developers",
+          "software vendors",
+          "enterprise development teams"
+        ]
+      },
+      "strategic_view": {
+        "general": "開発者エコシステムは、従来のエンドユーザー向けフィッシングよりも高価値な侵入口になっている。",
+        "geopolitical": "国家系アクターが同種の技術を採用した場合、クラウド・AI開発環境への侵入経路となる。",
+        "business": "日本企業では、開発者の自由な拡張機能導入を前提とした運用が、サプライチェーンリスクを増幅させる。",
+        "research_direction": "Open VSX、VS Code Marketplace、Cursor/Windsurf等のAI開発環境を含めて、IDE拡張機能攻撃を継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "開発者端末を通じてソースコード、認証情報、CI/CD基盤に到達し得るため。",
+        "delta_from_previous": "従来のGlassWorm関連活動から、73件の休眠拡張機能を伴う広範なキャンペーンへ評価を更新。"
+      },
+      "related_campaigns": [
+        "Checkmarx supply chain incident",
+        "Developer tool supply chain compromise"
+      ],
+      "related_reports": [
+        "関連既報：Open VSX malicious extension campaign",
+        "関連既報：Trivy supply chain attack"
+      ],
+      "tags": [
+        "GlassWorm",
+        "OpenVSX",
+        "VSCode",
+        "supply-chain",
+        "developer-tools"
+      ],
+      "sources": [
+        {
+          "title": "Researchers Uncover 73 Fake VS Code Extensions Delivering GlassWorm v2 Malware",
+          "url": "https://thehackernews.com/2026/04/researchers-uncover-73-fake-vs-code.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-27"
+        },
+        {
+          "title": "73 Open VSX Sleeper Extensions Linked to GlassWorm Activate New Malware Campaign",
+          "url": "https://cybersecuritynews.com/73-open-vsx-sleeper-extensions-linked-to-glassworm-malware/",
+          "publisher": "Cybersecurity News",
+          "published_at": "2026-04-26"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-27_itron_unauthorized_access",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Itron unauthorized access incident",
+        "aliases": [
+          "Itron hack"
+        ],
+        "cluster": "Critical infrastructure supplier compromise",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "Itron internal systems"
+        ],
+        "capability": [
+          "unauthorized system access"
+        ],
+        "victim": [
+          "Itron",
+          "energy and water management ecosystem"
+        ]
+      },
+      "name": "Itronへの不正アクセス",
+      "category": "サイバー犯罪／重要インフラ関連侵害",
+      "industry": [
+        "エネルギー",
+        "水道",
+        "スマートメーター",
+        "都市インフラ"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2026-04-13",
+      "last_seen": "2026-04-27",
+      "summary": "エネルギー・水道管理ソリューション企業Itronは、2026年4月13日に一部システムへの不正アクセスを検知し、調査を開始した。",
+      "executive_summary": "現時点で顧客ホスト環境への不正活動は確認されていないが、Itronは公益・都市インフラに関与するため、サプライチェーン上の重要インフラリスクとして監視価値が高い。",
+      "change_summary": [
+        "2026年4月13日に不正アクセスを検知し、4月27日に報道された新規事案。",
+        "攻撃者、侵入経路、漏洩情報の有無は未公表。",
+        "顧客環境への影響は現時点で確認されていないとされる。"
+      ],
+      "operational_relevance": "Itron製品・サービスを利用する公益・都市インフラ事業者は、ベンダ通知、接続経路、遠隔管理アカウント、データ連携の確認が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Itron製品・サービスの利用有無を確認する。",
+        "Itronとの接続経路、API、遠隔保守アカウントを棚卸しする。",
+        "ベンダ通知とSEC filingの更新を継続監視する。",
+        "公益インフラ系サプライチェーンリスクとして管理台帳に登録する。"
+      ],
+      "details": "SecurityWeekは、Itronが4月13日に一部システムへの不正アクセスを検知し、調査・修復を進めていると報じた。業務は重要な点で継続しており、顧客ホスト部分での不正活動は確認されていないとされる。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "attacker",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1078"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Itron internal systems"
+      ],
+      "targeting": {
+        "sectors": [
+          "energy",
+          "water",
+          "smart city",
+          "utilities"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "critical infrastructure supplier",
+          "utility technology provider"
+        ]
+      },
+      "strategic_view": {
+        "general": "重要インフラの直接運用者だけでなく、管理・計測・スマートメーター系ベンダが攻撃対象となる構図を示す。",
+        "geopolitical": "国家関与は確認されていないが、公益インフラ関連ベンダの侵害は国家系アクターにとっても高価値である。",
+        "business": "日本の電力・水道・自治体は、Itronに限らずOT/IoTベンダ接続と遠隔保守経路をサプライチェーン管理対象に含める必要がある。",
+        "research_direction": "公益インフラ関連ベンダのSEC filing、ランサムウェアリークサイト、顧客影響通知を継続監視する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "被害範囲は限定的に見えるが、Itronの事業領域がエネルギー・水道・都市インフラに及ぶため。",
+        "delta_from_previous": "新規事案として登録。攻撃者・漏洩範囲・顧客影響は今後更新が必要。"
+      },
+      "related_campaigns": [
+        "Critical infrastructure supplier compromise"
+      ],
+      "related_reports": [
+        "関連既報：重要インフラ関連ベンダ侵害"
+      ],
+      "tags": [
+        "Itron",
+        "critical-infrastructure",
+        "energy",
+        "water",
+        "supplier-risk"
+      ],
+      "sources": [
+        {
+          "title": "Energy and Water Management Firm Itron Hacked",
+          "url": "https://www.securityweek.com/energy-and-water-management-firm-itron-hacked/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-27_firefox_tor_fingerprinting_cve_2026_6770",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Firefox and Tor fingerprinting vulnerability",
+        "aliases": [
+          "CVE-2026-6770"
+        ],
+        "cluster": "Browser privacy vulnerability",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown potential tracker or attacker",
+        "infrastructure": [
+          "malicious or tracking websites"
+        ],
+        "capability": [
+          "browser fingerprinting",
+          "Tor user deanonymization risk",
+          "CVE-2026-6770"
+        ],
+        "victim": [
+          "Firefox users",
+          "Tor Browser users",
+          "privacy-sensitive users"
+        ]
+      },
+      "name": "Firefox/Tor利用者のフィンガープリンティングを可能にするCVE-2026-6770",
+      "category": "脆弱性／プライバシーリスク",
+      "industry": [
+        "ブラウザ",
+        "プライバシー技術",
+        "市民社会",
+        "メディア"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-27",
+      "last_seen": "2026-04-27",
+      "summary": "FirefoxおよびTor Browserに関連し、利用者のフィンガープリンティングにつながるCVE-2026-6770が報告され、Firefox 150およびTor 15.0.10で修正された。",
+      "executive_summary": "本件は直接的な破壊・侵入ではないが、匿名性・秘匿性に依存するジャーナリスト、活動家、研究者、調査員にとって重要なプライバシーリスクである。",
+      "change_summary": [
+        "CVE-2026-6770として新規登録。",
+        "Firefox 150およびTor 15.0.10で修正済みと報告。",
+        "脅威評価は侵入リスクよりも追跡・識別リスクを重視。"
+      ],
+      "operational_relevance": "OSINT調査、報道、研究、センシティブな調査でTor Browserを利用する場合、速やかな更新とブラウザ指紋対策が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Firefox 150または修正版へ更新する。",
+        "Tor Browser 15.0.10または修正版へ更新する。",
+        "匿名調査用途ではブラウザ指紋の再評価を行う。",
+        "高リスク調査では専用環境とネットワーク分離を徹底する。"
+      ],
+      "details": "SecurityWeekは、CVE-2026-6770によりTor利用者のフィンガープリンティングが可能となる問題が修正されたと報じた。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "potential exploiter",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1592",
+        "T1595"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "web tracking infrastructure",
+        "malicious websites"
+      ],
+      "targeting": {
+        "sectors": [
+          "media",
+          "civil society",
+          "research",
+          "privacy-sensitive users"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "journalists",
+          "researchers",
+          "activists",
+          "OSINT practitioners"
+        ]
+      },
+      "strategic_view": {
+        "general": "匿名化ブラウザの脆弱性は、情報窃取よりも人物識別・行動追跡に影響する。",
+        "geopolitical": "権威主義国家や監視主体が悪用した場合、反体制派・記者・研究者の安全に影響し得る。",
+        "business": "企業の通常業務影響は限定的だが、OSINT・脅威調査部門では調査環境の更新が必要。",
+        "research_direction": "Tor/Firefox系のプライバシー脆弱性を、影響力工作・監視・調査安全保障の観点で監視する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "匿名性に依存する調査・報道・市民社会活動に影響する可能性があるため。",
+        "delta_from_previous": "新規脆弱性として登録。悪用有無は未確認。"
+      },
+      "related_campaigns": [
+        "Browser privacy vulnerability monitoring"
+      ],
+      "related_reports": [
+        "関連既報：ブラウザ・匿名化技術に関するプライバシー脆弱性"
+      ],
+      "tags": [
+        "Firefox",
+        "Tor",
+        "CVE-2026-6770",
+        "fingerprinting",
+        "privacy"
+      ],
+      "sources": [
+        {
+          "title": "Firefox Vulnerability Allows Tor User Fingerprinting",
+          "url": "https://www.securityweek.com/firefox-vulnerability-allows-tor-user-fingerprinting/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-27"
+        }
+      ]
+    }
+  ]
+}

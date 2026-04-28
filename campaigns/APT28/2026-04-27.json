@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-27",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "UAC-0001"],
+    "cluster": "Russia-linked military intelligence cyber activity",
+    "suspected_actor": "Russia GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "APT28については、Windows LNK/MSHTML系のゼロデイ悪用と不完全パッチに起因する追加リスクが確認され、欧州・ウクライナ正面の諜報活動に加え、日本の政府・防衛・重要インフラにも波及し得る認証情報窃取リスクとして評価を更新する。",
+  "change_summary": [
+    "CVE-2026-32202に関する不完全パッチ問題が報告され、APT28関連のLNK/MSHTML悪用との連続性を確認。",
+    "従来のユーザー実行型LNK悪用から、ゼロクリックに近い認証誘導リスクへ評価を更新。",
+    "NTLM認証、外向きSMB通信、LNKファイル監視の優先度を引き上げ。"
+  ],
+  "operational_relevance": "日本組織では、Microsoft更新適用、LNKファイル実行監視、NTLM制限、外向きSMB通信制御を優先する必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "Microsoft April 2026更新の適用状況を確認する。",
+    "LNKファイル、UNCパス参照、外向きSMB通信を監視する。",
+    "NTLM利用を棚卸しし、不要なNTLM認証を制限する。",
+    "APT28関連IOCと欧州・ウクライナ向け過去キャンペーンを突合する。"
+  ],
+  "items": [
+    {
+      "id": "2026-04-27_apt28_windows_lnk_mshtml_patch_bypass",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "APT28関連Windows LNK/MSHTML悪用とCVE-2026-32202評価更新",
+      "category": "国家支援型サイバー作戦／ゼロデイ脆弱性",
+      "targeting": {
+        "regions": ["Europe", "Ukraine"],
+        "industries": ["government", "defense", "diplomacy"],
+        "organization_types": ["public sector", "defense-related organizations"]
+      },
+      "first_seen": "2026-02",
+      "last_seen": "2026-04-27",
+      "activity_summary": "APT28に関連付けられるWindows LNK/MSHTML悪用と、不完全パッチに起因するCVE-2026-32202が報告された。",
+      "activity_details": "LNKファイルやWindows Shell/MSHTML処理を悪用し、ユーザー操作またはゼロクリックに近い形でNTLM認証を誘導し得る。認証情報窃取、セキュリティ機能回避、初期アクセス補助の観点で重要。",
+      "ttp": ["T1566.001", "T1204.001", "T1187", "T1557", "CVE-2026-32202"],
+      "malware_and_tools": [],
+      "infrastructure": ["malicious LNK artifacts", "APT28-linked delivery infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は、脆弱性悪用とWindows認証機構の弱点を組み合わせ、初期アクセスと認証情報取得を高度化している。",
+        "geopolitical": "ロシア・ウクライナ戦争および欧州正面での諜報活動の一環として位置付けられる。",
+        "business": "日本企業でもWindows標準機能と認証基盤の弱点が攻撃面となるため、EDRだけでなく認証・通信制御が重要。",
+        "research_direction": "APT28のLNK、MSHTML、NTLM、Office系悪用を横断して継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT28の欧州・ウクライナ向け活動が、日本の政府・防衛・重要インフラにも適用可能なTTPを含むため。",
+        "delta_from_previous": "従来のLNK悪用から、不完全パッチに起因するゼロクリック型認証誘導リスクへ評価を更新。"
+      },
+      "related_campaigns": ["Russia-linked prosecutor email campaign"],
+      "tags": ["APT28", "Russia", "MSHTML", "LNK", "NTLM", "zero-day"],
+      "sources": [
+        {
+          "title": "Incomplete Windows Patch Opens Door to Zero-Click Attacks",
+          "url": "https://www.securityweek.com/incomplete-windows-patch-opens-door-to-zero-click-attacks/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-27"
+        },
+        {
+          "title": "APT28 Tied to CVE-2026-21513 MSHTML 0-Day Exploited via Malicious LNK Files",
+          "url": "https://thehackernews.com/2026/03/apt28-tied-to-cve-2026-21513-mshtml-0.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-03-02"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Forest Blizzard",
+        "infrastructure": ["malicious LNK delivery paths"],
+        "capability": ["MSHTML security feature bypass", "NTLM authentication coercion", "CVE-2026-32202"],
+        "victim": ["Ukraine-related entities", "European government and defense-related organizations"]
+      }
+    }
+  ]
+}
