@@ -1,0 +1,155 @@
+{
+  "date": "2026-04-28",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "China-linked_Covert_Network_Opsは、Volt Typhoon、Flax Typhoon等を横断する『侵害済みSOHO/IoT機器を利用した秘匿ネットワーク』として、4月23日の多国間共同アドバイザリ以降も最優先監視対象とする。",
+  "change_summary": [
+    "2026-04-23にCISA/NCSC/NSA等が共同アドバイザリを公表",
+    "日本も関連文書を公表しており、日本組織への実務的関連性が高い",
+    "4/28時点では新規公表ではなく、評価更新として整理"
+  ],
+  "operational_relevance": "侵害済みルータ・IoT機器を経由するため、送信元IPベースのブロックや単純な地理的帰属が困難。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHO/IoT/エッジ機器の棚卸し",
+    "既定パスワード・古いファームウェアの排除",
+    "プロキシ化された通信の検知",
+    "重要インフラ向けに外部公開機器の継続監視を実施"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": [
+      "China-nexus covert networks",
+      "Volt Typhoon infrastructure",
+      "Flax Typhoon infrastructure",
+      "Raptor Train",
+      "KV Botnet"
+    ],
+    "suspected_actor": "Multiple China-linked cyber actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-28_china_linked_covert_networks_assessment",
+      "type": "assessment",
+      "status": "更新",
+      "name": "China-linked covert networks of compromised devices",
+      "category": "国家支援型サイバー作戦",
+      "targeting": {
+        "regions": [
+          "米国",
+          "英国",
+          "欧州",
+          "台湾",
+          "日本",
+          "グローバル"
+        ],
+        "industries": [
+          "重要インフラ",
+          "通信",
+          "政府機関",
+          "防衛",
+          "企業ネットワーク"
+        ],
+        "organization_types": [
+          "重要インフラ事業者",
+          "政府機関",
+          "通信事業者",
+          "一般家庭・小規模事業者のSOHO機器"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-04-28",
+      "activity_summary": "中国関連アクターが侵害済みSOHOルータ、IoT機器、カメラ等を秘匿ネットワークとして利用し、諜報・侵入・攻撃元秘匿を実施。",
+      "activity_details": "2026年4月23日、CISA、NCSC、NSA等は、中国関連アクターが侵害済みデバイスによる秘匿ネットワークを大規模に利用しているとして共同アドバイザリを公表した。Volt Typhoon、Flax Typhoon、Raptor Train、KV Botnet等と関連付けられる。",
+      "ttp": [
+        "T1584 Compromise Infrastructure",
+        "T1090 Proxy",
+        "T1078 Valid Accounts",
+        "T1046 Network Service Discovery",
+        "Living-off-the-land techniques",
+        "SOHO router compromise",
+        "IoT device compromise"
+      ],
+      "malware_and_tools": [
+        "botnet malware",
+        "living-off-the-land tools"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "compromised IoT devices",
+        "Raptor Train botnet",
+        "KV Botnet"
+      ],
+      "strategic_view": {
+        "general": "中国関連アクターは、侵害済み一般機器を低コスト・低リスク・否認可能な攻撃基盤として産業化している。",
+        "geopolitical": "台湾有事、米中対立、重要インフラ事前配置の文脈で、平時からのアクセス確保が戦略的意味を持つ。",
+        "business": "企業側では自社管理外の家庭用・小規模拠点機器も攻撃インフラとして悪用され、サプライチェーン全体の防御課題となる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Salt Typhoon等の個別APT分類を超え、秘匿ネットワーク基盤そのものを継続監視する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "侵害済みデバイス基盤は、攻撃元秘匿、長期潜伏、重要インフラ侵入の前提となるため、日本にとっても直接的な防御課題。",
+        "delta_from_previous": "4/23共同アドバイザリにより、日本を含む多国間で公式に高優先脅威として整理された。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Salt Typhoon",
+        "TA416"
+      ],
+      "tags": [
+        "china",
+        "covert_networks",
+        "soho_router",
+        "iot",
+        "volt_typhoon",
+        "flax_typhoon",
+        "critical_infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "NSA and Others Release Joint Guidance Addressing Multiple China-Nexus Threat Actors Using Covert Networks",
+          "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4467839/nsa-and-others-release-joint-guidance-addressing-multiple-china-nexus-threat-ac/",
+          "publisher": "NSA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "侵害されたデバイスの中国関連秘匿ネットワークへの対策",
+          "url": "https://www.cyber.go.jp/pdf/press/Defending_against_China_linked_covert_networks_of_compromised_devices.pdf",
+          "publisher": "国家サイバー統括室",
+          "published_at": "2026-04-23"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Multiple China-linked cyber actors",
+        "infrastructure": [
+          "SOHO routers",
+          "IoT devices",
+          "Raptor Train",
+          "KV Botnet"
+        ],
+        "capability": [
+          "covert proxy networks",
+          "espionage",
+          "pre-positioning",
+          "living-off-the-land"
+        ],
+        "victim": [
+          "critical infrastructure",
+          "government networks",
+          "telecommunications",
+          "Taiwan-related targets",
+          "global enterprise networks"
+        ]
+      }
+    }
+  ]
+}

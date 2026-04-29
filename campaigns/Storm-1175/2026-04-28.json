@@ -1,0 +1,109 @@
+{
+  "date": "2026-04-28",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175は、公開済み脆弱性やゼロデイを高速に悪用し、短時間でデータ窃取・Medusaランサムウェア展開へ移行する犯罪系アクターとして継続監視する。",
+  "change_summary": [
+    "4/28時点で新規公表は確認されず",
+    "4月6日のMicrosoft報告に基づき高テンポ侵害・Medusa展開を継続監視"
+  ],
+  "operational_relevance": "脆弱な外部公開資産のパッチ遅延が、24時間以内の侵害・暗号化に直結する可能性がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開資産の棚卸し",
+    "KEVおよびN-day脆弱性の優先パッチ適用",
+    "短時間での初動封じ込め手順の確認"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [
+      "Medusa ransomware operations"
+    ],
+    "suspected_actor": "Financially motivated cybercriminal actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-28_storm1175_medusa_ransomware_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "Storm-1175 high-tempo Medusa ransomware operations",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": [
+          "グローバル"
+        ],
+        "industries": [
+          "全産業"
+        ],
+        "organization_types": [
+          "外部公開資産を持つ企業",
+          "重要インフラ事業者",
+          "中堅企業"
+        ]
+      },
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-04-28",
+      "activity_summary": "Storm-1175は、公開済み脆弱性やゼロデイを悪用し、短時間でデータ窃取とMedusaランサムウェア展開を行う。",
+      "activity_details": "Microsoftは2026年4月6日、Storm-1175が脆弱なWeb公開資産を狙い、侵入から数日、場合によっては24時間以内にMedusa展開へ移行すると報告した。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1486 Data Encrypted for Impact",
+        "T1041 Exfiltration Over C2 Channel",
+        "T1078 Valid Accounts",
+        "N-day exploitation"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware"
+      ],
+      "infrastructure": [
+        "web-facing vulnerable systems",
+        "ransomware infrastructure"
+      ],
+      "strategic_view": {
+        "general": "脆弱性公開から悪用までの時間が極端に短く、防御側のパッチ猶予が縮小している。",
+        "geopolitical": "国家系ではないが、重要インフラや公共サービスに影響すれば社会的混乱につながる。",
+        "business": "外部公開資産管理とパッチ優先順位付けが経営リスクに直結。",
+        "research_direction": "Storm-1175が悪用するCVE群、Medusa展開前の初期アクセス手順、被害業種を継続追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "侵入から暗号化までの時間が短く、通常のインシデント対応サイクルでは間に合わない可能性がある。",
+        "delta_from_previous": "4/28時点で新規公表なし。Microsoft 4/6報告の継続評価。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware"
+      ],
+      "tags": [
+        "storm1175",
+        "medusa",
+        "ransomware",
+        "n_day_exploitation"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "vulnerable public-facing systems",
+          "ransomware infrastructure"
+        ],
+        "capability": [
+          "public-facing application exploitation",
+          "data exfiltration",
+          "Medusa ransomware deployment"
+        ],
+        "victim": [
+          "organizations with vulnerable internet-facing assets"
+        ]
+      }
+    }
+  ]
+}

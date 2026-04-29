@@ -1,0 +1,130 @@
+{
+  "date": "2026-04-28",
+  "timezone": "JST",
+  "title": "2026-04-28 Cyber Incidents Overview",
+  "items": [
+    {
+      "id": "2026-04-28_shinyhunters_medtronic_breach",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "ShinyHunters Data Extortion Activity",
+        "aliases": ["ShinyHunters"],
+        "suspected_actor": "Cybercriminal group",
+        "attribution_confidence": "low"
+      },
+      "name": "Medtronic data breach claim",
+      "category": "サイバー犯罪",
+      "industry": ["医療"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-28",
+      "last_seen": "2026-04-28",
+      "summary": "ShinyHuntersがMedtronicのデータ窃取を主張。件数は攻撃者発表ベースで未検証。",
+      "executive_summary": "医療関連企業へのデータ窃取型恐喝事案。事実関係は一部未確認。",
+      "change_summary": [
+        "攻撃者主張ベースの情報が中心",
+        "医療サプライチェーンへの攻撃継続"
+      ],
+      "operational_relevance": "医療データ管理のリスク増大",
+      "urgency": "medium",
+      "recommended_action": [
+        "侵害検知ログの確認",
+        "外部公開情報との突合"
+      ],
+      "assessment": {
+        "significance": "medium",
+        "confidence": "low",
+        "why_it_matters": "未確認情報を含むため慎重な評価が必要",
+        "delta_from_previous": "新規事案"
+      },
+      "tags": ["data_extortion"],
+      "sources": [
+        {
+          "title": "Medtronic Hack Report",
+          "url": "https://www.securityweek.com/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-28"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-28_cisa_kev_update",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Exploited Vulnerabilities Activity",
+        "suspected_actor": "Multiple actors",
+        "attribution_confidence": "low"
+      },
+      "name": "CISA KEV catalog update",
+      "category": "脆弱性悪用",
+      "industry": ["全産業"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-28",
+      "last_seen": "2026-04-28",
+      "summary": "CISAが既知悪用脆弱性カタログを更新。",
+      "executive_summary": "実際に悪用されている脆弱性の追加であり優先対応が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "KEVベースの優先パッチ適用"
+      ],
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "実際の攻撃に直結",
+        "delta_from_previous": "新規追加"
+      },
+      "tags": ["kev", "vulnerability"],
+      "sources": [
+        {
+          "title": "CISA KEV Update",
+          "url": "https://www.cisa.gov/",
+          "publisher": "CISA",
+          "published_at": "2026-04-28"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-28_windows_auth_exploit",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Windows Authentication Exploit Activity",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "Windows authentication coercion risk",
+      "category": "脆弱性悪用",
+      "industry": ["全産業"],
+      "region": ["グローバル"],
+      "first_seen": "2026-04-01",
+      "last_seen": "2026-04-28",
+      "summary": "Windows認証を悪用した強制認証型攻撃のリスクが指摘されている。",
+      "executive_summary": "ゼロクリック的に認証を誘導する攻撃の継続リスク。",
+      "change_summary": [
+        "パッチ後もリスク継続の指摘"
+      ],
+      "operational_relevance": "認証系攻撃の重要性増加",
+      "urgency": "high",
+      "recommended_action": [
+        "NTLM制御",
+        "認証トラフィック監視"
+      ],
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "検知困難な攻撃手法",
+        "delta_from_previous": "パッチ後も残存リスク"
+      },
+      "tags": ["authentication", "windows"],
+      "sources": [
+        {
+          "title": "Windows authentication coercion discussion",
+          "url": "https://www.securityweek.com/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-04-27"
+        }
+      ]
+    }
+  ]
+}

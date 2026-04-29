@@ -1,0 +1,121 @@
+{
+  "date": "2026-04-28",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416は欧州政府・外交機関への活動再開が4月に確認されており、4/28時点では継続監視対象。中東情勢と欧州外交正面の双方に関係する中国系諜報活動として重要。",
+  "change_summary": [
+    "4/28時点で新規の追加公表は確認されず",
+    "4月1日公表の欧州政府・外交機関向け活動再開を継続監視"
+  ],
+  "operational_relevance": "外交・政府機関向けの標的型メール、Webビーコン、PlugX系ペイロード監視が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "外交・政府関連テーマのメール検知強化",
+    "Cloudflare Turnstile悪用やOAuthリダイレクト悪用の監視",
+    "PlugX関連IoCとの照合"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "Mustang Panda",
+      "RedDelta",
+      "Red Lich",
+      "Vertigo Panda",
+      "SmugX",
+      "DarkPeony"
+    ],
+    "suspected_actor": "China-aligned cyber espionage actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-28_ta416_europe_diplomatic_espionage",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416 European diplomatic targeting activity",
+      "category": "国家支援型サイバー諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "中東"
+        ],
+        "industries": [
+          "政府機関",
+          "外交",
+          "国際機関"
+        ],
+        "organization_types": [
+          "外交ミッション",
+          "政府機関",
+          "国際機関"
+        ]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-04-28",
+      "activity_summary": "TA416は、EU/NATO関連の外交機関に対しWebビーコンやマルウェア配信を含む複数波の攻撃を実施。",
+      "activity_details": "Proofpointは2026年4月1日、TA416が欧州政府・外交機関への攻撃を再開し、中東の外交・政府機関にも標的を拡大したと報告した。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1204 User Execution",
+        "T1102 Web Service",
+        "T1059 Command and Scripting Interpreter",
+        "OAuth redirect abuse",
+        "Cloudflare Turnstile abuse"
+      ],
+      "malware_and_tools": [
+        "PlugX"
+      ],
+      "infrastructure": [
+        "web bug infrastructure",
+        "malware delivery infrastructure"
+      ],
+      "strategic_view": {
+        "general": "TA416は外交・政府機関を長期的に追跡する中国系諜報アクターとして継続。",
+        "geopolitical": "欧州・NATO・中東外交正面に対する中国の情報要求と整合。",
+        "business": "政府・外交関連企業、シンクタンク、コンサルも巻き込まれる可能性がある。",
+        "research_direction": "EU/NATO・中東外交テーマのルアー、PlugX亜種、OAuth悪用パターンを継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "欧州・中東外交正面の情勢把握を目的とする諜報活動として戦略的価値が高い。",
+        "delta_from_previous": "4/28時点では追加公表なし。4月1日公表内容の継続評価。"
+      },
+      "related_campaigns": [
+        "China-linked_Covert_Network_Ops"
+      ],
+      "tags": [
+        "ta416",
+        "mustang_panda",
+        "plugx",
+        "china",
+        "diplomatic_espionage"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / China-aligned actor",
+        "infrastructure": [
+          "web bug infrastructure",
+          "malware delivery infrastructure"
+        ],
+        "capability": [
+          "spear-phishing",
+          "PlugX deployment",
+          "OAuth redirect abuse"
+        ],
+        "victim": [
+          "European government entities",
+          "diplomatic missions",
+          "Middle East government entities"
+        ]
+      }
+    }
+  ]
+}

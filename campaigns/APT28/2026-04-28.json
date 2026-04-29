@@ -1,0 +1,122 @@
+{
+  "date": "2026-04-28",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は、2026年4月上旬に公表されたルータ悪用・DNSハイジャック作戦を中心に、欧州政府・軍事・重要インフラ向けの継続脅威として監視を継続する。",
+  "change_summary": [
+    "2026-04-28時点で新規の一次公表は確認されず",
+    "4月上旬のNCSC/DOJ等によるルータ悪用・DNSハイジャック事案を継続監視"
+  ],
+  "operational_relevance": "SOHO/エッジ機器侵害を起点とした認証情報窃取・中間者攻撃リスクが高い。",
+  "urgency": "high",
+  "recommended_action": [
+    "ルータ・VPN・DNS設定の点検",
+    "既知侵害IoCとの照合",
+    "DNSログと認証ログの相関分析"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sofacy",
+      "Pawn Storm"
+    ],
+    "suspected_actor": "Russian GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-28_apt28_router_dns_hijacking_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28 router exploitation and DNS hijacking operations",
+      "category": "国家支援型サイバー作戦",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "北米",
+          "グローバル"
+        ],
+        "industries": [
+          "政府機関",
+          "軍事",
+          "重要インフラ"
+        ],
+        "organization_types": [
+          "政府機関",
+          "通信事業者",
+          "重要インフラ事業者"
+        ]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-04-28",
+      "activity_summary": "APT28が脆弱なルータを侵害し、DNSハイジャックを通じて認証情報やトークン窃取を可能にする作戦が継続的脅威として評価される。",
+      "activity_details": "NCSCはAPT28によるルータ悪用とDNSハイジャックを公表し、DOJもロシア軍情報機関に関連するDNSハイジャックネットワークの妨害を発表した。",
+      "ttp": [
+        "T1584 Compromise Infrastructure",
+        "T1557 Adversary-in-the-Middle",
+        "T1040 Network Sniffing",
+        "T1078 Valid Accounts",
+        "DNS hijacking"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "compromised routers",
+        "DNS hijacking infrastructure"
+      ],
+      "strategic_view": {
+        "general": "エッジ機器を起点とした秘匿性の高いアクセス確保が継続。",
+        "geopolitical": "ロシアの欧州・NATO向け諜報活動の一部として位置付けられる。",
+        "business": "企業側ではルータやDNS設定が監視対象から漏れやすく、侵害の長期化リスクがある。",
+        "research_direction": "DNS変更履歴、外向き認証、SOHO機器の管理状態を重点確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "認証情報窃取と中間者攻撃に直結し、初期侵入後の横展開を容易にする。",
+        "delta_from_previous": "4/28時点で新規公表はないが、4月上旬公表事案の運用上の重要性は継続。"
+      },
+      "related_campaigns": [
+        "Russia-linked prosecutor email campaign"
+      ],
+      "tags": [
+        "apt28",
+        "router",
+        "dns_hijacking",
+        "russia"
+      ],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Russian GRU-linked actor",
+        "infrastructure": [
+          "compromised routers",
+          "DNS hijacking infrastructure"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "credential theft",
+          "adversary-in-the-middle"
+        ],
+        "victim": [
+          "government",
+          "military",
+          "critical infrastructure"
+        ]
+      }
+    }
+  ]
+}
