@@ -1,0 +1,127 @@
+{
+  "date": "2026-04-30",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "2026年4月29〜30日時点で、APT29に関する新規の重要キャンペーン公表は確認していない。引き続き、クラウド、ID基盤、OAuth、メール環境を標的とする潜伏型諜報活動として継続監視する。",
+  "change_summary": [
+    "新規の公開インシデントは確認されず",
+    "クラウド・ID基盤中心の継続脅威として評価を維持"
+  ],
+  "operational_relevance": "APT29は静かな長期潜伏型の情報収集を得意とするため、新規報道がない期間でもクラウド監査ログ、OAuthアプリ、メール転送設定の監視が必要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Entra ID / Microsoft 365監査ログを継続確認する",
+    "不審なOAuthアプリ同意とメール転送ルールを確認する",
+    "特権アカウントの条件付きアクセスとMFA強度を確認する"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "The Dukes",
+      "NOBELIUM",
+      "Midnight Blizzard"
+    ],
+    "cluster": "Russia-linked foreign intelligence cyber operations",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-30_apt29_no_major_public_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29：重大な新規公表なし、クラウド・ID基盤リスクの継続評価",
+      "category": "継続脅威評価",
+      "targeting": {
+        "regions": [
+          "United States",
+          "Europe",
+          "NATO countries",
+          "Japan"
+        ],
+        "industries": [
+          "government",
+          "diplomacy",
+          "defense",
+          "technology",
+          "cloud services"
+        ],
+        "organization_types": [
+          "government agencies",
+          "think tanks",
+          "technology providers",
+          "cloud tenants"
+        ]
+      },
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-04-30",
+      "activity_summary": "APT29について、対象期間中に新たな大規模公開レポートは確認されていない。",
+      "activity_details": "ただし、APT29は過去にMicrosoft 365、OAuth、クラウドID基盤、メール環境を利用した長期潜伏型の諜報活動を実施しており、静穏期も監視を継続すべきである。",
+      "ttp": [
+        "T1078",
+        "T1098",
+        "T1114",
+        "T1550",
+        "T1566"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "cloud identity infrastructure",
+        "Microsoft 365",
+        "OAuth applications"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は突発的破壊よりも長期情報収集に重点を置くため、日次報道で目立たない期間もリスクは継続する。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求に沿い、政府・外交・技術領域への関心は継続すると考えられる。",
+        "business": "クラウドID侵害は、企業のメール、文書、開発情報、顧客情報に横断的影響を及ぼす。",
+        "research_direction": "Microsoft、Mandiant、CISA、NCSC等のAPT29関連更新と、OAuth悪用・クラウド監査回避TTPを継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "新規公表はないが、APT29の作戦特性上、沈黙は活動停止を意味しない。",
+        "delta_from_previous": "評価に大きな変化なし。クラウド・ID基盤中心の継続監視を維持。"
+      },
+      "related_campaigns": [
+        "Russia-linked cloud intrusion operations"
+      ],
+      "tags": [
+        "APT29",
+        "Midnight-Blizzard",
+        "cloud",
+        "identity",
+        "Microsoft-365",
+        "ongoing"
+      ],
+      "sources": [
+        {
+          "title": "Email threat landscape: Q1 2026 trends and insights",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/30/email-threat-landscape-q1-2026-trends-and-insights/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-30"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked actor",
+        "infrastructure": [
+          "cloud identity environments",
+          "email platforms",
+          "OAuth applications"
+        ],
+        "capability": [
+          "credential abuse",
+          "cloud persistence",
+          "email collection"
+        ],
+        "victim": [
+          "government",
+          "diplomatic",
+          "technology",
+          "policy organizations"
+        ]
+      }
+    }
+  ]
+}

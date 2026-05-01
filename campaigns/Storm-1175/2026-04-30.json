@@ -1,0 +1,122 @@
+{
+  "date": "2026-04-30",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "2026年4月29〜30日時点で、Storm-1175に関する新規の重要公開事案は確認していない。引き続き、脆弱性悪用、境界機器侵害、ランサムウェア・犯罪系エコシステムとの接続可能性を監視する。",
+  "change_summary": [
+    "新規の公開インシデントは確認されず",
+    "cPanel/WHMやリモート管理製品の脆弱性公開を、犯罪系・初期アクセス活動の観点から関連監視対象に追加"
+  ],
+  "operational_relevance": "Storm-1175のような犯罪系・準犯罪系クラスターは、公開脆弱性や管理基盤を迅速に悪用する可能性があるため、KEVやホスティング基盤の更新を監視する必要がある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "公開脆弱性の大量スキャン状況を監視する",
+    "境界機器・管理製品のパッチ状況を確認する",
+    "ランサムウェア初期アクセスとの接続有無を継続確認する"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [
+      "Storm-1175"
+    ],
+    "cluster": "criminal or financially motivated cyber activity cluster",
+    "suspected_actor": "unknown financially motivated actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-30_storm_1175_public_vulnerability_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "Storm-1175：公開脆弱性・管理基盤悪用リスクの継続監視",
+      "category": "犯罪系キャンペーン継続監視",
+      "targeting": {
+        "regions": [
+          "Global",
+          "Japan"
+        ],
+        "industries": [
+          "IT",
+          "hosting",
+          "MSP",
+          "enterprise"
+        ],
+        "organization_types": [
+          "managed service providers",
+          "hosting providers",
+          "enterprises",
+          "SMB"
+        ]
+      },
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-04-30",
+      "activity_summary": "Storm-1175に直接帰属される新規事案は確認されていないが、cPanel/WHMやリモート管理製品の脆弱性は犯罪系初期アクセス活動と接続し得る。",
+      "activity_details": "CVE-2026-41940など管理基盤の脆弱性は、ホスティング事業者、MSP、Web制作会社、SMBへの侵害につながる可能性がある。Storm-1175との直接関連は未確認。",
+      "ttp": [
+        "T1190",
+        "T1078",
+        "T1505",
+        "T1021"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "cPanel",
+        "WHM",
+        "remote management software",
+        "hosting control panels"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "犯罪系アクターは公開脆弱性を迅速に取り込み、初期アクセス販売やランサムウェア展開に利用する可能性がある。",
+        "geopolitical": "国家系とは異なるが、重要インフラや自治体委託先の侵害を通じて社会的影響を生む可能性がある。",
+        "business": "MSP・ホスティング・Web委託先の侵害は、顧客企業の信用・事業継続に波及する。",
+        "research_direction": "CVE-2026-41940の悪用観測、Webshell設置、初期アクセス販売、ランサムウェア連携の有無を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "Storm-1175固有の新規活動ではないが、犯罪系エコシステムが取り込みやすい脆弱性領域である。",
+        "delta_from_previous": "新規帰属情報なし。公開脆弱性悪用リスクを関連監視対象として追加。"
+      },
+      "related_campaigns": [
+        "Opportunistic web exploitation",
+        "Ransomware initial access ecosystem"
+      ],
+      "tags": [
+        "Storm-1175",
+        "cPanel",
+        "CVE-2026-41940",
+        "initial-access",
+        "ransomware-ecosystem",
+        "monitoring"
+      ],
+      "sources": [
+        {
+          "title": "Security: CVE-2026-41940 cPanel & WHM / WP2 Security Update 04-28-2026",
+          "url": "https://support.cpanel.net/hc/en-us/articles/40073787579671-Security-CVE-2026-41940-cPanel-WHM-WP2-Security-Update-04-28-2026",
+          "publisher": "cPanel",
+          "published_at": "2026-04-28"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175 or opportunistic financially motivated actors, not confirmed for this CVE",
+        "infrastructure": [
+          "hosting control panels",
+          "remote management infrastructure"
+        ],
+        "capability": [
+          "public vulnerability exploitation",
+          "account takeover",
+          "webshell deployment",
+          "initial access"
+        ],
+        "victim": [
+          "hosting providers",
+          "MSPs",
+          "SMBs",
+          "enterprise web environments"
+        ]
+      }
+    }
+  ]
+}

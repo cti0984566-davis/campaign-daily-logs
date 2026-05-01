@@ -1,0 +1,121 @@
+{
+  "date": "2026-04-30",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "2026年4月29〜30日時点で、APT28による新規の独立した攻撃キャンペーン公表は確認していない。ただし、Windows NTLM漏洩系脆弱性やKEV追加案件は、APT28の過去TTPと接続し得るため、認証情報窃取・横展開リスクとして継続監視が必要。",
+  "change_summary": [
+    "APT28への直接帰属を伴う新規事案は確認されず",
+    "Windows認証情報窃取・NTLM漏洩文脈をAPT28監視項目に追加"
+  ],
+  "operational_relevance": "APT28は過去にWindows関連脆弱性や認証情報窃取を作戦に組み込んできたため、KEV追加脆弱性とAD/NTLM環境の監視が重要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "NTLM利用箇所を棚卸しする",
+    "CISA KEV対象脆弱性の適用状況を確認する",
+    "APT28既知TTPと重なる認証情報窃取・横展開ログを確認する"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sofacy",
+      "STRONTIUM"
+    ],
+    "cluster": "Russia-linked military intelligence cyber operations",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-04-30_apt28_windows_ntlm_monitoring_update",
+      "type": "assessment",
+      "status": "更新",
+      "name": "Windows NTLM漏洩系脆弱性に関するAPT28監視上の評価更新",
+      "category": "継続脅威評価",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "NATO countries",
+          "Japan"
+        ],
+        "industries": [
+          "government",
+          "defense",
+          "critical infrastructure",
+          "enterprise IT"
+        ],
+        "organization_types": [
+          "government agencies",
+          "defense organizations",
+          "large enterprises"
+        ]
+      },
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-04-30",
+      "activity_summary": "APT28への直接帰属は確認されていないが、Windows認証情報漏洩やリモート管理製品悪用はAPT28の過去TTPと接続可能な領域である。",
+      "activity_details": "CISA KEV追加案件のうち、Windows NTLM漏洩系脆弱性は認証情報窃取、横展開、永続化の起点になり得る。現時点ではAPT28関与を断定しない。",
+      "ttp": [
+        "T1003",
+        "T1550",
+        "T1021",
+        "T1190"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Windows authentication infrastructure",
+        "remote management software"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は新規事案がない期間でも、認証情報窃取や既存脆弱性悪用を通じて継続的な侵入機会を得る可能性がある。",
+        "geopolitical": "ウクライナ戦争・NATO対立文脈において、ロシア系APTの情報収集活動は継続していると見るべき。",
+        "business": "日本企業にとってはAD/NTLM管理、外部公開リモート管理製品、委託先環境の監査が重要。",
+        "research_direction": "KEV対象脆弱性のPoC公開、APT28既知インフラとの重複、CERT-UAやMicrosoftの追加分析を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "APT28への直接帰属はないが、脆弱性の性質がAPT28の既存作戦領域と整合する。",
+        "delta_from_previous": "新規攻撃事案ではなく、Windows認証情報窃取リスクをAPT28監視項目に加える評価更新。"
+      },
+      "related_campaigns": [
+        "Russia-linked credential theft operations"
+      ],
+      "tags": [
+        "APT28",
+        "Windows",
+        "NTLM",
+        "KEV",
+        "credential-theft",
+        "assessment-update"
+      ],
+      "sources": [
+        {
+          "title": "CISA orders feds to patch Windows flaw exploited in zero-day attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-windows-flaw-exploited-in-zero-day-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 or Russia-linked actors, not confirmed for this CVE",
+        "infrastructure": [
+          "Windows enterprise environments",
+          "authentication infrastructure"
+        ],
+        "capability": [
+          "credential theft",
+          "NTLM hash leakage",
+          "lateral movement"
+        ],
+        "victim": [
+          "government agencies",
+          "defense organizations",
+          "enterprise networks"
+        ]
+      }
+    }
+  ]
+}

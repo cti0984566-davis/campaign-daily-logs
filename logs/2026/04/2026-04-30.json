@@ -1,0 +1,552 @@
+{
+  "date": "2026-04-30",
+  "timezone": "JST",
+  "title": "2026/04/29-30 サイバー関連インシデント概要",
+  "items": [
+    {
+      "id": "2026-04-30_windows_ntlm_kev_update",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Windows NTLM / KEV exploited vulnerabilities",
+        "aliases": [
+          "CVE-2026-32202",
+          "ConnectWise ScreenConnect KEV update"
+        ],
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor; APT28-related context remains unconfirmed for this CVE",
+        "infrastructure": [
+          "Windows enterprise environments",
+          "ConnectWise ScreenConnect deployments"
+        ],
+        "capability": [
+          "NTLM hash leakage",
+          "credential theft",
+          "remote access software exploitation"
+        ],
+        "victim": [
+          "government agencies",
+          "enterprise networks",
+          "managed IT environments"
+        ]
+      },
+      "name": "CISA KEV追加：Windows NTLM漏洩ゼロデイ／ConnectWise ScreenConnect",
+      "category": "ゼロデイ脆弱性・重要脆弱性悪用",
+      "industry": [
+        "政府機関",
+        "IT",
+        "全業種"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2026-04-28",
+      "last_seen": "2026-04-30",
+      "summary": "CISAがWindows NTLM情報漏洩系脆弱性およびConnectWise ScreenConnect関連脆弱性をKEVに追加した。Windows側は認証情報漏洩、横展開、既存APTのTTPとの接続可能性が重視される。",
+      "executive_summary": "Windows認証情報漏洩とリモート管理製品悪用は、日本の官公庁・重要インフラ・委託先環境に直結する。APT28との直接帰属は未確認だが、過去のロシア系TTPと整合するため優先監視対象。",
+      "change_summary": [
+        "CISA KEVへの追加により、単なる脆弱性情報から実悪用前提の対応案件に評価を更新",
+        "APT28との直接関連は未確認のため、帰属評価はlowに抑制"
+      ],
+      "operational_relevance": "Active Directory、NTLM、リモート管理ツールの組み合わせは、侵入後の横展開・永続化に直結するため、国内組織でも優先的なパッチ適用とログ確認が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "CISA KEV対象製品の利用有無を確認する",
+        "NTLM認証利用箇所を棚卸しする",
+        "ScreenConnect等リモート管理製品の外部公開状況を確認する",
+        "不審な認証試行、ハッシュ利用、横展開ログを確認する"
+      ],
+      "details": "関連既報：APT28によるWindows/LNK悪用チェーン。今回のWindows脆弱性については、APT28関与を断定しない。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "exploitation actor",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1003",
+        "T1550",
+        "T1021",
+        "T1190"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Windows authentication infrastructure",
+        "remote management software"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "IT",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "United States",
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "federal agencies",
+          "enterprises",
+          "managed service providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "認証情報窃取とリモート管理製品悪用は、国家系・犯罪系双方に利用されやすい基礎的侵入経路である。",
+        "geopolitical": "ロシア系APTの過去TTPと接続し得るが、現時点では帰属を保留すべき。",
+        "business": "委託先やMSPを含むリモート管理基盤の管理不備が、サプライチェーン上のリスクになる。",
+        "research_direction": "KEV追加後のPoC公開、スキャン増加、APT28等既存キャンペーンとの重複有無を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "KEV登録済みであり、実悪用前提の対応が必要。",
+        "delta_from_previous": "一般的な脆弱性情報から、実運用上の緊急対応対象へ評価を引き上げ。"
+      },
+      "related_campaigns": [
+        "APT28",
+        "Russia-linked credential theft operations"
+      ],
+      "related_reports": [
+        "APT28によるWindows/LNK悪用チェーン"
+      ],
+      "tags": [
+        "KEV",
+        "Windows",
+        "NTLM",
+        "zero-day",
+        "credential-theft",
+        "remote-management"
+      ],
+      "sources": [
+        {
+          "title": "CISA orders feds to patch Windows flaw exploited in zero-day attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-windows-flaw-exploited-in-zero-day-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-04-29"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-30_cpanel_whm_cve_2026_41940",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "cPanel WHM CVE-2026-41940 exploitation risk",
+        "aliases": [
+          "CVE-2026-41940"
+        ],
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown opportunistic or targeted actors",
+        "infrastructure": [
+          "cPanel",
+          "WHM",
+          "web hosting environments"
+        ],
+        "capability": [
+          "authentication bypass",
+          "session abuse",
+          "account takeover",
+          "persistence"
+        ],
+        "victim": [
+          "hosting providers",
+          "managed service providers",
+          "web administrators",
+          "small and medium-sized organizations"
+        ]
+      },
+      "name": "cPanel / WHM 認証バイパス CVE-2026-41940",
+      "category": "重要脆弱性・Webホスティング基盤リスク",
+      "industry": [
+        "ホスティング",
+        "IT",
+        "MSP",
+        "Webインフラ"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-28",
+      "last_seen": "2026-04-30",
+      "summary": "cPanelがCVE-2026-41940に関するセキュリティ更新を公表。認証経路の問題により、セッション悪用やアカウント侵害のリスクがあるため、緊急更新、パスワードリセット、ログ確認が推奨されている。",
+      "executive_summary": "Webホスティング基盤の脆弱性は、中小企業・自治体委託先・Web制作会社経由の広範な侵害に発展し得る。日本でも管理外の外部Web基盤の棚卸しが必要。",
+      "change_summary": [
+        "4月28日にcPanelがセキュリティ更新を公表",
+        "認証バイパス系のため、単なるパッチ適用に加えてセッション・認証情報・永続化確認が必要"
+      ],
+      "operational_relevance": "組織本体がcPanelを直接使っていなくても、外部委託Webサイトや小規模ホスティング事業者経由で侵害される可能性がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "cPanelおよびWHMの利用有無を確認する",
+        "ベンダ推奨バージョンへ緊急更新する",
+        "管理者セッション、root/WHMアカウント、認証ログを確認する",
+        "外部委託先のホスティング基盤にも確認を依頼する"
+      ],
+      "details": "現時点で特定APTや犯罪グループへの帰属は確認されていない。公開後の自動スキャン・大量悪用に注意が必要。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "potential exploitation actor",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1078",
+        "T1505"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "cPanel",
+        "WHM",
+        "web hosting control panels"
+      ],
+      "targeting": {
+        "sectors": [
+          "hosting",
+          "IT services",
+          "SMB",
+          "local government contractors"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "hosting providers",
+          "web agencies",
+          "managed service providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "ホスティング管理基盤の脆弱性は、多数の小規模組織への一括侵害につながる。",
+        "geopolitical": "国家系アクターも犯罪者も、公開Web基盤を足場化する可能性がある。",
+        "business": "Web制作会社、MSP、ホスティング委託先のリスク管理が経営上の課題となる。",
+        "research_direction": "PoC公開、Masscan型スキャン、Webshell設置事例、国内ホスティング事業者の注意喚起を監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "認証バイパス系であり、Webホスティング基盤の広範な侵害につながり得る。",
+        "delta_from_previous": "新規公表事案として監視対象に追加。"
+      },
+      "related_campaigns": [
+        "Opportunistic web exploitation",
+        "MSP supply-chain intrusion"
+      ],
+      "related_reports": [],
+      "tags": [
+        "cPanel",
+        "WHM",
+        "CVE-2026-41940",
+        "authentication-bypass",
+        "hosting",
+        "supply-chain"
+      ],
+      "sources": [
+        {
+          "title": "Security: CVE-2026-41940 cPanel & WHM / WP2 Security Update 04-28-2026",
+          "url": "https://support.cpanel.net/hc/en-us/articles/40073787579671-Security-CVE-2026-41940-cPanel-WHM-WP2-Security-Update-04-28-2026",
+          "publisher": "cPanel",
+          "published_at": "2026-04-28"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-30_checkmarx_supply_chain_incident_update",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Checkmarx supply-chain incident",
+        "aliases": [
+          "Trivy supply-chain attack",
+          "TeamPCP-related activity"
+        ],
+        "suspected_actor": "TeamPCP-related threat actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP-related or unknown supply-chain actor",
+        "infrastructure": [
+          "GitHub repositories",
+          "developer tooling ecosystem",
+          "software supply-chain infrastructure"
+        ],
+        "capability": [
+          "supply-chain compromise",
+          "credential theft",
+          "repository access",
+          "data exfiltration"
+        ],
+        "victim": [
+          "Checkmarx",
+          "security vendors",
+          "developer ecosystems"
+        ]
+      },
+      "name": "Checkmarxサプライチェーン侵害・GitHubデータ流出",
+      "category": "サプライチェーン攻撃・情報漏洩",
+      "industry": [
+        "セキュリティベンダ",
+        "開発者ツール",
+        "ソフトウェアサプライチェーン"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-03-23",
+      "last_seen": "2026-04-30",
+      "summary": "Checkmarxは、Trivy Supply Chain Attackを起点とするGitHubリポジトリへの不正アクセスとデータ流出について更新した。3月30日にデータが流出し、4月25日にダークウェブ上で公開されたと説明している。",
+      "executive_summary": "セキュリティベンダや開発者ツール自体が侵入口となる典型的なサプライチェーン事案。顧客本番環境への直接影響は限定的と説明されるが、CI/CD、GitHub権限、トークン管理の重要性を再確認させる。",
+      "change_summary": [
+        "4月25日に流出データがダークウェブ上で公開された点が更新",
+        "Checkmarxは顧客本番環境とGitHub環境の分離を説明",
+        "顧客データの通常保存はないと説明されるが、継続確認が必要"
+      ],
+      "operational_relevance": "開発基盤・セキュリティ製品・CI/CDが侵害されると、下流顧客への影響評価が複雑化する。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Checkmarx利用有無と影響範囲を確認する",
+        "GitHubトークン、CI/CDシークレット、連携アプリ権限を棚卸しする",
+        "サプライチェーン製品の侵害時通知プロセスを確認する",
+        "SBOMだけでなく開発権限管理を監査対象に含める"
+      ],
+      "details": "関連既報：Trivy Supply Chain Attack。今回はCheckmarx側の更新により、データ公開時点と影響範囲説明が明確化した。",
+      "actors": [
+        {
+          "name": "TeamPCP-related actor",
+          "role": "suspected supply-chain threat actor",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1195",
+        "T1552",
+        "T1078",
+        "T1567"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "GitHub",
+        "CI/CD pipelines",
+        "developer repositories"
+      ],
+      "targeting": {
+        "sectors": [
+          "cybersecurity",
+          "software development",
+          "developer tools"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "security vendors",
+          "software vendors",
+          "developer communities"
+        ]
+      },
+      "strategic_view": {
+        "general": "セキュリティ製品や開発基盤の侵害は、信頼の連鎖を狙う攻撃として重要。",
+        "geopolitical": "国家系・犯罪系の双方が開発者エコシステムを足場化し得る。",
+        "business": "セキュリティベンダの透明性、顧客通知、サプライチェーン保証が競争力に直結する。",
+        "research_direction": "流出データの内容、顧客影響、GitHub権限悪用、他ベンダへの横展開有無を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "セキュリティベンダを含む開発者エコシステムへの攻撃であり、下流影響が大きい。",
+        "delta_from_previous": "データ流出とダークウェブ公開が確認され、影響評価を更新。"
+      },
+      "related_campaigns": [
+        "Software supply-chain attacks",
+        "Developer ecosystem compromise"
+      ],
+      "related_reports": [
+        "Trivy Supply Chain Attack"
+      ],
+      "tags": [
+        "Checkmarx",
+        "supply-chain",
+        "GitHub",
+        "developer-tools",
+        "data-leak",
+        "CI-CD"
+      ],
+      "sources": [
+        {
+          "title": "Supply Chain Security Incident Update",
+          "url": "https://checkmarx.com/blog/supply-chain-security-incident-update/",
+          "publisher": "Checkmarx",
+          "published_at": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "id": "2026-04-30_china_linked_transnational_repression_ops",
+      "type": "campaign_activity",
+      "status": "継続",
+      "campaign": {
+        "name": "China-linked_Covert_Network_Ops",
+        "aliases": [
+          "Chinese hack-for-hire ecosystem",
+          "digital transnational repression",
+          "I-Soon-like contractor ecosystem"
+        ],
+        "cluster": "China-linked contractor and state-adjacent cyber operations",
+        "suspected_actor": "China-linked state-adjacent contractors and public security / intelligence-linked entities",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked state-adjacent contractor ecosystem",
+        "infrastructure": [
+          "impersonation accounts",
+          "phishing infrastructure",
+          "contractor-operated cyber service ecosystem"
+        ],
+        "capability": [
+          "impersonation",
+          "social engineering",
+          "phishing",
+          "targeted surveillance",
+          "narrative exploitation"
+        ],
+        "victim": [
+          "journalists",
+          "diaspora communities",
+          "researchers",
+          "civil society",
+          "critics of the Chinese government"
+        ]
+      },
+      "name": "中国系ハック・フォー・ハイヤー／越境弾圧型サイバー活動",
+      "category": "国家関与型諜報・影響力工作・デジタル越境弾圧",
+      "industry": [
+        "メディア",
+        "市民社会",
+        "研究機関",
+        "政府関連"
+      ],
+      "region": [
+        "China",
+        "United States",
+        "Europe",
+        "Taiwan",
+        "Hong Kong",
+        "Global"
+      ],
+      "first_seen": "2026-04-27",
+      "last_seen": "2026-04-30",
+      "summary": "Citizen Lab等が、中国系アクターによる記者・内部告発者なりすまし、盗用されたナラティブ、ディアスポラや報道関係者への標的化を分析した。米当局者も、中国のhack-for-hire ecosystemに対する法執行リスクを言及している。",
+      "executive_summary": "中国関連のサイバー活動は、従来のAPT侵入だけでなく、請負業者、なりすまし、影響力工作、越境弾圧が複合化している。台湾・香港・中国批判的言論・研究者を含む非伝統的ターゲットの保護が必要。",
+      "change_summary": [
+        "Citizen Labの分析により、なりすましと盗用ナラティブを用いた越境弾圧の実態が更新",
+        "米当局者発言により、中国系hack-for-hireエコシステムへの法執行リスクが再注目",
+        "従来のAPT監視に加え、民間請負・影響力工作・市民社会標的化を一体で見る必要性が上昇"
+      ],
+      "operational_relevance": "日本でも台湾・香港・中国関連研究者、メディア、政策関係者、在外コミュニティが標的になり得る。",
+      "urgency": "medium",
+      "recommended_action": [
+        "中国関連研究者・メディア関係者向けに標的型フィッシング注意喚起を行う",
+        "記者・内部告発者・NGOを装う接触の検証手順を整備する",
+        "APT侵入指標だけでなく、なりすましアカウントや影響力工作のOSINT監視を行う",
+        "台湾・香港・中国関連コミュニティへのデジタルセーフティ支援を検討する"
+      ],
+      "details": "関連既報：I-Soon流出、Volt Typhoon / Flax Typhoon / Raptor Train系の中国関連秘匿ネットワーク作戦。本件はTA416単体ではなく、China-linked_Covert_Network_Opsとして別枠監視が適切。",
+      "actors": [
+        {
+          "name": "China-linked contractor ecosystem",
+          "role": "suspected operator / enabler",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "T1566",
+        "T1585",
+        "T1586",
+        "T1598",
+        "T1204"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "impersonation accounts",
+        "phishing domains",
+        "contractor-operated infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "media",
+          "civil society",
+          "research",
+          "government",
+          "diaspora communities"
+        ],
+        "countries": [
+          "United States",
+          "Taiwan",
+          "Hong Kong",
+          "China",
+          "Japan",
+          "Global"
+        ],
+        "organization_types": [
+          "journalists",
+          "researchers",
+          "NGOs",
+          "diaspora organizations",
+          "policy communities"
+        ]
+      },
+      "strategic_view": {
+        "general": "中国関連のサイバー活動は、侵入・監視・影響力工作・越境弾圧が融合している。",
+        "geopolitical": "台湾、香港、対中批判的言論、亡命者・ディアスポラをめぐる情報空間への圧力として重要。",
+        "business": "企業・研究機関・メディアは、従業員個人や関係者への標的化を組織リスクとして扱う必要がある。",
+        "research_direction": "TA416、I-Soon、Volt Typhoon系とは別に、請負業者・なりすまし・影響力工作を横断する監視枠を継続する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "従来型APTだけでは捉えにくい、中国系の広範な非軍事・グレーゾーン活動を示す。",
+        "delta_from_previous": "技術侵入中心の評価から、越境弾圧・影響力工作を含む包括的評価へ更新。"
+      },
+      "related_campaigns": [
+        "TA416",
+        "China-linked_Covert_Network_Ops",
+        "I-Soon-related contractor ecosystem",
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Raptor Train"
+      ],
+      "related_reports": [
+        "I-Soon leak",
+        "Chinese hack-for-hire ecosystem reporting",
+        "Citizen Lab digital transnational repression research"
+      ],
+      "tags": [
+        "China",
+        "hack-for-hire",
+        "transnational-repression",
+        "influence-operations",
+        "impersonation",
+        "TA416-adjacent"
+      ],
+      "sources": [
+        {
+          "title": "How Chinese Actors Use Impersonation and Stolen Narratives to Perpetuate Digital Transnational Repression",
+          "url": "https://citizenlab.ca/research/how-chinese-actors-use-impersonation-and-stolen-narratives-to-perpetuate-digital-transnational-repression/",
+          "publisher": "Citizen Lab",
+          "published_at": "2026-04-28"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "date": "2026-04-30",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "2026年4月29〜30日時点で、TA416単体に直接帰属される新規キャンペーン公表は確認していない。ただし、中国系アクターによるなりすまし、研究者・メディア・ディアスポラ標的化の文脈は、TA416の過去活動領域と重なるため、China-linked_Covert_Network_Opsと併せて監視する。",
+  "change_summary": [
+    "TA416単体の新規レポートは確認されず",
+    "中国系越境弾圧・なりすまし活動との重複可能性を評価に追加"
+  ],
+  "operational_relevance": "台湾、香港、チベット、ウイグル、中国関連研究者・政策関係者に対する標的型フィッシングリスクを継続監視する必要がある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "中国関連研究者・メディア関係者へのなりすまし接触を監視する",
+    "添付ファイル・リンク型フィッシング訓練を実施する",
+    "China-linked_Covert_Network_Opsとの関連性を分けて記録する"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "RedDelta",
+      "Mustang Panda",
+      "Bronze President"
+    ],
+    "cluster": "China-linked cyber espionage cluster",
+    "suspected_actor": "China-linked espionage actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-04-30_ta416_monitoring_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416：新規公表なし、中国系なりすまし・越境弾圧活動との関連監視",
+      "category": "継続脅威評価",
+      "targeting": {
+        "regions": [
+          "Taiwan",
+          "Hong Kong",
+          "Europe",
+          "Japan",
+          "Global"
+        ],
+        "industries": [
+          "government",
+          "media",
+          "research",
+          "civil society"
+        ],
+        "organization_types": [
+          "researchers",
+          "journalists",
+          "diaspora organizations",
+          "policy communities"
+        ]
+      },
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-04-30",
+      "activity_summary": "TA416単体の新規事案は確認されていないが、中国系アクターによるなりすまし・ディアスポラ標的化はTA416の関心領域と重なる。",
+      "activity_details": "Citizen Labが報告した中国系なりすまし・越境弾圧型活動は、TA416に直接帰属しないものの、同様の標的群を含むため、別枠のChina-linked_Covert_Network_Opsと相互参照する。",
+      "ttp": [
+        "T1566",
+        "T1585",
+        "T1586",
+        "T1598",
+        "T1204"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "impersonation accounts",
+        "phishing infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は中国関連の政治・民族・外交テーマを利用した標的型諜報活動として継続監視すべき。",
+        "geopolitical": "台湾、香港、チベット、ウイグル、対中批判的言論空間への圧力と接続し得る。",
+        "business": "研究機関、メディア、政策系企業・コンサルは、個人を狙う接触を組織リスクとして管理する必要がある。",
+        "research_direction": "TA416固有のマルウェア・インフラと、より広い中国系請負・影響力工作活動を混同しないよう整理する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "TA416単体の新規活動ではないが、標的群と手法が重なるため監視価値がある。",
+        "delta_from_previous": "TA416固有キャンペーンではなく、中国系広域活動との関連監視として評価を更新。"
+      },
+      "related_campaigns": [
+        "China-linked_Covert_Network_Ops",
+        "Mustang Panda",
+        "Chinese digital transnational repression operations"
+      ],
+      "tags": [
+        "TA416",
+        "RedDelta",
+        "China",
+        "phishing",
+        "impersonation",
+        "monitoring"
+      ],
+      "sources": [
+        {
+          "title": "How Chinese Actors Use Impersonation and Stolen Narratives to Perpetuate Digital Transnational Repression",
+          "url": "https://citizenlab.ca/research/how-chinese-actors-use-impersonation-and-stolen-narratives-to-perpetuate-digital-transnational-repression/",
+          "publisher": "Citizen Lab",
+          "published_at": "2026-04-28"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / China-linked espionage actors, not directly confirmed for the referenced activity",
+        "infrastructure": [
+          "phishing infrastructure",
+          "impersonation accounts"
+        ],
+        "capability": [
+          "spearphishing",
+          "social engineering",
+          "political-theme lures"
+        ],
+        "victim": [
+          "journalists",
+          "researchers",
+          "diaspora organizations",
+          "policy communities"
+        ]
+      }
+    }
+  ]
+}
