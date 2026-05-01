@@ -1,0 +1,495 @@
+{
+  "date": "2026-05-01",
+  "timezone": "JST",
+  "title": "2026/05/01_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-01_shadow_earth_053_asia_government_targets",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "SHADOW-EARTH-053",
+        "aliases": ["Earth Alux", "CL-STA-0049", "REF7707"],
+        "cluster": "China-linked espionage cluster",
+        "suspected_actor": "China-linked threat actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked espionage actor",
+        "infrastructure": ["Compromised Microsoft Exchange servers", "IIS servers", "Web shells", "Proxy and tunneling tools"],
+        "capability": ["Godzilla web shell", "ShadowPad", "Mimikatz", "Sharp-SMBExec", "AnyDesk", "IOX", "GOST", "Wstunnel"],
+        "victim": ["Asian government entities", "Defense-related entities", "NATO member-state government targets"]
+      },
+      "name": "SHADOW-EARTH-053によるアジア政府・防衛分野標的化",
+      "category": "国家支援型サイバー諜報",
+      "industry": ["政府機関", "防衛", "メディア", "市民社会"],
+      "region": ["Taiwan", "Pakistan", "Thailand", "Malaysia", "India", "Myanmar", "Sri Lanka", "Poland"],
+      "first_seen": "2024-12-01",
+      "last_seen": "2026-05-01",
+      "summary": "中国関連と評価されるSHADOW-EARTH-053が、アジア各国政府、防衛関連組織、NATO加盟国政府等を標的に、Exchange/IISのN-day悪用、web shell、ShadowPad等を用いた長期諜報活動を展開していると報じられた。",
+      "executive_summary": "中国関連アクターによる政府・防衛分野への長期侵入活動が新たなクラスタ名で整理された。台湾を含むアジア正面が対象に含まれ、日本の政府・防衛・重要インフラにも同型のリスクがある。",
+      "change_summary": [
+        "Trend Micro系の分析により、SHADOW-EARTH-053として活動クラスタが整理された。",
+        "台湾、南アジア、東南アジア、ポーランド等を含む広範な標的地域が示された。",
+        "ShadowPad、Godzilla web shell、Exchange/IIS悪用など、中国関連諜報活動で継続的に観測されるTTPが確認された。"
+      ],
+      "operational_relevance": "日本の政府機関、防衛関連企業、通信・クラウド事業者は、公開Web基盤、Exchange/IIS、VPN、境界機器の侵害後永続化を優先的に監視すべき。",
+      "urgency": "high",
+      "recommended_action": [
+        "Microsoft ExchangeおよびIISの既知脆弱性対応状況を再確認する。",
+        "Godzilla web shell、ShadowPad、DLLサイドローディング、AnyDesk等の痕跡を調査する。",
+        "政府・防衛関連ネットワークで外部公開面と管理者認証ログを重点監視する。"
+      ],
+      "details": "公開Web基盤の侵害後、web shell、認証情報窃取、横展開、トンネリング、リモート管理ツールを組み合わせて長期的な諜報アクセスを維持する活動と評価される。",
+      "actors": [
+        {
+          "name": "SHADOW-EARTH-053",
+          "role": "suspected threat actor",
+          "country": "China"
+        }
+      ],
+      "ttp": ["T1190", "T1505.003", "T1574.002", "T1003", "T1021.002", "T1041"],
+      "malware": ["ShadowPad", "Godzilla web shell"],
+      "infrastructure": ["Microsoft Exchange", "IIS", "Compromised servers", "Tunneling infrastructure"],
+      "targeting": {
+        "sectors": ["Government", "Defense", "Media", "Civil society"],
+        "countries": ["Taiwan", "Pakistan", "Thailand", "Malaysia", "India", "Myanmar", "Sri Lanka", "Poland"],
+        "organization_types": ["Government agencies", "Defense-related organizations", "Media organizations", "Civil society groups"]
+      },
+      "strategic_view": {
+        "general": "公開Web基盤の既知脆弱性を起点に、長期潜伏と情報収集を行う中国関連諜報活動の継続例である。",
+        "geopolitical": "台湾、南アジア、東南アジア、NATO正面を横断する標的選定は、中国の地域安全保障・外交・軍事情報要求と整合する。",
+        "business": "防衛産業、通信、クラウド、行政委託事業者にとって、境界機器とSaaS/ID基盤の監視強化が必要である。",
+        "research_direction": "Earth Alux、ShadowPad利用キャンペーン、Volt Typhoon系の秘匿ネットワーク作戦との重複を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本周辺の政府・防衛分野と同種の標的が含まれており、直接的な波及リスクがある。",
+        "delta_from_previous": "新たにSHADOW-EARTH-053としてクラスタ整理され、アジア政府・防衛分野を横断する活動像が明確化した。"
+      },
+      "related_campaigns": ["China-linked_Covert_Network_Ops", "Earth Alux", "ShadowPad campaigns", "Volt Typhoon"],
+      "related_reports": ["関連既報：Volt Typhoon系の秘匿ネットワーク作戦", "関連既報：ShadowPad利用キャンペーン"],
+      "tags": ["China", "espionage", "ShadowPad", "Exchange", "IIS", "Taiwan", "government", "defense"],
+      "sources": [
+        {
+          "title": "China-Linked Hackers Target Asian Governments, NATO State, Journalists, and Activists",
+          "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-01_glitter_carp_sequin_carp_transnational_repression",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "GLITTER CARP / SEQUIN CARP",
+        "aliases": ["China-linked phishing clusters"],
+        "cluster": "China-linked transnational repression and espionage activity",
+        "suspected_actor": "China-linked threat actor or contractor ecosystem",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked phishing and espionage operators",
+        "infrastructure": ["Phishing infrastructure", "AiTM phishing pages", "Tracking pixels"],
+        "capability": ["AiTM phishing", "OAuth consent abuse", "Credential theft", "Email account compromise"],
+        "victim": ["Journalists", "Activists", "Researchers", "Diaspora communities", "Taiwan semiconductor-related targets"]
+      },
+      "name": "中国関連フィッシングによる記者・活動家標的化",
+      "category": "影響力工作・サイバー諜報",
+      "industry": ["メディア", "市民社会", "研究機関", "半導体"],
+      "region": ["Taiwan", "Hong Kong", "China diaspora", "Global"],
+      "first_seen": "2025-04-01",
+      "last_seen": "2026-05-01",
+      "summary": "中国関連とみられるGLITTER CARP / SEQUIN CARPが、記者、活動家、台湾・香港・ウイグル・チベット関連コミュニティ、半導体関連標的に対し、AiTMフィッシングやOAuth悪用を用いたアカウント侵害を行ったと報じられた。",
+      "executive_summary": "台湾・香港・人権・半導体という政治経済上の重要領域を標的とする中国関連フィッシング活動が更新された。日本の研究者、メディア、半導体関連企業にも類似の標的化リスクがある。",
+      "change_summary": [
+        "Citizen Lab系の分析により、GLITTER CARP / SEQUIN CARPとして標的化活動が整理された。",
+        "台湾、香港、ウイグル、チベット関連コミュニティやICIJ関係者、台湾半導体関連標的が含まれるとされた。",
+        "OAuth同意悪用やAiTMフィッシングなど、MFAを迂回し得る手法が確認された。"
+      ],
+      "operational_relevance": "高リスク個人、研究者、報道関係者、半導体関連企業では、FIDO2、OAuth同意監査、メール転送ルール確認が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "高リスクユーザーにFIDO2またはハードウェアキーを優先導入する。",
+        "OAuthアプリ同意、メール転送、外部ログイン、異常なセッション継続を監査する。",
+        "台湾・香港・人権・半導体関連テーマのなりすましメールを重点監視する。"
+      ],
+      "details": "攻撃は、なりすましメール、AiTMフィッシング、OAuth同意誘導、tracking pixelを組み合わせ、標的のメールアカウントやクラウドアカウントへのアクセスを狙うものとされる。",
+      "actors": [
+        {
+          "name": "GLITTER CARP",
+          "role": "phishing cluster",
+          "country": "China"
+        },
+        {
+          "name": "SEQUIN CARP",
+          "role": "phishing cluster",
+          "country": "China"
+        }
+      ],
+      "ttp": ["T1566", "T1539", "T1528", "T1114", "T1110"],
+      "malware": [],
+      "infrastructure": ["Phishing domains", "AiTM proxy infrastructure", "Tracking pixels"],
+      "targeting": {
+        "sectors": ["Media", "Civil society", "Research", "Semiconductor"],
+        "countries": ["Taiwan", "Hong Kong", "Global"],
+        "organization_types": ["Journalists", "Activists", "Researchers", "Diaspora groups", "Semiconductor-related personnel"]
+      },
+      "strategic_view": {
+        "general": "アカウント侵害を通じた情報収集・監視・抑圧型活動であり、伝統的APTと影響力工作の中間領域に位置付けられる。",
+        "geopolitical": "台湾、香港、人権、半導体という中国の政策関心領域に沿った標的化が示されている。",
+        "business": "半導体産業や研究機関は、標的型フィッシングを単なる個人被害ではなく、知財・サプライチェーン情報収集の前段として扱う必要がある。",
+        "research_direction": "TA416/Mustang Panda、RedDelta、その他中国関連フィッシングクラスタとの重複を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "台湾・香港・半導体をめぐる情報要求と整合し、日本のメディア・研究・産業界にも波及し得る。",
+        "delta_from_previous": "従来の中国関連フィッシング活動が、トランスナショナル抑圧および半導体関連標的化としてより明確に整理された。"
+      },
+      "related_campaigns": ["TA416", "Mustang Panda", "RedDelta", "China-linked_Covert_Network_Ops"],
+      "related_reports": ["関連既報：TA416/Mustang Pandaによる政治・外交標的化"],
+      "tags": ["China", "phishing", "AiTM", "OAuth", "Taiwan", "Hong Kong", "semiconductor", "civil society"],
+      "sources": [
+        {
+          "title": "China-Linked Hackers Target Asian Governments, NATO State, Journalists, and Activists",
+          "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-01_cordial_spider_snarky_spider_saas_extortion",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Cordial Spider / Snarky Spider SaaS extortion activity",
+        "aliases": ["CL-CRI-1116"],
+        "cluster": "Cybercrime cluster targeting SaaS and SSO environments",
+        "suspected_actor": "Financially motivated cybercrime actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Cordial Spider / Snarky Spider and related cybercrime clusters",
+        "infrastructure": ["AiTM phishing infrastructure", "Vishing operations", "Compromised SaaS accounts"],
+        "capability": ["Vishing", "SSO credential theft", "MFA device registration", "SaaS data exfiltration", "Extortion"],
+        "victim": ["Retail companies", "Hospitality companies", "SaaS-heavy enterprises"]
+      },
+      "name": "Vishing＋SSO AiTMによる高速SaaS恐喝キャンペーン",
+      "category": "サイバー犯罪",
+      "industry": ["小売", "ホスピタリティ", "SaaS利用企業", "エンタープライズ"],
+      "region": ["United States", "Global"],
+      "first_seen": "2025-10-01",
+      "last_seen": "2026-05-01",
+      "summary": "Cordial Spider / Snarky Spider等の犯罪グループが、Vishing、AiTMフィッシング、SSO認証情報窃取、MFAデバイス登録を組み合わせ、Google Workspace、SharePoint、Salesforce、HubSpot等からデータを窃取し恐喝する活動が報じられた。",
+      "executive_summary": "犯罪者の主戦場が端末侵害からID基盤・SaaS侵害へ移行している。日本企業でもEDR中心の監視だけでは検知困難であり、IdP、MFA、SaaSログの統合監視が急務である。",
+      "change_summary": [
+        "CrowdStrike系の分析として、SaaS/SSOを狙う高速恐喝モデルが整理された。",
+        "CL-CRI-1116は2026年2月以降、小売・ホスピタリティ分野を標的化しているとされた。",
+        "Google Workspace、SharePoint、Salesforce、HubSpot等の業務SaaSからの情報窃取が重視された。"
+      ],
+      "operational_relevance": "Okta、Entra ID、Google Workspace、Salesforce等の管理ログを、侵害検知の一次ソースとして扱う必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "MFA再登録、新規デバイス登録、SSOセッション異常、Impossible Travelを監視する。",
+        "Google Workspace、SharePoint、Salesforce、HubSpot等の大量ダウンロードを検知する。",
+        "メール削除ルール、転送ルール、OAuthアプリ追加を監査する。"
+      ],
+      "details": "攻撃者は電話を用いたソーシャルエンジニアリングでユーザーを誘導し、AiTMフィッシングでSSO認証情報やセッションを取得し、MFAデバイス登録やSaaS内データ窃取を行う。",
+      "actors": [
+        {
+          "name": "Cordial Spider",
+          "role": "cybercrime group",
+          "country": "Unknown"
+        },
+        {
+          "name": "Snarky Spider",
+          "role": "cybercrime group",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1566.004", "T1556", "T1098", "T1114.003", "T1530"],
+      "malware": [],
+      "infrastructure": ["AiTM phishing sites", "Compromised SaaS accounts", "Vishing call operations"],
+      "targeting": {
+        "sectors": ["Retail", "Hospitality", "Enterprise SaaS users"],
+        "countries": ["United States", "Global"],
+        "organization_types": ["Enterprises using SSO and SaaS platforms"]
+      },
+      "strategic_view": {
+        "general": "ランサムウェア暗号化に依存しない、SaaSデータ窃取型の恐喝モデルが拡大している。",
+        "geopolitical": "国家系ではないが、重要産業や大規模個人情報を扱う企業への影響は社会的に大きい。",
+        "business": "企業の防御投資はEDR・境界防御から、ID脅威検知、SaaSセキュリティ、MFAガバナンスへ拡張する必要がある。",
+        "research_direction": "The Com関連エコシステム、Scattered Spider系ソーシャルエンジニアリングとの重複を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本企業でも広く利用されるSaaS/SSOが主標的であり、業種横断的な被害拡大リスクが高い。",
+        "delta_from_previous": "従来のランサムウェア中心の恐喝から、SSO/SaaS侵害を中核とする高速恐喝モデルとして整理された。"
+      },
+      "related_campaigns": ["Scattered Spider", "The Com", "SaaS extortion campaigns"],
+      "related_reports": ["関連既報：Scattered Spider系ソーシャルエンジニアリング事案"],
+      "tags": ["cybercrime", "vishing", "AiTM", "SSO", "MFA", "SaaS", "extortion"],
+      "sources": [
+        {
+          "title": "Cybercrime Groups Using Vishing and SSO Abuse in Rapid SaaS Extortion Attacks",
+          "url": "https://thehackernews.com/2026/05/cybercrime-groups-using-vishing-and-sso.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-01_france_titres_ants_data_breach_arrest",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "France Titres / ANTS data breach",
+        "aliases": ["ANTS breach", "France Titres breach"],
+        "cluster": "Government portal data breach",
+        "suspected_actor": "breach3d",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Cybercriminal actor using the alias breach3d",
+        "infrastructure": ["Compromised government portal environment", "Underground forum sales channel"],
+        "capability": ["Unauthorized access", "Data theft", "Data sale attempt"],
+        "victim": ["France Titres", "ANTS portal users", "French citizens"]
+      },
+      "name": "France Titres / ANTS データ侵害の容疑者拘束",
+      "category": "政府機関データ侵害",
+      "industry": ["政府機関", "行政サービス"],
+      "region": ["France"],
+      "first_seen": "2026-04-13",
+      "last_seen": "2026-05-01",
+      "summary": "フランス政府文書発行機関France Titres / ANTSのデータ侵害について、15歳の容疑者が拘束されたと報じられた。影響アカウント数は約1,170万とされる。",
+      "executive_summary": "行政ポータルの大量PII漏洩事案が捜査段階に進展した。政府ID・行政サービス系データは、詐欺、偽造、標的型フィッシング、影響工作の基盤になり得る。",
+      "change_summary": [
+        "4月に公表されたFrance Titres / ANTS侵害について、15歳容疑者の拘束が報じられた。",
+        "攻撃者側の販売主張は最大1,900万件だったが、当局確認値は約1,170万アカウントとされた。",
+        "被害情報には氏名、メール、生年月日、住所、電話番号等が含まれるとされた。"
+      ],
+      "operational_relevance": "政府系ポータル、ID管理、行政委託先では、大量PII流出後の二次被害監視と不正ログイン対策が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "政府・行政系ポータルで不審ログイン、API利用、権限昇格の履歴を確認する。",
+        "漏洩PIIを利用したフィッシング、なりすまし、詐欺の注意喚起を行う。",
+        "行政ID系システムでアクセス権限とログ保持を見直す。"
+      ],
+      "details": "2026年4月13日に不審活動が検知され、4月20日に公表、5月1日に容疑者拘束が報じられた。具体的な侵入経路やCVEは未公表。",
+      "actors": [
+        {
+          "name": "breach3d",
+          "role": "suspected actor alias",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1190", "T1005", "T1041"],
+      "malware": [],
+      "infrastructure": ["France Titres / ANTS portal", "Underground forum"],
+      "targeting": {
+        "sectors": ["Government", "Administrative services"],
+        "countries": ["France"],
+        "organization_types": ["Government agencies", "Citizen service portals"]
+      },
+      "strategic_view": {
+        "general": "行政サービスのデータ侵害は、単なる情報漏洩にとどまらず、長期的な詐欺・偽造・標的型攻撃の材料となる。",
+        "geopolitical": "国家系事案ではないが、行政IDや市民データの信頼性を損なう点で、政府のデジタル化政策に影響する。",
+        "business": "行政DXやID管理を担う事業者には、PII保護、監査ログ、委託先管理の強化が求められる。",
+        "research_direction": "販売主張件数と当局確認件数の差分、侵入経路、二次被害の有無を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "行政ポータルからの大規模PII流出は、二次被害や政府デジタルサービスへの信頼低下に直結する。",
+        "delta_from_previous": "被害公表段階から、容疑者拘束および影響件数の整理段階へ進展した。"
+      },
+      "related_campaigns": ["Government portal data breaches"],
+      "related_reports": ["関連既報：France Titres / ANTS データ侵害"],
+      "tags": ["France", "government", "data breach", "PII", "ANTS", "France Titres"],
+      "sources": [
+        {
+          "title": "15-year-old detained over French govt agency data breach",
+          "url": "https://www.bleepingcomputer.com/news/security/15-year-old-detained-over-french-govt-agency-data-breach/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-01_blackcat_alphv_insider_sentencing",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "BlackCat / ALPHV insider-related ransomware case",
+        "aliases": ["ALPHV", "BlackCat", "Noberus"],
+        "cluster": "Ransomware-as-a-Service ecosystem",
+        "suspected_actor": "Former cybersecurity and ransomware negotiation professionals",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Former incident response and ransomware negotiation professionals using ALPHV/BlackCat",
+        "infrastructure": ["ALPHV/BlackCat ransomware infrastructure", "Victim networks", "Cryptocurrency payment channels"],
+        "capability": ["Ransomware deployment", "Data theft", "Extortion", "Cryptocurrency laundering"],
+        "victim": ["Medical device company", "Pharmaceutical company", "Engineering company", "Drone manufacturer"]
+      },
+      "name": "BlackCat/ALPHV関係者として元IR・交渉担当者に実刑",
+      "category": "サイバー犯罪・内部者脅威",
+      "industry": ["サイバーセキュリティ", "医療", "製薬", "工学", "ドローン"],
+      "region": ["United States"],
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-05-01",
+      "summary": "米司法省は、BlackCat/ALPHVランサムウェアを用いて複数企業を攻撃した米国人2名に各4年の実刑が言い渡されたと発表した。被告には元IR担当者、元ランサム交渉担当者が含まれる。",
+      "executive_summary": "防御側専門家が攻撃側に転じた異例の内部者脅威事案である。IR、ランサム交渉、保険、被害企業情報へのアクセス管理が新たなリスク領域として浮上した。",
+      "change_summary": [
+        "2023年のBlackCat/ALPHV攻撃について、2026年4月30日米国時間に判決が出た。",
+        "Ryan GoldbergおよびKevin Martinに各4年の実刑が科された。",
+        "医療機器企業が約127万ドルを支払った事案を含む複数被害が確認された。"
+      ],
+      "operational_relevance": "IR企業、ランサム交渉会社、保険関連事業者では、顧客情報、保険限度額、攻撃者交渉情報へのアクセス統制が重要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "IR・交渉・保険関連の機微情報へのアクセス権限を最小化する。",
+        "退職者・委託先・交渉担当者のログ監査と職務分掌を強化する。",
+        "ランサム対応プロセスに内部者脅威シナリオを組み込む。"
+      ],
+      "details": "米司法省によれば、被告らはALPHV/BlackCatランサムウェアを用いて複数の米国企業を攻撃し、身代金支払いや恐喝を行った。防御側専門職の知識が攻撃に悪用された点が特徴。",
+      "actors": [
+        {
+          "name": "Ryan Goldberg",
+          "role": "defendant",
+          "country": "United States"
+        },
+        {
+          "name": "Kevin Martin",
+          "role": "defendant",
+          "country": "United States"
+        },
+        {
+          "name": "ALPHV/BlackCat",
+          "role": "ransomware platform",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1486", "T1041", "T1657", "T1588", "T1490"],
+      "malware": ["ALPHV", "BlackCat"],
+      "infrastructure": ["Ransomware infrastructure", "Cryptocurrency wallets"],
+      "targeting": {
+        "sectors": ["Healthcare", "Pharmaceutical", "Engineering", "Drone manufacturing"],
+        "countries": ["United States"],
+        "organization_types": ["Private companies"]
+      },
+      "strategic_view": {
+        "general": "ランサムウェア・エコシステムにおける内部者脅威と専門職倫理の問題を示す事案である。",
+        "geopolitical": "国家系ではないが、医療・製造分野への攻撃は社会機能に影響し得る。",
+        "business": "IR、交渉、保険、法務を含むランサム対応市場では、情報管理と利益相反管理がより重要になる。",
+        "research_direction": "BlackCat/ALPHV解体後の関係者移行先、RaaSエコシステム、内部者リスクを継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "防御側専門家が攻撃者化するリスクを具体的に示し、サイバーセキュリティ業界自身のガバナンス課題を浮き彫りにした。",
+        "delta_from_previous": "捜査・有罪答弁段階から、実刑判決という司法上の進展があった。"
+      },
+      "related_campaigns": ["ALPHV", "BlackCat", "Ransomware-as-a-Service"],
+      "related_reports": ["関連既報：BlackCat/ALPHVランサムウェア事案"],
+      "tags": ["ransomware", "BlackCat", "ALPHV", "insider threat", "cybercrime", "DOJ"],
+      "sources": [
+        {
+          "title": "Two Americans Who Attacked Multiple U.S. Victims Using ALPHV/BlackCat Ransomware Sentenced",
+          "url": "https://www.justice.gov/opa/pr/two-americans-who-attacked-multiple-us-victims-using-alphv-blackcat-ransomware-sentenced",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-01_cve_2026_31431_linux_kernel_kev",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "CVE-2026-31431 Linux Kernel KEV",
+        "aliases": ["Linux Kernel Copy Fail"],
+        "cluster": "Known exploited vulnerability",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor exploiting Linux kernel vulnerability",
+        "infrastructure": ["Linux servers", "Kubernetes nodes", "CI/CD runners", "Shared hosting environments"],
+        "capability": ["Local privilege escalation", "Kernel vulnerability exploitation"],
+        "victim": ["Government systems", "Cloud environments", "Linux-based enterprise infrastructure"]
+      },
+      "name": "Linux Kernel CVE-2026-31431 CISA KEV追加",
+      "category": "既知悪用脆弱性",
+      "industry": ["政府機関", "クラウド", "IT", "重要インフラ"],
+      "region": ["United States", "European Union", "Global"],
+      "first_seen": "2026-04-30",
+      "last_seen": "2026-05-01",
+      "summary": "CISAはLinux KernelのCVE-2026-31431をKnown Exploited Vulnerabilities Catalogに追加した。CERT-EUも同脆弱性を高リスクとして注意喚起している。",
+      "executive_summary": "Linux基盤の既知悪用脆弱性がKEVに追加された。Kubernetes、CI/CD、共有Linuxホストなど、信頼できないワークロードを扱う環境では優先対応が必要である。",
+      "change_summary": [
+        "2026年5月1日にCISA KEVへ追加された。",
+        "CERT-EUは2026年4月30日に高リスクとして注意喚起した。",
+        "KubernetesノードやCI/CDランナー等のクラウド・開発基盤への影響が重視される。"
+      ],
+      "operational_relevance": "Linuxサーバ、コンテナ基盤、CI/CDランナー、共有ホスト環境では、権限昇格後の横展開リスクを考慮して優先パッチまたは緩和策を適用すべき。",
+      "urgency": "high",
+      "recommended_action": [
+        "CVE-2026-31431の影響を受けるLinuxカーネルバージョンを棚卸しする。",
+        "Kubernetesノード、CI/CDランナー、共有Linuxホストを優先してパッチまたは緩和する。",
+        "ローカル権限昇格、異常なroot権限取得、コンテナ脱出疑いのログを確認する。"
+      ],
+      "details": "Linux Kernelの不適切なリソース移転に関する脆弱性とされ、悪用が確認されたためCISA KEVに追加された。攻撃主体や具体的な悪用事例の詳細は未詳。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "exploiting actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1068"],
+      "malware": [],
+      "infrastructure": ["Linux kernel", "Kubernetes nodes", "CI/CD runners", "Cloud Linux servers"],
+      "targeting": {
+        "sectors": ["Government", "Cloud", "IT", "Critical infrastructure"],
+        "countries": ["United States", "European Union", "Global"],
+        "organization_types": ["Linux infrastructure operators", "Cloud service users", "DevOps environments"]
+      },
+      "strategic_view": {
+        "general": "Linuxカーネルの既知悪用脆弱性は、クラウド・コンテナ・開発基盤全体に影響し得る。",
+        "geopolitical": "政府機関向けKEV追加は、国家系・犯罪系双方による悪用可能性を念頭に置いた防御優先度の明確化である。",
+        "business": "クラウド利用企業、SaaS事業者、CI/CD基盤を持つ企業では、パッチSLAと例外管理の見直しが必要。",
+        "research_direction": "悪用主体、PoC公開状況、主要ディストリビューションの修正状況、コンテナ環境での影響を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "Linux基盤はクラウド・開発・重要インフラに広く使われており、権限昇格が成立すると侵害後活動の深刻度が上がる。",
+        "delta_from_previous": "CERT-EU注意喚起に続き、CISA KEV追加により優先対応対象として明確化された。"
+      },
+      "related_campaigns": ["Known Exploited Vulnerabilities", "Linux privilege escalation exploitation"],
+      "related_reports": ["関連既報：CISA KEV追加事案"],
+      "tags": ["CVE-2026-31431", "Linux", "KEV", "CISA", "CERT-EU", "privilege escalation", "Kubernetes"],
+      "sources": [
+        {
+          "title": "CISA Adds One Known Exploited Vulnerability to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/05/01/cisa-adds-one-known-exploited-vulnerability-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-05-01"
+        },
+        {
+          "title": "High Vulnerability in the Linux Kernel ('Copy Fail')",
+          "url": "https://cert.europa.eu/publications/security-advisories/2026-005/",
+          "publisher": "CERT-EU",
+          "published_at": "2026-04-30"
+        }
+      ]
+    }
+  ]
+}

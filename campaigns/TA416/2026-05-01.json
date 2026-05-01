@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-01",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta", "Earth Preta"],
+    "cluster": "China-aligned cyber espionage cluster",
+    "suspected_actor": "China-aligned threat actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月1日時点で、TA416について当日の新規大型公表は確認されない。ただし、4月に公表された欧州政府・外交機関への標的化再開、およびインド金融・韓国外交政策圏へのLotusLite関連活動は、日本の外交・金融・政策研究分野にも波及し得る重要な継続監視対象である。",
+  "change_summary": [
+    "5月1日の新規大型公表は確認せず。",
+    "4月1日にProofpointが、TA416による欧州政府・外交機関標的化の再開を公表。",
+    "4月下旬には、Mustang Panda/Earth Preta系活動としてインド金融機関、韓国外交政策圏へのLotusLite配布が報じられた。"
+  ],
+  "operational_relevance": "日本の外交、政府、金融、政策研究機関では、欧州・NATO・インド・韓国関連テーマを悪用したフィッシングとマルウェア配布を監視すべき。",
+  "urgency": "medium",
+  "recommended_action": [
+    "外交・政策関連組織でweb bug、標的型メール、添付ファイル、クラウドリンクを監視する。",
+    "LotusLite、PlugX、DLLサイドローディング、圧縮ファイル経由の配送を検知対象に含める。",
+    "欧州、NATO、インド、韓国、台湾関連テーマのなりすましを重点確認する。"
+  ],
+  "items": [
+    {
+      "id": "2026-05-01_ta416_europe_diplomatic_espionage_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416による欧州政府・外交機関標的化再開の継続監視",
+      "category": "国家支援型サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "NATO", "India", "South Korea", "Asia-Pacific"],
+        "industries": ["Government", "Diplomacy", "Finance", "Policy research"],
+        "organization_types": ["Government agencies", "Diplomatic missions", "Financial institutions", "Think tanks"]
+      },
+      "first_seen": "2025-06",
+      "last_seen": "2026-05-01",
+      "activity_summary": "TA416は、欧州政府・外交機関を再び標的化し、web bugやマルウェア配送を含む複数波の諜報活動を行っている。関連するMustang Panda/Earth Preta系活動では、インド金融機関や韓国外交政策圏へのLotusLite配布も報じられている。",
+      "activity_details": "5月1日時点で当日の新規大型公表はないが、4月に確認された欧州正面への復帰と、アジア金融・外交政策圏への標的拡大は、TA416監視上の重要な変化である。",
+      "ttp": ["T1566", "T1204", "T1059", "T1574.002", "T1105", "T1114"],
+      "malware_and_tools": ["LotusLite", "PlugX", "Web bug"],
+      "infrastructure": ["Phishing infrastructure", "Malware delivery infrastructure", "Compromised or actor-controlled servers"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は外交・政策領域を中心に、中国の地政学的関心に沿った標的化を継続している。",
+        "geopolitical": "欧州・NATO、中国EU関係、インド、韓国、台湾周辺の政策情報収集と整合する。",
+        "business": "金融機関や政策研究組織も標的化されており、政府機関以外の民間・準公共組織も監視対象となる。",
+        "research_direction": "RedDelta、Earth Preta、Mustang Panda、LotusLite活動との重複を整理する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "TA416は日本の外交・安全保障・金融・研究分野と重なる標的領域を継続的に狙っている。",
+        "delta_from_previous": "欧州正面への活動再開に加え、インド金融・韓国外交政策圏への標的化が確認され、標的領域が拡張している。"
+      },
+      "related_campaigns": ["Mustang Panda", "RedDelta", "Earth Preta", "China-linked_Covert_Network_Ops"],
+      "tags": ["TA416", "Mustang Panda", "China", "espionage", "Europe", "NATO", "LotusLite", "diplomacy"],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "中國駭客Mustang Panda針對印度金融機構、韓國外交政策圈，散布後門程式LotusLite",
+          "url": "https://www.ithome.com.tw/news/175229",
+          "publisher": "iThome",
+          "published_at": "2026-04-23"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / Mustang Panda",
+        "infrastructure": ["Phishing infrastructure", "Malware delivery infrastructure"],
+        "capability": ["Spear-phishing", "Web bug", "Malware delivery", "DLL side-loading", "Espionage"],
+        "victim": ["European diplomatic missions", "Government agencies", "Financial institutions", "Policy research organizations"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-01",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Midnight Blizzard", "Cozy Bear", "NOBELIUM", "The Dukes"],
+    "cluster": "Russia SVR-linked cyber espionage cluster",
+    "suspected_actor": "Russian SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "2026年5月1日時点で、APT29について当日の新規大型インシデントは確認されない。引き続き、政府、外交、防衛、研究、ITサービス、クラウド/ID基盤に対する長期潜伏型諜報活動を主要リスクとして監視する。",
+  "change_summary": [
+    "5月1日の新規大規模公表は確認せず。",
+    "直近の公開情報では、APT29のクラウド、ID、正規ツール悪用、マルウェアレス化傾向の評価が継続。",
+    "RDPファイル悪用、OAuth/クラウドアクセス、サプライチェーン型侵入を引き続き重要TTPとして扱う。"
+  ],
+  "operational_relevance": "日本の政府、外交、防衛、研究、ITサービス事業者は、Entra ID、OAuthアプリ、RDPファイル、クラウド管理者操作、委託先アクセスを重点監視すべき。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "クラウドID、OAuthアプリ、サービスプリンシパル、条件付きアクセスの監査を継続する。",
+    "RDPファイル、クラウドストレージ共有、正規管理ツール悪用を検知対象に含める。",
+    "政府・外交・研究機関向けの長期潜伏型侵入を前提にログ保持期間を見直す。"
+  ],
+  "items": [
+    {
+      "id": "2026-05-01_apt29_cloud_identity_espionage_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29によるクラウド・ID基盤標的化の継続監視",
+      "category": "国家支援型サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "United States", "Japan", "Global"],
+        "industries": ["Government", "Diplomacy", "Defense", "Research", "IT services"],
+        "organization_types": ["Government agencies", "Embassies", "Think tanks", "Research institutions", "Cloud service users"]
+      },
+      "first_seen": "2024-10",
+      "last_seen": "2026-05-01",
+      "activity_summary": "APT29は、クラウド/ID基盤、RDPファイル、正規ツール、サプライチェーン関係を悪用する長期諜報活動を継続していると評価される。",
+      "activity_details": "5月1日時点で当日の新規インシデントは確認されないが、過去の大規模RDPファイル悪用やクラウドID標的化の延長線上で、政府・研究・防衛関連組織への潜伏型侵入リスクは継続する。",
+      "ttp": ["T1566", "T1021.001", "T1078", "T1098", "T1528", "T1114", "T1550"],
+      "malware_and_tools": ["RDP configuration files", "Legitimate cloud administration tools"],
+      "infrastructure": ["Cloud identity infrastructure", "Compromised accounts", "Phishing infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29はマルウェア依存度を下げ、クラウド、ID、正規管理機能を利用した検知困難な侵入へ移行している。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求と連動し、欧米、日本、同盟国の政府・研究機関が標的となり得る。",
+        "business": "クラウド利用企業やMSPは、顧客横断的な侵害経路として利用される可能性がある。",
+        "research_direction": "RDPファイル悪用、OAuth同意悪用、サービスプリンシパル悪用、委託先経由侵入を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本を含む同盟国の政府・研究・防衛分野に対する潜伏型諜報リスクが継続している。",
+        "delta_from_previous": "5月1日の新規事案はないが、クラウド/ID基盤を主戦場とする継続脅威として評価を維持する。"
+      },
+      "related_campaigns": ["Midnight Blizzard", "NOBELIUM", "Cozy Bear"],
+      "tags": ["APT29", "Russia", "SVR", "Midnight Blizzard", "cloud", "identity", "RDP", "espionage"],
+      "sources": [
+        {
+          "title": "APT29 Midnight Blizzard (NOBELIUM)",
+          "url": "https://www.cyberbit.com/campaign/midnight-blizzard-nobellium/",
+          "publisher": "Cyberbit",
+          "published_at": "2026-04-29"
+        },
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Russian SVR-linked actor",
+        "infrastructure": ["Cloud identity infrastructure", "Compromised accounts", "Phishing infrastructure"],
+        "capability": ["Spear-phishing", "Cloud identity abuse", "OAuth abuse", "RDP file abuse", "Long-term espionage"],
+        "victim": ["Government", "Diplomacy", "Defense", "Research", "IT services"]
+      }
+    }
+  ]
+}

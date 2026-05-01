@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-01",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Pawn Storm", "Strontium"],
+    "cluster": "Russia GRU-linked cyber espionage cluster",
+    "suspected_actor": "Russian GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月1日時点で、APT28について当日の新規大型公表は確認されない。ただし、4月上旬に公表されたSOHOルータ悪用・DNSハイジャック作戦は継続的な監視対象であり、政府、軍事、重要インフラ、ウクライナ支援関連組織への認証情報窃取リスクは高い。",
+  "change_summary": [
+    "5月1日の新規インシデントとしては確認せず。",
+    "4月7日にNCSC、米司法省等が公表したルータ悪用・DNSハイジャック作戦の継続評価。",
+    "SOHO/境界機器を悪用したAdversary-in-the-Middle型の認証情報窃取が主要リスク。"
+  ],
+  "operational_relevance": "日本の政府、防衛、重要インフラ、ウクライナ支援関連組織では、SOHOルータ、拠点ルータ、VPN、DNS設定の監査を継続すべき。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHOルータ、拠点ルータ、VPN機器のファームウェアと管理画面公開状況を確認する。",
+    "DHCP DNS設定の改変、不審DNSリゾルバ、認証情報窃取兆候を監視する。",
+    "政府・防衛・重要インフラ関係者に対し、MFAと端末側DNS検証を徹底する。"
+  ],
+  "items": [
+    {
+      "id": "2026-05-01_apt28_router_dns_hijacking_continued_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28によるSOHOルータ悪用・DNSハイジャック作戦の継続監視",
+      "category": "国家支援型サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "Ukraine", "United States", "Global"],
+        "industries": ["Government", "Defense", "Critical infrastructure", "Military support ecosystem"],
+        "organization_types": ["Government agencies", "Military-related organizations", "Critical infrastructure operators", "SOHO router users"]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-05-01",
+      "activity_summary": "APT28は脆弱なSOHOルータ等を侵害し、DNS設定改変を通じてAdversary-in-the-Middle攻撃を実施し、パスワードやOAuthトークンを窃取する作戦を継続していると評価される。",
+      "activity_details": "4月上旬にNCSC、米司法省等がAPT28のルータ悪用作戦を公表した。5月1日時点で当日の新規公表はないが、侵害済みルータを用いる秘匿インフラ型作戦として継続監視が必要。",
+      "ttp": ["T1190", "T1557", "T1556", "T1071", "T1584", "T1608"],
+      "malware_and_tools": ["Compromised routers", "DNS hijacking infrastructure"],
+      "infrastructure": ["Compromised SOHO routers", "TP-Link routers", "MikroTik routers", "Malicious DNS resolvers"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28はエンドポイント侵害だけでなく、ネットワーク機器を中間者攻撃基盤として利用している。",
+        "geopolitical": "ウクライナ支援国、NATO、欧州政府、軍事関連組織への情報収集に資する作戦である。",
+        "business": "企業・政府の支店、在宅勤務、委託先環境のSOHO機器が、組織本体の認証情報窃取経路になり得る。",
+        "research_direction": "ルータ悪用、DNSハイジャック、OAuthトークン窃取の組み合わせを継続的に追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "境界外のSOHO機器を起点に、政府・防衛・重要インフラ関係者の認証情報が窃取される可能性がある。",
+        "delta_from_previous": "5月1日の新規大規模更新はないが、4月公表事案の継続監視対象として評価を維持する。"
+      },
+      "related_campaigns": ["Pawn Storm", "Forest Blizzard", "Russia-linked router exploitation"],
+      "tags": ["APT28", "Russia", "GRU", "SOHO router", "DNS hijacking", "AitM", "credential theft"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "UK NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Russian GRU-linked actor",
+        "infrastructure": ["Compromised SOHO routers", "Malicious DNS infrastructure"],
+        "capability": ["DNS hijacking", "Adversary-in-the-Middle", "Credential theft", "OAuth token theft"],
+        "victim": ["Government", "Defense", "Critical infrastructure", "Ukraine support ecosystem"]
+      }
+    }
+  ]
+}
