@@ -1,0 +1,75 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "The Dukes", "NOBELIUM", "Midnight Blizzard"],
+    "cluster": "Russia-linked foreign intelligence cyber espionage",
+    "suspected_actor": "SVR-linked Russian state actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-06_apt29_no_major_new_public_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29の継続監視：クラウド・ID基盤侵入リスクの維持",
+      "category": "国家背景のサイバー諜報",
+      "targeting": {
+        "regions": ["North America", "Europe", "Global"],
+        "industries": ["government", "technology", "cloud services", "diplomacy"],
+        "organization_types": ["government agencies", "cloud tenants", "technology firms", "policy institutions"]
+      },
+      "first_seen": "2026-05-02",
+      "last_seen": "2026-05-06",
+      "activity_summary": "対象期間中、APT29に直接帰属する重大な新規公開事案は確認しなかった。ただし、クラウド、ID、OAuth、サービスアカウント悪用を中心とする長期潜伏型リスクは継続する。",
+      "activity_details": "5月2〜6日の主な新規事案はPAN-OSゼロデイ、Canvas LMS侵害、MuddyWater偽装ランサムウェア等であり、APT29への直接帰属は確認されない。APT29については、過去のMicrosoft等への侵入やクラウドID基盤悪用の延長として監視を継続する。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1098 Account Manipulation",
+        "T1528 Steal Application Access Token",
+        "T1550 Use Alternate Authentication Material",
+        "T1114 Email Collection"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["cloud identity infrastructure", "OAuth applications", "compromised accounts"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は新規公表がない場合でも、クラウド・ID基盤を狙う長期潜伏型脅威として高い重要性を維持する。",
+        "geopolitical": "ロシア対外情報庁系の外交・政策・技術情報収集と整合する。",
+        "business": "日本企業ではMicrosoft 365、IdP、SaaS連携、特権アカウント管理が主要リスク領域となる。",
+        "research_direction": "クラウド監査ログ、OAuthアプリ、サービスプリンシパル、長期認証トークン悪用の観測を継続する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "新規公開事案はないが、APT29はクラウド・ID基盤侵害において最重要級の継続脅威である。",
+        "delta_from_previous": "5月2〜6日は評価更新のみ。新規のAPT29帰属事案は確認なし。"
+      },
+      "related_campaigns": ["Midnight Blizzard cloud intrusion", "Russia-linked cyber espionage"],
+      "tags": ["APT29", "Russia", "SVR", "cloud", "identity", "assessment"],
+      "sources": [
+        {
+          "title": "Microsoft Threat Actor Naming: Midnight Blizzard",
+          "url": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-threat-actor-naming",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-06"
+        }
+      ]
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "5月2〜6日の対象期間にAPT29の重大な新規公開事案は確認されない。一方で、クラウド・ID基盤、OAuth、サービスアカウントを狙う長期潜伏型リスクは継続しており、日本組織でも監視優先度は維持すべきである。",
+  "change_summary": [
+    "対象期間中、APT29への直接帰属が確認された新規重大事案はなし。",
+    "クラウド・ID基盤リスクに関する評価は継続。",
+    "Microsoft 365、IdP、OAuthアプリ、サービスアカウント監視の重要性に変化なし。"
+  ],
+  "operational_relevance": "APT29は境界防御よりもクラウド・ID監視の成熟度を問うため、日本企業ではM365監査ログ、OAuthアプリ、特権IDの監視を継続すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Microsoft 365とIdPの監査ログを継続確認する。",
+    "OAuthアプリ、サービスプリンシパル、長期トークンを棚卸しする。",
+    "特権アカウントの不審な認証・権限変更を監視する。"
+  ]
+}

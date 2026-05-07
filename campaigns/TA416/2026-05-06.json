@@ -1,0 +1,80 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta", "Bronze President"],
+    "cluster": "China-linked strategic espionage",
+    "suspected_actor": "China-linked state-sponsored actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-06_ta416_no_direct_new_update_shadow_earth_overlap",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416継続監視：SHADOW-EARTH-053との隣接領域に注意",
+      "category": "国家背景のサイバー諜報",
+      "targeting": {
+        "regions": ["Taiwan", "Asia", "Europe"],
+        "industries": ["government", "defense", "diplomacy", "civil society"],
+        "organization_types": ["government agencies", "NGOs", "policy institutions", "diaspora-related organizations"]
+      },
+      "first_seen": "2026-05-02",
+      "last_seen": "2026-05-06",
+      "activity_summary": "対象期間中、TA416に直接帰属する重大な新規公開事案は確認しなかった。一方、中国関連SHADOW-EARTH-053の活動が公表され、台湾・アジア政府・NATO国等を狙う中国系諜報活動として、TA416と隣接する監視領域が拡大した。",
+      "activity_details": "SHADOW-EARTH-053はTA416と同一とは評価しないが、台湾、アジア政府、防衛、ジャーナリスト、活動家等を対象とする点で、TA416監視と併走させる価値がある。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1204 User Execution",
+        "T1190 Exploit Public-Facing Application",
+        "T1505.003 Web Shell"
+      ],
+      "malware_and_tools": ["ShadowPad", "Godzilla", "Noodle RAT"],
+      "infrastructure": ["Microsoft Exchange", "IIS", "web shells", "remote access tools"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416自体の新規公表はないが、中国関連の台湾・アジア政府標的化は継続しており、監視対象の周辺クラスターを広げる必要がある。",
+        "geopolitical": "台湾、南アジア、NATO国をまたぐ標的化は、中国の外交・安全保障情報収集と整合する。",
+        "business": "日本では台湾関連事業、防衛産業、シンクタンク、大学研究者が類似標的となり得る。",
+        "research_direction": "TA416、SHADOW-EARTH-053、Earth Alux、REF7707、ShadowPad系活動の重複と差分を整理する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "TA416に直接帰属する新規事案ではないが、中国関連諜報活動の台湾・アジア政府標的化が継続している。",
+        "delta_from_previous": "TA416単独ではなく、China-linked_Covert_Network_Opsとの隣接領域を含めて監視する必要が強まった。"
+      },
+      "related_campaigns": ["SHADOW-EARTH-053", "China-linked_Covert_Network_Ops", "ShadowPad-related activity"],
+      "tags": ["TA416", "Mustang Panda", "China", "Taiwan", "ShadowPad", "assessment"],
+      "sources": [
+        {
+          "title": "China-Linked Hackers Target Asian Governments, NATO State, Journalists, and Activists",
+          "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked espionage actor",
+        "infrastructure": ["Exchange servers", "IIS servers", "web shells", "remote access tooling"],
+        "capability": ["phishing", "public-facing application exploitation", "ShadowPad-related tooling", "remote access"],
+        "victim": ["Taiwan-related targets", "Asian government entities", "journalists", "activists"]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "5月2〜6日にTA416へ直接帰属する重大な新規公開事案は確認されない。ただし、SHADOW-EARTH-053として公表された中国関連活動は、台湾・アジア政府・NATO国を対象としており、TA416監視と隣接する中国系諜報活動として重要である。",
+  "change_summary": [
+    "TA416単体の新規重大事案はなし。",
+    "SHADOW-EARTH-053の公表により、中国関連の台湾・アジア政府標的化の監視重要度が上昇。",
+    "TA416とは別クラスターとして扱いつつ、関連監視対象に含める。"
+  ],
+  "operational_relevance": "日本の台湾関連業務、防衛・外交・シンクタンク・大学研究者は、中国関連クラスターの横断的監視対象として扱うべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "TA416とSHADOW-EARTH-053を混同せず、関連クラスターとして並列監視する。",
+    "台湾・中国・南アジア関連業務を持つ組織のメール・公開サーバログを確認する。",
+    "ShadowPad、Godzilla、Noodle RAT関連IOCを継続確認する。"
+  ]
+}

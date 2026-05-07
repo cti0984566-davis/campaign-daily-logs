@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["China-linked covert network operations", "ShadowPad-related China-linked operations"],
+    "cluster": "China-linked covert access and espionage operations",
+    "suspected_actor": "China-linked state-sponsored actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-06_china_linked_shadow_earth_053_asia_targets",
+      "type": "campaign_activity",
+      "status": "新規",
+      "name": "SHADOW-EARTH-053によるアジア政府・台湾・NATO国等への諜報作戦",
+      "category": "国家背景のサイバー諜報／秘匿ネットワーク作戦",
+      "targeting": {
+        "regions": ["Asia", "Taiwan", "Europe"],
+        "industries": ["government", "defense", "media", "civil society"],
+        "organization_types": ["government agencies", "defense-related organizations", "journalists", "activists"]
+      },
+      "first_seen": "2024-12-01",
+      "last_seen": "2026-05-01",
+      "activity_summary": "Trend MicroがSHADOW-EARTH-053として追跡する中国関連クラスターが、アジア政府、台湾関連標的、ジャーナリスト、活動家、NATO国を対象に諜報活動を行っていたと報じられた。",
+      "activity_details": "Microsoft ExchangeやIISのN-day脆弱性を悪用し、Godzilla web shell、ShadowPad、Noodle RAT、AnyDesk等を用いた侵入・維持・情報窃取が行われたとされる。TA416とは別クラスターとして扱うべきだが、中国関連の秘匿アクセス・諜報作戦として同一監視枠に含める価値がある。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1505.003 Web Shell",
+        "T1574.002 DLL Side-Loading",
+        "T1219 Remote Access Software",
+        "T1059 Command and Scripting Interpreter"
+      ],
+      "malware_and_tools": ["ShadowPad", "Godzilla", "Noodle RAT", "AnyDesk"],
+      "infrastructure": ["Microsoft Exchange", "IIS", "web shells", "remote access tools"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "中国関連アクターによる既知脆弱性悪用、Web shell、ShadowPad系ツール利用を伴う長期諜報作戦である。",
+        "geopolitical": "台湾、南アジア、NATO国を横断する標的化は、中国の周辺安全保障・外交情報収集と整合する。",
+        "business": "日本企業・研究機関では、台湾関連業務、防衛産業、政策研究、アジア拠点を持つ組織が類似標的となり得る。",
+        "research_direction": "TA416、Earth Alux、REF7707、Volt Typhoon系、Raptor Train系とのTTP・インフラ重複を整理する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "台湾・アジア政府・NATO国をまたぐ中国関連諜報作戦であり、日本の安全保障関係組織にも波及可能性がある。",
+        "delta_from_previous": "China-linked_Covert_Network_Opsの監視対象に、SHADOW-EARTH-053を新規追加する。"
+      },
+      "related_campaigns": ["TA416", "SHADOW-EARTH-053", "Earth Alux", "REF7707", "Volt Typhoon"],
+      "tags": ["China", "covert-network", "ShadowPad", "Taiwan", "Exchange", "IIS", "espionage"],
+      "sources": [
+        {
+          "title": "China-Linked Hackers Target Asian Governments, NATO State, Journalists, and Activists",
+          "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked espionage actor tracked as SHADOW-EARTH-053",
+        "infrastructure": ["Exchange servers", "IIS servers", "web shells", "remote access tooling"],
+        "capability": ["ShadowPad", "Godzilla web shell", "Noodle RAT", "N-day exploitation", "DLL side-loading"],
+        "victim": ["Asian government entities", "Taiwan-related targets", "journalists", "activists", "NATO member state targets"]
+      }
+    }
+  ],
+  "update_type": "new",
+  "executive_summary": "5月2〜6日の最重要キャンペーン更新は、中国関連SHADOW-EARTH-053の公表である。TA416とは別クラスターとして扱うべきだが、台湾・アジア政府・NATO国を対象とする中国関連の秘匿アクセス・諜報作戦として、China-linked_Covert_Network_Opsの監視枠に追加する価値が高い。",
+  "change_summary": [
+    "SHADOW-EARTH-053をChina-linked_Covert_Network_Opsの新規監視対象として追加。",
+    "台湾、アジア政府、NATO国、ジャーナリスト、活動家が標的として報じられた。",
+    "ShadowPad、Godzilla、Noodle RAT、Exchange/IIS悪用が確認された。"
+  ],
+  "operational_relevance": "日本では、台湾関連業務、防衛・外交、シンクタンク、大学研究者、アジア拠点を持つ企業が類似標的となり得る。外部公開サーバとリモート管理ツールの監視を優先すべきである。",
+  "urgency": "high",
+  "recommended_action": [
+    "SHADOW-EARTH-053をChina-linked_Covert_Network_Opsの監視対象に追加する。",
+    "Exchange、IIS、Web shell、ShadowPad関連IOCを確認する。",
+    "台湾・中国・南アジア関連業務を持つ組織を優先監視対象にする。",
+    "TA416とは混同せず、隣接クラスターとして関連分析する。"
+  ]
+}

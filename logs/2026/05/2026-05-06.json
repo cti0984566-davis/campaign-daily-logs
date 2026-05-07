@@ -1,0 +1,793 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "title": "2026/05/02-06 サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-06_panos_cve_2026_0300_zero_day",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "PAN-OS CVE-2026-0300 exploitation",
+        "aliases": [],
+        "cluster": "boundary-device-zero-day",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown attacker",
+        "infrastructure": [
+          "internet-facing PAN-OS User-ID Authentication Portal"
+        ],
+        "capability": [
+          "CVE-2026-0300",
+          "unauthenticated remote code execution",
+          "root-level code execution"
+        ],
+        "victim": [
+          "organizations exposing affected PAN-OS services"
+        ]
+      },
+      "name": "Palo Alto Networks PAN-OS CVE-2026-0300 ゼロデイ悪用",
+      "category": "ゼロデイ脆弱性／境界機器侵害",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "企業ネットワーク"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-06",
+      "last_seen": "2026-05-06",
+      "summary": "Palo Alto NetworksのPAN-OSにおける未認証RCE脆弱性CVE-2026-0300について、限定的な悪用が確認された。境界機器を侵入口とする国家系APTやランサムウェア双方への転用可能性がある。",
+      "executive_summary": "PAN-OSの境界機器ゼロデイ悪用が確認された。日本の政府・重要インフラ・大企業では、露出確認と侵害痕跡調査を最優先すべき事案である。",
+      "change_summary": [
+        "2026年5月6日頃に新規公表されたゼロデイ悪用事案。",
+        "パッチ前段階での限定的悪用確認が重要な差分。",
+        "従来のIvanti、Cisco、Fortinet、PAN-OS等の境界機器狙いの流れに連なる。"
+      ],
+      "operational_relevance": "境界機器のRCEは初期侵入、永続化、認証情報窃取、横展開の起点となるため、脆弱性対応だけでなく侵害済み前提の調査が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "User-ID Authentication Portalのインターネット露出を確認する。",
+        "ベンダ推奨の回避策または修正を適用する。",
+        "該当機器のログ、設定変更、未知プロセス、外部通信を確認する。",
+        "CISA KEV登録状況を踏まえ、重要資産から優先的に対応する。"
+      ],
+      "details": "User-ID Authentication Portalを露出したPA-SeriesおよびVM-Series firewallが影響を受ける。未認証で任意コード実行が可能とされ、root権限での実行に至る可能性がある。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "attacker",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1068 Exploitation for Privilege Escalation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "PAN-OS User-ID Authentication Portal"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "critical infrastructure",
+          "enterprise"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "organizations using affected Palo Alto Networks PAN-OS devices"
+        ]
+      },
+      "strategic_view": {
+        "general": "境界機器ゼロデイは被害拡大が速く、APTと犯罪集団の双方が悪用し得る。",
+        "geopolitical": "国家系アクターが初期侵入基盤として利用する可能性があり、重要インフラ防護上の優先度が高い。",
+        "business": "境界防御製品の運用監視、構成管理、脆弱性対応SLAの重要性が再確認された。",
+        "research_direction": "悪用インジケータ、スキャン活動、攻撃後のペイロード、既存APTとの関連を継続確認する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "悪用確認済みの境界機器RCEであり、日本組織への波及可能性が高い。",
+        "delta_from_previous": "既報の境界機器悪用傾向に対し、PAN-OSの新規ゼロデイとして監視対象を追加する必要がある。"
+      },
+      "related_campaigns": [
+        "Boundary_Device_Exploitation",
+        "China-linked_Covert_Network_Ops"
+      ],
+      "related_reports": [
+        "Ivanti edge device exploitation",
+        "Fortinet and Cisco boundary device exploitation"
+      ],
+      "tags": [
+        "zero-day",
+        "PAN-OS",
+        "CVE-2026-0300",
+        "boundary-device",
+        "KEV"
+      ],
+      "sources": [
+        {
+          "title": "CVE-2026-0300 PAN-OS",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-0300",
+          "publisher": "Palo Alto Networks",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-06_shadow_earth_053_asia_governments",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "SHADOW-EARTH-053",
+        "aliases": [],
+        "cluster": "China-linked espionage cluster",
+        "suspected_actor": "China-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked cyber espionage actor",
+        "infrastructure": [
+          "Microsoft Exchange servers",
+          "IIS servers",
+          "web shells",
+          "remote access tooling"
+        ],
+        "capability": [
+          "ShadowPad",
+          "Godzilla web shell",
+          "Noodle RAT",
+          "AnyDesk",
+          "DLL side-loading",
+          "N-day exploitation"
+        ],
+        "victim": [
+          "Asian government entities",
+          "Taiwan-related targets",
+          "journalists",
+          "activists",
+          "NATO member state targets"
+        ]
+      },
+      "name": "中国関連SHADOW-EARTH-053によるアジア政府・台湾・NATO国等への諜報作戦",
+      "category": "国家背景のサイバー諜報",
+      "industry": [
+        "政府",
+        "防衛",
+        "メディア",
+        "市民社会"
+      ],
+      "region": [
+        "Asia",
+        "Taiwan",
+        "Europe"
+      ],
+      "first_seen": "2024-12-01",
+      "last_seen": "2026-05-01",
+      "summary": "Trend MicroがSHADOW-EARTH-053として追跡する中国関連クラスターが、アジア政府、台湾関連標的、ジャーナリスト、活動家、NATO国を対象に諜報活動を行っていたと報じられた。",
+      "executive_summary": "中国関連アクターによる台湾・アジア政府・NATO国横断の諜報活動として重要。日本にとっても防衛、外交、台湾関連研究者、シンクタンクが類似標的となり得る。",
+      "change_summary": [
+        "2026年5月1日に新規公表された中国関連キャンペーン。",
+        "活動は少なくとも2024年12月以降とされる。",
+        "ShadowPad、Godzilla、Noodle RAT等の既知中国系TTPが確認された。"
+      ],
+      "operational_relevance": "ExchangeやIISの既知脆弱性悪用、Web shell、正規リモート管理ツールを組み合わせるため、政府・防衛系組織では外部公開サーバの侵害痕跡調査が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "ExchangeおよびIISの既知脆弱性対応状況を確認する。",
+        "Godzilla web shell、ShadowPad、Noodle RAT関連IOCを確認する。",
+        "台湾・中国・南アジア関連業務を持つ組織のログ調査を優先する。",
+        "TA416とは別枠のChina-linked Covert Network監視対象として継続追跡する。"
+      ],
+      "details": "Microsoft ExchangeやIISのN-day脆弱性を悪用し、Godzilla web shell、ShadowPad、Noodle RAT、AnyDesk等を用いた侵入・維持・情報窃取が行われたとされる。",
+      "actors": [
+        {
+          "name": "SHADOW-EARTH-053",
+          "role": "suspected attacker",
+          "country": "China"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1505.003 Web Shell",
+        "T1574.002 DLL Side-Loading",
+        "T1219 Remote Access Software",
+        "T1059 Command and Scripting Interpreter"
+      ],
+      "malware": [
+        "ShadowPad",
+        "Godzilla",
+        "Noodle RAT"
+      ],
+      "infrastructure": [
+        "Microsoft Exchange",
+        "IIS",
+        "AnyDesk"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "defense",
+          "media",
+          "civil society"
+        ],
+        "countries": [
+          "Taiwan",
+          "Poland",
+          "South Asia",
+          "Southeast Asia",
+          "East Asia"
+        ],
+        "organization_types": [
+          "government agencies",
+          "defense-related organizations",
+          "journalists",
+          "activists"
+        ]
+      },
+      "strategic_view": {
+        "general": "既知脆弱性と既存マルウェアを組み合わせた、中国関連APTに典型的な長期諜報作戦である。",
+        "geopolitical": "台湾、南アジア、NATO国を横断する標的化は、中国の周辺安全保障・外交情報収集と整合する。",
+        "business": "外部公開サーバ、メール基盤、リモート管理ツールの運用管理がサプライチェーン上の弱点になり得る。",
+        "research_direction": "TA416、Earth Alux、REF7707、Volt Typhoon系とのTTP・インフラ重複を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "台湾・アジア政府・NATO国をまたぐ諜報作戦であり、日本の安全保障関係組織にも波及可能性がある。",
+        "delta_from_previous": "TA416とは別に、ShadowPad系のChina-linked Covert Network監視枠を強化する必要がある。"
+      },
+      "related_campaigns": [
+        "TA416",
+        "China-linked_Covert_Network_Ops",
+        "Earth Alux",
+        "REF7707"
+      ],
+      "related_reports": [
+        "ShadowPad-related China-linked espionage activity",
+        "Volt Typhoon and covert network operations"
+      ],
+      "tags": [
+        "China",
+        "espionage",
+        "ShadowPad",
+        "Taiwan",
+        "Exchange",
+        "IIS"
+      ],
+      "sources": [
+        {
+          "title": "China-Linked Hackers Target Asian Governments, NATO State, Journalists, and Activists",
+          "url": "https://thehackernews.com/2026/05/china-linked-hackers-target-asian.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-06_instructure_canvas_data_breach",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Canvas LMS data breach",
+        "aliases": [
+          "Instructure breach"
+        ],
+        "cluster": "education-saas-data-theft",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters or actor claiming ShinyHunters affiliation",
+        "infrastructure": [
+          "Canvas LMS",
+          "Instructure cloud environment",
+          "unknown data exfiltration infrastructure"
+        ],
+        "capability": [
+          "data theft",
+          "extortion",
+          "possible SaaS or API abuse"
+        ],
+        "victim": [
+          "students",
+          "educational institutions",
+          "Canvas LMS users"
+        ]
+      },
+      "name": "Instructure / Canvas LMS 大規模データ侵害",
+      "category": "サイバー犯罪／教育SaaSサプライチェーン",
+      "industry": [
+        "教育",
+        "EdTech",
+        "SaaS"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-04",
+      "last_seen": "2026-05-06",
+      "summary": "Canvas LMSを提供するInstructureに関連するデータ侵害が公表され、学生・教職員等の氏名、メール、学生ID、ユーザー間メッセージ等が影響を受けた可能性がある。",
+      "executive_summary": "教育SaaSを経由した大規模データ侵害として重要。攻撃者主張の規模は未検証だが、日本の大学・研究機関もSaaS委託先リスクとして確認が必要。",
+      "change_summary": [
+        "2026年5月上旬に各大学・メディアが新規公表。",
+        "ShinyHuntersは大規模な影響を主張しているが、件数は未検証。",
+        "教育機関単体ではなくLMSベンダ経由の水平被害として重要。"
+      ],
+      "operational_relevance": "大学、研究機関、教育委託先はCanvas利用有無、連携API、認証情報、学生向けフィッシングリスクを確認する必要がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Canvas利用有無と影響通知の有無を確認する。",
+        "学生・教職員向けのフィッシング注意喚起を行う。",
+        "SaaS連携APIキー、SSO設定、ログ保持状況を確認する。",
+        "攻撃者主張と確認済み被害を分離して継続確認する。"
+      ],
+      "details": "ShinyHuntersは約9,000校・2.75億人規模の影響を主張しているが、現時点では攻撃者主張であり未検証。Instructureは認証情報・トークン失効、キー更新、監視強化等を実施したとされる。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "claimed attacker",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1530 Data from Cloud Storage",
+        "T1567 Exfiltration Over Web Service",
+        "T1586 Compromise Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Canvas LMS",
+        "Instructure cloud services"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "research"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "universities",
+          "schools",
+          "students",
+          "faculty"
+        ]
+      },
+      "strategic_view": {
+        "general": "教育SaaSの大規模侵害は、単一組織を超えた水平被害を生じさせる。",
+        "geopolitical": "教育・研究機関のPIIやコミュニケーション情報は、留学生、研究者、安全保障関連研究への接点把握にも悪用され得る。",
+        "business": "SaaS委託先のインシデント通知、ログ取得権限、APIキー管理の重要性が高まる。",
+        "research_direction": "実被害件数、影響国、日本国内教育機関への波及、ShinyHunters帰属の妥当性を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "教育SaaS経由の大規模漏えいは、個人情報保護だけでなく研究・安全保障上の情報収集リスクを伴う。",
+        "delta_from_previous": "MOVEit、Snowflake、Salesforce連携悪用型の大規模SaaS侵害と同様、委託先・クラウド連携リスクとして評価を更新する。"
+      },
+      "related_campaigns": [
+        "SaaS_Data_Theft",
+        "ShinyHunters"
+      ],
+      "related_reports": [
+        "MOVEit mass exploitation",
+        "Snowflake-related data theft"
+      ],
+      "tags": [
+        "Canvas",
+        "Instructure",
+        "SaaS",
+        "education",
+        "data-breach",
+        "ShinyHunters"
+      ],
+      "sources": [
+        {
+          "title": "Canvas maker Instructure reveals data breach, confirms user personal information leaked",
+          "url": "https://www.techradar.com/pro/security/canvas-maker-instructure-reveals-data-breach-confirms-user-personal-information-leaked",
+          "publisher": "TechRadar",
+          "published_at": "2026-05-05"
+        },
+        {
+          "title": "Millions of students’ personal data stolen in Canvas breach",
+          "url": "https://www.malwarebytes.com/blog/news/2026/05/millions-of-students-personal-data-stolen-in-canvas-breach",
+          "publisher": "Malwarebytes",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-06_muddywater_chaos_ransomware_masquerade",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "MuddyWater",
+        "aliases": [
+          "Mango Sandstorm",
+          "Mercury",
+          "Seedworm",
+          "Static Kitten"
+        ],
+        "cluster": "Iran-linked espionage and disruptive operations",
+        "suspected_actor": "Iran MOIS-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-linked MuddyWater",
+        "infrastructure": [
+          "Microsoft Teams",
+          "AnyDesk",
+          "DWAgent",
+          "RDP"
+        ],
+        "capability": [
+          "social engineering",
+          "credential theft",
+          "remote access tooling",
+          "Darkcomp RAT",
+          "extortion masquerade"
+        ],
+        "victim": [
+          "enterprise organizations"
+        ]
+      },
+      "name": "MuddyWaterによるChaosランサムウェア偽装型侵入",
+      "category": "国家背景の諜報活動／偽装ランサムウェア",
+      "industry": [
+        "企業",
+        "不明"
+      ],
+      "region": [
+        "Middle East",
+        "Global"
+      ],
+      "first_seen": "2026-01-01",
+      "last_seen": "2026-05-06",
+      "summary": "MuddyWaterとみられるイラン関連アクターが、Chaosランサムウェア攻撃を装う侵入活動を行った。暗号化は確認されず、認証情報窃取、偵察、横展開、データ窃取、恐喝メールが中心だった。",
+      "executive_summary": "イラン関連APTが犯罪風ランサムウェアを装って諜報・撹乱を行う事例として重要。中東情勢下で、偽装・帰属攪乱型の作戦に注意が必要。",
+      "change_summary": [
+        "2026年5月6日に新規公表されたMuddyWater関連事案。",
+        "暗号化ランサムウェアではなく、恐喝を伴う偽装型侵入と評価される。",
+        "Microsoft Teamsを用いたソーシャルエンジニアリングが特徴。"
+      ],
+      "operational_relevance": "ヘルプデスク、IT管理者、従業員に対するTeams経由の画面共有・MFA操作誘導に注意が必要。AnyDeskやDWAgent等の正規リモート管理ツールの監視が重要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Microsoft Teams経由の外部接触、画面共有、MFA操作誘導を監視する。",
+        "AnyDesk、DWAgent、RDPの不審利用を確認する。",
+        "ランサムウェア通知があっても、暗号化有無だけでなく諜報目的の侵害を想定する。",
+        "MuddyWater関連IOCとDarkcomp RATの痕跡を確認する。"
+      ],
+      "details": "Rapid7は、Microsoft Teamsを用いたソーシャルエンジニアリング、MFA操作誘導、AnyDesk、DWAgent、RDP、Darkcomp RAT利用を確認し、中程度の確度でMuddyWaterに帰属した。",
+      "actors": [
+        {
+          "name": "MuddyWater",
+          "role": "suspected attacker",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1204 User Execution",
+        "T1219 Remote Access Software",
+        "T1021.001 Remote Desktop Protocol",
+        "T1555 Credentials from Password Stores",
+        "T1041 Exfiltration Over C2 Channel"
+      ],
+      "malware": [
+        "Darkcomp RAT"
+      ],
+      "infrastructure": [
+        "Microsoft Teams",
+        "AnyDesk",
+        "DWAgent",
+        "RDP"
+      ],
+      "targeting": {
+        "sectors": [
+          "enterprise"
+        ],
+        "countries": [
+          "unknown"
+        ],
+        "organization_types": [
+          "corporate networks"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家系APTが犯罪風の恐喝を混ぜることで、初動対応と帰属判断を攪乱する傾向が続いている。",
+        "geopolitical": "イラン関連アクターの活動は、中東情勢に連動した諜報・撹乱・報復的作戦の一部として理解する必要がある。",
+        "business": "正規リモート管理ツールとコラボレーション基盤の監視強化が必要。",
+        "research_direction": "MuddyWater、Handala、MOIS関連クラスターとの重複、偽装ランサムウェアの再利用有無を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "犯罪型ランサムウェアに見せかけた国家系侵入は、防御側の対応優先度と帰属判断を誤らせる。",
+        "delta_from_previous": "イラン系APTについて、破壊型・漏えい型だけでなく、偽装恐喝型の作戦を監視対象に追加すべきである。"
+      },
+      "related_campaigns": [
+        "MuddyWater",
+        "Iran-linked cyber operations",
+        "MOIS-linked operations"
+      ],
+      "related_reports": [
+        "Iranian APT operations using remote management tools",
+        "MOIS-linked influence and cyber operations"
+      ],
+      "tags": [
+        "Iran",
+        "MuddyWater",
+        "ransomware-masquerade",
+        "Chaos",
+        "Teams",
+        "AnyDesk",
+        "Darkcomp"
+      ],
+      "sources": [
+        {
+          "title": "Iranian APT Intrusion Masquerades as Chaos Ransomware Attack",
+          "url": "https://www.securityweek.com/iranian-apt-intrusion-masquerades-as-chaos-ransomware-attack/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-06_digicert_support_portal_code_signing_certificates",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "DigiCert support portal compromise",
+        "aliases": [],
+        "cluster": "certificate-abuse",
+        "suspected_actor": "unknown cybercriminal actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown cybercriminal actor",
+        "infrastructure": [
+          "DigiCert support portal",
+          "customer chat channel",
+          "malware delivery infrastructure"
+        ],
+        "capability": [
+          "support account compromise",
+          "malware delivery",
+          "fraudulent code signing certificate issuance",
+          "malware signing"
+        ],
+        "victim": [
+          "DigiCert",
+          "code signing trust ecosystem",
+          "software users exposed to signed malware"
+        ]
+      },
+      "name": "DigiCertサポートポータル侵害と不正コード署名証明書発行",
+      "category": "サプライチェーン／認証基盤侵害",
+      "industry": [
+        "PKI",
+        "認証局",
+        "ソフトウェア署名"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-02",
+      "last_seen": "2026-05-04",
+      "summary": "DigiCertのサポート担当者端末がマルウェア感染し、内部サポートポータルを通じて不正なEV Code Signing証明書が発行された。一部はZhong Stealerの署名に使われた。",
+      "executive_summary": "認証局のサポート業務権限がコード署名信頼に波及した事案。CA秘密鍵侵害ではないが、信頼基盤を悪用したサプライチェーンリスクとして重要。",
+      "change_summary": [
+        "攻撃は2026年4月2日とされ、5月4日に詳細報道された。",
+        "60証明書が失効し、うち27が攻撃者関連とされた。",
+        "CA中核鍵ではなくサポートポータル権限悪用が焦点。"
+      ],
+      "operational_relevance": "コード署名証明書の信頼だけに依存せず、発行元、ハッシュ、配布経路、振る舞いを含めた検証が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "失効済み証明書を用いた署名ファイルの検出を確認する。",
+        "Zhong Stealer関連IOCを確認する。",
+        "サポートポータル、代理ログイン、顧客対応チャットの権限管理を見直す。",
+        "コード署名証明書の異常発行監視を強化する。"
+      ],
+      "details": "攻撃者は顧客チャット経由でサポート担当者端末にマルウェアを配送し、内部サポートポータルへのアクセスを悪用して不正なEV Code Signing証明書を取得したとされる。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "attacker",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1204 User Execution",
+        "T1550 Use Alternate Authentication Material",
+        "T1553.002 Code Signing"
+      ],
+      "malware": [
+        "Zhong Stealer"
+      ],
+      "infrastructure": [
+        "DigiCert support portal",
+        "customer chat system"
+      ],
+      "targeting": {
+        "sectors": [
+          "PKI",
+          "software supply chain"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "certificate authorities",
+          "software vendors",
+          "end users"
+        ]
+      },
+      "strategic_view": {
+        "general": "信頼基盤を支える業務プロセスが侵害されると、マルウェア検知回避やソフトウェアサプライチェーン全体に影響する。",
+        "geopolitical": "コード署名悪用は国家系・犯罪系双方にとって価値が高く、将来的なAPT利用も想定される。",
+        "business": "サポート部門の権限、チャット添付、MFA、ログ監査がPKI信頼の一部として扱われるべきである。",
+        "research_direction": "不正発行証明書の利用範囲、Zhong Stealer以外への転用、証明書マーケットとの関連を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "コード署名証明書の不正取得は、マルウェアの信頼性偽装と検知回避に直結する。",
+        "delta_from_previous": "CA中核システム侵害ではなく、サポート業務権限悪用という実務的な弱点が明確になった。"
+      },
+      "related_campaigns": [
+        "Software_Supply_Chain_Abuse",
+        "Certificate_Abuse"
+      ],
+      "related_reports": [
+        "malware signed with stolen or fraudulently issued certificates"
+      ],
+      "tags": [
+        "DigiCert",
+        "code-signing",
+        "PKI",
+        "supply-chain",
+        "Zhong-Stealer"
+      ],
+      "sources": [
+        {
+          "title": "DigiCert Revokes Certificates After Support Portal Hack",
+          "url": "https://www.securityweek.com/digicert-revokes-certificates-after-support-portal-hack/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-04"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-06_android_cve_2026_0073_rce",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Android CVE-2026-0073",
+        "aliases": [],
+        "cluster": "mobile-rce-vulnerability",
+        "suspected_actor": "none confirmed",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "none confirmed",
+        "infrastructure": [
+          "Android devices"
+        ],
+        "capability": [
+          "CVE-2026-0073",
+          "remote code execution",
+          "zero-click exploitation potential"
+        ],
+        "victim": [
+          "Android users",
+          "enterprise mobile device users",
+          "high-risk individuals"
+        ]
+      },
+      "name": "Android CVE-2026-0073 重大RCE修正",
+      "category": "重大脆弱性／モバイル",
+      "industry": [
+        "モバイル",
+        "企業端末管理",
+        "個人端末"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-05",
+      "last_seen": "2026-05-05",
+      "summary": "GoogleはAndroid Security Bulletinで、Android Systemコンポーネントの重大RCE脆弱性CVE-2026-0073を修正した。現時点で悪用確認はない。",
+      "executive_summary": "悪用未確認ながら、ユーザー操作なしのRCE可能性があるため、政府関係者、記者、研究者、企業管理端末では早期更新が望ましい。",
+      "change_summary": [
+        "2026年5月5日に新規修正が公表された。",
+        "現時点でin-the-wild悪用は確認されていない。",
+        "ゼロクリック型RCEの可能性がある点が重要。"
+      ],
+      "operational_relevance": "MDM管理下のAndroid端末、BYOD、高リスクユーザー端末に対し、パッチ適用状況の可視化と更新促進が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Android端末のセキュリティパッチレベルを確認する。",
+        "高リスクユーザー端末を優先して更新する。",
+        "MDMで未更新端末を抽出する。",
+        "悪用確認の有無を継続監視する。"
+      ],
+      "details": "Android Systemコンポーネント、特にadbdに関連する重大RCEとされ、ユーザー操作なしでshell userとしてコード実行可能と報じられた。",
+      "actors": [
+        {
+          "name": "none confirmed",
+          "role": "none",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1203 Exploitation for Client Execution",
+        "T1068 Exploitation for Privilege Escalation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Android System",
+        "adbd"
+      ],
+      "targeting": {
+        "sectors": [
+          "mobile",
+          "enterprise",
+          "government"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Android device users",
+          "enterprise mobile users",
+          "high-risk individuals"
+        ]
+      },
+      "strategic_view": {
+        "general": "モバイルRCEは監視、位置情報、メッセージ窃取に直結するため、悪用未確認でも高リスク対象では重要である。",
+        "geopolitical": "政府関係者、記者、研究者、台湾・中東・ロシア関連の高リスク対象が狙われる可能性がある。",
+        "business": "企業MDM、BYOD管理、モバイルパッチ運用の実効性が問われる。",
+        "research_direction": "PoC公開、悪用観測、商用スパイウェアやAPTによる利用有無を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "悪用未確認だが、ゼロクリック型RCEの可能性があり、高リスクユーザーにとって影響が大きい。",
+        "delta_from_previous": "当面は実悪用ゼロデイではなく、重大修正済み脆弱性として監視する。"
+      },
+      "related_campaigns": [
+        "Mobile_Spyware_Risk",
+        "High-Risk_User_Targeting"
+      ],
+      "related_reports": [
+        "Android monthly security bulletin"
+      ],
+      "tags": [
+        "Android",
+        "CVE-2026-0073",
+        "RCE",
+        "mobile",
+        "zero-click"
+      ],
+      "sources": [
+        {
+          "title": "Critical Remote Code Execution Vulnerability Patched in Android",
+          "url": "https://www.securityweek.com/critical-remote-code-execution-vulnerability-patched-in-android-2/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-05"
+        }
+      ]
+    }
+  ]
+}

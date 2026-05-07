@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Strontium", "Sofacy"],
+    "cluster": "Russia-linked military intelligence cyber operations",
+    "suspected_actor": "GRU-linked Russian state actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-06_apt28_no_major_new_public_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28の継続監視：5月2〜6日に重大な新規公開事案なし",
+      "category": "国家背景のサイバー諜報／軍事作戦支援",
+      "targeting": {
+        "regions": ["Europe", "Ukraine", "NATO countries"],
+        "industries": ["government", "defense", "critical infrastructure"],
+        "organization_types": ["government agencies", "defense organizations", "policy institutions"]
+      },
+      "first_seen": "2026-05-02",
+      "last_seen": "2026-05-06",
+      "activity_summary": "対象期間中、APT28について新たな重大公開インシデントは確認しなかった。ただし、欧州・ウクライナ・NATO関連標的に対する継続的な諜報・侵入リスクは維持される。",
+      "activity_details": "本期間の主要事案としては、PAN-OS等の境界機器ゼロデイが注目されるが、APT28への直接帰属は確認されていない。APT28は過去にSOHO機器、境界機器、認証基盤を悪用してきたため、関連TTPとして監視継続が必要。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1078 Valid Accounts",
+        "T1021 Remote Services",
+        "T1584 Compromise Infrastructure"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["SOHO routers", "edge devices", "compromised infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は新規大規模公表がなくても、ロシア・ウクライナ戦争およびNATO正面で継続的に重要な監視対象である。",
+        "geopolitical": "欧州正面での軍事・外交情報収集、影響力工作、重要インフラ偵察と整合する。",
+        "business": "日本企業では欧州拠点、政府・防衛関連取引、境界機器管理がリスク領域となる。",
+        "research_direction": "APT28と境界機器悪用、SOHOボットネット、ロシア系IAB的活動との接点を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "新規公開事案はないが、ロシア軍事作戦支援型の継続脅威として優先監視を維持すべきである。",
+        "delta_from_previous": "5月2〜6日の期間では評価更新のみ。重大な新規キャンペーン追加なし。"
+      },
+      "related_campaigns": ["Russia-linked prosecutor email campaign", "Boundary_Device_Exploitation"],
+      "tags": ["APT28", "Russia", "GRU", "Ukraine", "NATO", "assessment"],
+      "sources": [
+        {
+          "title": "Microsoft Threat Actor Naming: Forest Blizzard",
+          "url": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-threat-actor-naming",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-06"
+        }
+      ]
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "5月2〜6日の対象期間にAPT28の重大な新規公開事案は確認されない。ただし、欧州・ウクライナ・NATO正面での継続脅威として、境界機器悪用やSOHOインフラ利用との接点を引き続き監視する必要がある。",
+  "change_summary": [
+    "対象期間中、APT28への直接帰属が確認された新規重大事案はなし。",
+    "PAN-OSゼロデイ等の境界機器リスクは、APT28の過去TTPと接点があるため継続監視対象。",
+    "評価は『継続監視』で維持。"
+  ],
+  "operational_relevance": "欧州拠点、防衛・政府関連取引、境界機器を持つ日本組織は、APT28の直接事案がなくても関連TTPを監視すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "APT28関連IOCの定期照合を継続する。",
+    "SOHO機器・境界機器・VPNログの異常を確認する。",
+    "欧州・ウクライナ関連業務を持つ組織を優先監視対象にする。"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "date": "2026-05-06",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [],
+    "cluster": "Microsoft-tracked threat cluster",
+    "suspected_actor": "unknown or unattributed actor",
+    "attribution_confidence": "low"
+  },
+  "items": [
+    {
+      "id": "2026-05-06_storm_1175_no_major_new_public_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "Storm-1175の継続監視：対象期間中の重大な新規公開事案なし",
+      "category": "未確定キャンペーン／継続監視",
+      "targeting": {
+        "regions": ["Global"],
+        "industries": ["unknown"],
+        "organization_types": ["unknown"]
+      },
+      "first_seen": "2026-05-02",
+      "last_seen": "2026-05-06",
+      "activity_summary": "対象期間中、Storm-1175に直接帰属する重大な新規公開事案は確認しなかった。",
+      "activity_details": "5月2〜6日の主要事案はPAN-OSゼロデイ、中国関連SHADOW-EARTH-053、Canvas LMS侵害、MuddyWater偽装ランサムウェアであり、Storm-1175との直接関連は確認されていない。",
+      "ttp": [],
+      "malware_and_tools": [],
+      "infrastructure": [],
+      "iocs": [],
+      "strategic_view": {
+        "general": "現時点では新規情報が乏しく、キャンペーン評価を大きく更新する材料はない。",
+        "geopolitical": "帰属・標的・目的が限定的にしか確認できないため、他キャンペーンとの混同を避ける必要がある。",
+        "business": "具体的な防御優先度は、確認済みTTPやIOCが出た段階で設定するのが妥当である。",
+        "research_direction": "Microsoft等の一次情報、ベンダレポート、関連IOC公開の有無を継続確認する。"
+      },
+      "assessment": {
+        "significance": "low",
+        "confidence": "medium",
+        "why_it_matters": "監視対象ではあるが、対象期間中に新規評価を支える公開情報は限定的である。",
+        "delta_from_previous": "5月2〜6日は評価更新なし。継続監視に留める。"
+      },
+      "related_campaigns": [],
+      "tags": ["Storm-1175", "assessment", "no-major-update"],
+      "sources": [
+        {
+          "title": "Microsoft Threat Actor Naming",
+          "url": "https://learn.microsoft.com/en-us/defender-xdr/microsoft-threat-actor-naming",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": [],
+        "capability": [],
+        "victim": []
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "5月2〜6日の対象期間中、Storm-1175に直接関連する重大な新規公開事案は確認されない。現時点では評価更新なしとし、継続監視に留めるのが妥当である。",
+  "change_summary": [
+    "対象期間中の新規重大事案なし。",
+    "PAN-OSゼロデイ、中国関連活動、MuddyWater事案との直接関連は確認されない。",
+    "監視対象として維持するが、優先度は低め。"
+  ],
+  "operational_relevance": "具体的なTTPやIOCが確認されるまでは、他の高確度キャンペーンを優先しつつ、一次情報の更新を待つ。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Storm-1175に関するMicrosoft等の一次情報更新を確認する。",
+    "他キャンペーンとの誤帰属を避ける。",
+    "新規IOCやTTPが公開された場合に再評価する。"
+  ]
+}
