@@ -1,0 +1,707 @@
+{
+  "date": "2026-05-07",
+  "timezone": "JST",
+  "title": "2026/05/07_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-07_pan_os_cve_2026_0300",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "PAN-OS Captive Portal zero-day exploitation",
+        "aliases": [
+          "CVE-2026-0300 exploitation",
+          "CL-STA-1132"
+        ],
+        "cluster": "CL-STA-1132",
+        "suspected_actor": "state-sponsored actor suspected",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Unknown state-sponsored actor suspected by Unit 42",
+        "infrastructure": [
+          "publicly exposed PAN-OS Captive Portal",
+          "reverse proxy or SOCKS infrastructure",
+          "compromised edge devices"
+        ],
+        "capability": [
+          "CVE-2026-0300 unauthenticated remote code execution",
+          "nginx worker shellcode injection",
+          "EarthWorm",
+          "ReverseSocks5",
+          "log deletion",
+          "Active Directory enumeration"
+        ],
+        "victim": [
+          "organizations operating exposed PAN-OS Captive Portal instances",
+          "government and enterprise networks",
+          "critical infrastructure networks"
+        ]
+      },
+      "name": "Palo Alto Networks PAN-OS Captive Portal CVE-2026-0300悪用",
+      "category": "ゼロデイ脆弱性悪用／国家系疑い",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "企業ネットワーク",
+        "ネットワーク境界機器"
+      ],
+      "region": [
+        "Global",
+        "Japan"
+      ],
+      "first_seen": "2026-04-09",
+      "last_seen": "2026-05-07",
+      "summary": "Palo Alto Networks PAN-OS Captive Portalの未認証RCE脆弱性CVE-2026-0300が悪用され、root権限取得、nginx workerへのshellcode注入、プロキシツール展開、ログ削除、Active Directory探索が確認された。",
+      "executive_summary": "境界機器を起点とする国家系疑いのゼロデイ悪用であり、日本の重要インフラ・政府・大企業にとって優先度が高い。公開Captive Portalの棚卸し、緩和策適用、侵害調査を即時実施すべき事案である。",
+      "change_summary": [
+        "2026年5月6日にUnit 42が脆弱性悪用を公表",
+        "2026年4月9日以降の試行、4月中旬以降の成功侵害が報告",
+        "単なるRCEではなく、境界機器上での秘匿化、ログ削除、AD探索まで確認"
+      ],
+      "operational_relevance": "外部公開された境界機器が侵害されると、内部ネットワーク探索、認証基盤侵害、長期潜伏につながる。Japan-facingの重要組織では、VPN・Firewall・Captive Portalの露出管理を優先すべきである。",
+      "urgency": "high",
+      "recommended_action": [
+        "PAN-OS Captive Portalの外部公開有無を確認する",
+        "Palo Alto Networksの緩和策および修正適用状況を確認する",
+        "不審なnginxプロセス、プロキシツール、ログ削除痕跡を調査する",
+        "Active Directory列挙や異常認証の有無を確認する"
+      ],
+      "details": "Unit 42は本活動をCL-STA-1132として追跡し、国家支援の可能性が高いと評価している。攻撃は公開Captive Portalを初期侵入口とし、root権限取得後に秘匿化・中継・探索を行った可能性がある。",
+      "actors": [
+        {
+          "name": "CL-STA-1132",
+          "role": "suspected intrusion cluster",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1059 Command and Scripting Interpreter",
+        "T1090 Proxy",
+        "T1087 Account Discovery",
+        "T1070 Indicator Removal"
+      ],
+      "malware": [
+        "EarthWorm",
+        "ReverseSocks5"
+      ],
+      "infrastructure": [
+        "exposed PAN-OS Captive Portal",
+        "compromised edge infrastructure",
+        "SOCKS proxy infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "critical infrastructure",
+          "enterprise"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "organizations operating internet-facing PAN-OS Captive Portal"
+        ]
+      },
+      "strategic_view": {
+        "general": "境界機器を起点とした侵害は、従来の端末防御やEDRでは検知が困難であり、ASM/EASM、ログ保全、ネットワーク側の検知が重要となる。",
+        "geopolitical": "国家系アクターが平時から境界機器を侵害し、有事のアクセス基盤や情報収集基盤を形成する傾向と整合する。",
+        "business": "Palo Alto Networks利用組織では、単なるパッチ適用だけでなく、既侵害調査と運用上の露出管理が必要となる。",
+        "research_direction": "Cisco ASA/FTD、SOHOルータ、Ivanti、Fortinet等の境界機器侵害キャンペーンと比較し、中国関連Covert Network作戦との関連可能性を継続評価する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "ゼロデイ、境界機器、国家系疑い、内部探索の組み合わせであり、重要インフラ・政府機関に対する戦略的リスクが高い。",
+        "delta_from_previous": "過去の境界機器侵害事案と比べ、CVE-2026-0300という新規ゼロデイ悪用が確認された点が新しい。"
+      },
+      "related_campaigns": [
+        "China-linked_Covert_Network_Ops",
+        "Volt Typhoon-like edge device operations",
+        "Cisco ASA/FTD exploitation campaigns"
+      ],
+      "related_reports": [
+        "Palo Alto Networks Unit 42 threat brief on CVE-2026-0300",
+        "Palo Alto Networks CVE-2026-0300 security advisory"
+      ],
+      "tags": [
+        "zero-day",
+        "PAN-OS",
+        "CVE-2026-0300",
+        "edge-device",
+        "state-sponsored",
+        "critical-infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Threat Brief: Exploitation of PAN-OS Captive Portal Zero-Day for Unauthenticated Remote Code Execution",
+          "url": "https://unit42.paloaltonetworks.com/captive-portal-zero-day/",
+          "publisher": "Palo Alto Networks Unit 42",
+          "published_at": "2026-05-06"
+        },
+        {
+          "title": "CVE-2026-0300 PAN-OS Security Advisory",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-0300",
+          "publisher": "Palo Alto Networks",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-07_muddywater_teams_mfa_manipulation",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "MuddyWater Teams-based MFA manipulation campaign",
+        "aliases": [
+          "MuddyWater",
+          "Seedworm",
+          "Mango Sandstorm",
+          "Static Kitten",
+          "Chaos ransomware false flag"
+        ],
+        "cluster": "MuddyWater-related activity",
+        "suspected_actor": "Iran MOIS-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-linked MuddyWater suspected",
+        "infrastructure": [
+          "Microsoft Teams external chat",
+          "RMM infrastructure",
+          "RDP access",
+          "DWAgent",
+          "AnyDesk"
+        ],
+        "capability": [
+          "social engineering",
+          "screen-sharing session abuse",
+          "credential harvesting",
+          "MFA manipulation",
+          "remote monitoring and management tools",
+          "RAT deployment"
+        ],
+        "victim": [
+          "US and Middle East-linked organizations",
+          "enterprise users",
+          "organizations with permissive Teams external access"
+        ]
+      },
+      "name": "MuddyWaterによるTeams／MFA manipulation型偽装ランサム作戦",
+      "category": "国家系APT／偽装ランサム／諜報活動",
+      "industry": [
+        "企業",
+        "政府関連",
+        "中東関連組織"
+      ],
+      "region": [
+        "United States",
+        "Middle East",
+        "Global"
+      ],
+      "first_seen": "2026-01-01",
+      "last_seen": "2026-05-07",
+      "summary": "Rapid7は、Microsoft Teamsの外部チャットや画面共有を悪用し、認証情報窃取、MFA設定操作、RMM/RDPによるアクセスを行うMuddyWater関連疑いの活動を報告した。Chaos ransomwareを装うが、暗号化は確認されず、偽装ランサムまたは諜報目的の可能性がある。",
+      "executive_summary": "MFAを単に突破するのではなく、ユーザーを画面共有で誘導して認証・設定変更させるMFA manipulationが重要である。Teams外部アクセス、RMM利用、MFA登録変更を一体で監視する必要がある。",
+      "change_summary": [
+        "Rapid7が2026年5月6日に活動を公開し、5月7日に更新",
+        "Chaos ransomwareを装うが、実際の暗号化活動は確認されていない",
+        "MFA fatigueではなく、画面共有とユーザー誘導によるMFA manipulationが中心"
+      ],
+      "operational_relevance": "Teams外部チャット、Quick Assist類似の支援誘導、RMMツール悪用は日本企業でも発生可能性が高い。技術的なMFA強化だけでなく、ヘルプデスク・ユーザー教育・外部チャット制御が必要である。",
+      "urgency": "high",
+      "recommended_action": [
+        "Microsoft Teamsの外部アクセス許可設定を見直す",
+        "MFA登録変更、追加デバイス登録、条件付きアクセス例外を監視する",
+        "DWAgent、AnyDesk等のRMMツール利用を許可制にする",
+        "画面共有を伴うサポート詐欺型ソーシャルエンジニアリングの注意喚起を行う"
+      ],
+      "details": "攻撃者はTeamsで被害者に接触し、画面共有やリモート支援を通じて認証情報の入力、MFA承認、RMMツール導入を誘導した可能性がある。Rapid7はMuddyWaterとの関連を中程度の確度で評価している。",
+      "actors": [
+        {
+          "name": "MuddyWater",
+          "role": "suspected operator",
+          "country": "Iran"
+        },
+        {
+          "name": "Chaos ransomware",
+          "role": "false-flag or cover identity",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1219 Remote Access Software",
+        "T1021.001 Remote Desktop Protocol",
+        "T1056 Input Capture",
+        "T1556 Modify Authentication Process",
+        "T1105 Ingress Tool Transfer",
+        "T1027 Obfuscated Files or Information",
+        "T1497 Virtualization/Sandbox Evasion"
+      ],
+      "malware": [
+        "Game.exe RAT",
+        "WebView2-related loader samples"
+      ],
+      "infrastructure": [
+        "Microsoft Teams",
+        "DWAgent",
+        "AnyDesk",
+        "RDP"
+      ],
+      "targeting": {
+        "sectors": [
+          "enterprise",
+          "government-related",
+          "Middle East-related organizations"
+        ],
+        "countries": [
+          "United States",
+          "Middle East"
+        ],
+        "organization_types": [
+          "organizations using Microsoft Teams and MFA"
+        ]
+      },
+      "strategic_view": {
+        "general": "MFAが普及した環境では、攻撃者は技術的迂回だけでなく、ユーザー操作を誘導するMFA manipulationへ移行している。",
+        "geopolitical": "イラン系アクターがランサムウェア風の偽装を用いることで、諜報活動と犯罪活動の境界を曖昧化している。",
+        "business": "M365、Teams、RMMの運用ポリシーが脆弱な企業では、EDR以前の段階で侵害が成立しうる。",
+        "research_direction": "MuddyWater、Homeland Justice、Handala、Chaos ransomware風活動の重複と偽装関係を継続比較する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "MFA manipulationは日本企業でも現実的な侵入手法であり、TeamsとRMMを組み合わせる点が実務上重要である。",
+        "delta_from_previous": "従来のMuddyWater活動に、Teams外部チャット、画面共有、RMM、偽装ランサムという要素が加わった。"
+      },
+      "related_campaigns": [
+        "MuddyWater",
+        "MOIS-linked influence and intrusion operations",
+        "Chaos ransomware false-flag activity"
+      ],
+      "related_reports": [
+        "Rapid7 report on MuddyWater and Chaos ransomware",
+        "The Hacker News coverage of MuddyWater Teams activity"
+      ],
+      "tags": [
+        "MuddyWater",
+        "Iran",
+        "MFA-manipulation",
+        "Microsoft-Teams",
+        "RMM",
+        "false-flag-ransomware"
+      ],
+      "sources": [
+        {
+          "title": "Muddying the Tracks: The State-Sponsored Shadow Behind Chaos Ransomware",
+          "url": "https://www.rapid7.com/blog/post/tr-muddying-tracks-state-sponsored-shadow-behind-chaos-ransomware/",
+          "publisher": "Rapid7",
+          "published_at": "2026-05-06"
+        },
+        {
+          "title": "MuddyWater Uses Microsoft Teams to Steal Credentials in False Flag Ransomware Attack",
+          "url": "https://thehackernews.com/2026/05/muddywater-uses-microsoft-teams-to.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-07_daemon_tools_supply_chain",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Daemon Tools supply-chain compromise",
+        "aliases": [
+          "Daemon Tools installer compromise"
+        ],
+        "cluster": "Unknown supply-chain intrusion cluster",
+        "suspected_actor": "unknown actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": [
+          "compromised official Daemon Tools distribution channel",
+          "malicious installer infrastructure"
+        ],
+        "capability": [
+          "software supply-chain compromise",
+          "installer trojanization",
+          "selective payload deployment",
+          "backdoor",
+          "Quic RAT"
+        ],
+        "victim": [
+          "Daemon Tools users",
+          "government organizations",
+          "scientific organizations",
+          "manufacturing organizations",
+          "retail and education users"
+        ]
+      },
+      "name": "Daemon Tools公式配布経路を悪用したサプライチェーン攻撃",
+      "category": "サプライチェーン攻撃／マルウェア配布",
+      "industry": [
+        "政府機関",
+        "科学技術",
+        "製造",
+        "小売",
+        "教育",
+        "ソフトウェア"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-01",
+      "last_seen": "2026-05-07",
+      "summary": "Daemon Toolsの公式配布経路が侵害され、改ざんインストーラを通じて100か国以上の利用者にマルウェアが配布されたと報じられた。一部標的には高度なバックドアやQuic RATが展開された可能性がある。",
+      "executive_summary": "正規ソフトウェア配布経路を悪用したサプライチェーン攻撃であり、政府・科学・製造分野への選択的追加ペイロードが特に重要である。日本の研究・製造系端末でもユーティリティ系ソフトの利用実態確認が必要である。",
+      "change_summary": [
+        "2026年5月6日にThe Recordがグローバルなサプライチェーン侵害として報道",
+        "4月初旬から改ざんインストーラが確認されたとされる",
+        "大量感染後に一部標的へ追加ペイロードを展開する選別型の特徴がある"
+      ],
+      "operational_relevance": "正規インストーラ経由で侵害されるため、通常のフィッシング対策やメール防御では防ぎにくい。ソフトウェア配布元の検証、ハッシュ確認、EDRでの初回実行監視が重要である。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Daemon Toolsの利用有無とバージョンを棚卸しする",
+        "対象期間に取得したインストーラのハッシュと実行履歴を確認する",
+        "不審なスタートアップ登録、外部通信、追加ペイロードを調査する",
+        "ユーティリティ系ソフトの社内許可リストを見直す"
+      ],
+      "details": "攻撃は公式配布チャネルを利用したとされ、汎用ユーザーへの広範な配布後、特定組織に対して追加のバックドアやRATを投入した可能性がある。攻撃者の帰属は未確定である。",
+      "actors": [
+        {
+          "name": "Unknown supply-chain actor",
+          "role": "operator",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195.002 Compromise Software Supply Chain",
+        "T1053 Scheduled Task/Job",
+        "T1105 Ingress Tool Transfer",
+        "T1082 System Information Discovery"
+      ],
+      "malware": [
+        "Quic RAT",
+        "backdoor"
+      ],
+      "infrastructure": [
+        "Daemon Tools official distribution channel",
+        "malicious installer delivery infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "science",
+          "manufacturing",
+          "retail",
+          "education"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "users of Daemon Tools installer"
+        ]
+      },
+      "strategic_view": {
+        "general": "正規配布経路の悪用は、ユーザー側の注意だけでは防ぎにくく、ソフトウェアサプライチェーンの検証体制が重要である。",
+        "geopolitical": "科学・政府・製造分野への選別的ペイロード投入は、単純な金銭目的犯罪よりも諜報目的と親和性がある。",
+        "business": "企業はフリーウェアやユーティリティの利用統制、ソフトウェア資産管理、SBOM的な把握を強化する必要がある。",
+        "research_direction": "3CX、SolarWinds、XZ Utils等のサプライチェーン攻撃と比較し、標的選別と追加ペイロードの有無を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "正規ソフト配布経路を悪用するため初期検知が困難であり、広範囲に潜在感染が生じる可能性がある。",
+        "delta_from_previous": "新たにDaemon Toolsという広く利用されるユーティリティが侵害経路として報じられた。"
+      },
+      "related_campaigns": [
+        "Software supply-chain compromise",
+        "3CX compromise",
+        "SolarWinds compromise",
+        "XZ Utils backdoor"
+      ],
+      "related_reports": [
+        "The Record report on Daemon Tools supply-chain compromise"
+      ],
+      "tags": [
+        "supply-chain",
+        "Daemon-Tools",
+        "trojanized-installer",
+        "Quic-RAT",
+        "software-distribution"
+      ],
+      "sources": [
+        {
+          "title": "Hackers compromise Daemon Tools in global supply-chain attack",
+          "url": "https://therecord.media/hackers-compromise-daemon-tools-global-supply-chain-attack",
+          "publisher": "The Record",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-07_instructure_canvas_incident",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Instructure Canvas cyber incident",
+        "aliases": [
+          "Canvas incident",
+          "Instructure data exposure"
+        ],
+        "cluster": "Unknown cybercriminal activity",
+        "suspected_actor": "unknown cybercriminal actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown cybercriminal actor",
+        "infrastructure": [
+          "Canvas platform environment",
+          "education SaaS environment"
+        ],
+        "capability": [
+          "unauthorized access",
+          "possible credential or token abuse",
+          "data access"
+        ],
+        "victim": [
+          "educational institutions",
+          "students",
+          "faculty and staff users"
+        ]
+      },
+      "name": "Instructure / Canvas教育プラットフォーム侵害",
+      "category": "サイバー犯罪／教育SaaS侵害",
+      "industry": [
+        "教育",
+        "SaaS",
+        "クラウドサービス"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2026-05-01",
+      "last_seen": "2026-05-07",
+      "summary": "教育プラットフォームCanvasを提供するInstructureに関連するサイバーインシデントが報告され、一部教育機関のユーザー情報やメッセージへのアクセスが確認された。",
+      "executive_summary": "教育SaaSの侵害は、単一サービスを通じて多数の学校・学生・教職員に波及しうる。日本の教育機関でもLMS、SaaS、IdP連携、アクセストークン管理の確認が必要である。",
+      "change_summary": [
+        "5月初旬から教育機関への影響が報告",
+        "氏名、メールアドレス、学生ID、ユーザー間メッセージ等へのアクセスが説明された",
+        "パスワード、金融情報、政府文書は影響外と説明されている"
+      ],
+      "operational_relevance": "教育機関はSaaSとIdP連携が進んでおり、特権認証情報やAPIトークンの侵害が広範な影響を持つ。ログ確認、トークン失効、利用者通知が重要である。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Canvasおよび関連LMSの利用有無を確認する",
+        "SaaS管理者権限、APIトークン、SSO連携設定を確認する",
+        "不審なログイン、メッセージアクセス、データ抽出を確認する",
+        "教育機関向けSaaSの委託先リスク管理を見直す"
+      ],
+      "details": "Instructureは特権認証情報やアクセストークンの失効、パッチ適用、専門家支援による調査を進めているとされる。影響範囲は教育機関ごとに異なる可能性がある。",
+      "actors": [
+        {
+          "name": "Unknown cybercriminal actor",
+          "role": "intruder",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1550 Use Alternate Authentication Material"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Canvas LMS",
+        "education SaaS environment",
+        "access tokens"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "SaaS"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "schools",
+          "universities",
+          "education service users"
+        ]
+      },
+      "strategic_view": {
+        "general": "教育SaaSは多組織・多ユーザーの情報を集約するため、侵害時の波及範囲が大きい。",
+        "geopolitical": "学生・研究者情報は将来的なターゲティングや諜報活動にも利用可能であり、犯罪系と国家系双方に価値がある。",
+        "business": "教育機関向けSaaSベンダには、透明なインシデント開示、トークン管理、顧客別影響範囲の迅速な特定が求められる。",
+        "research_direction": "教育SaaS、IdP、学認、メール、LMS間の連携を通じた横断侵害リスクを継続調査する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "教育機関は防御リソースが限定的な一方、個人情報・研究情報・将来の標的情報を多く保持している。",
+        "delta_from_previous": "教育機関単体ではなく、教育SaaSプラットフォーム側の侵害として波及リスクがある点が重要である。"
+      },
+      "related_campaigns": [
+        "Education sector cybercrime",
+        "SaaS credential and token abuse"
+      ],
+      "related_reports": [
+        "The Record report on Instructure Canvas incident"
+      ],
+      "tags": [
+        "education",
+        "SaaS",
+        "Canvas",
+        "Instructure",
+        "access-token",
+        "data-exposure"
+      ],
+      "sources": [
+        {
+          "title": "Educational company Instructure reports cyber incident affecting Canvas users",
+          "url": "https://therecord.media/infrastructure-education-company-canvas-incident",
+          "publisher": "The Record",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-07_linux_cve_2026_31431_copy_fail",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Linux Copy Fail CVE-2026-31431 exploitation risk",
+        "aliases": [
+          "Copy Fail",
+          "CVE-2026-31431"
+        ],
+        "cluster": "Known exploited vulnerability",
+        "suspected_actor": "multiple actors possible",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actors exploiting Linux local privilege escalation vulnerabilities",
+        "infrastructure": [
+          "compromised Linux hosts",
+          "cloud and server environments"
+        ],
+        "capability": [
+          "local privilege escalation",
+          "post-exploitation privilege gain"
+        ],
+        "victim": [
+          "Linux server operators",
+          "cloud environments",
+          "enterprise infrastructure"
+        ]
+      },
+      "name": "Linux kernel CVE-2026-31431 “Copy Fail” 注意喚起更新",
+      "category": "脆弱性／権限昇格／悪用確認",
+      "industry": [
+        "全業種",
+        "クラウド",
+        "サーバ",
+        "開発基盤"
+      ],
+      "region": [
+        "Global",
+        "Japan"
+      ],
+      "first_seen": "2026-05-01",
+      "last_seen": "2026-05-07",
+      "summary": "IPAはLinuxカーネルの権限昇格脆弱性CVE-2026-31431、通称Copy Failに関する注意喚起を更新した。悪用確認済み脆弱性として、侵害後の権限昇格に利用される可能性がある。",
+      "executive_summary": "境界機器やWebアプリから侵入された後、Linux権限昇格として組み込まれる可能性がある。クラウド、開発基盤、コンテナ基盤を含め、パッチ適用と侵害後調査の双方が必要である。",
+      "change_summary": [
+        "IPAが2026年5月7日に注意喚起を更新",
+        "CISA KEV掲載と悪用確認を前提に優先対応が必要",
+        "外部侵入後の権限昇格チェーンに組み込まれるリスクがある"
+      ],
+      "operational_relevance": "Linuxサーバ、クラウドホスト、開発基盤に広く影響する可能性があるため、単なるOSパッチではなく、既侵害端末での権限昇格痕跡確認が必要である。",
+      "urgency": "high",
+      "recommended_action": [
+        "利用中のLinuxディストリビューションの影響有無を確認する",
+        "ベンダ修正パッチを優先適用する",
+        "権限昇格、root取得、異常なsetuidファイル、カーネルログを確認する",
+        "境界機器侵害やWeb侵害との組み合わせを想定して調査する"
+      ],
+      "details": "CVE-2026-31431はLinuxカーネルのローカル権限昇格脆弱性として扱われ、初期侵入後の権限拡大に利用されるリスクが高い。IPAが国内向けに注意喚起を更新している。",
+      "actors": [
+        {
+          "name": "Unknown actors",
+          "role": "potential exploit users",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1068 Exploitation for Privilege Escalation"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Linux servers",
+        "cloud hosts",
+        "container hosts"
+      ],
+      "targeting": {
+        "sectors": [
+          "all sectors",
+          "cloud",
+          "IT",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "organizations operating Linux infrastructure"
+        ]
+      },
+      "strategic_view": {
+        "general": "悪用確認済みのローカル権限昇格は、初期侵入後の攻撃成功率を大きく高める。",
+        "geopolitical": "国家系・犯罪系の双方が利用可能な汎用脆弱性であり、地政学的キャンペーンにも犯罪活動にも組み込まれうる。",
+        "business": "クラウド、コンテナ、開発基盤でLinuxが広く利用されるため、影響範囲の棚卸しと優先順位付けが重要である。",
+        "research_direction": "PAN-OS等の境界侵害、Webアプリ侵害、IAB経由アクセスと組み合わせた攻撃チェーンを継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "悪用確認済み脆弱性であり、侵害後の権限昇格に使われると被害が拡大する。",
+        "delta_from_previous": "IPAが5月7日に国内向け注意喚起を更新し、国内運用者にとって対応優先度が上がった。"
+      },
+      "related_campaigns": [
+        "Known exploited vulnerabilities",
+        "Linux privilege escalation exploitation"
+      ],
+      "related_reports": [
+        "IPA 2026 important security alert",
+        "CISA KEV catalog entry"
+      ],
+      "tags": [
+        "Linux",
+        "CVE-2026-31431",
+        "Copy-Fail",
+        "privilege-escalation",
+        "KEV",
+        "patch-management"
+      ],
+      "sources": [
+        {
+          "title": "2026年度 重要なセキュリティ情報",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/index.html",
+          "publisher": "IPA",
+          "published_at": "2026-05-07"
+        }
+      ]
+    }
+  ]
+}

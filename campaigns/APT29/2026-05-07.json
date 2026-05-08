@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-07",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Midnight Blizzard", "Cozy Bear", "NOBELIUM", "The Dukes"],
+    "cluster": "Russian SVR-linked cyber espionage",
+    "suspected_actor": "Russian Foreign Intelligence Service",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "APT29について5月7日JST時点で新規の重大公開情報は確認されない。引き続き、クラウドID、OAuth/device code、RDPファイル、正規サービス悪用を中心とする潜伏型諜報活動を監視する。",
+  "change_summary": [
+    "5月7日時点で新規大型レポートは確認されず",
+    "2024年以降のRDPファイル悪用、2025年のwatering hole/device code誘導を継続評価",
+    "クラウドID基盤への潜伏型侵入リスクを維持"
+  ],
+  "operational_relevance": "日本の政府、研究、防衛、外交関連組織では、M365・Entra ID・OAuth同意・RDPファイル添付を継続監視すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuthアプリ同意、device code flow、RDPファイル添付の監視",
+    "休眠アカウントや外部委託アカウントの棚卸し",
+    "クラウド管理者アカウントの条件付きアクセス強化"
+  ],
+  "items": [
+    {
+      "id": "2026-05-07_apt29_cloud_identity_ongoing",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウドID・正規機能悪用型諜報活動",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Global", "Europe", "United States", "Japan"],
+        "industries": ["government", "academia", "defense", "NGO", "technology"],
+        "organization_types": ["government agencies", "research institutions", "cloud-heavy enterprises"]
+      },
+      "first_seen": "2024-10-22",
+      "last_seen": "2026-05-07",
+      "activity_summary": "APT29はクラウドID、正規認証フロー、RDPファイル、watering holeを組み合わせ、認証情報やセッション取得を狙う活動を継続している。",
+      "activity_details": "Microsoftは2024年にRDPファイルを用いた大規模スピアフィッシングを報告し、AWSは2025年にAPT29によるdevice code認証誘導型watering holeを妨害した。",
+      "ttp": ["T1566.001", "T1204", "T1021.001", "T1528", "T1550", "T1078", "T1584.001"],
+      "malware_and_tools": ["legitimate cloud services", "RDP files", "device code authentication abuse"],
+      "infrastructure": ["compromised websites", "cloud infrastructure", "residential proxy-like infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "マルウェアに依存せず、正規認証・正規クラウド機能を悪用するため検知が難しい。",
+        "geopolitical": "ロシアSVR系の外交・安全保障情報収集と整合し、長期的な諜報価値が高い。",
+        "business": "クラウドID管理の成熟度が低い企業では、端末侵害なしにクラウドデータへ到達されるリスクがある。",
+        "research_direction": "RDPファイル、OAuth同意、device code、休眠アカウント悪用を一体で追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT29は突発的な破壊よりも、クラウドIDを通じた長期・静穏な情報収集に強みがある。",
+        "delta_from_previous": "5月7日時点では新規差分なし。既知TTPの継続監視。"
+      },
+      "related_campaigns": ["APT29", "Midnight Blizzard", "SVR cloud espionage"],
+      "tags": ["APT29", "Russia", "SVR", "cloud-identity", "OAuth", "RDP"],
+      "sources": [
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia's APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS",
+          "published_at": "2025-08-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Russian SVR",
+        "infrastructure": ["compromised websites", "cloud services", "authentication infrastructure"],
+        "capability": ["device code abuse", "RDP phishing", "cloud account compromise"],
+        "victim": ["government", "academia", "defense", "NGO"]
+      }
+    }
+  ]
+}

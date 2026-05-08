@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-07",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": ["Medusa ransomware affiliate activity"],
+    "cluster": "Financially motivated ransomware operations",
+    "suspected_actor": "financially motivated cybercriminal actor",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175について5月7日JST時点で新規大型報告は確認されないが、4月にMicrosoftが報告した高速度Medusaランサムウェア作戦は継続監視対象である。公開Web資産のN-day/ゼロデイ悪用から24時間以内に暗号化へ至る点が重要である。",
+  "change_summary": [
+    "5月7日時点で新規大型レポートは確認されず",
+    "4月のMicrosoft報告を継続評価",
+    "N-day/ゼロデイ悪用から短時間でMedusa展開に至る高速度作戦を維持"
+  ],
+  "operational_relevance": "公開Web資産のパッチ遅延が、短期間でデータ窃取・ランサムウェア展開につながる。日本企業ではASMとパッチSLA管理が重要。",
+  "urgency": "high",
+  "recommended_action": [
+    "公開Web資産とVPN機器の脆弱性棚卸し",
+    "N-day脆弱性のパッチSLA短縮",
+    "初期侵入から24時間以内のランサム展開を想定した検知・封じ込め訓練",
+    "Medusa関連IoCとデータ窃取兆候の監視"
+  ],
+  "items": [
+    {
+      "id": "2026-05-07_storm_1175_medusa_high_velocity_ongoing",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175による高速度Medusaランサムウェア作戦",
+      "category": "サイバー犯罪／ランサムウェア",
+      "targeting": {
+        "regions": ["Global"],
+        "industries": ["enterprise", "healthcare", "public sector", "critical infrastructure"],
+        "organization_types": ["organizations with exposed vulnerable web-facing assets"]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-05-07",
+      "activity_summary": "Storm-1175は、公開Web資産のN-dayやゼロデイを悪用し、初期侵入から数日、場合により24時間以内にデータ窃取とMedusaランサムウェア展開を行う。",
+      "activity_details": "Microsoftは、Storm-1175が脆弱性公開からパッチ普及までの期間を狙い、高速度で侵害からランサム展開まで進めると報告している。",
+      "ttp": ["T1190", "T1068", "T1005", "T1041", "T1486", "T1490", "T1078"],
+      "malware_and_tools": ["Medusa ransomware", "web shells", "legitimate admin tools"],
+      "infrastructure": ["exposed web-facing systems", "ransomware infrastructure", "data leak infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "パッチ遅延期間を狙う高速度ランサム作戦であり、従来の週単位対応では間に合わない。",
+        "geopolitical": "国家系ではないが、重要インフラや公共部門に被害が出れば社会機能に影響する。",
+        "business": "ASM、脆弱性管理、EDR、バックアップ、初動IRの成熟度が直接的に被害規模を左右する。",
+        "research_direction": "Storm-1175が悪用するCVE、IAB連携、Medusa運用者との関係を継続整理する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "侵入からランサム展開までの時間が短く、公開資産管理の不備が直ちに事業停止につながる。",
+        "delta_from_previous": "5月7日時点では新規差分なし。4月報告の継続監視。"
+      },
+      "related_campaigns": ["Storm-1175", "Medusa ransomware", "N-day exploitation"],
+      "tags": ["Storm-1175", "Medusa", "ransomware", "N-day", "web-facing-assets"],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "Storm-1175 Deploys Medusa Ransomware at 'High Velocity'",
+          "url": "https://www.darkreading.com/threat-intelligence/storm-1175-medusa-ransomware-high-velocity",
+          "publisher": "Dark Reading",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": ["exposed vulnerable web-facing assets", "ransomware infrastructure"],
+        "capability": ["N-day exploitation", "data exfiltration", "Medusa ransomware deployment"],
+        "victim": ["enterprise networks", "public sector", "critical infrastructure"]
+      }
+    }
+  ]
+}

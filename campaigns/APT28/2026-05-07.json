@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-07",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Pawn Storm", "Sofacy"],
+    "cluster": "Russian GRU-linked cyber espionage",
+    "suspected_actor": "GRU Unit 26165",
+    "attribution_confidence": "high"
+  },
+  "update_type": "ongoing",
+  "executive_summary": "APT28について5月7日JST時点で新規の大規模公開報告は確認されないが、4月に公表されたSOHOルータ悪用・DNSハイジャック作戦は継続監視対象である。欧州・ウクライナ・NATO関連の認証情報窃取リスクが高い。",
+  "change_summary": [
+    "5月7日時点で新規大型レポートは確認されず",
+    "4月公表のルータ悪用・DNSハイジャック作戦を継続評価",
+    "SOHO/エッジ機器を経由した認証情報窃取リスクを維持"
+  ],
+  "operational_relevance": "日本組織でも海外拠点、出張者、在宅・小規模拠点ルータを経由した認証情報窃取に注意が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHOルータ、VPN、DNS設定の改ざん確認",
+    "OAuthトークン窃取を想定した再認証・条件付きアクセス監視",
+    "欧州・ウクライナ関連部門の認証ログ確認"
+  ],
+  "items": [
+    {
+      "id": "2026-05-07_apt28_router_dns_hijacking_ongoing",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるSOHOルータ悪用・DNSハイジャック作戦",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "Ukraine", "NATO countries"],
+        "industries": ["government", "defense", "critical infrastructure"],
+        "organization_types": ["government agencies", "military-related organizations", "critical infrastructure operators"]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-05-07",
+      "activity_summary": "APT28は脆弱なSOHOルータを悪用し、DNSハイジャックにより認証情報やOAuthトークンを窃取する作戦を継続している。",
+      "activity_details": "NCSC等は、APT28がルータのDNS設定を改ざんし、悪性DNS解決を通じてAitM攻撃を行ったと警告している。",
+      "ttp": ["T1190", "T1557", "T1040", "T1550", "T1110", "T1090"],
+      "malware_and_tools": ["router-resident tooling", "DNS hijacking infrastructure"],
+      "infrastructure": ["compromised SOHO routers", "MikroTik routers", "TP-Link routers", "malicious DNS servers"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "エンドポイントではなく家庭・小規模拠点のネットワーク機器を悪用するため、従来のEDR中心防御では捕捉しにくい。",
+        "geopolitical": "ロシアの対欧州・対NATO情報収集の一環として、ウクライナ戦争を背景に継続的価値がある。",
+        "business": "海外拠点や在宅勤務者の通信経路が企業認証基盤への入口となる。",
+        "research_direction": "ルータ侵害、DNS改ざん、OAuthトークン窃取の組み合わせを継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "SOHO機器を介した認証情報窃取は、国家系アクターによる長期潜伏・横展開の起点となる。",
+        "delta_from_previous": "5月7日時点では新規差分は限定的。4月公表内容の継続監視。"
+      },
+      "related_campaigns": ["APT28", "Russia-linked router exploitation"],
+      "tags": ["APT28", "Russia", "SOHO-router", "DNS-hijacking", "OAuth-token"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/news/apt28-exploit-routers-to-enable-dns-hijacking-operations",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Justice Department Conducts Court-Authorized Disruption of DNS Hijacking Network Controlled by a Russian Military Intelligence Unit",
+          "url": "https://www.justice.gov/opa/pr/justice-department-conducts-court-authorized-disruption-dns-hijacking-network-controlled",
+          "publisher": "U.S. Department of Justice",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU Unit 26165",
+        "infrastructure": ["compromised SOHO routers", "malicious DNS infrastructure"],
+        "capability": ["DNS hijacking", "AitM credential theft", "OAuth token theft"],
+        "victim": ["European government", "NATO-related organizations", "Ukraine-linked entities"]
+      }
+    }
+  ]
+}

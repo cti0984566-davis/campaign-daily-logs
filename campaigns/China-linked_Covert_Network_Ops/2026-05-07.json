@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-07",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["PRC-linked covert networks", "China-nexus covert networks", "Volt Typhoon-like covert infrastructure", "Flax Typhoon-like botnet infrastructure"],
+    "cluster": "China-linked compromised edge and IoT infrastructure operations",
+    "suspected_actor": "PRC-linked threat actors",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "5月7日時点では、4月23日の多国間アドバイザリを基礎に、中国関連アクターがSOHO/IoT/境界機器を大規模に悪用する秘匿ネットワーク作戦を継続監視する。PAN-OS CVE-2026-0300悪用は帰属未断定ながら、境界機器悪用という観点で関連監視に追加する。",
+  "change_summary": [
+    "4月23日にCISA、NCSC等がPRC-linked covert networksに関する共同ガイダンスを公表",
+    "5月6日公表のPAN-OS CVE-2026-0300悪用は、帰属未断定ながら境界機器悪用の関連監視対象",
+    "Volt Typhoon、Flax Typhoon、Raptor Train、KV Botnet系の監視枠を継続"
+  ],
+  "operational_relevance": "日本の重要インフラ、通信、製造、政府機関では、境界機器・SOHO機器・IoT機器が秘匿中継基盤化するリスクを前提に、ASM、EASM、ネットワーク異常検知を強化すべきである。",
+  "urgency": "high",
+  "recommended_action": [
+    "EOLのSOHOルータ、VPN、Firewall、NAS、IoT機器を棚卸しする",
+    "境界機器の外部公開、管理画面、Captive Portalを確認する",
+    "通常と異なるプロキシ通信、DNS、トンネリングを監視する",
+    "CISA/NCSC共同ガイダンスを基に防御チェックリストを作成する"
+  ],
+  "items": [
+    {
+      "id": "2026-05-07_china_linked_covert_networks_edge_devices",
+      "type": "assessment",
+      "status": "更新",
+      "name": "中国関連アクターによる秘匿ネットワーク・境界機器悪用作戦",
+      "category": "国家系サイバー諜報／秘匿インフラ作戦",
+      "targeting": {
+        "regions": ["Global", "United States", "Taiwan", "Europe", "Japan"],
+        "industries": ["critical infrastructure", "telecommunications", "government", "defense", "technology"],
+        "organization_types": ["critical infrastructure operators", "telecom providers", "government agencies", "organizations operating edge devices"]
+      },
+      "first_seen": "2021",
+      "last_seen": "2026-05-07",
+      "activity_summary": "中国関連アクターは、脆弱またはEOLのSOHO/IoT/境界機器を侵害し、攻撃元秘匿、偵察、永続アクセス、データ窃取に利用する傾向を強めている。",
+      "activity_details": "CISA/NCSC等の共同ガイダンスは、PRC-linked actorsが大規模な侵害済みデバイスネットワークを用いて重要セクターを標的にしていると警告した。PAN-OS CVE-2026-0300は帰属未断定だが、境界機器悪用リスクの直近例として関連監視に加える。",
+      "ttp": ["T1190", "T1090", "T1584", "T1583", "T1046", "T1071", "T1021", "T1070"],
+      "malware_and_tools": ["KV Botnet-related malware", "Raptor Train-related tooling", "proxy tools", "EarthWorm", "ReverseSocks5"],
+      "infrastructure": ["compromised SOHO routers", "IoT devices", "firewalls", "VPN devices", "NAS devices", "PAN-OS firewalls"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "侵害済み日用品デバイスを中継基盤化することで、攻撃元の追跡・遮断・帰属が困難になる。",
+        "geopolitical": "台湾有事や米中対立を背景に、重要インフラへの事前配置・情報収集・妨害準備の可能性がある。",
+        "business": "企業は自社管理外の支店・委託先・家庭用機器を含めた通信経路リスクを考慮する必要がある。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Salt Typhoon、Raptor Train、KV Botnet、PAN-OSゼロデイ悪用を横断的に比較する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "境界機器・SOHO/IoT機器の秘匿ネットワーク化は、国家レベルの事前配置・長期諜報・有事妨害に直結する。",
+        "delta_from_previous": "5月7日はPAN-OS CVE-2026-0300を関連監視に追加。ただし中国帰属は未確定。"
+      },
+      "related_campaigns": ["Volt Typhoon", "Flax Typhoon", "Salt Typhoon", "Raptor Train", "KV Botnet", "PAN-OS CVE-2026-0300 exploitation"],
+      "tags": ["China-linked", "covert-network", "SOHO", "IoT", "edge-device", "PAN-OS", "CVE-2026-0300"],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "International cyber agencies share fresh advice to defend against China-linked covert networks",
+          "url": "https://www.ncsc.gov.uk/news/international-cyber-agencies-fresh-advice-defend-against-china-linked-covert-networks",
+          "publisher": "NCSC",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "Threat Brief: Exploitation of PAN-OS Captive Portal Zero-Day for Unauthenticated Remote Code Execution",
+          "url": "https://unit42.paloaltonetworks.com/captive-portal-zero-day/",
+          "publisher": "Palo Alto Networks Unit 42",
+          "published_at": "2026-05-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "PRC-linked threat actors",
+        "infrastructure": ["compromised routers", "IoT devices", "firewalls", "VPN appliances", "covert proxy networks"],
+        "capability": ["covert relay networks", "edge device exploitation", "proxying", "long-term access"],
+        "victim": ["critical infrastructure", "telecommunications", "government", "defense", "Taiwan-linked targets"]
+      }
+    }
+  ]
+}
