@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-10",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["China-nexus covert networks", "PRC-linked compromised device networks", "SOHO/IoT botnet infrastructure"],
+    "cluster": "China-linked covert infrastructure operations",
+    "suspected_actor": "China-nexus state-sponsored actors and supporting commercial entities",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-10_china_linked_covert_networks_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "中国関連アクターによるSOHO・IoT侵害済みデバイス基盤の継続評価",
+      "category": "国家系サイバー作戦 / 秘匿インフラ運用",
+      "targeting": {
+        "regions": ["Global", "Japan", "Taiwan", "United States", "Europe"],
+        "industries": ["critical infrastructure", "telecommunications", "government", "defense", "transportation"],
+        "organization_types": ["critical infrastructure operators", "government agencies", "SOHO router users", "IoT device users"]
+      },
+      "first_seen": "2024",
+      "last_seen": "2026-05-10",
+      "activity_summary": "CISA等の10か国共同アドバイザリは、中国関連アクターがSOHOルータ、IoT、スマートデバイスを大規模に侵害し、秘匿ネットワークとして諜報・攻撃活動に利用していると警告した。5月8〜10日は新規大型更新はないが、日本・台湾を含む地域への影響があるため継続監視が必要。",
+      "activity_details": "共同アドバイザリは、Volt Typhoon、Flax Typhoon等を含む中国関連アクターが、個別に調達した攻撃インフラから、侵害済みデバイスで構成される大規模秘匿ネットワークへ移行していると指摘している。これにより、攻撃元の秘匿、帰属困難化、低コスト運用が可能となる。",
+      "ttp": [
+        "T1584 Compromise Infrastructure",
+        "T1090 Proxy",
+        "T1190 Exploit Public-Facing Application",
+        "T1046 Network Service Discovery",
+        "T1027 Obfuscated Files or Information"
+      ],
+      "malware_and_tools": ["KV-Botnet", "Raptor Train", "LapDog"],
+      "infrastructure": ["compromised SOHO routers", "IoT devices", "web cameras", "smart devices", "VPN devices"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "中国関連アクターは、侵害済みデバイス基盤を用いて攻撃元を秘匿し、長期・低コスト・否認可能な作戦基盤を構築している。",
+        "geopolitical": "日本・台湾・米国の重要インフラや防衛関連組織に対する事前配置、偵察、アクセス維持と接続する可能性がある。",
+        "business": "通信、製造、運輸、電力分野では、自組織だけでなく取引先・家庭用機器・支店機器を含む露出管理が必要となる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Salt Typhoon、Raptor Train、LapDogの関係、運用主体、民間企業関与を継続確認する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "侵害済みSOHO・IoT機器基盤は、中国系アクターの諜報・事前配置・攻撃元秘匿を支える中核インフラであり、日本にも直接関係するため。",
+        "delta_from_previous": "5月8〜10日の新規大型公表はないが、4月の共同アドバイザリを踏まえ、独立した監視枠として高優先度を維持。"
+      },
+      "related_campaigns": ["Volt Typhoon", "Flax Typhoon", "Salt Typhoon", "Raptor Train", "LapDog"],
+      "tags": ["China", "covert-network", "SOHO-router", "IoT", "Volt-Typhoon", "Flax-Typhoon"],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "Defending against China-linked covert networks of compromised devices",
+          "url": "https://www.cyber.go.jp/pdf/press/Defending_against_China_linked_covert_networks_of_compromised_devices.pdf",
+          "publisher": "国家サイバー統括室",
+          "published_at": "2026-04-23"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-nexus state-sponsored actors and supporting commercial entities",
+        "infrastructure": ["compromised SOHO routers", "IoT devices", "smart devices", "VPN devices"],
+        "capability": ["proxy network operation", "origin obfuscation", "covert access routing", "large-scale compromised device management"],
+        "victim": ["critical infrastructure", "government organizations", "Japan", "Taiwan", "United States", "Europe"]
+      }
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "中国関連アクターによる侵害済みSOHO・IoTデバイス基盤は、日本が最も重視すべき継続監視対象の一つである。",
+  "change_summary": [
+    "5月8〜10日の新規大型公表はないが、4月の10か国共同警告を継続評価。",
+    "Volt Typhoon、Flax Typhoon、Raptor Train、LapDog等を横断する監視枠として維持。",
+    "日本・台湾への関連性が高く、国家安全保障上の優先度は高い。"
+  ],
+  "operational_relevance": "日本の重要インフラ・通信・製造・運輸分野では、境界機器、SOHOルータ、IoT、VPN装置を含めた露出管理と異常通信監視が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルータ、IoT、VPN装置の資産棚卸しを行う。",
+    "既定パスワード、古いファームウェア、外部管理画面を重点確認する。",
+    "国外プロキシ経由の異常アクセスや低頻度ビーコンを監視する。",
+    "Volt Typhoon、Flax Typhoon、Raptor Train、LapDogを同一監視枠で横断分析する。"
+  ]
+}

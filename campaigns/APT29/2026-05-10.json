@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-10",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "The Dukes", "NOBELIUM", "Midnight Blizzard"],
+    "cluster": "Russia-linked foreign intelligence cyber espionage",
+    "suspected_actor": "Russian SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-10_apt29_cloud_identity_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウドID・認証フロー悪用活動の継続評価",
+      "category": "国家系サイバー諜報 / クラウドID侵害",
+      "targeting": {
+        "regions": ["United States", "Europe", "Global"],
+        "industries": ["government", "defense", "academia", "NGO", "technology"],
+        "organization_types": ["government agencies", "policy organizations", "cloud service users"]
+      },
+      "first_seen": "2024-01",
+      "last_seen": "2026-05-10",
+      "activity_summary": "APT29について、5月8〜10日に新たな大規模公表は確認されない。一方、MicrosoftやAWSが過去に公表したクラウドID、デバイスコード認証、RDPファイル、ウォータリングホールを用いた活動は、現在も防御上の主要論点である。",
+      "activity_details": "APT29は、クラウド認証基盤、Microsoft 365、デバイスコード認証、ソーシャルエンジニアリング、ウォータリングホールを組み合わせ、政府・外交・研究・防衛関連組織を狙う。新規IOCよりも、クラウドID運用上の弱点を継続的に突く点が重要である。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1528 Steal Application Access Token",
+        "T1550 Use Alternate Authentication Material",
+        "T1204 User Execution",
+        "T1189 Drive-by Compromise"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["compromised websites", "phishing infrastructure", "Microsoft cloud identity workflows"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29はゼロデイよりもID基盤・クラウド運用・ユーザー承認フローの盲点を突く傾向が強い。",
+        "geopolitical": "ロシア対外情報庁系の諜報目的と整合し、外交・政策・安全保障コミュニティが主要標的となる。",
+        "business": "企業・政府機関はMFA導入だけでなく、デバイスコード認証、OAuth同意、セッショントークン利用の監視が必要。",
+        "research_direction": "APT29のID侵害TTPを、MFA manipulation、AiTM、トークン窃取キャンペーンと横断的に比較する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "クラウドID侵害は、境界防御を迂回して政府・政策・防衛関連情報へ到達する主要手段であるため。",
+        "delta_from_previous": "5月8〜10日の新規事案は確認されないが、クラウドID侵害を中心とする継続脅威として評価を維持。"
+      },
+      "related_campaigns": ["APT29", "Midnight Blizzard", "Cloud Identity Compromise"],
+      "tags": ["APT29", "Russia", "SVR", "cloud-identity", "device-code", "token-theft"],
+      "sources": [
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia's APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "Amazon Web Services",
+          "published_at": "2025-08-29"
+        },
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard / SVR-linked actor",
+        "infrastructure": ["compromised websites", "cloud authentication workflows", "phishing infrastructure"],
+        "capability": ["device code phishing", "RDP lure delivery", "cloud token abuse", "watering hole compromise"],
+        "victim": ["government", "defense", "academia", "NGO", "technology organizations"]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "APT29について期間中の新規大型公表は確認されないが、クラウドID・認証フローを突く継続的諜報脅威として監視を維持する。",
+  "change_summary": [
+    "5月8〜10日の新規大規模公表は確認されない。",
+    "クラウドID、OAuth、デバイスコード認証、RDPルアーの監視を継続。",
+    "APT28と異なり、境界機器よりもクラウドID基盤への侵入リスクを重視。"
+  ],
+  "operational_relevance": "政府・研究・防衛関連組織では、MFA導入済みでもOAuth同意、デバイスコード認証、異常セッションの監視が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "デバイスコード認証の利用状況を確認する。",
+    "不審なOAuthアプリ同意を監査する。",
+    "RDPファイル添付やクラウド共有リンクを用いた標的型メールを監視する。",
+    "重要アカウントにフィッシング耐性MFAを適用する。"
+  ]
+}

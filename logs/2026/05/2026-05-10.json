@@ -1,0 +1,742 @@
+{
+  "date": "2026-05-10",
+  "timezone": "JST",
+  "title": "2026/05/10_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-10_pan_os_cve_2026_0300",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "PAN-OS_CVE-2026-0300_Exploitation",
+        "aliases": [
+          "PAN-OS User-ID Authentication Portal RCE",
+          "CVE-2026-0300"
+        ],
+        "cluster": "Boundary_Device_Exploitation",
+        "suspected_actor": "CL-STA-1132 / state-sponsored actor suspected",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "国家支援の可能性がある未特定アクター",
+        "infrastructure": [
+          "compromised PAN-OS devices",
+          "User-ID Authentication Portal",
+          "EarthWorm",
+          "ReverseSocks5"
+        ],
+        "capability": [
+          "unauthenticated remote code execution",
+          "root-level execution",
+          "log deletion",
+          "Active Directory reconnaissance"
+        ],
+        "victim": [
+          "Palo Alto Networks PAN-OS deployments",
+          "government and critical infrastructure organizations",
+          "enterprise networks"
+        ]
+      },
+      "name": "Palo Alto Networks PAN-OS CVE-2026-0300の悪用",
+      "category": "ゼロデイ脆弱性 / 境界装置侵害",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "通信",
+        "エンタープライズIT"
+      ],
+      "region": [
+        "Global",
+        "Japan"
+      ],
+      "first_seen": "2026-04-09",
+      "last_seen": "2026-05-10",
+      "summary": "Palo Alto Networks PAN-OSのUser-ID Authentication Portalにおける認証不要のバッファオーバーフロー脆弱性CVE-2026-0300について、実際の悪用が確認された。外部公開されたポータルを通じてroot権限でのRCEが可能となる。",
+      "executive_summary": "境界防御機器を対象とする高危険度のゼロデイ悪用事案。国家支援の可能性があるアクターが関与しているとされ、侵入後の永続化・内部偵察・ログ削除が確認されているため、日本組織でも最優先で露出確認と緩和策適用が必要。",
+      "change_summary": [
+        "CVE-2026-0300が公開され、Exploit MaturityはATTACKEDとされた。",
+        "Unit 42は4月9日以降の悪用試行および成功侵害を確認した。",
+        "EarthWormやReverseSocks5を用いた内部アクセス維持が報告された。"
+      ],
+      "operational_relevance": "外部公開された境界機器の侵害は、APTによる初期アクセス、秘匿通信、内部横展開の起点となる。Palo Alto製品利用組織は、User-ID Authentication Portalの公開有無、ログ欠損、異常なプロセス実行、AD照会を確認する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "User-ID Authentication Portalの外部公開有無を確認する。",
+        "ベンダ推奨のアクセス制限・無効化・Threat Preventionシグネチャ適用を実施する。",
+        "4月9日以降の認証ポータルアクセスログ、システムログ、AD照会、ログ削除痕跡を確認する。",
+        "境界装置を経由した内部横展開の有無をEDRおよびSIEMで確認する。"
+      ],
+      "details": "本件は単なる脆弱性管理ではなく、境界装置を侵害済みインフラとして利用する国家系キャンペーンの一部として扱うべきである。APT28のSOHOルータ悪用、中国関連Covert Network / SOHO・IoTボットネット利用と同じ監視軸で継続観測する価値が高い。",
+      "actors": [
+        {
+          "name": "CL-STA-1132",
+          "role": "suspected threat cluster",
+          "country": "Unknown"
+        },
+        {
+          "name": "Palo Alto Networks Unit 42",
+          "role": "researcher / responder",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1068 Exploitation for Privilege Escalation",
+        "T1070 Indicator Removal",
+        "T1087 Account Discovery",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware": [
+        "EarthWorm",
+        "ReverseSocks5"
+      ],
+      "infrastructure": [
+        "PAN-OS User-ID Authentication Portal",
+        "compromised firewall appliances"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "critical infrastructure",
+          "enterprise networks"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "organizations exposing PAN-OS User-ID Authentication Portal"
+        ]
+      },
+      "strategic_view": {
+        "general": "境界装置のゼロデイ悪用は、防御側の可視性が低い領域を突くため、初期侵入後の長期潜伏につながりやすい。",
+        "geopolitical": "国家系アクターが境界装置を狙う傾向は継続しており、中国・ロシア系キャンペーン双方の監視枠と接続する。",
+        "business": "Palo Alto製品利用企業では、パッチ適用だけでなく構成管理・露出管理・ログ保全の成熟度が問われる。",
+        "research_direction": "CVE-2026-0300の悪用インフラ、侵害後ツール、被害セクターを継続的に追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "認証不要RCEかつ実悪用済みであり、境界装置を起点とする国家系侵入の可能性があるため。",
+        "delta_from_previous": "前回までの境界装置侵害一般論から、具体的なPAN-OSゼロデイ悪用事案として監視対象化した。"
+      },
+      "related_campaigns": [
+        "China-linked_Covert_Network_Ops",
+        "APT28_SOHO_Router_Exploitation",
+        "Boundary_Device_Exploitation"
+      ],
+      "related_reports": [
+        "APT28 SOHOルータ悪用",
+        "中国関連Covert Network / SOHO・IoTボットネット利用"
+      ],
+      "tags": [
+        "zero-day",
+        "PAN-OS",
+        "CVE-2026-0300",
+        "boundary-device",
+        "state-sponsored"
+      ],
+      "sources": [
+        {
+          "title": "CVE-2026-0300 PAN-OS: Unauthenticated user initiated Buffer Overflow Vulnerability in User-ID Authentication Portal",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-0300",
+          "publisher": "Palo Alto Networks",
+          "published_at": "2026-05-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-10_canvas_instructure_shinyhunters",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Canvas_Instructure_Data_Breach",
+        "aliases": [
+          "Canvas hack",
+          "Instructure cybersecurity incident"
+        ],
+        "cluster": "Education_SaaS_Extortion",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters",
+        "infrastructure": [
+          "Canvas LMS",
+          "defaced login pages",
+          "extortion communication channels"
+        ],
+        "capability": [
+          "data theft",
+          "platform disruption",
+          "extortion",
+          "public leak threat"
+        ],
+        "victim": [
+          "universities",
+          "schools",
+          "students",
+          "faculty",
+          "education ministries"
+        ]
+      },
+      "name": "Canvas / Instructure侵害とShinyHuntersによる恐喝",
+      "category": "サイバー犯罪 / データ侵害 / SaaS侵害",
+      "industry": [
+        "教育",
+        "SaaS",
+        "公共教育"
+      ],
+      "region": [
+        "Global",
+        "United States",
+        "Australia"
+      ],
+      "first_seen": "2026-05-07",
+      "last_seen": "2026-05-10",
+      "summary": "教育プラットフォームCanvasで大規模な侵害・混乱が発生し、ShinyHuntersがデータ窃取とリークを主張した。複数の大学・学校でログイン障害、授業・試験への影響が報告された。",
+      "executive_summary": "教育SaaSの集中依存リスクを示す大規模事案。個別学校ではなく共通プラットフォーム側の侵害により、世界中の教育機関に広域影響が生じた可能性がある。教育・自治体・大学のSaaSリスク管理、ID連携、BCPの再点検が必要。",
+      "change_summary": [
+        "5月7日以降、Canvasログイン画面の改ざんやアクセス障害が報告された。",
+        "ShinyHuntersがデータ窃取とリーク脅迫を主張した。",
+        "米国・豪州など複数国の教育機関で授業・試験・教材アクセスへの影響が報告された。"
+      ],
+      "operational_relevance": "学校・大学側は、Canvas自体の復旧確認だけでなく、SSO連携、学生・教職員メールへの後続フィッシング、漏洩メッセージを用いた標的型詐欺への警戒が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Canvas連携ID、SSO、APIトークン、外部連携アプリを確認する。",
+        "学生・教職員に対し、漏洩情報を悪用したフィッシングへの注意喚起を行う。",
+        "教育SaaS停止時の授業・試験・成績管理BCPを点検する。",
+        "攻撃者リークサイトやSNS上の被害主張を過度に拡散せず、公式発表を基準に確認する。"
+      ],
+      "details": "攻撃者主張には誇張の可能性があるため、件数や範囲は慎重に扱うべきである。ただし、Canvasのような共通LMSが停止・侵害された場合、教育活動への影響は大きく、PowerSchool等の教育分野侵害と同じリスク構造を示している。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "claimed attacker / extortion group",
+          "country": "Unknown"
+        },
+        {
+          "name": "Instructure",
+          "role": "victim / platform provider",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1491 Defacement",
+        "T1567 Exfiltration Over Web Service",
+        "T1486 Data Encrypted for Impact",
+        "T1585 Establish Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Canvas LMS",
+        "Instructure services",
+        "attacker-controlled ransom communication infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "higher education",
+          "K-12"
+        ],
+        "countries": [
+          "United States",
+          "Australia",
+          "Global"
+        ],
+        "organization_types": [
+          "universities",
+          "schools",
+          "education authorities"
+        ]
+      },
+      "strategic_view": {
+        "general": "SaaS集中依存により、単一プラットフォーム侵害が多数組織へ同時波及するリスクが顕在化した。",
+        "geopolitical": "教育情報は直接の軍事情報ではないが、若年層・研究者・教職員のPIIやコミュニケーションが後続の影響工作・フィッシングに利用され得る。",
+        "business": "教育機関向けSaaSでは、セキュリティ責任分界、インシデント通知、BCP、データ最小化が競争上の重要要素となる。",
+        "research_direction": "被害範囲、窃取データ種別、ShinyHuntersの主張の真正性、後続フィッシング発生状況を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "教育分野で広域影響を生むSaaS侵害であり、期末試験等の社会的影響も大きい。",
+        "delta_from_previous": "教育機関個別のランサムウェア事案から、共通SaaSプラットフォーム侵害による広域影響事案として評価を更新した。"
+      },
+      "related_campaigns": [
+        "Education_SaaS_Extortion",
+        "PowerSchool_Breach"
+      ],
+      "related_reports": [
+        "PowerSchool侵害",
+        "教育機関ランサムウェア事案"
+      ],
+      "tags": [
+        "education",
+        "SaaS",
+        "ShinyHunters",
+        "data-breach",
+        "extortion"
+      ],
+      "sources": [
+        {
+          "title": "Education tool Canvas hacked, multiple US college newspapers report",
+          "url": "https://www.reuters.com/technology/education-tool-canvas-hacked-multiple-us-college-newspapers-report-2026-05-08/",
+          "publisher": "Reuters",
+          "published_at": "2026-05-08"
+        },
+        {
+          "title": "Cyberattack hits Canvas system used by thousands of schools as finals loom",
+          "url": "https://apnews.com/article/a0d7719689263e6b5f90d0e633391b5b",
+          "publisher": "Associated Press",
+          "published_at": "2026-05-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-10_daemon_tools_supply_chain",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "DAEMON_Tools_Supply_Chain_Attack",
+        "aliases": [
+          "Trojanized DAEMON Tools installer",
+          "DAEMON Tools backdoor campaign"
+        ],
+        "cluster": "Software_Supply_Chain_Compromise",
+        "suspected_actor": "Chinese-speaking actor suspected by third-party reporting",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定アクター",
+        "infrastructure": [
+          "official DAEMON Tools website",
+          "trojanized installers",
+          "valid digital signature"
+        ],
+        "capability": [
+          "software supply chain compromise",
+          "backdoor installation",
+          "arbitrary command execution",
+          "remote control"
+        ],
+        "victim": [
+          "DAEMON Tools users",
+          "manufacturing organizations",
+          "government organizations",
+          "research and science organizations"
+        ]
+      },
+      "name": "DAEMON Tools公式サイト経由のサプライチェーン攻撃",
+      "category": "サプライチェーン攻撃 / バックドア",
+      "industry": [
+        "ソフトウェア",
+        "製造",
+        "政府機関",
+        "研究機関"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-04-08",
+      "last_seen": "2026-05-10",
+      "summary": "Kasperskyは、DAEMON Tools公式サイトから配布された正規署名付きインストーラがトロイ化され、感染端末上で任意コマンド実行や遠隔制御を可能にしていたと公表した。",
+      "executive_summary": "公式サイト・正規署名を悪用したサプライチェーン攻撃。一般利用ソフトを入口にしつつ、政府・製造・研究など高価値端末を選別する可能性があり、日本の製造業・研究機関でも端末棚卸しと該当インストーラ確認が必要。",
+      "change_summary": [
+        "Kasperskyが5月5日に公式サイト経由の継続中サプライチェーン攻撃を公表した。",
+        "悪性インストーラは4月8日以降流通していたとされた。",
+        "トロイ化された実行ファイルが有効なデジタル署名を持つ点が確認された。"
+      ],
+      "operational_relevance": "正規ソフトウェア配布経路と署名を悪用するため、従来の信頼モデルをすり抜ける可能性がある。ソフトウェア資産管理、EDRによる子プロセス監視、署名済みバイナリの挙動監視が重要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "2026年4月8日以降にDAEMON Toolsを取得・更新した端末を特定する。",
+        "該当インストーラのハッシュ、署名、取得元、実行履歴を確認する。",
+        "DAEMON Tools関連プロセスからの不審なネットワーク通信やコマンド実行を確認する。",
+        "正規署名済みソフトウェアの挙動ベース検知を強化する。"
+      ],
+      "details": "Kasperskyは公式サイト配布の改ざん版インストーラを確認した。攻撃は単純なマス感染ではなく、初期情報収集後に高価値対象へ追加ペイロードを配布する可能性がある。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "attacker",
+          "country": "Unknown"
+        },
+        {
+          "name": "Kaspersky GReAT",
+          "role": "researcher",
+          "country": "Russia"
+        },
+        {
+          "name": "AVB Disc Soft",
+          "role": "software vendor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1553 Subvert Trust Controls",
+        "T1105 Ingress Tool Transfer",
+        "T1059 Command and Scripting Interpreter",
+        "T1071 Application Layer Protocol"
+      ],
+      "malware": [
+        "backdoor component embedded in trojanized installer"
+      ],
+      "infrastructure": [
+        "official DAEMON Tools website",
+        "signed trojanized installers"
+      ],
+      "targeting": {
+        "sectors": [
+          "manufacturing",
+          "government",
+          "research",
+          "software users"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "organizations using DAEMON Tools",
+          "industrial organizations",
+          "research institutions"
+        ]
+      },
+      "strategic_view": {
+        "general": "公式配布経路と正規署名を利用するサプライチェーン攻撃は、防御側の信頼前提を崩す。",
+        "geopolitical": "政府・製造・研究分野を含む可能性があり、諜報目的の初期アクセス獲得手段として重要。",
+        "business": "ソフトウェアベンダにはビルド・署名・配布基盤の統制、利用企業にはSBOMと資産管理が求められる。",
+        "research_direction": "追加ペイロード、C2、標的選別ロジック、アクター帰属を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "公式サイトと正規署名を悪用したサプライチェーン攻撃であり、高価値組織への侵入経路になり得る。",
+        "delta_from_previous": "一般的なサプライチェーン警戒から、DAEMON Toolsという具体的な流通経路侵害事案として監視対象化した。"
+      },
+      "related_campaigns": [
+        "Software_Supply_Chain_Compromise",
+        "3CX_Supply_Chain",
+        "XZ_Utils_Backdoor"
+      ],
+      "related_reports": [
+        "3CX事案",
+        "XZ Utilsバックドア",
+        "CCleanerサプライチェーン攻撃"
+      ],
+      "tags": [
+        "supply-chain",
+        "DAEMON-Tools",
+        "signed-malware",
+        "backdoor",
+        "software-distribution"
+      ],
+      "sources": [
+        {
+          "title": "Kaspersky identifies ongoing supply chain attack on official DAEMON Tools website distributing backdoor malware",
+          "url": "https://www.kaspersky.com/about/press-releases/kaspersky-identifies-ongoing-supply-chain-attack-on-official-daemon-tools-website-distributing-backdoor-malware",
+          "publisher": "Kaspersky",
+          "published_at": "2026-05-05"
+        },
+        {
+          "title": "Supply chain attack via DAEMON Tools",
+          "url": "https://www.kaspersky.com/blog/daemon-tools-supply-chain-attack/55691/",
+          "publisher": "Kaspersky",
+          "published_at": "2026-05-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-10_dirty_frag_linux_lpe",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Dirty_Frag_Linux_LPE",
+        "aliases": [
+          "Dirty Frag",
+          "CVE-2026-43284",
+          "CVE-2026-43500"
+        ],
+        "cluster": "Linux_Kernel_Privilege_Escalation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定アクター",
+        "infrastructure": [
+          "Linux servers",
+          "container hosts",
+          "cloud workloads"
+        ],
+        "capability": [
+          "local privilege escalation",
+          "root privilege acquisition",
+          "potential container escape",
+          "post-compromise escalation"
+        ],
+        "victim": [
+          "Linux systems",
+          "cloud environments",
+          "containerized workloads"
+        ]
+      },
+      "name": "Linux Kernel Dirty Fragローカル権限昇格脆弱性",
+      "category": "ゼロデイ脆弱性 / 権限昇格",
+      "industry": [
+        "クラウド",
+        "IT",
+        "通信",
+        "ソフトウェア開発",
+        "重要インフラ"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-08",
+      "last_seen": "2026-05-10",
+      "summary": "Linux kernelのDirty Frag脆弱性として、xfrm-ESPおよびRxRPCに関連するローカル権限昇格問題が公開された。非特権ユーザーからroot権限取得につながる可能性があり、PoC公開も報告されている。",
+      "executive_summary": "外部侵入後の権限昇格・コンテナ脱出に利用され得るLinuxカーネル脆弱性。インターネット露出型ではなくても、侵害後の攻撃者能力を大きく高めるため、クラウド・Kubernetes・CI/CD基盤では優先的に影響確認が必要。",
+      "change_summary": [
+        "5月8日前後にDirty Fragとして脆弱性情報が公開された。",
+        "CVE-2026-43284およびCVE-2026-43500に関連するLPEとして報告された。",
+        "PoC公開および一部ディストリビューションの対応状況が報じられた。"
+      ],
+      "operational_relevance": "初期侵入後にroot権限取得、コンテナホスト侵害、CI/CD基盤の乗っ取りへつながる可能性がある。Linuxサーバ、Kubernetesノード、開発基盤のカーネルバージョン確認が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "LinuxディストリビューションごとのDirty Frag対応状況を確認する。",
+        "Kubernetesノード、CI/CD runner、インターネット公開サーバのカーネルバージョンを棚卸しする。",
+        "非特権ユーザーによる異常な権限昇格、カーネルクラッシュ、PoC実行痕跡を監視する。",
+        "パッチ未提供環境では、不要な関連カーネルモジュールや攻撃前提条件の低減を検討する。"
+      ],
+      "details": "Dirty PipeやCopy Failと同様、Linuxカーネルのページキャッシュやメモリ処理に関連する権限昇格系の脆弱性として注目されている。直接の初期侵入ベクターではなく、侵害後の攻撃段階におけるリスクとして評価すべきである。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "potential exploiter",
+          "country": "Unknown"
+        },
+        {
+          "name": "Microsoft Defender Security Research Team",
+          "role": "researcher",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1068 Exploitation for Privilege Escalation",
+        "T1611 Escape to Host",
+        "T1059 Command and Scripting Interpreter"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Linux kernel",
+        "xfrm-ESP",
+        "RxRPC",
+        "container hosts"
+      ],
+      "targeting": {
+        "sectors": [
+          "cloud",
+          "IT",
+          "telecommunications",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Linux server operators",
+          "cloud service users",
+          "Kubernetes operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "LPE脆弱性は単体では目立ちにくいが、侵入済み環境で攻撃者の権限・持続性・横展開能力を大きく高める。",
+        "geopolitical": "国家系・犯罪系を問わず、Linux基盤はクラウド・通信・研究機関で共通利用されるため、広範な後段TTPとなり得る。",
+        "business": "クラウド運用企業では、OSパッチ管理、コンテナ分離、ノード更新計画の実効性が問われる。",
+        "research_direction": "主要ディストリビューションの修正状況、PoCの悪用有無、コンテナエスケープの実証状況を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "初期侵入後の権限昇格・コンテナ脱出につながる可能性があり、クラウド環境では影響が大きい。",
+        "delta_from_previous": "Dirty Pipe系の既知リスクに加え、新たなDirty Fragとして監視対象化した。"
+      },
+      "related_campaigns": [
+        "Linux_Kernel_Privilege_Escalation",
+        "Cloud_Post_Compromise_Risk"
+      ],
+      "related_reports": [
+        "Dirty Pipe",
+        "Copy Fail"
+      ],
+      "tags": [
+        "Linux",
+        "LPE",
+        "Dirty-Frag",
+        "CVE-2026-43284",
+        "CVE-2026-43500",
+        "container-security"
+      ],
+      "sources": [
+        {
+          "title": "Active attack: Dirty Frag Linux vulnerability expands post-compromise risk",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/05/08/active-attack-dirty-frag-linux-vulnerability-expands-post-compromise-risk/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-08"
+        },
+        {
+          "title": "CVE-2026-43284",
+          "url": "https://access.redhat.com/security/cve/cve-2026-43284",
+          "publisher": "Red Hat",
+          "published_at": "2026-05-08"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-10_microsoft_phishing_credential_theft",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Large_Scale_Credential_Theft_Campaign",
+        "aliases": [
+          "Microsoft-observed phishing campaign",
+          "Code of Conduct phishing"
+        ],
+        "cluster": "Credential_And_Token_Theft",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定フィッシングアクター",
+        "infrastructure": [
+          "legitimate email services",
+          "attacker-controlled domains",
+          "phishing pages"
+        ],
+        "capability": [
+          "credential harvesting",
+          "token theft",
+          "large-scale phishing",
+          "brand impersonation"
+        ],
+        "victim": [
+          "healthcare organizations",
+          "financial organizations",
+          "professional services",
+          "IT organizations"
+        ]
+      },
+      "name": "Microsoft観測の大規模認証情報・トークン窃取キャンペーン",
+      "category": "フィッシング / 認証情報窃取",
+      "industry": [
+        "医療",
+        "金融",
+        "専門サービス",
+        "IT"
+      ],
+      "region": [
+        "Global",
+        "United States"
+      ],
+      "first_seen": "2026-04-14",
+      "last_seen": "2026-05-10",
+      "summary": "Microsoftは、4月14日から16日にかけて、26か国・13,000組織超・35,000ユーザー以上を標的とした大規模な認証情報窃取キャンペーンを観測したと報告した。",
+      "executive_summary": "MFA導入済み環境でも、トークン窃取やセッション悪用により侵入されるリスクが継続している。APT28やMuddyWaterのMFA manipulationとも接続する、ID基盤を主戦場とする攻撃トレンドとして監視すべき。",
+      "change_summary": [
+        "Microsoftが4月中旬の大規模フィッシングキャンペーンを公表した。",
+        "対象は26か国、13,000組織超、35,000ユーザー以上とされた。",
+        "Code of Conductを装ったルアーや正規メールサービス悪用が報告された。"
+      ],
+      "operational_relevance": "MFAだけでは不十分であり、条件付きアクセス、デバイス準拠、セッショントークン保護、異常サインイン検知が必要。特に管理者・経営層・医療金融部門のID保護を優先すべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Code of Conductや人事・規程確認を装うメールへの注意喚起を行う。",
+        "不審なOAuth同意、異常なセッショントークン利用、Impossible Travelを確認する。",
+        "管理者アカウントにフィッシング耐性MFAを適用する。",
+        "AiTMおよびトークン窃取を想定した条件付きアクセスを強化する。"
+      ],
+      "details": "近年のフィッシングは単純なパスワード窃取から、セッショントークン・OAuth・MFA承認操作を狙う形へ移行している。本件は国家系・犯罪系双方に共通するID基盤攻撃の継続トレンドとして扱うべきである。",
+      "actors": [
+        {
+          "name": "Unknown phishing actor",
+          "role": "attacker",
+          "country": "Unknown"
+        },
+        {
+          "name": "Microsoft",
+          "role": "researcher",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1550 Use Alternate Authentication Material",
+        "T1528 Steal Application Access Token",
+        "T1110 Brute Force",
+        "T1585 Establish Accounts"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "legitimate email services",
+        "attacker-controlled phishing domains",
+        "credential harvesting pages"
+      ],
+      "targeting": {
+        "sectors": [
+          "healthcare",
+          "finance",
+          "professional services",
+          "IT"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "enterprise users",
+          "cloud identity tenants",
+          "Microsoft 365 users"
+        ]
+      },
+      "strategic_view": {
+        "general": "ID基盤そのものが攻撃対象化しており、MFA導入だけでは安全性を保証できない。",
+        "geopolitical": "国家系アクターも犯罪者も同種のトークン窃取・MFA迂回技術を利用しており、攻撃手法の境界が曖昧化している。",
+        "business": "企業はID保護、SaaS監査、ゼロトラスト運用を実効的に実装する必要がある。",
+        "research_direction": "MFA manipulation、AiTM、OAuth悪用、トークン窃取の観測をAPT28・MuddyWater等の監視枠と接続する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "大規模かつ多業種に影響し、MFA回避・トークン窃取の継続トレンドを示すため。",
+        "delta_from_previous": "従来の認証情報窃取から、セッション・トークンを含むID基盤侵害リスクとして評価を更新した。"
+      },
+      "related_campaigns": [
+        "MFA_Manipulation",
+        "APT28_Credential_Theft",
+        "MuddyWater_Social_Engineering"
+      ],
+      "related_reports": [
+        "MFA manipulation",
+        "MuddyWaterによるRMM/RDP悪用",
+        "APT28の認証情報窃取"
+      ],
+      "tags": [
+        "phishing",
+        "credential-theft",
+        "token-theft",
+        "MFA-bypass",
+        "Microsoft-365"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Details Phishing Campaign Targeting 35,000 Users Across 13,000 Organizations",
+          "url": "https://thehackernews.com/2026/05/microsoft-details-phishing-campaign.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-05"
+        }
+      ]
+    }
+  ]
+}

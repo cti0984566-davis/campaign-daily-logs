@@ -1,0 +1,87 @@
+{
+  "date": "2026-05-10",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta", "Bronze President"],
+    "cluster": "China-linked diplomatic cyber espionage",
+    "suspected_actor": "China-aligned state-sponsored actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-10_ta416_europe_government_espionage_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416による欧州政府・外交組織向け諜報活動の継続評価",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "European Union", "NATO-related diplomatic environment"],
+        "industries": ["government", "diplomacy", "international organizations"],
+        "organization_types": ["diplomatic missions", "government agencies", "policy organizations"]
+      },
+      "first_seen": "2025-06",
+      "last_seen": "2026-05-10",
+      "activity_summary": "TA416は2025年半ば以降、欧州政府・外交組織への活動を再開したと報告されている。5月8〜10日の新規大型公表は確認されないが、欧州・NATO周辺の外交標的化は継続監視が必要。",
+      "activity_details": "Proofpointは、TA416が欧州の政府・外交組織を対象に、Web bugやマルウェア配布を含む複数波のキャンペーンを実施したと報告している。活動再開は、中国の対欧州外交・安全保障情報収集ニーズと整合する。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1189 Drive-by Compromise",
+        "T1204 User Execution",
+        "T1059 Command and Scripting Interpreter",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware_and_tools": ["PlugX", "web bugs"],
+      "infrastructure": ["phishing infrastructure", "tracking infrastructure", "malware delivery infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は外交・政府組織への長期的な情報収集を重視する中国系諜報アクターとして位置付けられる。",
+        "geopolitical": "欧州・NATO・対中政策を巡る外交情報収集と整合し、中台情勢や対中規制の文脈でも重要。",
+        "business": "政府・国際機関と接点を持つシンクタンク、コンサル、研究機関も二次標的となる可能性がある。",
+        "research_direction": "欧州政府標的化の継続性、PlugX系ツール、外交イベント連動ルアーの有無を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "欧州外交・NATO関連情報を標的とする中国系諜報活動は、日本の対中・対台湾・欧州連携政策にも間接的影響を持つため。",
+        "delta_from_previous": "5月8〜10日の新規公表はないが、4月のProofpoint報告を受け、継続評価を維持。"
+      },
+      "related_campaigns": ["TA416", "Mustang Panda", "China-linked diplomatic espionage"],
+      "tags": ["TA416", "Mustang-Panda", "China", "Europe", "diplomacy", "PlugX"],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "New Chinese cyberespionage campaigns strike Europe",
+          "url": "https://www.scworld.com/brief/new-chinese-cyberespionage-campaigns-strike-europe",
+          "publisher": "SC Media",
+          "published_at": "2026-04-02"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / Mustang Panda",
+        "infrastructure": ["phishing infrastructure", "tracking infrastructure", "malware delivery infrastructure"],
+        "capability": ["phishing", "web bug tracking", "malware delivery", "PlugX deployment"],
+        "victim": ["European government entities", "diplomatic missions", "international policy organizations"]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "TA416について期間中の新規大型公表はないが、欧州政府・外交組織を狙う中国系諜報活動として継続監視する。",
+  "change_summary": [
+    "5月8〜10日の新規大型公表は確認されない。",
+    "4月のProofpoint報告を踏まえ、欧州外交標的化を継続評価。",
+    "PlugX、Web bug、外交ルアーの監視を継続。"
+  ],
+  "operational_relevance": "日本の政府・研究・シンクタンクも、欧州・NATO・台湾関連テーマでTA416型ルアーの二次標的となる可能性がある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "外交・政策イベントを装うメールの監視を継続する。",
+    "PlugX系DLLサイドローディングの検知ロジックを確認する。",
+    "Web bugを含む標的型メールの検知を強化する。"
+  ]
+}

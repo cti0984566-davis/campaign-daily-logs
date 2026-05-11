@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-10",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Pawn Storm", "STRONTIUM"],
+    "cluster": "Russia-linked military intelligence cyber operations",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-10_apt28_router_dns_hijacking_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28によるSOHOルータ悪用・DNSハイジャック活動の継続評価",
+      "category": "国家系サイバー作戦 / 境界機器悪用",
+      "targeting": {
+        "regions": ["Europe", "Ukraine", "Global"],
+        "industries": ["government", "military", "critical infrastructure", "telecommunications"],
+        "organization_types": ["government agencies", "defense-related entities", "SOHO router users"]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-05-10",
+      "activity_summary": "APT28によるSOHOルータ侵害、DNS設定改ざん、認証情報・OAuthトークン窃取を狙う活動は継続監視対象。5月8〜10日に新規の大規模公表は確認されないが、4月のNCSC等の共同警告を踏まえ、引き続き高優先度で監視する。",
+      "activity_details": "APT28は脆弱または管理不十分なルータを侵害し、DHCP/DNS設定を改変して攻撃者管理DNSへ誘導することで、Adversary-in-the-Middle型の認証情報窃取を可能にする。これは境界装置・SOHO機器を侵害済み中継基盤として利用する近年の国家系TTPと整合する。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1557 Adversary-in-the-Middle",
+        "T1550 Use Alternate Authentication Material",
+        "T1071 Application Layer Protocol",
+        "T1584 Compromise Infrastructure"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["compromised SOHO routers", "MikroTik routers", "TP-Link routers", "attacker-controlled DNS servers"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28はエンドポイントよりも可視性が低いルータ・境界機器を侵害基盤として活用しており、通常のEDR中心防御では捕捉しにくい。",
+        "geopolitical": "ロシアの対ウクライナ・対NATO諜報活動と整合し、欧州の防衛・政府・重要インフラへの継続的圧力となる。",
+        "business": "企業・自治体では、SOHOルータや支店ルータの棚卸し、DNS設定監視、ファームウェア更新が実務上の防御課題となる。",
+        "research_direction": "ルータ侵害と認証情報窃取、OAuthトークン悪用、APT28のクラウド侵入活動との接続を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "境界機器侵害を通じた認証情報窃取は、政府・防衛・重要インフラへの長期潜伏型侵入につながるため。",
+        "delta_from_previous": "5月8〜10日に新規公表は限定的だが、4月公表の共同警告を踏まえ、継続監視対象として維持。"
+      },
+      "related_campaigns": ["APT28", "Boundary_Device_Exploitation"],
+      "tags": ["APT28", "Russia", "SOHO-router", "DNS-hijacking", "credential-theft"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/sites/default/files/2026-04/APT28-exploit-routers-to-enable-DNS-hijacking-operations.pdf",
+          "publisher": "UK NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU-linked actor",
+        "infrastructure": ["compromised SOHO routers", "attacker-controlled DNS infrastructure"],
+        "capability": ["DNS hijacking", "credential theft", "OAuth token theft", "router compromise"],
+        "victim": ["government entities", "military-related organizations", "critical infrastructure", "SOHO router users"]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "APT28について、5月8〜10日に新たな大規模公表は確認されないが、SOHOルータ悪用・DNSハイジャック活動は継続監視すべき高優先度事案である。",
+  "change_summary": [
+    "期間中の新規大規模公表は限定的。",
+    "4月公表のNCSC等によるAPT28ルータ悪用警告を継続評価。",
+    "境界機器侵害と認証情報窃取の組み合わせを引き続き重視。"
+  ],
+  "operational_relevance": "日本組織でも支店・在宅・小規模拠点ルータのDNS設定、管理画面露出、ファームウェア状況を確認する必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルータおよび支店ルータのDNS設定を確認する。",
+    "ルータ管理画面の外部公開を停止する。",
+    "DNS解決先の異常変更を監視する。",
+    "OAuthトークン窃取を想定し、クラウドサインインログを確認する。"
+  ]
+}
