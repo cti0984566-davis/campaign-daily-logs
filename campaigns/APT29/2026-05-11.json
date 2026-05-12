@@ -1,0 +1,139 @@
+{
+  "date": "2026-05-11",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、5月11日付の明確な新規キャンペーン公表は確認できない。引き続き、クラウドID、OAuth device code、Microsoft 365、外交・政府・研究機関を対象とする認証基盤侵害を主要監視対象とする。",
+  "change_summary": [
+    "5月11日時点で、APT29に直接帰属される新規公開事案は確認できず。",
+    "ただし、2025年以降のAPT29は、Microsoft device code flowやクラウドIDを悪用する傾向が継続しており、評価は維持。"
+  ],
+  "operational_relevance": "日本の官公庁、研究機関、防衛関連企業、クラウド利用組織では、OAuth device code、外部アプリ同意、M365トークン窃取を重点監視する必要がある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuth device code flowの利用状況を監査する。",
+    "管理者同意済みアプリ、外部アプリ連携、異常なrefresh token利用を確認する。",
+    "政府・研究・防衛関連アカウントにphishing-resistant MFAを優先適用する。"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Midnight Blizzard",
+      "Cozy Bear",
+      "Nobelium",
+      "The Dukes"
+    ],
+    "cluster": "Russia SVR-linked APT",
+    "suspected_actor": "Russian Foreign Intelligence Service-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-11_apt29_cloud_identity_monitor",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウドID・OAuth悪用活動の継続監視",
+      "category": "国家系サイバー作戦／クラウドID侵害",
+      "targeting": {
+        "regions": [
+          "United States",
+          "Europe",
+          "Global"
+        ],
+        "industries": [
+          "government",
+          "diplomacy",
+          "defense",
+          "research",
+          "NGO"
+        ],
+        "organization_types": [
+          "government agencies",
+          "diplomatic organizations",
+          "research institutions",
+          "defense-related entities"
+        ]
+      },
+      "first_seen": "2024-02",
+      "last_seen": "2026-05-11",
+      "activity_summary": "APT29は、クラウドID、OAuth、Microsoft 365環境への初期アクセスを重視するロシアSVR系アクターとして継続監視対象。",
+      "activity_details": "5月11日付で新規事案は確認できないが、過去のNCSC、Microsoft、AWS等の報告では、APT29がクラウドアクセス、device code authentication、watering hole、標的型フィッシングを利用して認証情報やトークンを窃取する傾向が示されている。",
+      "ttp": [
+        "T1566 Spearphishing",
+        "T1528 Steal Application Access Token",
+        "T1550.001 Use Application Access Token",
+        "T1078 Valid Accounts",
+        "T1098 Account Manipulation",
+        "T1584 Compromise Infrastructure"
+      ],
+      "malware_and_tools": [
+        "OAuth device code phishing",
+        "compromised websites",
+        "cloud identity abuse"
+      ],
+      "infrastructure": [
+        "compromised websites",
+        "attacker-controlled OAuth infrastructure",
+        "Microsoft 365 tenant abuse"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は、境界侵入よりもクラウドIDと正規トークンを利用する低可視性の諜報活動を継続している。",
+        "geopolitical": "ロシアSVR系の長期諜報活動として、外交、安全保障、対露政策に関与する組織が主要標的となる。",
+        "business": "M365やIDaaSの設定不備、OAuthアプリ管理不備が経営リスクとなる。",
+        "research_direction": "APT29は日次では新規性が薄くても、クラウドID侵害の代表キャンペーンとして週次・月次で追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "新規事案はないが、APT29のクラウドID侵害は政府・防衛・研究機関への長期潜伏に直結する。",
+        "delta_from_previous": "5月11日は新規観測なし。評価はクラウドID・OAuth device code悪用の継続リスクとして維持。"
+      },
+      "related_campaigns": [
+        "Midnight Blizzard cloud identity operations",
+        "OAuth device code phishing"
+      ],
+      "tags": [
+        "APT29",
+        "Midnight Blizzard",
+        "Russia",
+        "SVR",
+        "cloud identity",
+        "OAuth",
+        "Microsoft 365"
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Russian SVR-linked actor",
+        "infrastructure": [
+          "compromised websites",
+          "OAuth device code infrastructure",
+          "cloud identity infrastructure"
+        ],
+        "capability": [
+          "cloud credential theft",
+          "OAuth abuse",
+          "watering hole",
+          "spearphishing"
+        ],
+        "victim": [
+          "government agencies",
+          "diplomatic organizations",
+          "research institutions"
+        ]
+      },
+      "sources": [
+        {
+          "title": "SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "UK NCSC",
+          "published_at": "2024-02-26"
+        },
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia's APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS Security Blog",
+          "published_at": "2025-08-29"
+        }
+      ]
+    }
+  ]
+}

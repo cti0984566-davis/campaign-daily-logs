@@ -1,0 +1,129 @@
+{
+  "date": "2026-05-11",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28は、SOHOルータ等を悪用したDNS hijacking／認証情報窃取キャンペーンが継続監視対象。5月11日時点で新規の大規模公表は確認できないが、欧州・ウクライナ・重要インフラを中心に、侵害済みネットワーク機器を用いた秘匿型アクセスのリスクは高い。",
+  "change_summary": [
+    "5月11日付の新規キャンペーン公表は確認できず、4月公表のNCSC等によるルータ悪用キャンペーンを継続評価。",
+    "APT28の焦点は、端末侵害だけでなく、SOHO／エッジ機器を利用した認証情報窃取・中間者型作戦に拡大している。"
+  ],
+  "operational_relevance": "日本組織でも、VPN、SOHOルータ、DNS設定、管理画面露出、OAuthトークン窃取を想定した監視が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルータ、VPN、エッジ機器の棚卸しとEOL機器の排除を行う。",
+    "DNS設定変更、DHCP設定変更、未知DNSリゾルバ利用を監視する。",
+    "重要アカウントについて phishing-resistant MFA と条件付きアクセスを適用する。"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Sofacy",
+      "STRONTIUM"
+    ],
+    "cluster": "Russia GRU-linked APT",
+    "suspected_actor": "GRU-linked Russian state actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-11_apt28_router_dns_hijacking_monitor",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるルータ悪用・DNS hijacking作戦の継続監視",
+      "category": "国家系サイバー作戦／認証情報窃取",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "Global"
+        ],
+        "industries": [
+          "government",
+          "military",
+          "critical infrastructure",
+          "telecommunications"
+        ],
+        "organization_types": [
+          "government agencies",
+          "defense-related entities",
+          "critical infrastructure operators"
+        ]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-05-11",
+      "activity_summary": "APT28は、侵害済みルータを利用し、DNS hijackingやAdversary-in-the-Middle型の認証情報窃取を行う活動が報告されている。",
+      "activity_details": "NCSC等の4月公表情報を踏まえると、APT28はTP-Link、MikroTik等のルータやSOHO機器を悪用し、DNS解決を攻撃者管理インフラへ誘導することで、Web・メール認証情報やOAuthトークン窃取を狙う。5月11日時点では新たな公表は確認できないが、継続監視が必要。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1557 Adversary-in-the-Middle",
+        "T1557.002 ARP Cache Poisoning / DNS manipulation",
+        "T1071 Application Layer Protocol",
+        "T1110 Credential Access",
+        "T1584 Compromise Infrastructure"
+      ],
+      "malware_and_tools": [
+        "compromised routers",
+        "DNS hijacking infrastructure"
+      ],
+      "infrastructure": [
+        "SOHO routers",
+        "TP-Link routers",
+        "MikroTik routers",
+        "malicious DNS resolvers"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は、直接端末を侵害するだけでなく、周辺ネットワーク機器を悪用して認証情報を収集する方向に重点を移している。",
+        "geopolitical": "ロシア・ウクライナ戦争を背景に、欧州、NATO、ウクライナ支援国への長期諜報活動の一部と評価される。",
+        "business": "企業・官公庁では、管理対象外のSOHO機器や拠点ルータが認証基盤リスクとなる。",
+        "research_direction": "APT28のSOHO／エッジ機器悪用を、Russia-linked edge infrastructure campaignとして継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "侵害済みルータを用いたDNS hijackingは、境界防御やMFAだけでは検知困難な認証情報窃取につながる。",
+        "delta_from_previous": "APT28の活動評価は、従来のフィッシング・マルウェア中心から、ネットワーク機器を使った秘匿インフラ作戦をより重視する方向へ更新。"
+      },
+      "related_campaigns": [
+        "Russia-linked edge infrastructure campaign",
+        "APT28 router exploitation"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "GRU",
+        "SOHO routers",
+        "DNS hijacking",
+        "credential theft"
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU-linked actor",
+        "infrastructure": [
+          "compromised routers",
+          "malicious DNS infrastructure"
+        ],
+        "capability": [
+          "router exploitation",
+          "DNS hijacking",
+          "credential theft",
+          "AitM"
+        ],
+        "victim": [
+          "European government entities",
+          "military-related organizations",
+          "critical infrastructure"
+        ]
+      },
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/sites/default/files/2026-04/NCSC_APT28-exploit-routers-to-enable-DNS-hijacking-operations.pdf",
+          "publisher": "UK NCSC",
+          "published_at": "2026-04-07"
+        }
+      ]
+    }
+  ]
+}

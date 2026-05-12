@@ -1,0 +1,703 @@
+{
+  "date": "2026-05-11",
+  "timezone": "JST",
+  "title": "2026/05/11_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-11_google_ai_zero_day_2fa_bypass",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "AI-enabled_zero-day_exploitation",
+        "aliases": [
+          "AI-assisted vulnerability exploitation"
+        ],
+        "cluster": "cybercrime",
+        "suspected_actor": "unknown cybercriminal group",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "unknown cybercriminal group",
+        "infrastructure": [
+          "undisclosed exploitation infrastructure"
+        ],
+        "capability": [
+          "AI-assisted zero-day development",
+          "2FA bypass exploit",
+          "mass exploitation preparation"
+        ],
+        "victim": [
+          "system administration tool vendor",
+          "potential enterprise users"
+        ]
+      },
+      "name": "GoogleがAI生成疑いのゼロデイ2FAバイパスを阻止",
+      "category": "ゼロデイ脆弱性／サイバー犯罪",
+      "industry": [
+        "IT",
+        "システム管理ツール",
+        "エンタープライズ"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-11",
+      "last_seen": "2026-05-11",
+      "summary": "Googleは、AIを用いて開発された可能性がある2FAバイパスのゼロデイ悪用計画を、実害発生前に阻止したと報じられた。対象ツール名は非公表であり、国家系ではなくサイバー犯罪グループによる活動と評価されている。",
+      "executive_summary": "AIがゼロデイ発見・武器化に近づいたことを示す重要事例。実害は阻止されたが、VPN、SaaS、管理ツール等に対する初期アクセスの高速化リスクを示す。",
+      "change_summary": [
+        "AI悪用が単なる補助からゼロデイ探索・2FAバイパス開発に接近した可能性が示された。",
+        "対象製品名は非公表であり、現時点では具体的な国内影響評価は限定的。"
+      ],
+      "operational_relevance": "重要インフラや大企業の管理ツール、ID基盤、SaaS管理画面に対するゼロデイ悪用監視を強化する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "外部公開管理ツールの資産棚卸しと脆弱性管理を優先する。",
+        "2FAバイパスを前提に、条件付きアクセス、端末信頼性、異常ログイン検知を併用する。",
+        "AI生成コードや不審なPoCの悪用動向を監視する。"
+      ],
+      "details": "Googleがベンダおよび法執行機関と連携し、悪用前に阻止したとされる。中国・北朝鮮系アクターも同種技術に関心を示していると報じられているが、本件の直接帰属はサイバー犯罪グループとされる。",
+      "actors": [
+        {
+          "name": "unknown cybercriminal group",
+          "role": "suspected adversary",
+          "country": "unknown"
+        },
+        {
+          "name": "Google",
+          "role": "disruptor",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1556 Modify Authentication Process",
+        "T1588 Obtain Capabilities"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "undisclosed"
+      ],
+      "targeting": {
+        "sectors": [
+          "IT",
+          "enterprise administration"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "enterprises using administration tools"
+        ]
+      },
+      "strategic_view": {
+        "general": "AIによる攻撃能力増幅が、ゼロデイ探索・武器化の時間軸を短縮する可能性を示した。",
+        "geopolitical": "国家アクターと犯罪アクターの双方が同種技術を取り込むことで、初期アクセス市場とAPT活動の境界がさらに曖昧化する。",
+        "business": "管理ツール、IDaaS、SaaS管理画面を提供する企業のセキュリティ保証能力が競争要因となる。",
+        "research_direction": "AI-enabled vulnerability exploitationを独立監視カテゴリとして追加する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "実害は未確認だが、AIによるゼロデイ武器化が実戦段階に近づいたことを示すため。",
+        "delta_from_previous": "従来のAI悪用はフィッシングやコード補助が中心だったが、今回はゼロデイと2FAバイパスに焦点が移った。"
+      },
+      "related_campaigns": [
+        "AI-enabled_zero-day_exploitation"
+      ],
+      "related_reports": [
+        "AI-enabled vulnerability exploitation",
+        "Anthropic Mythos関連懸念"
+      ],
+      "tags": [
+        "AI",
+        "zero-day",
+        "2FA bypass",
+        "initial access",
+        "cybercrime"
+      ],
+      "sources": [
+        {
+          "title": "Hackers Used AI to Develop First Known Zero-Day 2FA Bypass for Mass Exploitation",
+          "url": "https://thehackernews.com/2026/05/hackers-used-ai-to-develop-first-known.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-11"
+        },
+        {
+          "title": "Google disrupts hackers using AI to exploit an unknown weakness in a company’s digital defense",
+          "url": "https://apnews.com/article/926aea7f7dc5e0e61adce3273c55c6d4",
+          "publisher": "AP News",
+          "published_at": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-11_canvas_instructure_extortion",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Education_SaaS_Extortion",
+        "aliases": [
+          "Canvas extortion",
+          "Instructure data theft"
+        ],
+        "cluster": "The Com / ShinyHunters ecosystem",
+        "suspected_actor": "ShinyHunters / The Com-linked actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters / The Com-linked actors",
+        "infrastructure": [
+          "Canvas / Instructure platform",
+          "attacker-controlled leak and extortion channels"
+        ],
+        "capability": [
+          "data theft",
+          "SaaS compromise",
+          "login page defacement",
+          "multi-victim extortion"
+        ],
+        "victim": [
+          "Instructure",
+          "Canvas users",
+          "educational institutions"
+        ]
+      },
+      "name": "Canvas / Instructure大規模恐喝事案",
+      "category": "サイバー犯罪／データ窃取・恐喝",
+      "industry": [
+        "教育",
+        "SaaS"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-05-11",
+      "summary": "Canvas / Instructureをめぐり、ShinyHunters / The Com関連とされる攻撃者が、大規模なデータ窃取と恐喝を主張した。Instructureは一部利用者情報の流出を認めた一方、課題や資格情報の漏えいは否定している。",
+      "executive_summary": "教育SaaSを対象とした大規模恐喝事案。学校単位の影響にとどまらず、集中プラットフォームの侵害が教育機能全体へ波及するリスクを示す。",
+      "change_summary": [
+        "4月29日の検知後、5月7日にログインページ改ざんが確認された。",
+        "5月11日時点で攻撃者側の恐喝期限が接近し、社会的圧力が増大した。",
+        "初期封じ込め後の再侵入・改ざんにより、単純な漏えい事案から恐喝・信頼毀損事案へ拡大した。"
+      ],
+      "operational_relevance": "教育機関、自治体、大学、SaaS利用組織では、SaaS管理者権限、外部連携、ログインページ改ざん検知を優先確認すべきである。",
+      "urgency": "high",
+      "recommended_action": [
+        "Canvas利用組織は管理者権限、API連携、ログインページ改ざん履歴を確認する。",
+        "学生・教職員情報の漏えい通知とフィッシング対策を実施する。",
+        "教育SaaSの委託先リスクをサプライチェーンリスクとして評価する。"
+      ],
+      "details": "攻撃者は8,809校、3.65TB、2.75億件規模のデータを主張しているが、件数は攻撃者主張であり未検証。Instructureはユーザー名、メール、コース名、登録情報、メッセージ等の流出を認めたとされる。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "suspected adversary",
+          "country": "unknown"
+        },
+        {
+          "name": "The Com-linked actors",
+          "role": "suspected adversary ecosystem",
+          "country": "unknown"
+        },
+        {
+          "name": "Instructure",
+          "role": "victim / platform operator",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1491 Defacement",
+        "T1567 Exfiltration Over Web Service",
+        "T1657 Financial Theft"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Canvas platform",
+        "Free-For-Teacher environment",
+        "attacker extortion channels"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "SaaS"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "schools",
+          "universities",
+          "education service providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "教育SaaSは多数の組織を束ねる集中点であり、一度の侵害が広範な社会的影響を生む。",
+        "geopolitical": "国家系事案ではないが、教育基盤の信頼性低下は社会不安や影響力工作にも利用され得る。",
+        "business": "SaaS事業者に対するセキュリティ説明責任、ログ透明性、顧客通知体制が重視される。",
+        "research_direction": "Education_SaaS_Extortionを新規監視カテゴリとして追加する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "教育機関に広範な影響を及ぼし、SaaS集中リスクと恐喝の組み合わせを示すため。",
+        "delta_from_previous": "漏えい事案からログインページ改ざんと恐喝期限を伴う信頼毀損型事案へ拡大した。"
+      },
+      "related_campaigns": [
+        "ShinyHunters",
+        "The Com",
+        "SaaS data extortion"
+      ],
+      "related_reports": [
+        "PowerSchool incident",
+        "Snowflake-related data theft",
+        "Scattered Spider SaaS extortion"
+      ],
+      "tags": [
+        "education",
+        "SaaS",
+        "extortion",
+        "ShinyHunters",
+        "The Com",
+        "data theft"
+      ],
+      "sources": [
+        {
+          "title": "Pressure mounts on Canvas as data leak extortion deadline looms",
+          "url": "https://cyberscoop.com/canvas-instructure-data-theft-extortion-the-com/",
+          "publisher": "CyberScoop",
+          "published_at": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-11_muddywater_chaos_ransomware_cover",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "MuddyWater",
+        "aliases": [
+          "Seedworm",
+          "MERCURY",
+          "Static Kitten"
+        ],
+        "cluster": "Iran-linked APT",
+        "suspected_actor": "Iran MOIS-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "MuddyWater / Seedworm",
+        "infrastructure": [
+          "Microsoft Teams communication",
+          "RMM tools",
+          "RDP access",
+          "attacker-controlled C2"
+        ],
+        "capability": [
+          "social engineering",
+          "credential harvesting",
+          "RMM abuse",
+          "custom RAT",
+          "ransomware cover activity"
+        ],
+        "victim": [
+          "United States organizations",
+          "Middle East organizations",
+          "Western organizations"
+        ]
+      },
+      "name": "MuddyWaterによるChaosランサムウェア偽装",
+      "category": "国家系サイバー作戦／偽装ランサムウェア",
+      "industry": [
+        "政府機関",
+        "重要インフラ",
+        "民間企業"
+      ],
+      "region": [
+        "United States",
+        "Middle East",
+        "Europe"
+      ],
+      "first_seen": "2026-05-06",
+      "last_seen": "2026-05-11",
+      "summary": "Rapid7は、Chaosランサムウェア風に見える活動の背後に、イラン系MuddyWaterの関与が疑われるキャンペーンを報告した。暗号化よりも認証情報窃取、データ窃取、永続化が中心とされる。",
+      "executive_summary": "イラン系APTがランサムウェアを金銭目的ではなく、諜報活動や帰属攪乱の隠れ蓑として利用している可能性を示す。中東情勢と連動するサイバー作戦として重要。",
+      "change_summary": [
+        "Chaos RaaS風の活動が、単純な犯罪ではなくMuddyWater関連活動として再評価された。",
+        "Microsoft Teams、画面共有、RMMを組み合わせたMFA manipulation型の侵入手口が確認された。",
+        "暗号化よりも認証情報窃取・永続化が中心であり、作戦目的の評価が更新された。"
+      ],
+      "operational_relevance": "Teams外部連絡、画面共有、RMM導入、RDP利用を含むヘルプデスク型ソーシャルエンジニアリング対策が必要である。",
+      "urgency": "high",
+      "recommended_action": [
+        "外部ユーザーとのTeams通信と画面共有を制御・監査する。",
+        "DWAgent等RMMツールの導入・実行をEDRで監視する。",
+        "MFA fatigueやMFA manipulationを想定したユーザー教育と条件付きアクセスを実施する。",
+        "Game.exe等のIOCと不審RDP接続を確認する。"
+      ],
+      "details": "Rapid7は、Microsoft Teamsを用いたソーシャルエンジニアリング、画面共有、RMM、RDP、カスタムRAT Game.exeなどを報告した。Chaosランサムウェアは実際の収益化よりも、侵入目的や帰属を隠すための偽装として利用された可能性がある。",
+      "actors": [
+        {
+          "name": "MuddyWater",
+          "role": "suspected adversary",
+          "country": "Iran"
+        },
+        {
+          "name": "Iran MOIS",
+          "role": "suspected sponsor",
+          "country": "Iran"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1219 Remote Access Software",
+        "T1111 Multi-Factor Authentication Interception",
+        "T1021 Remote Services",
+        "T1059 Command and Scripting Interpreter",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware": [
+        "Game.exe",
+        "Chaos ransomware"
+      ],
+      "infrastructure": [
+        "Microsoft Teams",
+        "DWAgent",
+        "RDP",
+        "RMM tools"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "critical infrastructure",
+          "private sector"
+        ],
+        "countries": [
+          "United States",
+          "Middle East countries",
+          "Western countries"
+        ],
+        "organization_types": [
+          "enterprises",
+          "government-related organizations"
+        ]
+      },
+      "strategic_view": {
+        "general": "国家系アクターが犯罪的外観を利用し、諜報・破壊・恐喝の境界を曖昧化している。",
+        "geopolitical": "イスラエル・イラン等中東情勢の緊張と連動し、西側組織へのサイバー作戦が継続する可能性がある。",
+        "business": "RMMやコラボレーションツールの正規利用を悪用するため、従来型マルウェア検知だけでは不十分。",
+        "research_direction": "MuddyWaterのMFA manipulation、RMM abuse、ransomware cover activityを継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "ランサムウェアを偽装に用いる国家系作戦として、防御側のインシデント分類を誤らせる可能性があるため。",
+        "delta_from_previous": "金銭目的のChaos活動ではなく、MuddyWaterの諜報・永続化活動として評価を更新した。"
+      },
+      "related_campaigns": [
+        "MuddyWater",
+        "Chaos ransomware",
+        "Iran-linked APT activity"
+      ],
+      "related_reports": [
+        "MFA manipulation",
+        "MuddyWater social engineering campaign"
+      ],
+      "tags": [
+        "Iran",
+        "MuddyWater",
+        "Chaos ransomware",
+        "MFA manipulation",
+        "RMM",
+        "Teams"
+      ],
+      "sources": [
+        {
+          "title": "Muddying the Tracks: The State-Sponsored Shadow Behind Chaos Ransomware",
+          "url": "https://www.rapid7.com/blog/post/tr-muddying-tracks-state-sponsored-shadow-behind-chaos-ransomware/",
+          "publisher": "Rapid7",
+          "published_at": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-11_japan_insurance_vendor_ransomware",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Japan_vendor_ransomware_data_leak",
+        "aliases": [
+          "Shin Nihon Kentei Kyokai ransomware incident"
+        ],
+        "cluster": "ransomware",
+        "suspected_actor": "unknown ransomware actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown ransomware actor",
+        "infrastructure": [
+          "compromised vendor server",
+          "file transfer tool"
+        ],
+        "capability": [
+          "ransomware encryption",
+          "file transfer",
+          "data exfiltration"
+        ],
+        "victim": [
+          "新日本検定協会",
+          "損害保険ジャパン",
+          "東京海上日動火災保険"
+        ]
+      },
+      "name": "新日本検定協会ランサムウェア被害に伴う保険会社情報漏えい",
+      "category": "サイバー犯罪／委託先侵害",
+      "industry": [
+        "保険",
+        "損害調査",
+        "海事",
+        "物流"
+      ],
+      "region": [
+        "Japan"
+      ],
+      "first_seen": "2025-11-26",
+      "last_seen": "2026-05-11",
+      "summary": "新日本検定協会が2025年11月に受けたランサムウェア攻撃に関連し、損保ジャパンと東京海上日動が2026年5月11日に顧客情報漏えいのおそれを公表した。",
+      "executive_summary": "単一委託先のランサムウェア被害が複数保険会社へ波及した国内事例。保険・物流・損害調査領域における委託先データ管理リスクを示す。",
+      "change_summary": [
+        "2025年11月26日のランサムウェア攻撃について、2026年5月11日に保険会社側の影響が公表された。",
+        "損保ジャパンは296件、東京海上日動は約1,500件の漏えいのおそれを公表した。",
+        "ファイル転送ツールの実行痕跡が確認され、暗号化に加えデータ持ち出しの可能性が問題となった。"
+      ],
+      "operational_relevance": "委託先に保管された事故・保険関連情報の棚卸し、転送ツール監査、委託先EDR・ログ保全要件の見直しが必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "委託先に保管される個人情報・事故情報の範囲を再確認する。",
+        "委託先契約にログ保全、EDR、侵害通知期限、再委託管理を明記する。",
+        "ファイル転送ツールの実行履歴と外部送信ログを監査する。"
+      ],
+      "details": "漏えいのおそれがある情報には、氏名、住所、電話番号、メールアドレス、証券番号、事故受付番号等が含まれる。攻撃者名は公表されていない。",
+      "actors": [
+        {
+          "name": "unknown ransomware actor",
+          "role": "adversary",
+          "country": "unknown"
+        },
+        {
+          "name": "新日本検定協会",
+          "role": "direct victim / vendor",
+          "country": "Japan"
+        },
+        {
+          "name": "損害保険ジャパン",
+          "role": "affected organization",
+          "country": "Japan"
+        },
+        {
+          "name": "東京海上日動火災保険",
+          "role": "affected organization",
+          "country": "Japan"
+        }
+      ],
+      "ttp": [
+        "T1486 Data Encrypted for Impact",
+        "T1041 Exfiltration Over C2 Channel",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware": [
+        "unknown ransomware"
+      ],
+      "infrastructure": [
+        "compromised server",
+        "file transfer tool"
+      ],
+      "targeting": {
+        "sectors": [
+          "insurance",
+          "loss assessment",
+          "logistics"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "organization_types": [
+          "vendors",
+          "insurance companies"
+        ]
+      },
+      "strategic_view": {
+        "general": "委託先侵害が複数の大手企業に波及する典型的なサプライチェーン型ランサムウェア事案。",
+        "geopolitical": "国家系ではないが、重要経済インフラに近い保険・物流データの集積点が狙われる構図は安全保障上も重要。",
+        "business": "委託先管理、再委託、データ最小化、ログ保全の実効性が問われる。",
+        "research_direction": "国内委託先起因漏えい事案として、保険業界横断で追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "国内大手保険会社複数社に波及した委託先ランサムウェア事案であり、サプライチェーンリスク管理上の示唆が大きい。",
+        "delta_from_previous": "2025年11月の侵害から、2026年5月に保険会社顧客情報への影響が具体化した。"
+      },
+      "related_campaigns": [
+        "Japan vendor ransomware incidents"
+      ],
+      "related_reports": [
+        "国内委託先起因漏えい",
+        "ランサムウェア後の二次公表事案"
+      ],
+      "tags": [
+        "Japan",
+        "ransomware",
+        "insurance",
+        "third-party risk",
+        "data leak"
+      ],
+      "sources": [
+        {
+          "title": "当社の業務委託先における第三者からのサイバー攻撃による不正アクセス被害について",
+          "url": "https://www.sompo-japan.co.jp/-/media/SJNK/files/news/2026/20260511_1.pdf?la=ja-JP",
+          "publisher": "損害保険ジャパン",
+          "published_at": "2026-05-11"
+        },
+        {
+          "title": "当社業務委託先におけるランサムウェア被害に伴う情報漏えいのおそれについて",
+          "url": "https://www.tokiomarine-nichido.co.jp/company/release/pdf/20260511_01.pdf",
+          "publisher": "東京海上日動火災保険",
+          "published_at": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-11_sailpoint_github_repository_hack",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Software_supply_chain_repository_compromise",
+        "aliases": [
+          "SailPoint GitHub repository incident"
+        ],
+        "cluster": "software supply chain",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown actor",
+        "infrastructure": [
+          "GitHub repositories",
+          "third-party application"
+        ],
+        "capability": [
+          "repository access",
+          "third-party application exploitation",
+          "source code exposure"
+        ],
+        "victim": [
+          "SailPoint",
+          "potential downstream customers"
+        ]
+      },
+      "name": "SailPoint GitHubリポジトリ不正アクセス",
+      "category": "サプライチェーン／開発環境侵害",
+      "industry": [
+        "ID管理",
+        "SaaS",
+        "ソフトウェア"
+      ],
+      "region": [
+        "United States",
+        "Global"
+      ],
+      "first_seen": "2026-04-20",
+      "last_seen": "2026-05-11",
+      "summary": "SailPointは、一部GitHubリポジトリへの不正アクセスを公表した。顧客本番・ステージング環境へのアクセスやサービス停止は確認されていない。",
+      "executive_summary": "ID管理ベンダの開発環境侵害は、直接被害が限定的でもサプライチェーン信頼に影響する。TeamPCP等との関連は未確認。",
+      "change_summary": [
+        "4月20日の侵害について5月11日に公表・報道された。",
+        "顧客環境へのアクセスやサービス停止は確認されていないとされた。",
+        "第三者アプリの脆弱性を経由した可能性が示された。"
+      ],
+      "operational_relevance": "ID管理・認証基盤ベンダの開発環境侵害は、顧客側のSBOM、署名、リリース完全性確認に直結する。",
+      "urgency": "medium",
+      "recommended_action": [
+        "SailPoint利用組織はベンダ通知と影響範囲を確認する。",
+        "ID管理製品のアップデート経路、署名、リリースノートを確認する。",
+        "GitHub OAuthアプリやCI/CD連携権限を棚卸しする。"
+      ],
+      "details": "不正アクセスは第三者アプリの脆弱性経由とされる。現時点で顧客本番環境・ステージング環境へのアクセスは確認されていない。",
+      "actors": [
+        {
+          "name": "unknown actor",
+          "role": "adversary",
+          "country": "unknown"
+        },
+        {
+          "name": "SailPoint",
+          "role": "victim",
+          "country": "United States"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1190 Exploit Public-Facing Application",
+        "T1213 Data from Information Repositories"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "GitHub",
+        "third-party application"
+      ],
+      "targeting": {
+        "sectors": [
+          "identity management",
+          "software",
+          "SaaS"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "software vendors",
+          "enterprise customers"
+        ]
+      },
+      "strategic_view": {
+        "general": "ソフトウェア開発環境の侵害は、実害が未確認でも顧客側の信頼とサプライチェーン保証に影響する。",
+        "geopolitical": "国家系関与は確認されていないが、ID管理ベンダは国家系アクターにとっても高価値標的である。",
+        "business": "ID管理ベンダの透明性、開発環境保護、GitHub連携管理が競争上の信頼要素となる。",
+        "research_direction": "GitHub、CI/CD、第三者アプリ経由のサプライチェーン侵害を継続監視する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "ID管理ベンダのリポジトリ侵害は、直接被害が限定的でも下流リスクが大きい。",
+        "delta_from_previous": "TeamPCP等の既報サプライチェーン侵害との関連は未確認であり、現時点では別事案として扱う。"
+      },
+      "related_campaigns": [
+        "Software supply chain compromise",
+        "TeamPCP"
+      ],
+      "related_reports": [
+        "GitHub / CI/CD compromise",
+        "software supply chain attacks"
+      ],
+      "tags": [
+        "SailPoint",
+        "GitHub",
+        "supply chain",
+        "identity management",
+        "repository compromise"
+      ],
+      "sources": [
+        {
+          "title": "SailPoint Discloses GitHub Repository Hack",
+          "url": "https://www.securityweek.com/sailpoint-discloses-github-repository-hack/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-11"
+        }
+      ]
+    }
+  ]
+}
