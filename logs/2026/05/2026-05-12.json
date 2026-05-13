@@ -1,0 +1,530 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "title": "2026/05/12_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-12_canvas_instructure_shinyhunters",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "ShinyHunters extortion campaign",
+        "aliases": ["ShinyHunters"],
+        "cluster": "Cybercrime extortion",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters",
+        "infrastructure": ["Canvas Free-for-Teacher environment", "defaced Canvas login portals"],
+        "capability": ["web application exploitation", "data theft", "extortion", "portal defacement"],
+        "victim": ["Instructure", "Canvas users", "education institutions"]
+      },
+      "name": "Canvas / Instructure データ侵害・恐喝事案",
+      "category": "サイバー犯罪・恐喝・教育SaaS侵害",
+      "industry": ["Education", "EdTech", "SaaS"],
+      "region": ["Global", "United States"],
+      "first_seen": "2026-04-29",
+      "last_seen": "2026-05-12",
+      "summary": "Canvasを提供するInstructureが、ShinyHuntersによるデータ侵害について、盗取データの返却・削除を含む合意に達したと発表。攻撃者は多数の教育機関・利用者データを窃取したと主張し、Canvasの一部機能停止やログイン画面改ざんが発生した。",
+      "executive_summary": "教育SaaSを標的にした恐喝事案が、単なる情報漏洩から授業・試験運営への実害を伴う事案へ拡大した。日本の大学・学校向けLMSやID連携基盤でも、SaaS依存リスクの再評価が必要。",
+      "change_summary": [
+        "2026-05-12時点でInstructureがShinyHuntersとの合意を発表",
+        "米議会による説明要求・調査の動きが発生",
+        "被害はCanvas Free-for-Teacher環境を中心とする可能性が高い"
+      ],
+      "operational_relevance": "教育機関・研究機関・大学病院等で利用するSaaS、LMS、IdP連携、管理者セッション管理の点検が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Canvas等LMSの管理者アカウントとSSO連携ログを確認する",
+        "教育SaaSに保存された学生・教職員データの範囲を棚卸しする",
+        "外部SaaS障害時の授業・試験継続計画を確認する"
+      ],
+      "details": "ShinyHuntersはCanvas関連データの大規模窃取を主張。Instructureは脆弱なFree-for-Teacher環境の停止、フォレンジック、セキュリティ強化を実施。盗取データ削除の確認は攻撃者側の主張に依存するため、残存リスクは残る。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "threat actor",
+          "country": "Unknown"
+        },
+        {
+          "name": "Instructure",
+          "role": "victim",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1190", "T1078", "T1539", "T1041"],
+      "malware": [],
+      "infrastructure": ["Canvas LMS", "Free-for-Teacher environment"],
+      "targeting": {
+        "sectors": ["education"],
+        "countries": ["United States", "global"],
+        "organization_types": ["schools", "universities", "education platforms"]
+      },
+      "strategic_view": {
+        "general": "教育SaaSは社会機能に近いが、重要インフラほど防御優先度が高くないため、恐喝対象として魅力が高い。",
+        "geopolitical": "国家系ではなく犯罪系事案だが、教育・研究機関の業務継続に影響する点で社会的波及が大きい。",
+        "business": "SaaSベンダのセキュリティ、契約上のインシデント通知、データ保持範囲の確認が重要。",
+        "research_direction": "ShinyHuntersの他SaaS侵害事案との共通点、初期アクセス経路、データ転売・再利用の有無を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "教育SaaSの侵害が多数組織へ一斉波及し、授業・試験・学生情報管理に影響する可能性があるため。",
+        "delta_from_previous": "単なる侵害報道から、攻撃者との合意、議会調査、データ削除確認という対応局面へ移行。"
+      },
+      "related_campaigns": ["ShinyHunters data theft and extortion"],
+      "related_reports": ["Ticketmaster breach", "AT&T data breach", "McGraw Hill incident"],
+      "tags": ["education", "SaaS", "extortion", "data_breach", "ShinyHunters"],
+      "sources": [
+        {
+          "title": "Canvas' parent company reaches agreement with hacking group behind recent breach",
+          "url": "https://www.reuters.com/legal/litigation/canvas-parent-company-reaches-agreement-with-hacking-group-behind-recent-breach-2026-05-12/",
+          "publisher": "Reuters",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "Deal reached with hackers to delete data stolen from the Canvas educational platform",
+          "url": "https://apnews.com/article/3d55b9399ae87d49276f354e1c34c180",
+          "publisher": "Associated Press",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_foxconn_nitrogen_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Nitrogen ransomware activity",
+        "aliases": ["Nitrogen"],
+        "cluster": "Ransomware",
+        "suspected_actor": "Nitrogen ransomware group",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Nitrogen ransomware group",
+        "infrastructure": ["ransomware leak site"],
+        "capability": ["ransomware", "data theft", "extortion"],
+        "victim": ["Foxconn North America facilities"]
+      },
+      "name": "Foxconn北米工場ランサムウェア攻撃",
+      "category": "ランサムウェア・製造サプライチェーン攻撃",
+      "industry": ["Manufacturing", "Electronics", "Semiconductor supply chain"],
+      "region": ["North America", "Taiwan", "United States"],
+      "first_seen": "2026-05-09",
+      "last_seen": "2026-05-12",
+      "summary": "Foxconnは北米工場に対するサイバー攻撃を確認。Nitrogenランサムウェアが犯行を主張し、約8TB・1,100万件超のファイル窃取を主張した。",
+      "executive_summary": "台湾系巨大EMS企業への攻撃は、金銭目的であってもApple、Google、Dell、Nvidia等を含む電子機器・半導体サプライチェーンリスクとして扱うべき。",
+      "change_summary": [
+        "2026-05-12にFoxconnが北米工場へのサイバー攻撃を確認",
+        "Nitrogenが8TB規模のデータ窃取を主張",
+        "影響工場は通常生産サイクルへ復旧中とされる"
+      ],
+      "operational_relevance": "製造委託先・サプライヤーの業務停止、設計情報漏洩、顧客プロジェクト情報流出リスクを確認すべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Foxconnまたは関連EMSに依存する製品・案件を棚卸しする",
+        "サプライヤー経由の設計情報・仕様書流出リスクを確認する",
+        "製造委託契約におけるサイバーインシデント通知条項を確認する"
+      ],
+      "details": "NitrogenはFoxconnから技術図面、内部プロジェクト文書、顧客関連情報を含むデータを窃取したと主張。Foxconnは生産・配送継続のため対応措置を発動した。",
+      "actors": [
+        {
+          "name": "Nitrogen ransomware group",
+          "role": "threat actor",
+          "country": "Unknown"
+        },
+        {
+          "name": "Foxconn",
+          "role": "victim",
+          "country": "Taiwan"
+        }
+      ],
+      "ttp": ["T1486", "T1041", "T1490", "T1020"],
+      "malware": ["Nitrogen ransomware"],
+      "infrastructure": ["ransomware leak site"],
+      "targeting": {
+        "sectors": ["manufacturing", "electronics", "technology supply chain"],
+        "countries": ["United States", "Taiwan"],
+        "organization_types": ["electronics manufacturers", "contract manufacturers"]
+      },
+      "strategic_view": {
+        "general": "製造サプライチェーンへのランサムウェアは、業務停止だけでなく顧客設計情報流出を通じて二次被害を生む。",
+        "geopolitical": "台湾系製造企業への攻撃は、中台情勢そのものとは別に、半導体・電子機器供給網リスクとして戦略的意味を持つ。",
+        "business": "EMS依存企業は、自社境界外の設計情報・製造情報の保護状況を再評価する必要がある。",
+        "research_direction": "Nitrogenの初期アクセス、Conti系ツールとの関連、Foxconn過去事案との共通点を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Foxconnはグローバル電子機器サプライチェーンの中核であり、顧客企業への波及リスクが大きい。",
+        "delta_from_previous": "Foxconnの過去ランサムウェア被害に続き、今回は北米工場群と顧客技術情報に影響する可能性が浮上。"
+      },
+      "related_campaigns": ["Ransomware attacks against manufacturing supply chains"],
+      "related_reports": ["Foxconn Mexico ransomware incident", "Foxconn semiconductor segment LockBit claim"],
+      "tags": ["ransomware", "Foxconn", "Nitrogen", "manufacturing", "supply_chain"],
+      "sources": [
+        {
+          "title": "Foxconn confirms cyberattack impacting North American factories",
+          "url": "https://therecord.media/foxconn-confirms-cyberattack-north-american-factories",
+          "publisher": "The Record",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "Foxconn confirms cyberattack after Nitrogen claims Apple, Nvidia data theft",
+          "url": "https://www.theregister.com/cyber-crime/2026/05/12/foxconn-confirms-cyberattack-after-nitrogen-claims-apple-nvidia-data-theft/5239144",
+          "publisher": "The Register",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_west_pharmaceutical_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Ransomware attack against pharmaceutical supply chain",
+        "aliases": [],
+        "cluster": "Ransomware",
+        "suspected_actor": "Unknown ransomware actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown ransomware actor",
+        "infrastructure": ["unknown"],
+        "capability": ["data theft", "system encryption", "operational disruption"],
+        "victim": ["West Pharmaceutical Services"]
+      },
+      "name": "West Pharmaceuticalランサムウェア攻撃",
+      "category": "ランサムウェア・医薬品サプライチェーン攻撃",
+      "industry": ["Pharmaceuticals", "Healthcare manufacturing", "Medical supply chain"],
+      "region": ["United States", "Global"],
+      "first_seen": "2026-05-04",
+      "last_seen": "2026-05-12",
+      "summary": "West Pharmaceutical Servicesは、攻撃者がネットワークに侵入し、データ窃取とシステム暗号化を行ったとSECに報告。出荷、受領、製造に関わる重要システムに影響が生じた。",
+      "executive_summary": "医薬品・医療製造サプライチェーンへのランサムウェアは、病院直接攻撃でなくとも医療継続性に影響し得る。日本でも製薬・医療機器・包装・物流を含む供給網リスク管理が必要。",
+      "change_summary": [
+        "2026-05-04に侵害を検知",
+        "2026-05-11にSEC 8-Kで重要サイバー攻撃として開示",
+        "出荷・受領・製造関連の重要システムに影響"
+      ],
+      "operational_relevance": "医薬品・医療機器関連企業は、製造・出荷システムのバックアップ、手動運用、サードパーティ依存を確認すべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "医薬品・医療機器サプライヤーのBCPとインシデント通知体制を確認する",
+        "製造・出荷・受領システムの復旧手順を点検する",
+        "SEC 8-K等の開示情報をサードパーティリスク監視に活用する"
+      ],
+      "details": "同社はオンプレミス基盤を遮断・隔離し、法執行機関に通知。中核エンタープライズシステムは復旧し、一部拠点で業務を再開したが、完全復旧時期と財務影響は未確定。",
+      "actors": [
+        {
+          "name": "Unknown ransomware actor",
+          "role": "threat actor",
+          "country": "Unknown"
+        },
+        {
+          "name": "West Pharmaceutical Services",
+          "role": "victim",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1486", "T1041", "T1490", "T1567"],
+      "malware": [],
+      "infrastructure": [],
+      "targeting": {
+        "sectors": ["pharmaceuticals", "healthcare manufacturing", "medical supply chain"],
+        "countries": ["United States", "global"],
+        "organization_types": ["pharmaceutical suppliers", "medical packaging manufacturers"]
+      },
+      "strategic_view": {
+        "general": "医療分野のサイバーリスクは病院だけでなく、製造・包装・配送を含む供給網全体で評価する必要がある。",
+        "geopolitical": "公衆衛生・医薬品供給の安定性は国家安全保障上の要素であり、ランサムウェアによる混乱は社会的影響が大きい。",
+        "business": "上場企業の8-K開示は、サプライチェーンリスク把握の有力なOSINTソースとなる。",
+        "research_direction": "犯行グループ、リークサイト掲載有無、製造停止期間、顧客影響の有無を継続監視。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "医薬品供給網の重要システム停止は、患者・医療機関への間接影響を生じさせる可能性がある。",
+        "delta_from_previous": "SEC開示により、データ窃取と暗号化、重要業務システムへの影響が確認された。"
+      },
+      "related_campaigns": ["Ransomware attacks against healthcare supply chain"],
+      "related_reports": ["Change Healthcare ransomware incident"],
+      "tags": ["ransomware", "healthcare", "pharmaceuticals", "supply_chain", "SEC_8K"],
+      "sources": [
+        {
+          "title": "West Pharmaceutical warns of ransomware attack impacting business operations",
+          "url": "https://therecord.media/west-pharmaceutical-warns-of-ransomware-attack-impacting-operations",
+          "publisher": "The Record",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "West Pharmaceutical reports material cyberattack",
+          "url": "https://www.stocktitan.net/sec-filings/WST/8-k-west-pharmaceutical-services-inc-reports-material-event-121ed3e9725b.html",
+          "publisher": "StockTitan SEC Filings",
+          "published_at": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_mini_shai_hulud_supply_chain",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Mini Shai-Hulud supply chain campaign",
+        "aliases": ["Mini Shai-Hulud", "npm worm"],
+        "cluster": "OSS supply chain compromise",
+        "suspected_actor": "TeamPCP",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP or related cloud-focused criminal cluster",
+        "infrastructure": ["npm registry", "PyPI registry", "CI/CD pipelines", "GitHub repositories"],
+        "capability": ["malicious package publication", "CI/CD compromise", "credential theft", "cloud secret harvesting"],
+        "victim": ["open-source maintainers", "developers", "cloud users"]
+      },
+      "name": "Mini Shai-Hulud OSSサプライチェーン攻撃",
+      "category": "ソフトウェアサプライチェーン攻撃・認証情報窃取",
+      "industry": ["Software", "Cloud", "Developer tooling"],
+      "region": ["Global"],
+      "first_seen": "2026-04-30",
+      "last_seen": "2026-05-12",
+      "summary": "Mini Shai-Huludと呼ばれるサプライチェーン攻撃により、TanStack、MistralAI、UiPath等に関連するnpm・PyPIパッケージが侵害された。正規に見えるリリース署名・provenanceを伴う更新に悪性コードが混入した点が重要。",
+      "executive_summary": "署名済み更新や正規CI/CD由来のリリースであっても安全とは限らない。日本企業もSBOMだけでなく、CI/CD権限、GitHub Actions、クラウドシークレット、依存関係更新プロセスの監視が必要。",
+      "change_summary": [
+        "2026-05-12に複数のセキュリティ企業・公的機関が注意喚起",
+        "TanStack、MistralAI、UiPath等の高利用パッケージが影響対象として言及",
+        "クラウド・GitHub・サーバ認証情報のローテーションが推奨された"
+      ],
+      "operational_relevance": "開発環境、CI/CD、クラウド認証情報、依存パッケージ更新ポリシーの即時確認が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "影響パッケージの導入有無をSBOMとlockfileで確認する",
+        "影響期間中に使用されたGitHub、npm、PyPI、AWS、GCP等のシークレットをローテーションする",
+        "CI/CDの最小権限化、OIDC連携、環境変数・Secretsアクセスログを確認する"
+      ],
+      "details": "攻撃はOSSレジストリ上のパッケージを汚染し、開発者端末・CI環境から認証情報を窃取する構図。正規署名やprovenanceの存在が安全性を保証しないことを示した。",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "suspected threat actor",
+          "country": "Unknown"
+        },
+        {
+          "name": "Open-source package maintainers and users",
+          "role": "victim",
+          "country": "Global"
+        }
+      ],
+      "ttp": ["T1195", "T1552", "T1528", "T1608", "T1078"],
+      "malware": ["Mini Shai-Hulud"],
+      "infrastructure": ["npm", "PyPI", "GitHub Actions", "CI/CD pipelines"],
+      "targeting": {
+        "sectors": ["software development", "cloud", "AI", "enterprise IT"],
+        "countries": ["global"],
+        "organization_types": ["developers", "software vendors", "cloud users"]
+      },
+      "strategic_view": {
+        "general": "OSS依存とAI開発速度の上昇により、サプライチェーン侵害の波及速度が増している。",
+        "geopolitical": "国家系・犯罪系を問わず、OSS汚染は広範な組織への初期アクセス手段になり得る。",
+        "business": "ベンダ選定や開発委託時に、SBOM、SLSA、CI/CD統制、Secrets管理が重要な評価軸となる。",
+        "research_direction": "影響パッケージ、侵害バージョン、Secrets流出先、TeamPCPの過去活動との連続性を継続監視。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "開発者環境とクラウド認証情報を狙うため、単一パッケージ侵害から多数組織への侵入に発展し得る。",
+        "delta_from_previous": "従来のnpm汚染に加え、正規CI/CD署名を伴う不正リリースという信頼基盤の悪用が明確化。"
+      },
+      "related_campaigns": ["Shai-Hulud", "npm supply chain compromise"],
+      "related_reports": ["Axios-related package compromise", "npm token theft campaigns"],
+      "tags": ["OSS", "supply_chain", "npm", "PyPI", "CI_CD", "cloud_secrets"],
+      "sources": [
+        {
+          "title": "'Mini Shai-Hulud' malware compromises hundreds of open-source packages in sprawling supply-chain attack",
+          "url": "https://cyberscoop.com/mini-shai-hulud-supply-chain-malware-attack/",
+          "publisher": "CyberScoop",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "Supply Chain Attack Affecting Numerous npm and PyPI Packages",
+          "url": "https://digital.nhs.uk/cyber-alerts/2026/cc-4781",
+          "publisher": "NHS Digital",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "Mini Shai-Hulud Strikes Again: TanStack + more npm Packages Compromised",
+          "url": "https://www.wiz.io/blog/mini-shai-hulud-strikes-again-tanstack-more-npm-packages-compromised",
+          "publisher": "Wiz",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_microsoft_patch_tuesday_118_cves",
+      "type": "assessment",
+      "status": "新規",
+      "campaign": {
+        "name": "Microsoft vulnerability management update",
+        "aliases": ["May 2026 Patch Tuesday"],
+        "cluster": "Vulnerability management",
+        "suspected_actor": "Not applicable",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Not applicable",
+        "infrastructure": ["Microsoft enterprise software ecosystem"],
+        "capability": ["vulnerability remediation", "AI-assisted vulnerability discovery"],
+        "victim": ["enterprise Microsoft users"]
+      },
+      "name": "Microsoft 2026年5月Patch Tuesday",
+      "category": "脆弱性対応・ゼロデイ関連情勢",
+      "industry": ["IT", "Cloud", "Enterprise software"],
+      "region": ["Global"],
+      "first_seen": "2026-05-12",
+      "last_seen": "2026-05-12",
+      "summary": "Microsoftの2026年5月Patch Tuesdayでは、118件のCVEに対応。悪用中または公表済みゼロデイは確認されていない一方、AIによる脆弱性発見が増加していることが示された。",
+      "executive_summary": "ゼロデイなしは短期的には好材料だが、AIによる脆弱性発見・パッチ解析・悪用速度の上昇により、月次パッチ運用から継続的リスク管理への移行が必要。",
+      "change_summary": [
+        "118件のCVEに対応",
+        "2024年6月以来、悪用中または公表済みゼロデイがない月とされた",
+        "MicrosoftがAIによる脆弱性発見の増加に言及"
+      ],
+      "operational_relevance": "Microsoft製品を利用する組織は、外部露出、AD/Entra ID、SharePoint、Teams、Windows Server等の優先順位に基づきパッチを適用すべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Criticalおよび外部公開システムに関係するCVEを優先適用する",
+        "AD、Entra ID、SharePoint、Teams、Windows Server関連の影響範囲を確認する",
+        "パッチ適用後のPoC公開・悪用観測を継続監視する"
+      ],
+      "details": "対象には.NET、Azure、Entra ID、Office、SharePoint、Teams、Windows DNS、Hyper-V等が含まれる。権限昇格とRCEが主要カテゴリ。",
+      "actors": [
+        {
+          "name": "Microsoft",
+          "role": "vendor",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1068", "T1210", "T1190"],
+      "malware": [],
+      "infrastructure": ["Microsoft Windows", "Microsoft Azure", "Microsoft Entra ID", "Microsoft SharePoint", "Microsoft Teams"],
+      "targeting": {
+        "sectors": ["all sectors"],
+        "countries": ["global"],
+        "organization_types": ["enterprises", "government agencies", "critical infrastructure operators"]
+      },
+      "strategic_view": {
+        "general": "AIによる脆弱性発見の増加は、防御側と攻撃側の双方の速度を上げる。",
+        "geopolitical": "国家系アクターはPatch Tuesday後の差分解析を迅速に行うため、重要インフラではパッチ遅延が戦略的リスクとなる。",
+        "business": "脆弱性管理、ASM、パッチ優先順位付け、補償統制の需要が高まる。",
+        "research_direction": "AI支援で発見された脆弱性の種類、悪用までの時間、PoC公開動向を継続観測。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "Microsoft製品は日本の政府・企業で広く使われ、悪用可能性のあるRCEや権限昇格の影響範囲が広い。",
+        "delta_from_previous": "ゼロデイなしの月である一方、AI支援による脆弱性発見増加が明確化した。"
+      },
+      "related_campaigns": ["Patch Tuesday exploitation monitoring"],
+      "related_reports": ["Microsoft April 2026 Patch Tuesday", "Microsoft March 2026 Patch Tuesday"],
+      "tags": ["Microsoft", "Patch_Tuesday", "vulnerability_management", "AI_security"],
+      "sources": [
+        {
+          "title": "Microsoft’s May 2026 Patch Tuesday Addresses 118 CVEs",
+          "url": "https://www.tenable.com/blog/microsofts-may-2026-patch-tuesday-addresses-118-cves-cve-2026-41103",
+          "publisher": "Tenable",
+          "published_at": "2026-05-12"
+        },
+        {
+          "title": "A note on Patch Tuesday",
+          "url": "https://www.microsoft.com/en-us/msrc/blog/2026/05/a-note-on-patch-tuesday",
+          "publisher": "Microsoft MSRC",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-12_iran_linked_sms_influence_israel",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Iran-linked influence and psychological cyber operations",
+        "aliases": ["Iran-linked SMS campaign"],
+        "cluster": "Influence operations",
+        "suspected_actor": "Iran-linked actors",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-linked actors",
+        "infrastructure": ["SMS delivery infrastructure", "messaging channels"],
+        "capability": ["psychological pressure", "targeted messaging", "social engineering"],
+        "victim": ["Israeli civilians"]
+      },
+      "name": "イラン関連とされるイスラエル市民向け心理的SMS攻撃",
+      "category": "影響力工作・心理戦・ソーシャルエンジニアリング",
+      "industry": ["Civil society", "Government", "National security"],
+      "region": ["Middle East", "Israel", "Iran"],
+      "first_seen": "2026-05-12",
+      "last_seen": "2026-05-12",
+      "summary": "イスラエル市民に対し、恐怖や混乱を誘発する個別化されたSMSが送信されたと報じられた。イスラエル国家サイバー局が広範な攻撃として把握したとされる。",
+      "executive_summary": "中東情勢において、サイバー空間は破壊・窃取だけでなく、民間人の心理・認知に直接作用する補助戦力として継続利用されている。",
+      "change_summary": [
+        "2026-05-12にイスラエル市民向け個別化SMS攻撃が報道",
+        "イラン関連主体による心理戦・影響力工作の一環と評価",
+        "国家機関・代理勢力・ハクティビストの境界が曖昧"
+      ],
+      "operational_relevance": "有事・災害時に、SMS、SNS、偽行政通知を用いる認知戦・詐欺・混乱誘発への備えが必要。",
+      "urgency": "monitor",
+      "recommended_action": [
+        "公的機関を騙るSMS・SNS通知への注意喚起テンプレートを整備する",
+        "有事における公式情報チャネルと否認情報発信手順を確認する",
+        "SMS配信基盤を悪用した影響力工作の事例を継続監視する"
+      ],
+      "details": "本件は破壊的マルウェアやランサムウェアではなく、個人宛てメッセージを通じて社会不安・恐怖を増幅する認知戦型の活動と整理される。",
+      "actors": [
+        {
+          "name": "Iran-linked actors",
+          "role": "suspected threat actor",
+          "country": "Iran"
+        },
+        {
+          "name": "Israeli civilians",
+          "role": "victim",
+          "country": "Israel"
+        }
+      ],
+      "ttp": ["T1566", "T1585", "T1598"],
+      "malware": [],
+      "infrastructure": ["SMS infrastructure", "messaging platforms"],
+      "targeting": {
+        "sectors": ["civil society", "public sector"],
+        "countries": ["Israel"],
+        "organization_types": ["individual citizens", "public users"]
+      },
+      "strategic_view": {
+        "general": "サイバー空間を使った心理戦は、技術的被害よりも社会的混乱を目的とする場合がある。",
+        "geopolitical": "イスラエル・イラン対立では、サイバー・情報・心理作戦が軍事衝突の補助線として機能している。",
+        "business": "通信事業者、行政、重要インフラ事業者は、偽通知・偽警報への対処を危機広報と連携させる必要がある。",
+        "research_direction": "SMS文面、送信基盤、過去のイラン関連ハクティビスト活動との関連を継続確認。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "認知戦型のサイバー活動は、物理被害がなくても社会不安や政府不信を増幅し得る。",
+        "delta_from_previous": "イラン関連活動が、侵入・破壊だけでなく個人向け心理圧迫へ継続展開している点を確認。"
+      },
+      "related_campaigns": ["Iran-Israel cyber and influence operations"],
+      "related_reports": ["Iran-linked hacktivist operations", "Middle East cyber influence operations"],
+      "tags": ["Iran", "Israel", "influence_operations", "SMS", "psychological_operations"],
+      "sources": [
+        {
+          "title": "'Personalized' Iranian cyber attack targets Israeli morale",
+          "url": "https://www.jns.org/news/israel-news/personalized-iranian-cyber-attack-targets-israeli-morale",
+          "publisher": "JNS",
+          "published_at": "2026-05-12"
+        }
+      ]
+    }
+  ]
+}

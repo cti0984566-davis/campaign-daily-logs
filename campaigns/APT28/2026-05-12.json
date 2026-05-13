@@ -1,0 +1,133 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28について、2026年5月12日単日で新たな大規模公開レポートは確認できないが、4月公開のSOHOルータ悪用・DNSハイジャック作戦の運用上の重要性は継続。FBI/NSA等によるルータ無害化・交換推奨の報道もあり、侵害済みエッジ機器を用いたロシア系作戦の監視を継続すべき。",
+  "change_summary": [
+    "2026-05-12時点では新規キャンペーン公表ではなく、4月公表のルータ悪用作戦の継続監視",
+    "家庭・SOHOルータを踏み台化し、DNS設定改ざんで認証情報窃取等に利用する構図が継続的リスク",
+    "FBI/NSA等によるルータ無害化・交換推奨が5月12日報道で再注目"
+  ],
+  "operational_relevance": "日本組織でも、海外拠点、在宅勤務者、SOHOルータ、拠点VPN装置、DNS設定の監査を優先すべき。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHOルータ、VPN装置、DNS設定変更履歴を確認する",
+    "外部公開エッジ機器のファームウェア更新と不要管理画面の停止を行う",
+    "認証情報窃取を前提に、VPN・メール・クラウドのログイン異常を確認する"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "Pawn Storm",
+      "Strontium",
+      "Sofacy"
+    ],
+    "cluster": "Russia-linked cyber espionage",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-12_apt28_router_dns_hijacking_ongoing",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるSOHOルータ悪用・DNSハイジャック作戦の継続監視",
+      "category": "国家支援型サイバースパイ・エッジ機器悪用",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "NATO countries",
+          "global"
+        ],
+        "industries": [
+          "government",
+          "defense",
+          "logistics",
+          "technology"
+        ],
+        "organization_types": [
+          "government agencies",
+          "defense-related entities",
+          "organizations supporting Ukraine",
+          "remote workers"
+        ]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-05-12",
+      "activity_summary": "APT28はSOHOルータ等を侵害し、DHCP/DNS設定を書き換えることで、通信を攻撃者管理DNSに誘導する作戦を実施していると国際機関が警告。5月12日時点では新規キャンペーンではなく、既報作戦の継続監視。",
+      "activity_details": "攻撃は、侵害済みルータのDNS設定を改ざんし、標的組織のユーザを偽装サイトや攻撃者管理インフラへ誘導する構図。認証情報窃取、セッション情報取得、追加侵入の前段として利用され得る。",
+      "ttp": [
+        "T1190",
+        "T1557",
+        "T1584",
+        "T1565",
+        "T1078"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "attacker-controlled DNS servers",
+        "edge network devices"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "エッジ機器の侵害は、EDRの可視性外で長期潜伏・認証情報窃取を可能にする。",
+        "geopolitical": "ロシア・ウクライナ戦争に関連し、欧州・NATO・支援物流・政府機関を狙う情報収集基盤として重要。",
+        "business": "在宅勤務・海外拠点・小規模拠点のルータ管理がサプライチェーン上の弱点になる。",
+        "research_direction": "APT28のルータ悪用と、物流・ウクライナ支援組織標的化の関連、DNS改ざん後の認証情報悪用経路を継続確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "境界機器を用いた侵入・中間者的誘導は、通常の端末防御を迂回し、認証情報窃取やクラウド侵入に直結する。",
+        "delta_from_previous": "5月12日時点で新規TTPではないが、ルータ無害化・交換推奨報道により運用上の優先度が再確認された。"
+      },
+      "related_campaigns": [
+        "Russia-linked router exploitation",
+        "Ukraine support logistics targeting"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "SOHO_router",
+        "DNS_hijacking",
+        "edge_device"
+      ],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/sites/default/files/2026-04/NCSC_APT28-exploit-routers-to-enable-DNS-hijacking-operations.pdf",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "The FBI may have reset your wireless router remotely; if so, you should replace it",
+          "url": "https://9to5mac.com/2026/05/12/the-fbi-may-have-reset-your-wireless-router-remotely-if-so-you-should-replace-it/",
+          "publisher": "9to5Mac",
+          "published_at": "2026-05-12"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU-linked actor",
+        "infrastructure": [
+          "compromised SOHO routers",
+          "attacker-controlled DNS infrastructure"
+        ],
+        "capability": [
+          "router exploitation",
+          "DNS hijacking",
+          "credential interception",
+          "covert infrastructure use"
+        ],
+        "victim": [
+          "government entities",
+          "Ukraine-supporting organizations",
+          "remote users"
+        ]
+      }
+    }
+  ]
+}

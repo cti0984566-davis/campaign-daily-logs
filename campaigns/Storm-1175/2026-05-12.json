@@ -1,0 +1,125 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175について、2026年5月12日単日で新規の主要公開事案は確認できないが、Microsoftが4月に公表した高テンポMedusaランサムウェア運用のリスクは継続。N-day脆弱性を短時間で悪用し、侵入からデータ窃取・暗号化まで24時間以内に進むケースがあり、パッチ遅延組織に対するリスクが高い。",
+  "change_summary": [
+    "5月12日時点では新規公表ではなく、4月公開のMicrosoftレポートの継続監視",
+    "Storm-1175は公開済み脆弱性とゼロデイを含む複数CVEを悪用",
+    "侵入からMedusaランサムウェア展開まで24時間以内に進むケースがある"
+  ],
+  "operational_relevance": "外部公開Web資産、VPN、ファイル転送製品、CMS等のN-day脆弱性対応を迅速化する必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開資産の脆弱性スキャンとパッチ優先順位付けを実施する",
+    "新規CVE公開後24時間以内の暫定緩和・遮断プロセスを整備する",
+    "Medusaランサムウェア関連の初期侵入、横展開、データ窃取検知を確認する"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [
+      "Medusa ransomware operations"
+    ],
+    "cluster": "Financially motivated ransomware",
+    "suspected_actor": "Storm-1175",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-12_storm-1175_medusa_n_day_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175によるN-day悪用・Medusaランサムウェア作戦の継続監視",
+      "category": "ランサムウェア・脆弱性悪用",
+      "targeting": {
+        "regions": [
+          "Global"
+        ],
+        "industries": [
+          "all sectors",
+          "technology",
+          "public sector",
+          "healthcare",
+          "manufacturing"
+        ],
+        "organization_types": [
+          "organizations with vulnerable internet-facing assets",
+          "enterprises",
+          "public agencies"
+        ]
+      },
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-05-12",
+      "activity_summary": "Storm-1175は外部公開資産のN-day脆弱性を高頻度で悪用し、短時間でデータ窃取とMedusaランサムウェア展開に移行する。5月12日時点では既報キャンペーンの継続監視。",
+      "activity_details": "MicrosoftはStorm-1175を、脆弱なWeb公開資産を標的とする高テンポの金銭目的アクターとして整理。脆弱性公開からパッチ適用までの隙を突き、侵入後数日、場合によっては24時間以内に暗号化まで進むとされる。",
+      "ttp": [
+        "T1190",
+        "T1486",
+        "T1041",
+        "T1059",
+        "T1078",
+        "T1490"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware"
+      ],
+      "infrastructure": [
+        "internet-facing vulnerable assets",
+        "ransomware leak infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "N-day悪用の速度が従来の月次パッチ運用を上回っており、脆弱性管理の時間軸が短縮している。",
+        "geopolitical": "国家系ではなく金銭目的だが、重要インフラ・医療・自治体への影響は国家安全保障上の課題となる。",
+        "business": "ASM、パッチ優先順位付け、仮想パッチ、外部公開資産の継続監視需要が高まる。",
+        "research_direction": "Storm-1175が悪用するCVE群、Medusa展開前の初期アクセスブローカーとの関係、24時間以内暗号化事例を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "攻撃速度が速く、パッチ遅延や外部公開資産の棚卸し不備が直接ランサムウェア被害につながる。",
+        "delta_from_previous": "5月12日時点で新規事案は確認されないが、4月公表の高テンポ運用評価を維持。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware",
+        "N-day exploitation campaigns"
+      ],
+      "tags": [
+        "Storm-1175",
+        "Medusa",
+        "ransomware",
+        "N-day",
+        "internet_facing_assets"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        },
+        {
+          "title": "China-Linked Storm-1175 Exploits Zero-Days to Rapidly Deploy Medusa Ransomware",
+          "url": "https://thehackernews.com/2026/04/china-linked-storm-1175-exploits-zero.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "vulnerable web-facing assets",
+          "ransomware leak infrastructure"
+        ],
+        "capability": [
+          "N-day exploitation",
+          "rapid data exfiltration",
+          "Medusa ransomware deployment"
+        ],
+        "victim": [
+          "organizations with exposed vulnerable assets"
+        ]
+      }
+    }
+  ]
+}

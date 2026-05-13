@@ -1,0 +1,157 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "China-linked_Covert_Network_Opsについて、2026年5月12日単日で新規の共同勧告は確認できないが、4月23日の国際共同勧告で示されたSOHOルータ・IoT機器・スマートデバイスを用いた秘匿ネットワーク構築リスクは継続。Volt Typhoon、Flax Typhoon、Raptor Train等を含む中国関連アクターのインフラ秘匿化は、日本の重要インフラ・通信・政府機関に対する長期リスクとして監視継続が必要。",
+  "change_summary": [
+    "5月12日時点では4月23日国際共同勧告の継続監視",
+    "SOHOルータ、IoT、スマートデバイスを大規模に侵害し、攻撃元秘匿・永続化に利用する構図が確認済み",
+    "日本を含む複数国機関が共同勧告に参加しており、日本国内でも優先監視対象"
+  ],
+  "operational_relevance": "重要インフラ、通信、政府、自治体、大企業は、自組織だけでなく、委託先・拠点・家庭用ルータを含む外縁インフラの把握が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルータ、IoT、監視カメラ、VPN装置、NAS等の棚卸しとファームウェア更新を行う",
+    "海外拠点・委託先・小規模拠点のネットワーク機器管理状況を確認する",
+    "既知Typhoon系、KV Botnet、Raptor Train等に関する検知・ブロック情報をSOCで共有する"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": [
+      "China-nexus covert networks",
+      "Typhoon-linked covert networks",
+      "SOHO/IoT botnet operations"
+    ],
+    "cluster": "China-linked covert infrastructure operations",
+    "suspected_actor": "China-linked cyber actors and supporting infrastructure operators",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-12_china_linked_covert_network_ops_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "中国関連アクターによる秘匿ネットワーク作戦の継続監視",
+      "category": "国家支援型サイバー作戦・秘匿インフラ・SOHO/IoTボットネット",
+      "targeting": {
+        "regions": [
+          "United States",
+          "United Kingdom",
+          "Japan",
+          "Taiwan",
+          "Australia",
+          "Canada",
+          "Europe",
+          "global"
+        ],
+        "industries": [
+          "critical infrastructure",
+          "telecommunications",
+          "government",
+          "defense",
+          "technology"
+        ],
+        "organization_types": [
+          "critical infrastructure operators",
+          "telecommunications providers",
+          "government agencies",
+          "SOHO users",
+          "IoT device owners"
+        ]
+      },
+      "first_seen": "2024-09-01",
+      "last_seen": "2026-05-12",
+      "activity_summary": "中国関連アクターは、SOHOルータ、IoT、スマートデバイスを侵害し、攻撃元秘匿、永続的アクセス、DDoS、データ窃取、追加侵入のための秘匿ネットワークを構築していると国際共同勧告で警告された。",
+      "activity_details": "CISA、NCSC等の共同勧告は、Volt Typhoon、Flax Typhoon等に関連する秘匿ネットワークの構築・維持について、SOHO機器、IoT機器、スマートデバイスの悪用を指摘。Integrity Technology Group、KV Botnet、Raptor Trainなど過去の摘発・公表事案と連続性がある。",
+      "ttp": [
+        "T1584",
+        "T1595",
+        "T1190",
+        "T1090",
+        "T1102",
+        "T1041"
+      ],
+      "malware_and_tools": [
+        "KV Botnet",
+        "Raptor Train"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "compromised IoT devices",
+        "smart devices",
+        "covert proxy networks"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "秘匿ネットワークは、攻撃者の帰属追跡を困難にし、長期作戦の基盤となる。",
+        "geopolitical": "台湾、米国、日本、英国等を含む対中抑止・危機対応の文脈で、中国関連アクターの準備的アクセス基盤として重要。",
+        "business": "企業境界外のSOHO・IoT機器も、サプライチェーンやリモートアクセス経路を通じてリスク要因となる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Salt Typhoon、Brass Typhoon等と、秘匿ネットワーク運用企業・ボットネット運用基盤の関係を継続分析。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "重要インフラへの長期潜伏・攻撃元秘匿・危機時妨害の基盤となるため、日本にとっても最優先監視対象。",
+        "delta_from_previous": "5月12日時点で新規勧告はないが、4月23日共同勧告を踏まえ、従来の個別Typhoon監視から秘匿ネットワーク運用そのものを独立監視枠として扱う必要性が強まった。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Salt Typhoon",
+        "Brass Typhoon",
+        "KV Botnet",
+        "Raptor Train"
+      ],
+      "tags": [
+        "China",
+        "covert_network",
+        "SOHO_router",
+        "IoT",
+        "Typhoon",
+        "critical_infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "International cyber agencies share fresh advice to defend against China-linked covert networks",
+          "url": "https://www.ncsc.gov.uk/news/international-cyber-agencies-fresh-advice-defend-against-china-linked-covert-networks",
+          "publisher": "NCSC",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "Cyber agencies warn organisations to guard against China-linked covert networks",
+          "url": "https://www.reuters.com/technology/cyber-agencies-warn-organisations-guard-against-china-linked-covert-networks-2026-04-23/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-23"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked cyber actors",
+        "infrastructure": [
+          "SOHO routers",
+          "IoT devices",
+          "smart devices",
+          "covert proxy networks"
+        ],
+        "capability": [
+          "covert infrastructure creation",
+          "proxying",
+          "persistence",
+          "traffic obfuscation",
+          "critical infrastructure targeting support"
+        ],
+        "victim": [
+          "critical infrastructure operators",
+          "government entities",
+          "telecommunications providers",
+          "SOHO and IoT device owners"
+        ]
+      }
+    }
+  ]
+}

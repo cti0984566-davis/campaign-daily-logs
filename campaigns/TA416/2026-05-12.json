@@ -1,0 +1,136 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416について、2026年5月12日単日で新規の大規模公開事案は確認できないが、2026年4月に公表された欧州政府・外交機関向けスパイ活動再開の評価は継続。OAuthリダイレクト悪用、Cloudflare Turnstile悪用、PlugX更新など、外交・政府標的型の手法が重要。",
+  "change_summary": [
+    "5月12日時点では新規公表ではなく、4月公開のTA416欧州・中東標的化の継続監視",
+    "欧州政府・EU/NATO外交ミッション標的化が確認済み",
+    "2026年3月には中東の政府・外交機関への標的拡大が報告済み"
+  ],
+  "operational_relevance": "外交、防衛、シンクタンク、国際機関関連組織は、OAuthリダイレクト、Webビーコン、PlugX配信、クラウドホスト型マルウェアに注意が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "外交・国際関係部門を対象にしたフィッシング、Webビーコン、OAuthリダイレクトを監視する",
+    "PlugX関連検知、C#プロジェクトファイル悪用、クラウドホスト型ペイロードを確認する",
+    "中東・欧州情勢に関係する部門のメールセキュリティと認証ログを重点確認する"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "Mustang Panda",
+      "RedDelta",
+      "Red Lich",
+      "Vertigo Panda",
+      "SmugX",
+      "DarkPeony"
+    ],
+    "cluster": "China-aligned cyber espionage",
+    "suspected_actor": "China-aligned threat actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-12_ta416_eu_mideast_espionage_ongoing",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416による欧州・中東政府外交機関向けスパイ活動の継続監視",
+      "category": "国家支援型サイバースパイ・外交標的型攻撃",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Middle East"
+        ],
+        "industries": [
+          "government",
+          "diplomacy",
+          "international relations"
+        ],
+        "organization_types": [
+          "EU-related organizations",
+          "NATO diplomatic missions",
+          "government agencies",
+          "diplomatic organizations"
+        ]
+      },
+      "first_seen": "2025-06-01",
+      "last_seen": "2026-05-12",
+      "activity_summary": "TA416は2025年半ば以降、欧州政府・外交機関への標的化を再開し、2026年3月には中東の政府・外交機関にも標的を拡大したと報告された。5月12日時点では既報キャンペーンの継続監視。",
+      "activity_details": "Proofpointは、TA416がWebビーコン、OAuthリダイレクト悪用、Cloudflare Turnstileチャレンジページ悪用、C#プロジェクトファイル、PlugXペイロード更新を用いて、EU/NATO関連の外交標的に攻撃を行ったと報告。",
+      "ttp": [
+        "T1566",
+        "T1189",
+        "T1105",
+        "T1204",
+        "T1059",
+        "T1027"
+      ],
+      "malware_and_tools": [
+        "PlugX"
+      ],
+      "infrastructure": [
+        "cloud-hosted malware delivery infrastructure",
+        "OAuth redirect infrastructure",
+        "Cloudflare Turnstile challenge pages"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は外交・政府機関に対する長期情報収集を目的とする可能性が高く、感染チェーンを頻繁に変更する。",
+        "geopolitical": "欧州・NATO・中東外交を標的化しており、中国の外交・安全保障上の情報要求と整合する。",
+        "business": "国際関係、政府渉外、防衛、研究機関に関わる民間企業も巻き込まれる可能性がある。",
+        "research_direction": "TA416とMustang Panda、RedDelta、Earth Preta等のクラスタ関係、PlugX亜種、OAuth悪用TTPの変化を継続追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "外交・政府機関への標的化は、国際情勢や紛争に関する意思決定情報の窃取につながる。",
+        "delta_from_previous": "5月12日時点では新規TTP追加なし。4月公開の欧州・中東標的化キャンペーン評価を維持。"
+      },
+      "related_campaigns": [
+        "Mustang Panda diplomatic espionage",
+        "PlugX delivery campaigns"
+      ],
+      "tags": [
+        "TA416",
+        "Mustang_Panda",
+        "China",
+        "PlugX",
+        "OAuth",
+        "diplomacy"
+      ],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "China-Linked TA416 Targets European Governments with PlugX and OAuth-Based Phishing",
+          "url": "https://thehackernews.com/2026/04/china-linked-ta416-targets-european.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-04-03"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / Mustang Panda",
+        "infrastructure": [
+          "OAuth redirect infrastructure",
+          "cloud-hosted malware infrastructure",
+          "Cloudflare Turnstile abuse"
+        ],
+        "capability": [
+          "phishing",
+          "web beaconing",
+          "PlugX delivery",
+          "infection-chain adaptation"
+        ],
+        "victim": [
+          "European government entities",
+          "EU/NATO diplomatic missions",
+          "Middle Eastern government and diplomatic entities"
+        ]
+      }
+    }
+  ]
+}

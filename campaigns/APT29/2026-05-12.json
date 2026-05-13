@@ -1,0 +1,137 @@
+{
+  "date": "2026-05-12",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年5月12日単日で新規の重要公開事案は確認できない。引き続き、クラウド初期アクセス、サービスアカウント、MFA迂回、正規認証情報悪用を中心とするロシアSVR系の長期潜伏リスクとして監視を継続する。",
+  "change_summary": [
+    "2026-05-12時点で新規公開キャンペーンは確認できず",
+    "既報のクラウド・ID基盤標的化TTPが継続的リスク",
+    "APT28と異なり、現時点ではSOHOルータ系の新規公開アップデートは確認されない"
+  ],
+  "operational_relevance": "政府、研究機関、外交、安全保障、クラウド利用組織は、MFA、サービスアカウント、OAuthアプリ、クラウド監査ログを重点確認すべき。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "クラウドID基盤の異常ログイン、サービスプリンシパル、OAuth同意を確認する",
+    "MFA疲労攻撃、デバイス登録、トークン窃取の検知ルールを点検する",
+    "外交・研究・政策関連組織における長期潜伏前提のログ保全を行う"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard",
+      "Nobelium",
+      "The Dukes"
+    ],
+    "cluster": "Russia-linked cyber espionage",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-12_apt29_cloud_identity_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29クラウド・ID基盤侵入リスクの継続監視",
+      "category": "国家支援型サイバースパイ・クラウド侵入",
+      "targeting": {
+        "regions": [
+          "United States",
+          "Europe",
+          "NATO countries",
+          "global"
+        ],
+        "industries": [
+          "government",
+          "diplomacy",
+          "defense",
+          "research",
+          "technology"
+        ],
+        "organization_types": [
+          "government agencies",
+          "think tanks",
+          "research institutions",
+          "cloud tenants"
+        ]
+      },
+      "first_seen": "2024-02-26",
+      "last_seen": "2026-05-12",
+      "activity_summary": "APT29は近年、クラウド環境への初期アクセス、休眠アカウント、サービスアカウント、MFA関連TTP、正規認証情報悪用を重視している。5月12日時点では新規公開事案ではなく、既報TTPの継続評価。",
+      "activity_details": "NCSC等は2024年以降、SVR系アクターがクラウド環境への初期アクセス手法を適応させていると警告。これには、パスワードスプレー、MFA疲労、休眠アカウント悪用、サービスアカウント・OAuth関連の悪用が含まれる。",
+      "ttp": [
+        "T1078",
+        "T1110.003",
+        "T1550",
+        "T1528",
+        "T1098",
+        "T1566"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "cloud identity platforms",
+        "OAuth applications",
+        "service accounts"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29の脅威はマルウェア単体ではなく、正規IDとクラウド管理面への潜伏にある。",
+        "geopolitical": "ロシアSVR系の情報収集は、外交、安全保障、制裁、ウクライナ支援政策に関する意思決定情報の収集と整合する。",
+        "business": "クラウド移行が進む企業・政府では、ID統制と監査ログが主要防御線となる。",
+        "research_direction": "Microsoft Entra ID、OAuth同意、サービスプリンシパル、MFA登録変更の異常検知を中心に監視継続。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT29は政府・外交・研究機関に対する長期情報収集能力が高く、日本の政策・安全保障関連組織にも間接的リスクがある。",
+        "delta_from_previous": "5月12日時点で新規公表はないため、評価は維持。クラウド・ID基盤重視の監視を継続。"
+      },
+      "related_campaigns": [
+        "Midnight Blizzard cloud access operations",
+        "SVR cyber espionage"
+      ],
+      "tags": [
+        "APT29",
+        "Russia",
+        "SVR",
+        "cloud",
+        "identity",
+        "MFA"
+      ],
+      "sources": [
+        {
+          "title": "SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "NCSC",
+          "published_at": "2024-02-26"
+        },
+        {
+          "title": "Russia - APT29",
+          "url": "https://www.cyber.nj.gov/threat-landscape/nation-state-threat-analysis-reports/russia-cyber-threat-operations/russia-apt29",
+          "publisher": "NJCCIC",
+          "published_at": ""
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked actor",
+        "infrastructure": [
+          "cloud identity infrastructure",
+          "OAuth applications",
+          "service accounts"
+        ],
+        "capability": [
+          "cloud initial access",
+          "credential abuse",
+          "MFA manipulation",
+          "long-term espionage"
+        ],
+        "victim": [
+          "government agencies",
+          "diplomatic organizations",
+          "research institutions",
+          "cloud tenants"
+        ]
+      }
+    }
+  ]
+}
