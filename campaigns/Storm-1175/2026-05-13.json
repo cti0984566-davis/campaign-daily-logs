@@ -1,0 +1,75 @@
+{
+  "date": "2026-05-13",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175について、2026年5月13日JST時点で新規の主要公開情報は確認できない。4月にMicrosoftが公表した、N-day脆弱性を高速悪用してMedusaランサムウェアを展開する活動を継続監視する。",
+  "change_summary": [
+    "当日新規の主要公開レポートは確認できず",
+    "N-day脆弱性の高速悪用とMedusa展開の監視を継続",
+    "PAN-OS CVE-2026-0300のような境界機器脆弱性は、Storm-1175型の高速悪用モデルと運用上関連"
+  ],
+  "operational_relevance": "公開資産のN-day脆弱性が、数日または24時間以内にランサムウェア展開へつながる可能性があるため、脆弱性管理SLAの短縮が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開資産の脆弱性を日次で確認",
+    "CVE公開直後の暫定緩和策適用を標準化",
+    "Medusaランサムウェア関連の検知・バックアップ復旧手順を確認"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [],
+    "cluster": "Financially motivated ransomware operations",
+    "suspected_actor": "Financially motivated cybercriminal actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-13_storm_1175_nday_medusa_monitor",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175によるN-day脆弱性高速悪用・Medusa展開の継続監視",
+      "category": "サイバー犯罪／ランサムウェア",
+      "targeting": {
+        "regions": ["米国", "英国", "オーストラリア", "グローバル"],
+        "industries": ["医療", "教育", "金融", "専門サービス"],
+        "organization_types": ["外部公開システムを持つ組織", "中堅・大規模企業"]
+      },
+      "first_seen": "2026-04-06",
+      "last_seen": "2026-05-13",
+      "activity_summary": "Storm-1175は公開直後または既知のWeb公開資産脆弱性を高速に悪用し、データ窃取とMedusaランサムウェア展開を行うとMicrosoftが報告している。",
+      "activity_details": "5月13日に新規のStorm-1175固有公表は確認できないが、PAN-OS CVE-2026-0300のような境界機器脆弱性の出現は、同種の高速悪用アクターにとって利用価値が高い。",
+      "ttp": ["T1190", "T1486", "T1041", "T1490", "T1078", "T1059"],
+      "malware_and_tools": ["Medusa ransomware"],
+      "infrastructure": ["Exposed web-facing systems", "Ransomware infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "Storm-1175はゼロデイそのものより、公開済み脆弱性を極短時間で悪用する能力が特徴。",
+        "geopolitical": "国家アクターではなく金銭目的だが、医療・教育・金融を狙うため社会的影響は大きい。",
+        "business": "パッチ適用までの猶予期間が事実上短縮されており、従来の月次パッチ運用では不十分な可能性がある。",
+        "research_direction": "新規CVEの悪用有無、Medusa展開までの時間、業種別被害、初期侵入後のツールチェーンを確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "N-day悪用からランサムウェア展開までが極めて速く、公開資産管理の遅れが直ちに被害化し得る。",
+        "delta_from_previous": "5月13日時点でStorm-1175固有の新規公表はないが、PAN-OS等の重要脆弱性出現により警戒水準は維持。"
+      },
+      "related_campaigns": ["Medusa ransomware operations", "N-day exploitation"],
+      "tags": ["Storm-1175", "Medusa", "ransomware", "N-day", "web-facing assets"],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": ["Exposed vulnerable web-facing systems", "Ransomware infrastructure"],
+        "capability": ["N-day exploitation", "Data exfiltration", "Medusa ransomware deployment"],
+        "victim": ["Healthcare", "Education", "Professional services", "Finance"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "date": "2026-05-13",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年5月13日JST時点で新規の主要公開情報は確認できない。クラウドID、OAuth、RDPファイル、デバイスコード認証悪用などの既存TTPを継続監視する。",
+  "change_summary": [
+    "当日新規の主要公開レポートは確認できず",
+    "クラウドID・OAuth・サービスプロバイダ信頼関係の悪用を継続監視"
+  ],
+  "operational_relevance": "APT29はクラウドID基盤、OAuthアプリ、サービスプロバイダ経由の侵入に強みを持つため、日本組織でもM365、Entra ID、IdP、SaaS連携の監視が重要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuthアプリの権限棚卸しを実施",
+    "MFA未設定アカウント、レガシー認証、休眠アカウントを確認",
+    "RDPファイルやデバイスコード認証を使うフィッシングを教育・検知対象に含める"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Midnight Blizzard", "Cozy Bear", "NOBELIUM", "The Dukes"],
+    "cluster": "Russia-linked cyber espionage",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-13_apt29_cloud_identity_monitor",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウドID・OAuth悪用TTPの継続監視",
+      "category": "国家系サイバー諜報／クラウドID侵害",
+      "targeting": {
+        "regions": ["欧州", "北米", "グローバル"],
+        "industries": ["政府機関", "外交", "防衛", "シンクタンク", "ITサービス"],
+        "organization_types": ["政府機関", "外交機関", "防衛関連組織", "クラウド利用組織"]
+      },
+      "first_seen": "2024-01",
+      "last_seen": "2026-05-13",
+      "activity_summary": "APT29はクラウド環境への初期アクセス、OAuth悪用、RDPファイルを用いたスピアフィッシング、デバイスコード認証悪用などを継続的に使用している。",
+      "activity_details": "5月13日に新規の主要公表はないが、APT29はクラウド・ID基盤への長期潜伏と情報収集を重視するアクターであり、M365やEntra ID等の監視対象として継続する。",
+      "ttp": ["T1110.003", "T1078", "T1528", "T1566.002", "T1136.003", "T1213", "T1090"],
+      "malware_and_tools": ["FOGGYWEB", "MAGICWEB"],
+      "infrastructure": ["Residential proxy infrastructure", "Compromised cloud accounts", "Malicious OAuth applications"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は端末侵害よりもクラウドIDと信頼関係の悪用に重点を置くため、従来型の境界防御では検知が難しい。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求に沿って、政府、外交、防衛、シンクタンクを標的化する傾向が強い。",
+        "business": "日本企業では海外子会社、M365テナント、SaaS連携、委託先アカウントが弱点となり得る。",
+        "research_direction": "OAuth権限悪用、デバイスコード認証、RDPファイル型フィッシング、サービスプロバイダ経由侵入の新規事例を確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT29は直接的な破壊よりも長期情報収集を重視し、発見が遅れやすい。",
+        "delta_from_previous": "5月13日時点で新規公表はなく、既存TTPの監視継続。"
+      },
+      "related_campaigns": ["Midnight Blizzard cloud access operations"],
+      "tags": ["APT29", "Midnight Blizzard", "OAuth", "cloud identity", "Russia"],
+      "sources": [
+        {
+          "title": "SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "NCSC",
+          "published_at": "2024-02-26"
+        },
+        {
+          "title": "Midnight Blizzard conducts large-scale spear-phishing campaign using RDP files",
+          "url": "https://www.microsoft.com/en-us/security/blog/2024/10/29/midnight-blizzard-conducts-large-scale-spear-phishing-campaign-using-rdp-files/",
+          "publisher": "Microsoft",
+          "published_at": "2024-10-29"
+        },
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia’s APT29",
+          "url": "https://aws.amazon.com/blogs/security/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS",
+          "published_at": "2025-08-29"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Midnight Blizzard",
+        "infrastructure": ["Residential proxies", "Compromised websites", "Malicious OAuth applications"],
+        "capability": ["Cloud account compromise", "OAuth abuse", "Device code authentication abuse", "Spear phishing"],
+        "victim": ["Government", "Diplomatic entities", "Defense", "Think tanks", "IT service providers"]
+      }
+    }
+  ]
+}

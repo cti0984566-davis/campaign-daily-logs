@@ -1,0 +1,94 @@
+{
+  "date": "2026-05-13",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "China-linked_Covert_Network_Opsについて、2026年5月13日JST時点では4月23日の多国間アドバイザリを基礎に継続監視する。新規の焦点として、PAN-OS CVE-2026-0300のような境界機器ゼロデイは、帰属未確定ながら同種の秘匿中継・境界侵害監視枠に関連付けて追跡する価値がある。",
+  "change_summary": [
+    "4月23日の多国間アドバイザリで、中国関連アクターによる侵害済みデバイス秘匿ネットワーク利用が整理された",
+    "5月13日時点でPAN-OS CVE-2026-0300の修正・対応フェーズが進行",
+    "CVE-2026-0300は中国関連帰属ではないが、境界機器侵害・秘匿中継基盤監視の観点で関連監視候補"
+  ],
+  "operational_relevance": "SOHO、IoT、境界機器、ファイアウォールを悪用した秘匿ネットワークは、日本の重要インフラ、防衛産業、政府機関への長期偵察・事前配置に直結し得る。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHO・IoT・境界機器の資産棚卸しを強化",
+    "EOL機器、初期パスワード、外部公開管理画面を重点確認",
+    "Raptor Train、KV Botnet、Volt Typhoon、Flax Typhoon関連の検知観点を整理",
+    "PAN-OS CVE-2026-0300対象機器はパッチ適用だけでなく侵害痕跡調査を実施"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["China-nexus covert networks", "China-linked covert networks of compromised devices"],
+    "cluster": "China-linked covert network / ORB infrastructure operations",
+    "suspected_actor": "China-linked cyber actors including Volt Typhoon and Flax Typhoon-related clusters",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-13_china_linked_covert_network_ops_pan_os_related_monitor",
+      "type": "assessment",
+      "status": "更新",
+      "name": "中国関連秘匿ネットワーク作戦とPAN-OS境界機器脆弱性の関連監視",
+      "category": "国家系サイバー作戦／秘匿ネットワーク／境界機器侵害",
+      "targeting": {
+        "regions": ["米国", "英国", "台湾", "日本", "グローバル"],
+        "industries": ["重要インフラ", "政府機関", "通信", "防衛", "製造"],
+        "organization_types": ["政府機関", "重要インフラ事業者", "通信事業者", "防衛関連企業"]
+      },
+      "first_seen": "2024-01",
+      "last_seen": "2026-05-13",
+      "activity_summary": "中国関連アクターは、SOHOルーター、IoT機器、侵害済みデバイスを秘匿ネットワークとして利用し、偵察、諜報、攻撃元秘匿に活用していると多国間アドバイザリが警告している。",
+      "activity_details": "5月13日時点でPAN-OS CVE-2026-0300の対応が進行している。同CVE自体の中国帰属は未確定だが、境界機器を侵害して中継・永続化・内部偵察に使うという観点では、中国関連Covert Network Opsの監視枠に隣接する。",
+      "ttp": ["T1190", "T1584.008", "T1090", "T1090.003", "T1071", "T1046", "T1027"],
+      "malware_and_tools": ["Raptor Train", "KV Botnet", "EarthWorm", "ReverseSocks5"],
+      "infrastructure": ["Compromised SOHO routers", "Compromised IoT devices", "Operational Relay Box infrastructure", "Exposed PAN-OS User-ID Authentication Portal"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "侵害済みデバイスによる秘匿ネットワークは、攻撃元特定を困難にし、長期偵察と事前配置を可能にする。",
+        "geopolitical": "台湾有事、米中対立、重要インフラ事前配置の文脈で、単発侵害ではなく戦略的アクセス確保として評価すべき。",
+        "business": "企業側では、直接侵害だけでなく、自社機器が攻撃中継基盤として悪用されるリスクも管理対象となる。",
+        "research_direction": "Raptor Train、KV Botnet、Volt Typhoon、Flax Typhoon、Salt Typhoon、PAN-OS等境界機器ゼロデイの相互関連を慎重に切り分けて追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "日本の重要インフラや防衛関連組織にとって、境界機器・SOHO機器を経由した秘匿アクセスは最重要監視対象。",
+        "delta_from_previous": "4月23日の多国間アドバイザリを基礎に、5月13日はPAN-OS CVE-2026-0300を関連監視候補として追加。ただし中国帰属は未確定。"
+      },
+      "related_campaigns": ["Volt Typhoon", "Flax Typhoon", "Raptor Train", "KV Botnet", "PAN-OS CVE-2026-0300 exploitation"],
+      "tags": ["China-linked", "covert-network", "ORB", "SOHO", "IoT", "PAN-OS", "CVE-2026-0300"],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "侵害されたデバイスの中国関連秘匿ネットワークに対する防御",
+          "url": "https://www.cyber.go.jp/pdf/press/Defending_against_China_linked_covert_networks_of_compromised_devices.pdf",
+          "publisher": "国家サイバー統括室",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "Palo Alto Networks製PAN-OSの脆弱性対策について(CVE-2026-0300)",
+          "url": "https://www.ipa.go.jp/security/security-alert/2026/alert20260508.html",
+          "publisher": "IPA",
+          "published_at": "2026-05-08"
+        },
+        {
+          "title": "CVE-2026-0300 PAN-OS: Unauthenticated user initiated Buffer Overflow Vulnerability in User-ID Authentication Portal",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-0300",
+          "publisher": "Palo Alto Networks",
+          "published_at": "2026-05-05"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked cyber actors / attribution for PAN-OS exploitation unconfirmed",
+        "infrastructure": ["Compromised SOHO routers", "Compromised IoT devices", "Operational Relay Boxes", "Exposed firewall portals"],
+        "capability": ["Covert relay networks", "Botnet management", "Boundary device exploitation", "Tunneling"],
+        "victim": ["Critical infrastructure", "Government", "Telecommunications", "Defense-related organizations"]
+      }
+    }
+  ]
+}

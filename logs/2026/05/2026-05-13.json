@@ -1,0 +1,499 @@
+{
+  "date": "2026-05-13",
+  "timezone": "JST",
+  "title": "2026/05/13_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-13_foxconn_nitrogen_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Nitrogen ransomware attack on Foxconn North America",
+        "aliases": ["Nitrogen"],
+        "cluster": "Ransomware / data extortion",
+        "suspected_actor": "Nitrogen ransomware group",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Nitrogen ransomware group",
+        "infrastructure": ["Leak site / extortion infrastructure"],
+        "capability": ["Ransomware", "Data theft", "Double extortion"],
+        "victim": ["Foxconn North America facilities"]
+      },
+      "name": "Foxconn北米工場へのNitrogenランサムウェア攻撃",
+      "category": "サイバー犯罪／ランサムウェア",
+      "industry": ["製造", "電子機器", "半導体サプライチェーン"],
+      "region": ["北米", "台湾関連企業", "グローバルサプライチェーン"],
+      "first_seen": "2026-05-13",
+      "last_seen": "2026-05-13",
+      "summary": "Foxconnは北米の一部施設がサイバー攻撃を受けたことを確認し、Nitrogenランサムウェアが8TBの機密文書窃取を主張した。",
+      "executive_summary": "製造・電子機器サプライチェーン上の大手EMS企業への恐喝型攻撃であり、日本企業にとっても委託製造・部品供給網リスクとして監視価値が高い。",
+      "change_summary": [
+        "2026年5月13日にFoxconnが北米拠点への攻撃を確認",
+        "Nitrogenが8TB規模のデータ窃取を主張",
+        "操業は順次復旧中と説明"
+      ],
+      "operational_relevance": "製造委託先・サプライヤーのBCP、ランサムウェア対応、第三者リスク管理の観点で重要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Foxconnおよび関連サプライヤーとの接続・データ共有範囲を確認",
+        "製造委託先のランサムウェア対応状況を確認",
+        "サプライチェーン経由の情報漏洩・業務停止リスクを評価"
+      ],
+      "details": "攻撃手法の詳細は未公表。現時点ではデータ窃取と恐喝を伴うランサムウェア事案として整理する。",
+      "actors": [
+        {
+          "name": "Nitrogen",
+          "role": "ransomware operator",
+          "country": "unknown"
+        }
+      ],
+      "ttp": ["T1486", "T1041", "T1567"],
+      "malware": ["Nitrogen ransomware"],
+      "infrastructure": ["Extortion leak site"],
+      "targeting": {
+        "sectors": ["Manufacturing", "Electronics", "Supply chain"],
+        "countries": ["United States", "Taiwan"],
+        "organization_types": ["Large manufacturer", "EMS provider"]
+      },
+      "strategic_view": {
+        "general": "サプライチェーン中核企業へのランサムウェアは、単一企業被害を超えて納入遅延や取引先情報漏洩に波及する可能性がある。",
+        "geopolitical": "台湾系製造企業への攻撃であり、半導体・電子機器供給網の脆弱性を示す事例。",
+        "business": "製造委託先のセキュリティ成熟度、BCP、データ分離、委託契約上の通知義務が重要になる。",
+        "research_direction": "Nitrogenの過去被害、侵入経路、リークサイト掲載情報、Foxconn関連サプライチェーンへの波及を継続確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Foxconnはグローバル製造網の中核であり、被害が限定的でもサプライチェーン全体への示唆が大きい。",
+        "delta_from_previous": "5月13日に北米施設への攻撃確認とNitrogenによる犯行主張が新規に判明。"
+      },
+      "related_campaigns": ["Ransomware supply-chain targeting"],
+      "related_reports": ["関連既報：製造業・電子機器サプライチェーンを狙うランサムウェア事案"],
+      "tags": ["ransomware", "supply-chain", "manufacturing", "foxconn", "nitrogen"],
+      "sources": [
+        {
+          "title": "Foxconn confirms cyberattack on North American facilities",
+          "url": "https://focustaiwan.tw/business/202605130008",
+          "publisher": "Focus Taiwan",
+          "published_at": "2026-05-13"
+        },
+        {
+          "title": "Foxconn Confirms North American Factories Hit by Cyberattack",
+          "url": "https://www.securityweek.com/foxconn-confirms-north-american-factories-hit-by-cyberattack/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_panos_cve_2026_0300_zero_day",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "PAN-OS CVE-2026-0300 exploitation",
+        "aliases": ["PAN-OS Captive Portal zero-day"],
+        "cluster": "Network edge exploitation",
+        "suspected_actor": "State-linked threat actor suspected",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown state-linked actor suspected",
+        "infrastructure": ["Compromised network edge devices", "Tunneling infrastructure"],
+        "capability": ["CVE-2026-0300 exploitation", "EarthWorm", "ReverseSocks5", "Active Directory enumeration"],
+        "victim": ["Organizations exposing PAN-OS User-ID Authentication Portal"]
+      },
+      "name": "Palo Alto Networks PAN-OS CVE-2026-0300ゼロデイ悪用",
+      "category": "ゼロデイ脆弱性／境界機器侵害",
+      "industry": ["ネットワーク機器", "政府機関", "重要インフラ", "全業種"],
+      "region": ["グローバル"],
+      "first_seen": "2026-05-05",
+      "last_seen": "2026-05-13",
+      "summary": "Palo Alto NetworksはPAN-OS User-ID Authentication PortalのCVE-2026-0300について、実悪用を伴う緊急度の高い脆弱性として公表し、Unit 42は侵害後のトンネリングやAD列挙を報告した。",
+      "executive_summary": "境界機器ゼロデイの実悪用であり、初期侵入・永続化・内部偵察に直結するため、日本組織にとっても最優先で確認すべき事案。",
+      "change_summary": [
+        "5月5日にCVE-2026-0300が公表",
+        "5月13日時点でパッチ適用・侵害調査フェーズへ移行",
+        "EarthWorm、ReverseSocks5、AD列挙、ログ破壊が観測"
+      ],
+      "operational_relevance": "インターネット公開された境界機器の悪用は、APTの侵入経路として極めて重要。単なるパッチ適用ではなく侵害調査が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "対象PAN-OSバージョンの緊急確認とパッチ適用",
+        "User-ID Authentication Portalの外部公開状況を確認",
+        "不審なトンネル通信、AD列挙、ログ削除痕跡を調査",
+        "関連認証情報の再発行・権限見直しを検討"
+      ],
+      "details": "CVE-2026-0300はネットワーク経由・認証不要・低複雑性の脆弱性として扱われている。実悪用後にトンネリングツールと内部探索が確認されているため、侵害前提での確認が望ましい。",
+      "actors": [
+        {
+          "name": "Unknown state-linked actor",
+          "role": "suspected attacker",
+          "country": "unknown"
+        },
+        {
+          "name": "Palo Alto Networks Unit 42",
+          "role": "incident research / reporting",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1190", "T1090", "T1087", "T1070"],
+      "malware": ["EarthWorm", "ReverseSocks5"],
+      "infrastructure": ["Exposed PAN-OS User-ID Authentication Portal", "Tunneling infrastructure"],
+      "targeting": {
+        "sectors": ["Government", "Critical infrastructure", "Enterprise networks"],
+        "countries": ["Global"],
+        "organization_types": ["Organizations operating exposed PAN-OS portals"]
+      },
+      "strategic_view": {
+        "general": "境界機器のゼロデイ悪用は、認証基盤や内部ネットワークへの足掛かりとなり、侵害の発見が遅れやすい。",
+        "geopolitical": "国家アクター疑いはあるが、現時点で特定国への帰属は確定できない。中国系・ロシア系等の既存キャンペーンへ安易に紐付けるべきではない。",
+        "business": "境界防御製品そのものが侵入経路になるため、資産管理、外部公開管理、EDRだけに依存しないネットワーク監視が重要。",
+        "research_direction": "KEV登録状況、各国CERT通知、被害組織の業種、攻撃インフラの再利用有無を継続確認。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "ネットワーク境界機器の実悪用ゼロデイであり、重要インフラや政府機関への侵入経路となる可能性が高い。",
+        "delta_from_previous": "公表初期段階から、5月13日時点ではパッチ適用と侵害有無確認を急ぐ段階へ移行。"
+      },
+      "related_campaigns": ["Network edge exploitation", "China-linked Covert Network Ops"],
+      "related_reports": ["関連既報：境界機器ゼロデイ悪用事案", "関連既報：SOHO・ネットワーク機器を悪用する国家系キャンペーン"],
+      "tags": ["zero-day", "PAN-OS", "CVE-2026-0300", "edge-device", "APT"],
+      "sources": [
+        {
+          "title": "CVE-2026-0300 PAN-OS Advisory",
+          "url": "https://security.paloaltonetworks.com/CVE-2026-0300",
+          "publisher": "Palo Alto Networks",
+          "published_at": "2026-05-05"
+        },
+        {
+          "title": "Threat Brief: Exploitation of PAN-OS Captive Portal Zero-Day",
+          "url": "https://unit42.paloaltonetworks.com/captive-portal-zero-day/",
+          "publisher": "Unit 42",
+          "published_at": "2026-05"
+        },
+        {
+          "title": "Known Exploited Vulnerabilities Catalog",
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_west_pharmaceutical_ransomware",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "West Pharmaceutical Services ransomware incident",
+        "aliases": [],
+        "cluster": "Healthcare supply-chain ransomware",
+        "suspected_actor": "Unknown ransomware actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown ransomware actor",
+        "infrastructure": ["Unknown"],
+        "capability": ["Ransomware", "Data theft", "System encryption"],
+        "victim": ["West Pharmaceutical Services"]
+      },
+      "name": "West Pharmaceutical Servicesランサムウェア被害",
+      "category": "サイバー犯罪／ランサムウェア",
+      "industry": ["医療", "医薬品", "医療サプライチェーン"],
+      "region": ["米国", "グローバル"],
+      "first_seen": "2026-05-04",
+      "last_seen": "2026-05-13",
+      "summary": "West Pharmaceutical Servicesはサイバー攻撃によりデータ窃取とシステム暗号化の被害を受け、出荷・受領・製造関連システムに影響が出た。",
+      "executive_summary": "医薬品包装・医療サプライチェーン企業へのランサムウェアであり、医療供給網の脆弱性を示す重要事案。",
+      "change_summary": [
+        "5月4日に侵害を検知",
+        "5月13日時点でデータ窃取と暗号化が明確化",
+        "出荷・受領・製造関連システムへの影響が報告"
+      ],
+      "operational_relevance": "医療・製薬関連企業では、IT停止が製造・物流・品質管理に直結するため、復旧計画と分離設計が重要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "医療・製薬サプライチェーン上の重要委託先を棚卸し",
+        "製造・物流系システムのランサムウェア耐性を確認",
+        "バックアップ、復旧時間目標、外部接続の統制を再確認"
+      ],
+      "details": "攻撃者名は未確定。オンプレミス基盤を隔離し、外部専門家と復旧対応中とされる。",
+      "actors": [
+        {
+          "name": "Unknown ransomware actor",
+          "role": "attacker",
+          "country": "unknown"
+        }
+      ],
+      "ttp": ["T1486", "T1041", "T1490"],
+      "malware": ["Unknown ransomware"],
+      "infrastructure": ["Unknown"],
+      "targeting": {
+        "sectors": ["Healthcare", "Pharmaceutical supply chain"],
+        "countries": ["United States", "Global"],
+        "organization_types": ["Medical supply manufacturer"]
+      },
+      "strategic_view": {
+        "general": "医療サプライチェーンへの攻撃は、患者安全・医薬品供給・規制対応に波及する可能性がある。",
+        "geopolitical": "国家アクター事案ではないが、医療供給網のレジリエンスは国家安全保障上も重要。",
+        "business": "製造停止や物流遅延に伴う契約・規制・ reputational risk が大きい。",
+        "research_direction": "攻撃者名、窃取データの内容、顧客・供給先への波及、SEC等への追加開示を継続確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "医療関連サプライチェーンは停止耐性が低く、ランサムウェア側から高価値標的とされやすい。",
+        "delta_from_previous": "5月13日時点でデータ窃取と暗号化、業務影響の詳細がより明確化。"
+      },
+      "related_campaigns": ["Healthcare ransomware"],
+      "related_reports": ["関連既報：医療・製薬サプライチェーンを狙うランサムウェア事案"],
+      "tags": ["ransomware", "healthcare", "pharmaceutical", "supply-chain"],
+      "sources": [
+        {
+          "title": "West Pharmaceutical says hackers stole data, encrypted systems",
+          "url": "https://www.bleepingcomputer.com/news/security/west-pharmaceutical-says-hackers-stole-data-encrypted-systems/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_canvas_instructure_shinyhunters",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Canvas / Instructure data extortion incident",
+        "aliases": ["Canvas breach"],
+        "cluster": "Data theft / extortion",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters",
+        "infrastructure": ["Data extortion infrastructure"],
+        "capability": ["Large-scale data theft", "Extortion", "Possible SaaS support workflow abuse"],
+        "victim": ["Instructure", "Canvas users", "Educational institutions"]
+      },
+      "name": "Canvas / Instructure大規模教育プラットフォーム侵害",
+      "category": "サイバー犯罪／データ恐喝",
+      "industry": ["教育", "SaaS", "クラウドサービス"],
+      "region": ["米国", "グローバル"],
+      "first_seen": "2026-05-01",
+      "last_seen": "2026-05-13",
+      "summary": "Canvas運営元Instructureの環境に関連する大規模データ侵害について、ShinyHuntersが大量データ窃取を主張し、Instructureは攻撃者との合意を公表した。",
+      "executive_summary": "教育SaaSに対する大規模恐喝事案であり、クラウドSaaS依存、教育機関のデータ保護、議会・規制対応の観点で重要。",
+      "change_summary": [
+        "5月上旬に事案が表面化",
+        "5月12〜13日にInstructureとShinyHuntersの合意が報道",
+        "米下院国土安全保障委員会が説明要求"
+      ],
+      "operational_relevance": "教育機関・自治体・大学のSaaS利用におけるデータ分類、委託先管理、インシデント通知手順の確認が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "教育SaaS利用状況と保存データ種別を棚卸し",
+        "委託先インシデント通知条項とログ提供条件を確認",
+        "学生・教職員データの外部SaaS保管範囲を再評価"
+      ],
+      "details": "攻撃者は約9,000教育機関、約275百万件、3.6TB規模のデータ窃取を主張。パスワードや金融情報は含まれないとの説明があるが、詳細は継続確認が必要。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "data extortion actor",
+          "country": "unknown"
+        },
+        {
+          "name": "Instructure",
+          "role": "victim / platform operator",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1190", "T1530", "T1567"],
+      "malware": [],
+      "infrastructure": ["Unknown extortion infrastructure"],
+      "targeting": {
+        "sectors": ["Education", "SaaS"],
+        "countries": ["United States", "Global"],
+        "organization_types": ["Universities", "Schools", "Education platform users"]
+      },
+      "strategic_view": {
+        "general": "教育SaaSは多数組織の個人情報を集約するため、単一プラットフォーム侵害が大規模被害に拡大しやすい。",
+        "geopolitical": "国家アクター事案ではないが、教育データの大規模漏洩は社会的信頼や若年層データ保護に影響する。",
+        "business": "SaaS事業者のセキュリティ対応、恐喝交渉、顧客説明責任が問われる。",
+        "research_direction": "侵入経路、影響範囲、ShinyHuntersの主張の真偽、規制当局・議会対応を継続確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "教育SaaSを通じた多組織横断的なデータ漏洩であり、日本の大学・教育委員会のクラウド利用にも示唆がある。",
+        "delta_from_previous": "5月13日時点で、単なる漏洩疑惑から恐喝交渉・議会調査フェーズへ進展。"
+      },
+      "related_campaigns": ["ShinyHunters data extortion"],
+      "related_reports": ["関連既報：SaaSプラットフォームを狙う大規模データ恐喝事案"],
+      "tags": ["data-breach", "education", "SaaS", "ShinyHunters", "extortion"],
+      "sources": [
+        {
+          "title": "Canvas parent company reaches agreement with hacking group behind recent breach",
+          "url": "https://www.reuters.com/legal/litigation/canvas-parent-company-reaches-agreement-with-hacking-group-behind-recent-breach-2026-05-12/",
+          "publisher": "Reuters",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_rubygems_malicious_packages",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "RubyGems malicious package upload campaign",
+        "aliases": ["RubyGems spam package campaign"],
+        "cluster": "Open-source software supply-chain attack",
+        "suspected_actor": "Unknown automated threat actor",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor",
+        "infrastructure": ["RubyGems accounts", "Automated package upload infrastructure"],
+        "capability": ["Malicious package publication", "Spam package upload", "Potential exploit delivery"],
+        "victim": ["RubyGems ecosystem", "Ruby developers"]
+      },
+      "name": "RubyGems悪性パッケージ大量投稿",
+      "category": "サプライチェーン攻撃／不正パッケージ",
+      "industry": ["OSS", "ソフトウェア開発", "クラウドサービス"],
+      "region": ["グローバル"],
+      "first_seen": "2026-05-12",
+      "last_seen": "2026-05-13",
+      "summary": "RubyGemsに500件以上の悪性またはスパムパッケージが投稿され、新規アカウント登録が一時停止された。",
+      "executive_summary": "OSSパッケージレジストリを狙う攻撃であり、開発環境・CI/CD・依存関係管理のリスクとして継続監視が必要。",
+      "change_summary": [
+        "RubyGemsが新規アカウント登録を一時停止",
+        "500件以上の悪性・スパムパッケージが削除",
+        "一部パッケージにexploit関連要素が含まれる可能性"
+      ],
+      "operational_relevance": "開発環境への初期侵入やCI/CD侵害につながる可能性があり、依存関係固定・パッケージ検証が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Gemfile.lock等による依存関係固定を徹底",
+        "新規・低信頼パッケージの導入をレビュー",
+        "CI/CDでのパッケージ取得ログを確認",
+        "OSS依存関係スキャンとSBOM管理を強化"
+      ],
+      "details": "攻撃者は未特定。自動化されたボットアカウントによる大量投稿が示唆される。",
+      "actors": [
+        {
+          "name": "Unknown actor",
+          "role": "malicious package uploader",
+          "country": "unknown"
+        }
+      ],
+      "ttp": ["T1195.001", "T1036"],
+      "malware": [],
+      "infrastructure": ["RubyGems package registry", "Automated upload accounts"],
+      "targeting": {
+        "sectors": ["Software development", "Open-source ecosystem"],
+        "countries": ["Global"],
+        "organization_types": ["Developers", "Software vendors", "CI/CD users"]
+      },
+      "strategic_view": {
+        "general": "OSSレジストリは攻撃者にとって効率的な配布経路であり、開発環境を侵害する入口になり得る。",
+        "geopolitical": "国家アクター事案とは断定できないが、同様の手法はAPT・サイバー犯罪双方に利用される。",
+        "business": "ソフトウェアサプライチェーン管理、SBOM、依存関係スキャンの実効性が問われる。",
+        "research_direction": "悪性パッケージ名、ダウンロード数、ペイロード有無、他レジストリへの波及を継続確認。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "RubyGems利用組織に限らず、OSSレジストリ全般への攻撃傾向を示す事案である。",
+        "delta_from_previous": "5月12〜13日に新規登録停止と大量削除が確認された新規事案。"
+      },
+      "related_campaigns": ["OSS supply-chain attacks"],
+      "related_reports": ["関連既報：npm、PyPI、RubyGems等を狙う不正パッケージ事案"],
+      "tags": ["oss", "supply-chain", "RubyGems", "malicious-package", "developer-security"],
+      "sources": [
+        {
+          "title": "RubyGems Suspends New Signups After Hundreds of Malicious Packages Are Uploaded",
+          "url": "https://thehackernews.com/2026/05/rubygems-suspends-new-signups-after.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-12"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-13_microsoft_may_2026_patch_tuesday",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Microsoft May 2026 Patch Tuesday",
+        "aliases": ["May 2026 Patch Tuesday"],
+        "cluster": "Vulnerability management",
+        "suspected_actor": "N/A",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "N/A",
+        "infrastructure": ["Microsoft products"],
+        "capability": ["Remote code execution vulnerabilities", "Privilege escalation vulnerabilities", "Information disclosure vulnerabilities"],
+        "victim": ["Organizations using Microsoft products"]
+      },
+      "name": "Microsoft 2026年5月Patch Tuesday",
+      "category": "脆弱性対応",
+      "industry": ["全業種", "IT", "政府機関", "重要インフラ"],
+      "region": ["グローバル"],
+      "first_seen": "2026-05-13",
+      "last_seen": "2026-05-13",
+      "summary": "Microsoftは2026年5月の月例パッチで120件の脆弱性を修正した。公表時点でゼロデイ悪用は確認されていない。",
+      "executive_summary": "ゼロデイ公表はないが、CriticalなRCEを含むため、通常の月例パッチとして優先的に適用すべき。",
+      "change_summary": [
+        "120件の脆弱性を修正",
+        "17件がCriticalと報道",
+        "公表時点でゼロデイはなし"
+      ],
+      "operational_relevance": "RCEや権限昇格の修正は、短期間で悪用コードが公開される可能性があるため、通常のパッチ管理で優先度を上げるべき。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Criticalおよびインターネット露出資産に関係する修正を優先適用",
+        "検証環境で互換性確認後、段階的に本番適用",
+        "パッチ未適用資産の可視化と例外管理を実施"
+      ],
+      "details": "5月のPatch Tuesdayでは、ゼロデイ公表はないものの、RCE、権限昇格、情報漏えい等が含まれる。",
+      "actors": [
+        {
+          "name": "Microsoft",
+          "role": "vendor",
+          "country": "United States"
+        }
+      ],
+      "ttp": [],
+      "malware": [],
+      "infrastructure": ["Microsoft product ecosystem"],
+      "targeting": {
+        "sectors": ["All sectors"],
+        "countries": ["Global"],
+        "organization_types": ["Enterprise", "Government", "Critical infrastructure"]
+      },
+      "strategic_view": {
+        "general": "月例パッチは定常対応だが、RCEの悪用化速度が速まっており、優先順位付けが重要。",
+        "geopolitical": "国家アクターによる既知脆弱性悪用の可能性を踏まえ、KEV化前の早期対応が望ましい。",
+        "business": "パッチ適用遅延はランサムウェアやAPTの初期侵入リスクを高める。",
+        "research_direction": "各CVEの悪用コード公開状況、KEV追加、攻撃観測を継続確認。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "Microsoft製品は広範に利用されており、Critical RCEは短期間で攻撃対象化され得る。",
+        "delta_from_previous": "2026年5月分の月例修正として新規に公開。ゼロデイ公表なし。"
+      },
+      "related_campaigns": ["Vulnerability exploitation"],
+      "related_reports": ["関連既報：Microsoft月例パッチ対応"],
+      "tags": ["patch-tuesday", "microsoft", "vulnerability", "RCE"],
+      "sources": [
+        {
+          "title": "Microsoft May 2026 Patch Tuesday fixes 120 flaws, no zero-days",
+          "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-may-2026-patch-tuesday-fixes-120-flaws-no-zero-days/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-12"
+        }
+      ]
+    }
+  ]
+}

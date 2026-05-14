@@ -1,0 +1,80 @@
+{
+  "date": "2026-05-13",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28について、2026年5月13日JST時点で新規の大規模公表は確認できない。4月に公表されたSOHOルーター悪用・DNSハイジャック作戦を継続監視する。",
+  "change_summary": [
+    "当日新規の主要公開レポートは確認できず",
+    "4月公表のSOHOルーター悪用・DNSハイジャック作戦を継続監視"
+  ],
+  "operational_relevance": "日本組織においても、SOHOルーター、拠点ルーター、VPN周辺機器の侵害が認証情報窃取や中間者攻撃に悪用されるリスクがある。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "拠点ルーター、SOHO機器、VPN機器の棚卸しを継続",
+    "DNS設定改変、管理画面の外部公開、不審なリゾルバ設定を確認",
+    "認証情報窃取を前提にMFA、条件付きアクセス、ログ監視を確認"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "STRONTIUM"],
+    "cluster": "Russia-linked cyber espionage",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-13_apt28_soho_router_dns_hijacking_monitor",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28によるSOHOルーター悪用・DNSハイジャック作戦の継続監視",
+      "category": "国家系サイバー諜報／ネットワーク機器悪用",
+      "targeting": {
+        "regions": ["欧州", "北米", "グローバル"],
+        "industries": ["政府機関", "軍事", "重要インフラ", "通信"],
+        "organization_types": ["政府機関", "軍事関連組織", "重要インフラ事業者"]
+      },
+      "first_seen": "2025-05",
+      "last_seen": "2026-05-13",
+      "activity_summary": "APT28はMikroTikやTP-Link等のルーターを侵害し、DNSハイジャックやAdversary-in-the-Middle攻撃に利用していると報告されている。",
+      "activity_details": "当日新規の主要事案は確認できないが、2026年4月の多国間公表では、APT28が侵害済みルーターを悪用し、認証情報窃取や追加作戦の中継基盤として利用していたことが示された。",
+      "ttp": ["T1595", "T1584.008", "T1557", "T1557.002", "T1110", "T1071"],
+      "malware_and_tools": [],
+      "infrastructure": ["Compromised SOHO routers", "MikroTik routers", "TP-Link routers", "DNS hijacking infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "境界機器・SOHO機器は組織ネットワークの外縁にあり、EDR等の監視が届きにくいため、APT28の隠密性を高める。",
+        "geopolitical": "ロシア・ウクライナ戦争を背景に、欧州・NATO関連組織への情報収集能力を維持する狙いがある。",
+        "business": "日本企業では海外拠点や小規模拠点のネットワーク機器管理が弱点となり得る。",
+        "research_direction": "ルーター機種、侵害設定、DNS改変パターン、認証情報窃取後のクラウド侵入との接続を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT28のネットワーク機器悪用は、認証情報窃取と秘匿中継基盤の両面で重要。",
+        "delta_from_previous": "5月13日時点で新規公表はなく、4月公表キャンペーンの監視継続。"
+      },
+      "related_campaigns": ["Russia-linked router exploitation", "DNS hijacking operations"],
+      "tags": ["APT28", "Forest Blizzard", "router", "DNS hijacking", "Russia"],
+      "sources": [
+        {
+          "title": "APT28 exploit routers to enable DNS hijacking operations",
+          "url": "https://www.ncsc.gov.uk/sites/default/files/2026-04/NCSC_APT28-exploit-routers-to-enable-DNS-hijacking-operations.pdf",
+          "publisher": "NCSC",
+          "published_at": "2026-04-07"
+        },
+        {
+          "title": "SOHO router compromise leads to DNS hijacking and adversary-in-the-middle attacks",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/07/soho-router-compromise-leads-to-dns-hijacking-and-adversary-in-the-middle-attacks/",
+          "publisher": "Microsoft",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / Forest Blizzard",
+        "infrastructure": ["Compromised SOHO routers", "DNS hijacking infrastructure"],
+        "capability": ["Router compromise", "DNS hijacking", "Adversary-in-the-Middle", "Credential theft"],
+        "victim": ["Government", "Military", "Critical infrastructure"]
+      }
+    }
+  ]
+}
