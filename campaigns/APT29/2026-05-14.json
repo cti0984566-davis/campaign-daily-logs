@@ -1,0 +1,27 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT29関連の重大新規公開なし。クラウド／ID基盤への長期潜伏リスクは継続。",
+  "change_summary": [
+    "新規大規模公開なし"
+  ],
+  "operational_relevance": "ID基盤監視とクラウド監査継続。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Entra ID監査",
+    "OAuth app review",
+    "MFA強化"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard"
+    ],
+    "cluster": "Russia-linked Espionage",
+    "suspected_actor": "SVR",
+    "attribution_confidence": "high"
+  },
+  "items": []
+}

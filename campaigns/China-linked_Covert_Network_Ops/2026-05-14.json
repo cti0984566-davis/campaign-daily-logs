@@ -1,0 +1,93 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Cisco SD-WANゼロデイ悪用と、中国系インフラ侵害型活動との戦術的類似性が再度注目された。境界・制御系機器への侵入を通じた長期潜伏・秘匿ネットワーク化リスクが継続。",
+  "change_summary": [
+    "Cisco SD-WANゼロデイ悪用が確認",
+    "CISA KEV追加",
+    "ネットワーク制御プレーン侵害リスク増大"
+  ],
+  "operational_relevance": "SD-WAN、VPN、SOHO機器などの境界装置が継続して高リスク対象。",
+  "urgency": "high",
+  "recommended_action": [
+    "Cisco SD-WAN緊急パッチ適用",
+    "境界機器の棚卸し",
+    "管理プレーン監査ログ確認",
+    "長期潜伏ハンティング"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": [
+      "Volt Typhoon",
+      "Flax Typhoon",
+      "Raptor Train"
+    ],
+    "cluster": "China-linked Network Persistence Operations",
+    "suspected_actor": "PRC-linked actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-14_cisco_sdwan_overlap",
+      "type": "assessment",
+      "status": "更新",
+      "name": "Cisco SD-WAN Zero-Day Exploitation and Strategic Overlap",
+      "category": "Network Infrastructure Exploitation",
+      "targeting": {
+        "regions": [
+          "Global"
+        ],
+        "industries": [
+          "Government",
+          "Telecommunications",
+          "Critical Infrastructure"
+        ],
+        "organization_types": [
+          "Enterprise",
+          "Government"
+        ]
+      },
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-14",
+      "activity_summary": "Cisco SD-WANゼロデイ悪用は、近年の中国系秘匿ネットワーク活動と類似する『境界機器の長期支配』モデルとの重複が示唆される。",
+      "activity_details": "現時点で中国系アクターとの直接 attribution は存在しない。しかし、SOHO/VPN/SD-WAN機器を悪用し、正規通信に偽装しつつ長期潜伏する構図は、Volt Typhoon系作戦と戦略的類似性が高い。",
+      "ttp": [
+        "T1190",
+        "T1133",
+        "T1098",
+        "T1572"
+      ],
+      "strategic_view": {
+        "general": "境界装置侵害は依然として国家系作戦の中心。",
+        "geopolitical": "有事を想定した潜伏アクセス基盤整備の可能性。",
+        "business": "SD-WAN利用企業におけるサプライチェーン型リスク拡大。",
+        "research_direction": "中国系SOHO/IoT運用との重複分析が必要。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "境界機器侵害は検知困難で長期化しやすい。",
+        "delta_from_previous": "Cisco SD-WANが新たな高優先観測対象に追加。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon"
+      ],
+      "tags": [
+        "Cisco",
+        "SD-WAN",
+        "Zero-Day",
+        "Network Persistence"
+      ],
+      "sources": [
+        {
+          "title": "Cisco warns of new critical SD-WAN flaw exploited in zero-day attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-critical-sd-wan-flaw-exploited-in-zero-day-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-14"
+        }
+      ]
+    }
+  ]
+}

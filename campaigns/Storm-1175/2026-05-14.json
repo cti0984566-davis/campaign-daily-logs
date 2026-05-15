@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "Storm-1175関連の重大新規公開なし。",
+  "change_summary": [
+    "新規公開なし"
+  ],
+  "operational_relevance": "継続監視フェーズ。",
+  "urgency": "low",
+  "recommended_action": [
+    "既知IOC監視継続"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "cluster": "Credential Access Operations",
+    "suspected_actor": "Unknown",
+    "attribution_confidence": "low"
+  },
+  "items": []
+}

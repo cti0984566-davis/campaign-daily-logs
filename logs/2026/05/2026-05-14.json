@@ -1,0 +1,389 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "title": "2026/05/14 Cyber Daily Log",
+  "items": [
+    {
+      "id": "2026-05-14_cisco_sdwan_zero_day",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Cisco SD-WAN Zero-Day Exploitation",
+        "cluster": "Network Infrastructure Exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown threat actor",
+        "infrastructure": [
+          "Cisco Catalyst SD-WAN",
+          "NETCONF"
+        ],
+        "capability": [
+          "Authentication bypass",
+          "Privilege escalation",
+          "Network manipulation"
+        ],
+        "victim": [
+          "Government networks",
+          "Critical infrastructure",
+          "Enterprise WAN environments"
+        ]
+      },
+      "name": "Cisco Catalyst SD-WAN CVE-2026-20182 Exploitation",
+      "category": "Zero-Day Vulnerability",
+      "industry": [
+        "Telecommunications",
+        "Government",
+        "Critical Infrastructure"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-14",
+      "summary": "Cisco disclosed active exploitation of CVE-2026-20182 affecting Catalyst SD-WAN infrastructure, enabling authentication bypass and unauthorized network manipulation.",
+      "executive_summary": "Active exploitation of a critical Cisco SD-WAN vulnerability significantly increases risk to enterprise and government network control planes.",
+      "change_summary": [
+        "CISA added CVE-2026-20182 to KEV catalog",
+        "Active exploitation confirmed",
+        "No complete workaround available"
+      ],
+      "operational_relevance": "Organizations using Cisco SD-WAN should prioritize emergency patching and review access logs for abnormal administrative activity.",
+      "urgency": "high",
+      "recommended_action": [
+        "Patch affected SD-WAN systems immediately",
+        "Restrict management interface exposure",
+        "Review administrative logs and peering configurations"
+      ],
+      "details": "The flaw enables attackers to bypass authentication mechanisms and manipulate SD-WAN configuration via NETCONF interfaces.",
+      "ttp": [
+        "T1190",
+        "T1133",
+        "T1098",
+        "T1572"
+      ],
+      "targeting": {
+        "sectors": [
+          "Government",
+          "Telecommunications",
+          "Critical Infrastructure"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Enterprise",
+          "Government"
+        ]
+      },
+      "strategic_view": {
+        "general": "Boundary and network control infrastructure remain high-value targets for state and criminal actors.",
+        "geopolitical": "Compromise of SD-WAN infrastructure could enable strategic persistence and covert access operations.",
+        "business": "Operational disruption and trusted-network compromise risks increase for multinational organizations.",
+        "research_direction": "Monitor for follow-on exploitation and potential attribution overlaps with prior VPN/network appliance campaigns."
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "SD-WAN systems occupy trusted positions inside enterprise networks.",
+        "delta_from_previous": "Escalated from theoretical vulnerability risk to confirmed active exploitation."
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "China-linked_Covert_Network_Ops"
+      ],
+      "tags": [
+        "Cisco",
+        "Zero-Day",
+        "SD-WAN",
+        "KEV"
+      ],
+      "sources": [
+        {
+          "title": "Cisco warns of new critical SD-WAN flaw exploited in zero-day attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-new-critical-sd-wan-flaw-exploited-in-zero-day-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-14"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-14_foxconn_ransomware",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Nitrogen Ransomware",
+        "cluster": "Ransomware",
+        "suspected_actor": "Nitrogen",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Nitrogen ransomware group",
+        "infrastructure": [
+          "Data leak site"
+        ],
+        "capability": [
+          "Data exfiltration",
+          "Encryption",
+          "Supply chain targeting"
+        ],
+        "victim": [
+          "Foxconn North America"
+        ]
+      },
+      "name": "Foxconn North America Ransomware Incident",
+      "category": "Ransomware",
+      "industry": [
+        "Manufacturing",
+        "Electronics",
+        "Semiconductor Supply Chain"
+      ],
+      "region": [
+        "North America",
+        "Global"
+      ],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-14",
+      "summary": "Foxconn confirmed a cyberattack impacting North American manufacturing facilities, with Nitrogen ransomware claiming large-scale data theft.",
+      "executive_summary": "The incident highlights increasing ransomware pressure against globally integrated manufacturing supply chains.",
+      "change_summary": [
+        "Operational disruption confirmed",
+        "Nitrogen claimed theft of 8TB of data",
+        "Major technology customer data allegedly exposed"
+      ],
+      "operational_relevance": "Manufacturing and EMS providers should review third-party risk and segmentation controls.",
+      "urgency": "high",
+      "recommended_action": [
+        "Review supplier cyber risk exposure",
+        "Validate segmentation between manufacturing and corporate environments",
+        "Enhance ransomware resilience exercises"
+      ],
+      "ttp": [
+        "T1486",
+        "T1567",
+        "T1041"
+      ],
+      "targeting": {
+        "sectors": [
+          "Manufacturing",
+          "Technology"
+        ],
+        "countries": [
+          "United States",
+          "Taiwan"
+        ],
+        "organization_types": [
+          "Manufacturer",
+          "Supply Chain Provider"
+        ]
+      },
+      "strategic_view": {
+        "general": "Manufacturing ecosystems remain vulnerable due to centralized outsourced production models.",
+        "geopolitical": "Compromise of electronics supply chains may affect strategic technology production.",
+        "business": "Major technology brands face downstream exposure through suppliers.",
+        "research_direction": "Monitor whether extortion transitions into espionage or intellectual property resale."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Single-point supplier compromise can affect multiple global technology firms.",
+        "delta_from_previous": "Expanded from isolated ransomware risk to systemic supply-chain exposure."
+      },
+      "tags": [
+        "Ransomware",
+        "Foxconn",
+        "Nitrogen",
+        "Supply Chain"
+      ],
+      "sources": [
+        {
+          "title": "Foxconn confirms cyberattack hit North American factories",
+          "url": "https://cyberscoop.com/foxconn-cyberattack-disrupts-north-america-factories/",
+          "publisher": "CyberScoop",
+          "published_at": "2026-05-14"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-14_famoussparrow_azerbaijan_energy",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "FamousSparrow",
+        "aliases": [
+          "Earth Estries"
+        ],
+        "cluster": "China-linked Espionage",
+        "suspected_actor": "China-linked threat actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "FamousSparrow",
+        "infrastructure": [
+          "DLL sideloading infrastructure"
+        ],
+        "capability": [
+          "Deed RAT",
+          "DLL sideloading",
+          "Persistence"
+        ],
+        "victim": [
+          "Azerbaijan energy sector"
+        ]
+      },
+      "name": "FamousSparrow Operations Against Azerbaijan Energy Sector",
+      "category": "Cyber Espionage",
+      "industry": [
+        "Energy",
+        "Oil and Gas"
+      ],
+      "region": [
+        "Azerbaijan",
+        "Caucasus"
+      ],
+      "first_seen": "2025-12-01",
+      "last_seen": "2026-02-28",
+      "summary": "Bitdefender disclosed Chinese-linked FamousSparrow espionage operations targeting Azerbaijan energy entities.",
+      "executive_summary": "Chinese-linked espionage activity is expanding into geopolitically strategic energy regions beyond East Asia.",
+      "change_summary": [
+        "New regional targeting identified",
+        "Use of Deed RAT confirmed",
+        "Overlap with Earth Estries assessed"
+      ],
+      "operational_relevance": "Energy operators should monitor DLL sideloading and persistence-focused intrusions.",
+      "urgency": "medium",
+      "recommended_action": [
+        "Hunt for DLL sideloading behavior",
+        "Review persistence mechanisms",
+        "Enhance monitoring of privileged service execution"
+      ],
+      "ttp": [
+        "T1574.002",
+        "T1055",
+        "T1105",
+        "T1071"
+      ],
+      "malware": [
+        "Deed RAT"
+      ],
+      "targeting": {
+        "sectors": [
+          "Energy"
+        ],
+        "countries": [
+          "Azerbaijan"
+        ],
+        "organization_types": [
+          "Energy Operator"
+        ]
+      },
+      "strategic_view": {
+        "general": "Chinese espionage priorities continue expanding toward energy and geopolitical chokepoints.",
+        "geopolitical": "The Caucasus region has strategic relevance for Russia, Turkey, Iran, and energy transit routes.",
+        "business": "Energy infrastructure operators remain long-term intelligence collection targets.",
+        "research_direction": "Track infrastructure overlaps with Earth Estries and other PRC-linked clusters."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Energy-sector espionage may support broader geopolitical and economic objectives.",
+        "delta_from_previous": "Expanded targeting geography beyond prior APAC-focused observations."
+      },
+      "related_campaigns": [
+        "TA416",
+        "China-linked_Covert_Network_Ops"
+      ],
+      "tags": [
+        "China",
+        "Energy",
+        "Espionage",
+        "FamousSparrow"
+      ],
+      "sources": [
+        {
+          "title": "FamousSparrow attacks on Azerbaijan energy sector",
+          "url": "https://industrialcyber.co/utilities-energy-power-water-waste/bitdefender-uncovers-famoussparrow-attacks-on-azerbaijan-energy-sector-using-dll-sideloading-deed-rat-malware/",
+          "publisher": "Industrial Cyber",
+          "published_at": "2026-05-14"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-14_praisonai_vulnerability",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "PraisonAI Exploitation Activity",
+        "cluster": "AI Platform Exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "PraisonAI CVE-2026-44338 Rapid Exploitation Attempts",
+      "category": "AI Platform Vulnerability",
+      "industry": [
+        "Artificial Intelligence",
+        "Cloud Services"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-14",
+      "summary": "Scanning activity targeting PraisonAI vulnerability CVE-2026-44338 began within hours of disclosure.",
+      "executive_summary": "AI-agent platforms are becoming operational attack surfaces with extremely short exploit windows.",
+      "change_summary": [
+        "Exploit scanning observed within four hours",
+        "Authentication bypass risk confirmed"
+      ],
+      "operational_relevance": "Organizations deploying AI-agent infrastructure should treat workflow and tool permissions as critical security boundaries.",
+      "urgency": "high",
+      "recommended_action": [
+        "Upgrade to PraisonAI 4.6.34 or later",
+        "Restrict exposed AI orchestration interfaces",
+        "Audit workflow permissions"
+      ],
+      "ttp": [
+        "T1190",
+        "T1078"
+      ],
+      "targeting": {
+        "sectors": [
+          "AI",
+          "Software Development"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Developer",
+          "Cloud Operator"
+        ]
+      },
+      "strategic_view": {
+        "general": "AI orchestration platforms are emerging as privileged infrastructure targets.",
+        "business": "Rapid exploitation windows increase operational pressure on patch cycles.",
+        "research_direction": "Track whether AI-agent abuse evolves toward autonomous lateral movement or tool-chain compromise."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "AI agents may possess privileged workflow and external tool access.",
+        "delta_from_previous": "Demonstrates extremely compressed exploitation timelines for AI infrastructure."
+      },
+      "tags": [
+        "AI",
+        "PraisonAI",
+        "CVE-2026-44338"
+      ],
+      "sources": [
+        {
+          "title": "Hackers Targeted PraisonAI Vulnerability Hours After Disclosure",
+          "url": "https://www.securityweek.com/hackers-targeted-praisonai-vulnerability-hours-after-disclosure/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-14"
+        }
+      ]
+    }
+  ]
+}

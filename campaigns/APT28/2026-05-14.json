@@ -1,0 +1,28 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "APT28関連の重大新規公開は限定的。一方、境界機器侵害・認証情報奪取型作戦の継続的重要性は維持。",
+  "change_summary": [
+    "直接的新規活動公開なし",
+    "境界機器侵害戦術の継続的重要性"
+  ],
+  "operational_relevance": "SOHO・VPN・境界装置侵害監視を継続。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "境界機器監査継続",
+    "MFA監視",
+    "トークン窃取監視"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard"
+    ],
+    "cluster": "Russia-linked Espionage",
+    "suspected_actor": "GRU Unit 26165",
+    "attribution_confidence": "high"
+  },
+  "items": []
+}

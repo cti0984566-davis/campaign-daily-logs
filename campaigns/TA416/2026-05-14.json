@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-14",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "TA416直接名義の新規活動公開なし。一方、中国系地域拡大型活動とのTTP近接性が継続。",
+  "change_summary": [
+    "中国系エネルギー標的活動増加"
+  ],
+  "operational_relevance": "APAC以外への中国系標的拡大を監視。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "中国系DLL sideloading監視",
+    "外交・エネルギー分野監視"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "RedDelta"
+    ],
+    "cluster": "China-linked Espionage",
+    "suspected_actor": "PRC-linked actor",
+    "attribution_confidence": "medium"
+  },
+  "items": []
+}
