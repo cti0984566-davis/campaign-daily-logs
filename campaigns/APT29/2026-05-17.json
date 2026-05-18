@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-17",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Midnight Blizzard", "NOBELIUM", "The Dukes"],
+    "cluster": "Russia_SVR_cyber_espionage",
+    "suspected_actor": "SVR-linked Russian state actor",
+    "attribution_confidence": "high"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "2026年5月15〜17日JSTの期間内にAPT29の新規大型事案は確認できない。引き続き、クラウドID、OAuth、デバイスコード認証、ウォータリングホール型誘導を通じた長期諜報活動を重点監視する。",
+  "change_summary": [
+    "期間内にAPT29の新規主要公表は確認できない",
+    "2025年にAWSが公表したウォータリングホール型キャンペーンは継続的な手法評価に有用",
+    "クラウドID・OAuth認証フロー悪用をAPT29監視の中心に置く"
+  ],
+  "operational_relevance": "クラウドID、OAuthアプリ同意、デバイスコード認証、条件付きアクセス、異常なトークン利用の監視が必要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuthアプリ同意と不要なエンタープライズアプリを棚卸し",
+    "デバイスコード認証フローの制御を確認",
+    "高権限アカウントの条件付きアクセスとサインインリスク検知を確認",
+    "外交・研究・政策関連部門のクラウド監視を強化"
+  ],
+  "items": [
+    {
+      "id": "2026-05-17_apt29_cloud_identity_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29 cloud identity and OAuth tradecraft monitoring",
+      "category": "国家系サイバー諜報 / クラウドID侵害",
+      "targeting": {
+        "regions": ["United States", "Europe", "Global", "Japan"],
+        "industries": ["政府機関", "外交", "研究機関", "シンクタンク", "IT"],
+        "organization_types": ["政策関係組織", "研究機関", "クラウド利用組織"]
+      },
+      "first_seen": "2008",
+      "last_seen": "2026-05-17",
+      "activity_summary": "APT29はロシアSVR関連とされ、クラウドID、OAuth、認証フローの悪用を通じて長期的な情報収集を行う脅威として継続監視対象である。",
+      "activity_details": "期間内の新規公表は確認できないため、評価更新に留める。過去のウォータリングホール型誘導やデバイスコード認証フロー悪用は、現在のクラウド監視設計に引き続き反映すべき。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1528 Steal Application Access Token",
+        "T1550 Use Alternate Authentication Material",
+        "T1189 Drive-by Compromise",
+        "T1566 Phishing"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["compromised websites", "cloud identity infrastructure", "OAuth application flows"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は境界侵害よりもクラウドIDと認証フローの悪用に重点を置く傾向が強い。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求に応じ、政府、研究、政策コミュニティを狙う活動が継続する可能性が高い。",
+        "business": "クラウド移行済み企業では、ネットワーク境界よりID基盤が主要な防衛線となる。",
+        "research_direction": "Microsoft Entra ID、OAuthアプリ同意、デバイスコード認証の悪用パターンを継続収集する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT29はクラウドID侵害を通じて長期潜伏・情報収集を行うため、検知が遅れやすい。",
+        "delta_from_previous": "期間内の新規事実はないが、クラウドID監視を継続重点とする評価は維持。"
+      },
+      "related_campaigns": ["Midnight Blizzard", "NOBELIUM", "SolarWinds"],
+      "tags": ["APT29", "Russia", "SVR", "cloud-identity", "OAuth", "device-code"],
+      "sources": [
+        {
+          "title": "APT29",
+          "url": "https://attack.mitre.org/groups/G0016/",
+          "publisher": "MITRE ATT&CK",
+          "published_at": "accessed 2026-05-17"
+        },
+        {
+          "title": "Amazon disrupts watering hole campaign by Russia’s APT29",
+          "url": "https://aws.amazon.com/jp/blogs/news/amazon-disrupts-watering-hole-campaign-by-russias-apt29/",
+          "publisher": "AWS",
+          "published_at": "2025-09-17"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked Russian state actor",
+        "infrastructure": ["cloud identity platforms", "compromised websites", "OAuth authorization flows"],
+        "capability": ["watering-hole redirection", "OAuth abuse", "device-code phishing", "long-term espionage"],
+        "victim": ["government", "diplomatic entities", "research organizations", "policy communities"]
+      }
+    }
+  ]
+}

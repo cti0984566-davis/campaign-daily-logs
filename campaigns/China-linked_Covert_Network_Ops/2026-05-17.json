@@ -1,0 +1,96 @@
+{
+  "date": "2026-05-17",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["Covert Network Operations", "ORB-linked activity", "Edge-device compromise"],
+    "cluster": "China-linked_edge_device_and_ORB_operations",
+    "suspected_actor": "未特定の中国関連または高度アクター",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "new",
+  "executive_summary": "Cisco Catalyst SD-WAN ControllerのCVE-2026-20182悪用は、China-linked_Covert_Network_Opsの監視枠に追加すべき新規重要事案。Cisco TalosはUAT-8616として高信頼でクラスタリングし、活動は限定的ながら、重要インフラとORBネットワークとの重なりが指摘されている。",
+  "change_summary": [
+    "CVE-2026-20182の実悪用が2026年5月中旬に公表",
+    "Cisco TalosがUAT-8616として高信頼でクラスタリング",
+    "Cisco SD-WAN関連の悪用は2026年に複数回確認されており、境界機器・制御面リスクが上昇",
+    "China-linkedと断定せず、Covert Network Ops候補として監視に追加"
+  ],
+  "operational_relevance": "Cisco SD-WAN Controller / Manager、管理インターフェース、NETCONF、SSH鍵、管理者権限変更を優先確認する必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "Cisco Catalyst SD-WAN Controller / Managerの影響有無を確認",
+    "CVE-2026-20182のパッチ適用または緩和策を即時実施",
+    "SD-WAN管理インターフェースの外部露出を制限",
+    "SSH鍵追加、NETCONF設定変更、管理者アカウント変更を監査",
+    "ORB・侵害済みルーター・境界機器活動との関連を継続調査"
+  ],
+  "items": [
+    {
+      "id": "2026-05-17_china_linked_covert_network_ops_cisco_sdwan_uat8616",
+      "type": "incident",
+      "status": "新規",
+      "name": "Cisco Catalyst SD-WAN CVE-2026-20182 exploitation by UAT-8616",
+      "category": "ゼロデイ脆弱性 / 境界機器侵害 / Covert Network Ops候補",
+      "targeting": {
+        "regions": ["Global", "United States", "Japan"],
+        "industries": ["重要インフラ", "通信", "政府機関", "大企業ネットワーク"],
+        "organization_types": ["Cisco SD-WAN利用組織", "大規模ネットワーク運用組織", "重要インフラ事業者"]
+      },
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-17",
+      "activity_summary": "Cisco Catalyst SD-WAN Controllerの認証バイパス脆弱性CVE-2026-20182が実際に悪用され、Cisco TalosはUAT-8616として高信頼でクラスタリングした。",
+      "activity_details": "CVE-2026-20182は細工したリクエストにより、内部の高権限非rootユーザーとしてログインされる可能性がある。SecurityWeek等は、2026年に悪用が明らかになったCisco SD-WAN脆弱性として6件目と報じている。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1133 External Remote Services",
+        "T1098 Account Manipulation",
+        "T1059 Command and Scripting Interpreter",
+        "T1021 Remote Services"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": ["Cisco Catalyst SD-WAN Controller", "Cisco SD-WAN Manager", "NETCONF", "SSH management access", "ORB-overlapping infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "境界機器・ネットワーク制御面の侵害は、長期アクセス、秘匿通信、横展開の基盤となる。",
+        "geopolitical": "中国系ORB作戦との類似性があるが、現時点では中国帰属を断定せず、高度アクターによるCovert Network Ops候補として扱う。",
+        "business": "SD-WANは企業ネットワークの中核制御面であり、侵害時の事業影響は大きい。",
+        "research_direction": "UAT-8616、Cisco SD-WAN過去悪用、Volt Typhoon、Flax Typhoon、Raptor Train系のORB活動とのインフラ重複を確認する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "SD-WAN管理面を制御されると、拠点間通信、認証、設定変更、横展開に広範な影響が出る。",
+        "delta_from_previous": "China-linked_Covert_Network_Opsの監視対象に、Cisco SD-WAN / UAT-8616を新規候補として追加。"
+      },
+      "related_campaigns": ["Volt Typhoon", "Flax Typhoon", "Raptor Train", "UAT-8616"],
+      "tags": ["Cisco", "SD-WAN", "CVE-2026-20182", "UAT-8616", "ORB", "edge-device", "covert-network"],
+      "sources": [
+        {
+          "title": "Ongoing exploitation of Cisco Catalyst SD-WAN vulnerabilities",
+          "url": "https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/",
+          "publisher": "Cisco Talos",
+          "published_at": "2026-05"
+        },
+        {
+          "title": "CVE-2026-20182: Cisco SD-WAN Active Exploitation",
+          "url": "https://www.tenable.com/blog/faq-about-the-continued-exploitation-of-cisco-catalyst-sd-wan-vulnerabilities-uat-8616",
+          "publisher": "Tenable",
+          "published_at": "2026-05"
+        },
+        {
+          "title": "Cisco Patches Another SD-WAN Zero-Day, the Sixth Exploited in 2026",
+          "url": "https://www.securityweek.com/cisco-patches-another-sd-wan-zero-day-the-sixth-exploited-in-2026/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-15"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "UAT-8616 / 未特定の高度アクター",
+        "infrastructure": ["Cisco SD-WAN infrastructure", "ORB-overlapping infrastructure", "management interfaces"],
+        "capability": ["authentication bypass", "high-privilege access", "network configuration manipulation"],
+        "victim": ["critical infrastructure", "Cisco SD-WAN customers", "large enterprises"]
+      }
+    }
+  ]
+}

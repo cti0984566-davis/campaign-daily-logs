@@ -1,0 +1,88 @@
+{
+  "date": "2026-05-17",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta", "BRONZE PRESIDENT"],
+    "cluster": "China_aligned_espionage",
+    "suspected_actor": "China-aligned state-sponsored actor",
+    "attribution_confidence": "medium"
+  },
+  "update_type": "assessment_update",
+  "executive_summary": "TA416について、2026年5月15〜17日JSTの期間内にTA416名義の新規大型公表は確認できない。一方、同時期にTwill Typhoon / Mustang Panda系とされるAPJ・日本標的のFDMTPバックドア活動が公表されており、TA416と同一視せず、関連する中国系諜報活動として別途監視すべき。",
+  "change_summary": [
+    "TA416自体は2026年4月の欧州政府・外交機関標的化レポートを継続監視",
+    "2026年5月中旬にTwill Typhoon / Mustang Panda系FDMTPバックドア事案が公表",
+    "TA416とTwill Typhoonを同一扱いせず、中国系APJ標的活動として隣接監視する方針に更新"
+  ],
+  "operational_relevance": "外交・政府・APJ地域組織におけるPlugX、DLLサイドローディング、OAuth悪用、FDMTP系バックドアの検知を強化する必要がある。",
+  "urgency": "medium",
+  "recommended_action": [
+    "PlugXおよびFDMTP系バックドアの検知ロジックを確認",
+    "Sogou Pinyin等の正規バイナリを悪用したDLLサイドローディングを監視",
+    "外交・政府・APJ関連部門のスピアフィッシング訓練と検知を強化",
+    "TA416とTwill Typhoon/Mustang Panda系を別クラスタとして記録"
+  ],
+  "items": [
+    {
+      "id": "2026-05-17_ta416_eu_diplomatic_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "TA416 European government and diplomatic targeting monitoring",
+      "category": "国家系サイバー諜報 / 外交機関標的化",
+      "targeting": {
+        "regions": ["Europe", "EU", "NATO"],
+        "industries": ["政府機関", "外交", "国際機関"],
+        "organization_types": ["外交機関", "欧州政府機関", "NATO関連組織"]
+      },
+      "first_seen": "2025-06",
+      "last_seen": "2026-05-17",
+      "activity_summary": "TA416は2025年中盤以降、欧州政府・外交機関を対象に活動を再開し、Web bug、PlugX、OAuthベースのフィッシング等を用いた諜報活動を行ったと報告されている。",
+      "activity_details": "期間内にTA416単体の新規公表は確認できないが、2026年4月のProofpoint報告に基づき、欧州正面での中国系外交諜報活動として継続監視する。",
+      "ttp": [
+        "T1566 Phishing",
+        "T1204 User Execution",
+        "T1059 Command and Scripting Interpreter",
+        "T1574.002 DLL Side-Loading",
+        "T1528 Steal Application Access Token"
+      ],
+      "malware_and_tools": ["PlugX"],
+      "infrastructure": ["web bugs", "phishing infrastructure", "OAuth phishing infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は外交・政府機関を対象とする中国系諜報活動として継続的な監視価値がある。",
+        "geopolitical": "欧州・NATO政策情報へのアクセスは、中国の対欧州外交・安全保障判断に資する可能性がある。",
+        "business": "日本企業にとっては、欧州拠点・政府関連案件・国際会議関連情報が二次的標的になり得る。",
+        "research_direction": "TA416、Mustang Panda、Twill Typhoon等の命名・活動重複を慎重に整理する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "中国系アクターによる外交機関標的化は、国際政治・安全保障判断に直結する情報収集活動である。",
+        "delta_from_previous": "期間内の直接更新はないが、同時期のAPJ向けMustang Panda系活動を別監視候補として追加。"
+      },
+      "related_campaigns": ["Mustang Panda", "Twill Typhoon", "China-linked_Covert_Network_Ops"],
+      "tags": ["TA416", "China", "PlugX", "OAuth", "EU", "NATO", "diplomatic-targeting"],
+      "sources": [
+        {
+          "title": "I'd come running back to EU again: TA416 resumes European government espionage",
+          "url": "https://www.proofpoint.com/us/blog/threat-insight/id-come-running-back-eu-again-ta416-resumes-european-government-espionage",
+          "publisher": "Proofpoint",
+          "published_at": "2026-04-01"
+        },
+        {
+          "title": "Chinese APT Campaign Targets Entities with Updated FDMTP Backdoor",
+          "url": "https://www.darktrace.com/ja/blog/chinese-apt-campaign-targets-entities-with-updated-fdmtp-backdoor",
+          "publisher": "Darktrace",
+          "published_at": "2026-05"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "TA416 / China-aligned espionage actor",
+        "infrastructure": ["phishing infrastructure", "web bug infrastructure", "OAuth abuse paths"],
+        "capability": ["PlugX delivery", "web bug tracking", "OAuth-based phishing", "diplomatic espionage"],
+        "victim": ["European governments", "diplomatic missions", "NATO-related entities"]
+      }
+    }
+  ]
+}

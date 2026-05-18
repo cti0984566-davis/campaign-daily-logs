@@ -1,0 +1,438 @@
+{
+  "date": "2026-05-17",
+  "timezone": "JST",
+  "title": "2026/05/17_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-17_cisco_sdwan_cve_2026_20182",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Cisco SD-WAN zero-day exploitation",
+        "aliases": ["UAT-8616"],
+        "cluster": "China-linked_Covert_Network_Ops_candidate",
+        "suspected_actor": "未特定の高度アクター",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "UAT-8616 / 未特定の高度アクター",
+        "infrastructure": ["Cisco Catalyst SD-WAN Controller / Manager", "管理インターフェース", "SSH鍵", "NETCONF設定"],
+        "capability": ["CVE-2026-20182 exploitation", "authentication bypass", "privilege escalation attempt", "post-exploitation configuration manipulation"],
+        "victim": ["通信事業者", "重要インフラ", "政府機関", "大企業ネットワーク"]
+      },
+      "name": "Cisco Catalyst SD-WAN CVE-2026-20182 悪用",
+      "category": "ゼロデイ脆弱性 / ネットワーク機器侵害",
+      "industry": ["通信", "重要インフラ", "政府機関", "大企業"],
+      "region": ["Global", "United States", "Japan"],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-17",
+      "summary": "Cisco Catalyst SD-WAN Controller / Managerの認証バイパス脆弱性CVE-2026-20182について、Cisco Talosが悪用を確認し、CISA KEVにも追加された。境界機器・SD-WAN管理面の侵害は、組織内横展開や持続的アクセス確保に直結する。",
+      "executive_summary": "Cisco SD-WANの管理制御面を狙うゼロデイ悪用であり、日本の重要インフラ・大企業にとって優先度の高い確認対象。China-linked Covert Network Ops候補として継続監視すべき。",
+      "change_summary": [
+        "2026年5月中旬にCisco TalosがCVE-2026-20182の悪用を公表",
+        "CISA KEVに追加され、米連邦機関向けに対応期限が設定",
+        "UAT-8616としてクラスタリングされ、過去のCisco SD-WAN悪用活動との関連が示唆"
+      ],
+      "operational_relevance": "SD-WAN管理面、境界機器、ネットワーク制御機器の露出確認、パッチ適用、設定変更・SSH鍵追加の監査が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "Cisco SD-WAN関連機器のバージョン確認と緊急パッチ適用",
+        "管理インターフェースのインターネット露出確認",
+        "不審なSSH鍵、NETCONF設定変更、管理者アカウント変更の確認",
+        "CISA KEVベースの脆弱性管理に追加"
+      ],
+      "details": "本件は単なる製品脆弱性ではなく、境界・制御面を侵害して長期的アクセスを確保する作戦基盤になり得る。SOHO/IoT機器やネットワーク装置を使った秘匿インフラ構築と合わせて監視する必要がある。",
+      "actors": [
+        {
+          "name": "UAT-8616",
+          "role": "suspected exploitation cluster",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1133 External Remote Services",
+        "T1098 Account Manipulation",
+        "T1059 Command and Scripting Interpreter"
+      ],
+      "malware": [],
+      "infrastructure": ["Cisco Catalyst SD-WAN Controller", "Cisco SD-WAN Manager"],
+      "targeting": {
+        "sectors": ["通信", "政府機関", "重要インフラ", "大企業ネットワーク"],
+        "countries": ["Global", "United States", "Japan"],
+        "organization_types": ["SD-WAN利用組織", "大規模ネットワーク運用組織"]
+      },
+      "strategic_view": {
+        "general": "境界機器・ネットワーク制御面は国家系アクターにとって高価値の侵入経路であり、継続的監視が必要。",
+        "geopolitical": "中国系秘匿ネットワーク作戦や危機時アクセス確保の文脈と接続して評価すべき。",
+        "business": "SD-WAN製品のセキュリティ運用、設定監査、脆弱性対応能力が企業リスク管理上の重要論点となる。",
+        "research_direction": "UAT-8616と既存のVolt Typhoon、Flax Typhoon、Raptor Train系インフラとの重なりを継続確認。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "SD-WAN制御面の侵害は、拠点間通信・管理経路・認証情報に広範な影響を及ぼし得る。",
+        "delta_from_previous": "従来のCisco SD-WAN脆弱性群から、CVE-2026-20182の実悪用確認へ評価を更新。"
+      },
+      "related_campaigns": ["China-linked_Covert_Network_Ops", "Volt Typhoon", "Flax Typhoon", "Raptor Train"],
+      "related_reports": ["Cisco SD-WAN vulnerabilities", "CISA KEV"],
+      "tags": ["zero-day", "Cisco", "SD-WAN", "KEV", "edge-device", "covert-network"],
+      "sources": [
+        {
+          "title": "Ongoing exploitation of Cisco Catalyst SD-WAN vulnerabilities",
+          "url": "https://blog.talosintelligence.com/sd-wan-ongoing-exploitation/",
+          "publisher": "Cisco Talos",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-17_exchange_cve_2026_42897",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Microsoft Exchange Server CVE-2026-42897",
+        "aliases": ["Exchange OWA XSS"],
+        "cluster": "Enterprise_Mail_Infrastructure_Risk",
+        "suspected_actor": "未特定",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "未特定のAPTまたは犯罪アクター",
+        "infrastructure": ["Exchange Server", "Outlook Web Access", "on-premises email infrastructure"],
+        "capability": ["CVE-2026-42897", "crafted email", "JavaScript execution in browser context"],
+        "victim": ["政府機関", "企業", "教育機関", "医療機関", "重要インフラ"]
+      },
+      "name": "Microsoft Exchange Server CVE-2026-42897",
+      "category": "ゼロデイ脆弱性 / メール基盤リスク",
+      "industry": ["政府機関", "企業", "教育", "医療", "重要インフラ"],
+      "region": ["Global", "Japan"],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-17",
+      "summary": "オンプレミスExchange ServerのOWAに関するCVE-2026-42897が公表された。細工されたメールをOWAで開くことで、ブラウザー内で任意JavaScriptが実行される可能性がある。",
+      "executive_summary": "Exchangeは過去にも国家系アクターに繰り返し悪用されてきた高価値基盤であり、オンプレミスOWA公開環境を持つ日本組織は優先確認が必要。",
+      "change_summary": [
+        "2026年5月中旬にExchange Server向け新規脆弱性として公表",
+        "Exchange Onlineは影響対象外とされる一方、オンプレミス環境が対象",
+        "過去のProxyShell、ProxyNotShell、HAFNIUM関連事案との類似リスクを再評価"
+      ],
+      "operational_relevance": "オンプレミスExchange、OWA公開、メールゲートウェイ、ユーザー操作起点の攻撃検知を確認する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "Exchange Serverの影響バージョン確認",
+        "Microsoftの緩和策およびパッチ適用状況の確認",
+        "OWA公開範囲の制限",
+        "不審メール、OWAアクセス、認証ログの監視"
+      ],
+      "details": "ユーザー操作条件があるものの、メール基盤を入口にした資格情報窃取、セッション乗っ取り、後続侵害につながる可能性がある。特にレガシーなオンプレミスExchange環境では優先度が高い。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "potential exploiter",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1203 Exploitation for Client Execution",
+        "T1189 Drive-by Compromise",
+        "T1056 Input Capture"
+      ],
+      "malware": [],
+      "infrastructure": ["Microsoft Exchange Server", "Outlook Web Access"],
+      "targeting": {
+        "sectors": ["政府機関", "企業", "教育", "医療", "重要インフラ"],
+        "countries": ["Global", "Japan"],
+        "organization_types": ["オンプレミスExchange利用組織"]
+      },
+      "strategic_view": {
+        "general": "メール基盤はAPT・犯罪系双方にとって初期アクセスと資格情報窃取の中心的標的である。",
+        "geopolitical": "過去の中国系Exchange悪用事案を踏まえ、国家系アクターによる迅速な兵器化を警戒すべき。",
+        "business": "クラウド移行済み組織とオンプレミス残存組織のリスク差が拡大する。",
+        "research_direction": "悪用実績、PoC公開、CISA KEV追加有無を継続確認。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Exchangeは侵害時の影響範囲が広く、メール・認証・内部情報への波及が大きい。",
+        "delta_from_previous": "既存Exchange脆弱性監視に、CVE-2026-42897を新規追加。"
+      },
+      "related_campaigns": ["HAFNIUM", "ProxyShell", "ProxyNotShell", "Storm-1175"],
+      "related_reports": ["Exchange Server May 2026 vulnerability"],
+      "tags": ["Exchange", "OWA", "zero-day", "email-security", "on-premises"],
+      "sources": [
+        {
+          "title": "Addressing Exchange Server May 2026 vulnerability CVE-2026-42897",
+          "url": "https://jpmessaging.github.io/blog/addressing-exchange-server-may-2026-vulnerability-cve-2026-42897/",
+          "publisher": "JP Messaging",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-17_tanstack_npm_openai_supply_chain",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "TanStack npm supply chain attack",
+        "aliases": ["Mini Shai-Hulud"],
+        "cluster": "Developer_Ecosystem_Supply_Chain_Attack",
+        "suspected_actor": "未特定のサプライチェーン攻撃者",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "未特定のOSSサプライチェーン攻撃者",
+        "infrastructure": ["npm registry", "TanStack packages", "developer endpoints", "GitHub repositories", "CI/CD environments"],
+        "capability": ["malicious npm package", "credential theft", "developer workstation compromise", "certificate rotation impact"],
+        "victim": ["AI企業", "開発者", "SaaS企業", "OSS利用組織"]
+      },
+      "name": "TanStack npm / Mini Shai-Hulud サプライチェーン攻撃とOpenAI対応",
+      "category": "ソフトウェアサプライチェーン攻撃",
+      "industry": ["AI", "ソフトウェア開発", "SaaS", "クラウド"],
+      "region": ["Global", "United States", "Japan"],
+      "first_seen": "2026-05-11",
+      "last_seen": "2026-05-17",
+      "summary": "TanStack npmパッケージ侵害により、開発者端末やCI/CD環境の資格情報窃取が懸念された。OpenAIは社員端末2台への影響、資格情報ローテーション、macOSアプリ証明書更新などを公表した。",
+      "executive_summary": "AI企業・OSSエコシステムを狙うサプライチェーン攻撃が継続。日本企業も、OSS依存関係、開発者端末、CI/CD秘密情報、コード署名鍵を一体で管理する必要がある。",
+      "change_summary": [
+        "2026年5月11日にTanStack npm侵害が発生",
+        "OpenAIが社員端末への限定的影響と対応策を公表",
+        "AI企業・OSS依存関係・開発者端末を攻撃面とするリスクが再確認された"
+      ],
+      "operational_relevance": "npm依存関係、lockfile、CI/CD secret、GitHub token、開発者端末の資格情報保管状況を確認する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "TanStack関連パッケージの利用有無確認",
+        "npm依存関係のバージョン固定と改ざん確認",
+        "GitHub token、クラウドAPI鍵、CI/CD secretのローテーション",
+        "開発者端末のEDRログ確認",
+        "コード署名証明書の利用状況確認"
+      ],
+      "details": "本件はAIモデルや本番環境への直接侵害ではなく、開発者環境・OSS依存関係を経由した侵害である点が重要。開発者端末の侵害は、後続のソースコード改ざん、秘密情報窃取、プロダクト署名鍵悪用に発展し得る。",
+      "actors": [
+        {
+          "name": "Mini Shai-Hulud",
+          "role": "reported malware/campaign label",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195 Supply Chain Compromise",
+        "T1552 Unsecured Credentials",
+        "T1555 Credentials from Password Stores",
+        "T1606 Forge Web Credentials",
+        "T1059 Command and Scripting Interpreter"
+      ],
+      "malware": ["Mini Shai-Hulud"],
+      "infrastructure": ["npm", "GitHub", "CI/CD systems", "developer workstations"],
+      "targeting": {
+        "sectors": ["AI", "ソフトウェア開発", "SaaS", "クラウド"],
+        "countries": ["Global", "United States", "Japan"],
+        "organization_types": ["OSS利用企業", "AI開発企業", "開発者チーム"]
+      },
+      "strategic_view": {
+        "general": "OSS依存関係と開発者端末が、AI・SaaS企業の主要攻撃面として定着しつつある。",
+        "geopolitical": "国家系アクターも同様の経路を利用し得るため、犯罪系に限定せず監視が必要。",
+        "business": "生成AI導入時には、モデル性能だけでなく供給者のSDLC、証明書管理、OSSリスク管理の透明性が重要となる。",
+        "research_direction": "npm、PyPI、GitHub Actions、CI/CD secret窃取キャンペーンとの関連を追跡。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "開発者エコシステム侵害は、単一企業を超えて下流顧客や利用者に波及し得る。",
+        "delta_from_previous": "axios系サプライチェーン攻撃などに続き、AI企業を含む開発者エコシステム全体への脅威として評価を更新。"
+      },
+      "related_campaigns": ["3CX", "XZ Utils", "axios supply chain attack"],
+      "related_reports": ["OpenAI TanStack response", "Mini Shai-Hulud reporting"],
+      "tags": ["npm", "supply-chain", "OpenAI", "TanStack", "developer-security", "CI-CD"],
+      "sources": [
+        {
+          "title": "Our response to the TanStack npm supply chain attack",
+          "url": "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack/",
+          "publisher": "OpenAI",
+          "published_at": "2026-05"
+        },
+        {
+          "title": "Compromised Mistral AI and TanStack packages may have exposed GitHub, cloud and CI/CD credentials",
+          "url": "https://www.tomshardware.com/tech-industry/cyber-security/compromised-mistral-ai-and-tanstack-packages-may-have-exposed-github-cloud-and-ci-cd-credentials-in-mini-shai-hulud-malware-infection-supply-chain-campaign-spreads-across-npm-and-ai-developer-ecosystems-like-wildfire",
+          "publisher": "Tom's Hardware",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-17_blackfile_unc6671_vishing_extortion",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "BlackFile vishing extortion operation",
+        "aliases": ["UNC6671", "BlackFile"],
+        "cluster": "Vishing_Extortion",
+        "suspected_actor": "UNC6671",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "UNC6671",
+        "infrastructure": ["BlackFile data leak site", "compromised corporate email accounts", "Microsoft Teams accounts"],
+        "capability": ["vishing", "internal account abuse", "data theft", "extortion"],
+        "victim": ["企業", "SaaS利用組織", "多国籍企業"]
+      },
+      "name": "BlackFile / UNC6671によるvishing恐喝オペレーション",
+      "category": "サイバー犯罪 / 恐喝 / ソーシャルエンジニアリング",
+      "industry": ["企業一般", "SaaS利用組織"],
+      "region": ["Global"],
+      "first_seen": "2026-02-06",
+      "last_seen": "2026-05-17",
+      "summary": "Google GTIGは、BlackFileデータリークサイトとUNC6671によるvishing恐喝活動を分析した。侵害済み内部メールやMicrosoft Teamsアカウントを悪用し、限定的なリーク情報を使って被害組織に圧力をかける。",
+      "executive_summary": "暗号化型ランサムウェアではなく、内部アカウント悪用、vishing、限定的リークを組み合わせる恐喝型活動として注目。日本企業でもヘルプデスク、SaaS管理者、海外拠点が狙われ得る。",
+      "change_summary": [
+        "BlackFile DLSが2026年2月6日に開始",
+        "2026年3月以降、侵害済み内部メールやTeamsアカウント悪用が確認",
+        "Google GTIGがUNC6671として活動を分析"
+      ],
+      "operational_relevance": "Teams外部連携、内部メールアカウントの異常利用、ヘルプデスク本人確認、データ流出兆候の監視が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Microsoft Teamsの外部連携設定を確認",
+        "ヘルプデスクの本人確認手順を強化",
+        "内部メールからの異常な指示・連絡を検知",
+        "SaaS管理者アカウントのMFAと条件付きアクセスを確認",
+        "データリークサイト監視を実施"
+      ],
+      "details": "UNC6671は、外部メールではなく侵害済みの内部アカウントを使うことで信頼を悪用する。従業員が正規の内部連絡と誤認しやすく、従来型フィッシング対策だけでは不十分。",
+      "actors": [
+        {
+          "name": "UNC6671",
+          "role": "threat cluster",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1566 Phishing",
+        "T1598 Phishing for Information",
+        "T1078 Valid Accounts",
+        "T1114 Email Collection",
+        "T1537 Transfer Data to Cloud Account"
+      ],
+      "malware": [],
+      "infrastructure": ["BlackFile DLS", "Microsoft Teams", "compromised email accounts"],
+      "targeting": {
+        "sectors": ["企業一般", "SaaS利用組織"],
+        "countries": ["Global"],
+        "organization_types": ["多国籍企業", "SaaS利用企業", "ヘルプデスク運用組織"]
+      },
+      "strategic_view": {
+        "general": "人間の業務導線を狙う恐喝型攻撃が、ランサムウェアの代替または補完手段として拡大している。",
+        "geopolitical": "国家系ではなく犯罪系中心だが、手法はAPTの初期アクセスや情報収集にも転用可能。",
+        "business": "SaaS利用拡大により、Teams、Slack、メール、ID基盤の横断的監視が必要。",
+        "research_direction": "Scattered Spider、ShinyHunters、Snowflake関連恐喝事案との手法比較を継続。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "内部アカウント悪用型のvishingは、従業員教育と技術的制御の双方を必要とする。",
+        "delta_from_previous": "従来のランサム暗号化中心の恐喝から、内部アカウント・SaaS・vishing中心の恐喝へ評価を更新。"
+      },
+      "related_campaigns": ["Scattered Spider", "ShinyHunters", "Snowflake customer data theft"],
+      "related_reports": ["Google GTIG BlackFile report"],
+      "tags": ["vishing", "extortion", "BlackFile", "UNC6671", "Teams", "social-engineering"],
+      "sources": [
+        {
+          "title": "Welcome to BlackFile: Inside a Vishing Extortion Operation",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/blackfile-vishing-extortion-operation",
+          "publisher": "Google Cloud / GTIG",
+          "published_at": "2026-05"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-17_instructure_canvas_shinyhunters",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Instructure Canvas data breach",
+        "aliases": ["Canvas LMS breach", "ShinyHunters Canvas claim"],
+        "cluster": "Education_SaaS_Extortion",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters",
+        "infrastructure": ["Canvas LMS", "Instructure systems", "education SaaS environment"],
+        "capability": ["data theft", "SaaS account abuse", "extortion", "data leak claim"],
+        "victim": ["教育機関", "学生", "教職員"]
+      },
+      "name": "Instructure / Canvas LMS データ侵害・ShinyHunters恐喝の継続",
+      "category": "サイバー犯罪 / 教育SaaS侵害 / データ恐喝",
+      "industry": ["教育", "SaaS"],
+      "region": ["Global", "United States", "Japan"],
+      "first_seen": "2026-05-01",
+      "last_seen": "2026-05-17",
+      "summary": "Canvas LMS運営元Instructureのデータ侵害について、ShinyHuntersが関与を主張し、学生・教職員情報の流出が問題化した。期間内には、Instructureが攻撃者との合意に達したとの報道が出た。",
+      "executive_summary": "教育SaaSへの侵害は、単一組織に留まらず、多数の教育機関・学生・研究者に波及する。日本の大学・研究機関もSaaS依存と研究情報保護の観点から監視すべき。",
+      "change_summary": [
+        "2026年5月上旬にCanvas関連データ侵害が確認",
+        "ShinyHuntersが数TB規模のデータ窃取を主張",
+        "期間内にInstructureが攻撃者との合意に達したとの報道"
+      ],
+      "operational_relevance": "教育SaaSの管理者アカウント、Free-For-Teacher等の低管理アカウント、学生・教職員データの保護状況を確認する必要がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Canvas LMS利用有無と管理設定の確認",
+        "教育SaaS管理者アカウントのMFA確認",
+        "学生・教職員データの保管範囲確認",
+        "SaaSベンダのインシデント通知・契約上の責任範囲確認",
+        "研究情報や共同研究データとの接続有無を確認"
+      ],
+      "details": "教育機関は攻撃耐性が比較的弱く、学生情報、研究者情報、共同研究先情報が集約されるため、犯罪系だけでなく国家系アクターにとっても価値がある。",
+      "actors": [
+        {
+          "name": "ShinyHunters",
+          "role": "claimed actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1530 Data from Cloud Storage",
+        "T1567 Exfiltration Over Web Service"
+      ],
+      "malware": [],
+      "infrastructure": ["Canvas LMS", "Instructure SaaS environment"],
+      "targeting": {
+        "sectors": ["教育", "SaaS"],
+        "countries": ["Global", "United States", "Japan"],
+        "organization_types": ["大学", "学校", "教育SaaS利用機関"]
+      },
+      "strategic_view": {
+        "general": "教育SaaS侵害は、多数組織にまたがるサプライチェーン型個人情報流出として扱うべき。",
+        "geopolitical": "研究者・学生・共同研究ネットワーク情報は、国家系アクターの情報収集対象にもなり得る。",
+        "business": "教育SaaSベンダのインシデント対応、データ分離、管理者権限設計が調達評価項目になる。",
+        "research_direction": "ShinyHuntersのSaaS標的化、Snowflake関連事案、Salesforce関連恐喝との連続性を確認。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "教育SaaSの侵害は広範囲の学生・教職員データに波及し、長期的な個人情報リスクを生む。",
+        "delta_from_previous": "初報段階から、攻撃者との合意報道を受けて継続更新として整理。"
+      },
+      "related_campaigns": ["ShinyHunters", "Snowflake customer data theft", "Education SaaS extortion"],
+      "related_reports": ["Instructure Canvas breach reporting"],
+      "tags": ["Canvas", "Instructure", "ShinyHunters", "education", "SaaS", "data-breach"],
+      "sources": [
+        {
+          "title": "Instructure confirms data breach, ShinyHunters claims attack",
+          "url": "https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05"
+        },
+        {
+          "title": "Instructure says it reached agreement with hackers after Canvas breach",
+          "url": "https://www.theverge.com/tech/928470/instructure-canvas-hack-shinyhunters-ransom-agreement",
+          "publisher": "The Verge",
+          "published_at": "2026-05"
+        }
+      ]
+    }
+  ]
+}
