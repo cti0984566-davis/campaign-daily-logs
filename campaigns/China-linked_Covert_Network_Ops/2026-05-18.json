@@ -1,0 +1,93 @@
+{
+  "date": "2026-05-18",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "Volt Typhoon、Flax Typhoon、Raptor Train等に代表される中国系秘匿ネットワーク運用リスクは継続。SOHO機器・IoT機器・匿名化インフラの軍民両用化が引き続き重要脅威。",
+  "change_summary": [
+    "SOHO/IoT基盤脅威継続",
+    "エッジ機器脆弱性悪用リスク増加",
+    "NGINX関連悪用との潜在的重複可能性"
+  ],
+  "operational_relevance": "SOHO・IoT・Edge機器監視を継続。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHO機器棚卸し",
+    "Edge機器パッチ適用",
+    "異常通信監視",
+    "IoT資産可視化"
+  ],
+  "campaign": {
+    "name": "China-linked Covert Network Ops",
+    "aliases": [
+      "Volt Typhoon",
+      "Flax Typhoon",
+      "Raptor Train"
+    ],
+    "cluster": "Covert network operations",
+    "suspected_actor": "China-linked actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-18_china_covert_network_ops_monitoring",
+      "type": "assessment",
+      "status": "更新",
+      "name": "China-linked covert infrastructure monitoring",
+      "category": "国家支援型サイバー作戦",
+      "targeting": {
+        "regions": [
+          "米国",
+          "台湾",
+          "日本"
+        ],
+        "industries": [
+          "通信",
+          "インフラ",
+          "政府"
+        ],
+        "organization_types": [
+          "重要インフラ",
+          "通信事業者"
+        ]
+      },
+      "first_seen": "2023-01-01",
+      "last_seen": "2026-05-18",
+      "activity_summary": "中国系秘匿ネットワーク作戦の継続的リスクを監視。",
+      "activity_details": "SOHO機器、IoT、VPN、Edge機器を悪用した匿名化・中継インフラ構築が継続的脅威。",
+      "ttp": [
+        "T1584",
+        "T1090",
+        "T1190"
+      ],
+      "strategic_view": {
+        "general": "秘匿ネットワークは平時潜伏・有事作戦双方に利用可能。",
+        "geopolitical": "台湾有事・米中競争文脈で戦略的重要性増大。",
+        "research_direction": "ボットネット・国家支援活動の境界分析。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "平時からの潜伏型インフラ確保は戦略的抑止と直結。",
+        "delta_from_previous": "Edge機器脆弱性増加により潜在リスク上昇。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon"
+      ],
+      "tags": [
+        "China",
+        "Volt Typhoon",
+        "SOHO",
+        "IoT"
+      ],
+      "sources": [
+        {
+          "title": "Exploitation of Critical NGINX Vulnerability Begins",
+          "url": "https://www.securityweek.com/exploitation-of-critical-nginx-vulnerability-begins/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-18"
+        }
+      ]
+    }
+  ]
+}

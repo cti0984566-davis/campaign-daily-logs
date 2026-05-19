@@ -1,0 +1,368 @@
+{
+  "date": "2026-05-18",
+  "timezone": "JST",
+  "title": "2026/05/18 Cyber Daily Log",
+  "items": [
+    {
+      "id": "2026-05-18_7eleven_salesforce_breach",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "ShinyHunters Salesforce Extortion Activity",
+        "aliases": ["ShinyHunters"],
+        "cluster": "Salesforce-linked data theft",
+        "suspected_actor": "ShinyHunters",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "ShinyHunters",
+        "infrastructure": [
+          "Extortion leak sites",
+          "Compromised Salesforce environments"
+        ],
+        "capability": [
+          "Credential theft",
+          "Data exfiltration",
+          "Extortion"
+        ],
+        "victim": [
+          "7-Eleven franchise applicants"
+        ]
+      },
+      "name": "7-Eleven confirms Salesforce-linked data breach",
+      "category": "サイバー犯罪",
+      "industry": [
+        "小売"
+      ],
+      "region": [
+        "米国"
+      ],
+      "first_seen": "2026-04-08",
+      "last_seen": "2026-05-18",
+      "summary": "7-Eleven confirmed a breach involving franchise applicant data after ShinyHunters claimed theft of Salesforce-related records.",
+      "executive_summary": "Salesforce ecosystem targeting by extortion actors continues to expand across major enterprises, highlighting identity and SaaS integration weaknesses rather than core Salesforce vulnerabilities.",
+      "change_summary": [
+        "7-Eleven formally acknowledged the incident",
+        "Attack linked to broader ShinyHunters Salesforce-focused campaign",
+        "Extortion claims involve hundreds of thousands of records"
+      ],
+      "operational_relevance": "Organizations using SaaS platforms with extensive OAuth integrations should prioritize token governance and third-party access review.",
+      "urgency": "high",
+      "recommended_action": [
+        "Audit Salesforce OAuth integrations",
+        "Rotate privileged SaaS credentials",
+        "Review access logs for abnormal exports",
+        "Restrict third-party application permissions"
+      ],
+      "ttp": [
+        "T1566",
+        "T1078",
+        "T1537",
+        "T1041"
+      ],
+      "targeting": {
+        "sectors": [
+          "Retail"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Enterprise"
+        ]
+      },
+      "strategic_view": {
+        "general": "SaaS identity compromise is becoming a preferred intrusion vector for financially motivated actors.",
+        "business": "Supply-chain trust in SaaS ecosystems is increasingly a business continuity issue.",
+        "research_direction": "Track overlap between ShinyHunters, Scattered Spider, and SaaS credential theft clusters."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "Large enterprises continue to suffer indirect SaaS ecosystem compromise despite hardened perimeter defenses.",
+        "delta_from_previous": "Public confirmation by victim organization increases confidence in campaign scope."
+      },
+      "related_campaigns": [
+        "Coinbase Cartel",
+        "Scattered Spider"
+      ],
+      "tags": [
+        "Salesforce",
+        "ShinyHunters",
+        "Extortion",
+        "SaaS"
+      ],
+      "sources": [
+        {
+          "title": "7-Eleven Data Breach Confirmed After ShinyHunters Ransom Demand",
+          "url": "https://www.securityweek.com/7-eleven-data-breach-confirmed-after-shinyhunters-ransom-demand/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-18_grafana_github_token_breach",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Coinbase Cartel GitHub Intrusion Activity",
+        "aliases": ["Coinbase Cartel"],
+        "cluster": "Source code extortion operations",
+        "suspected_actor": "Coinbase Cartel",
+        "attribution_confidence": "medium"
+      },
+      "name": "Grafana confirms GitHub token compromise",
+      "category": "サイバー犯罪",
+      "industry": [
+        "ソフトウェア",
+        "クラウド"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-05-15",
+      "last_seen": "2026-05-18",
+      "summary": "Grafana Labs confirmed unauthorized access involving GitHub-related credentials after threat actors claimed theft of internal data.",
+      "executive_summary": "The incident demonstrates continuing targeting of developer infrastructure and GitHub tokens as high-value supply-chain assets.",
+      "change_summary": [
+        "Grafana publicly acknowledged breach",
+        "Threat actor claimed source-code access",
+        "Credential resets initiated"
+      ],
+      "operational_relevance": "Development pipelines and repository credentials remain a primary target for modern supply-chain attacks.",
+      "urgency": "high",
+      "recommended_action": [
+        "Rotate GitHub tokens",
+        "Enforce hardware MFA for repository admins",
+        "Review CI/CD secrets exposure",
+        "Enable GitHub audit logging"
+      ],
+      "ttp": [
+        "T1552",
+        "T1078",
+        "T1195"
+      ],
+      "strategic_view": {
+        "general": "Developer ecosystem compromise can create cascading downstream supply-chain risks.",
+        "business": "OSS trust and transparency become critical differentiators for vendors.",
+        "research_direction": "Monitor convergence between extortion actors and software supply-chain intrusion groups."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "GitHub token theft enables persistence and downstream compromise across multiple organizations.",
+        "delta_from_previous": "Victim confirmation moved incident from rumor to verified compromise."
+      },
+      "tags": [
+        "GitHub",
+        "Supply Chain",
+        "Grafana",
+        "Token Theft"
+      ],
+      "sources": [
+        {
+          "title": "Grafana Confirms Breach After Hackers Claim They Stole Data",
+          "url": "https://www.securityweek.com/grafana-confirms-breach-after-hackers-claim-they-stole-data/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-18_nginx_cve_2026_42945_exploitation",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "NGINX CVE-2026-42945 Exploitation",
+        "cluster": "Internet infrastructure exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "Active exploitation observed for NGINX vulnerability CVE-2026-42945",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "インターネット基盤"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-05-18",
+      "last_seen": "2026-05-18",
+      "summary": "Researchers observed exploitation attempts targeting vulnerable NGINX deployments shortly after public disclosure and PoC release.",
+      "executive_summary": "Rapid weaponization of publicly disclosed infrastructure vulnerabilities continues to compress defender response timelines.",
+      "change_summary": [
+        "Public exploitation activity detected",
+        "PoC became available shortly after disclosure",
+        "F5 urged immediate patching"
+      ],
+      "operational_relevance": "Externally exposed NGINX infrastructure should be prioritized for emergency patching and configuration review.",
+      "urgency": "high",
+      "recommended_action": [
+        "Patch vulnerable NGINX versions",
+        "Review rewrite configurations",
+        "Validate ASLR status",
+        "Increase monitoring for anomalous HTTP requests"
+      ],
+      "ttp": [
+        "T1190"
+      ],
+      "strategic_view": {
+        "general": "Critical edge infrastructure vulnerabilities are increasingly exploited within days or hours of disclosure.",
+        "geopolitical": "Internet infrastructure exploitation remains relevant to both criminal and state actors.",
+        "research_direction": "Track exploitation overlap with botnet operators and access brokers."
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "NGINX is deeply embedded across enterprise and critical infrastructure environments.",
+        "delta_from_previous": "Transitioned from disclosed vulnerability to observed exploitation phase."
+      },
+      "tags": [
+        "NGINX",
+        "CVE-2026-42945",
+        "Edge Infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Exploitation of Critical NGINX Vulnerability Begins",
+          "url": "https://www.securityweek.com/exploitation-of-critical-nginx-vulnerability-begins/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-18_exchange_cve_2026_42897_kev",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Exchange OWA Exploitation Risk",
+        "cluster": "Enterprise email exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "CISA KEV update for Microsoft Exchange CVE-2026-42897",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "政府機関",
+        "企業IT"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-05-14",
+      "last_seen": "2026-05-18",
+      "summary": "CISA added Exchange OWA vulnerability CVE-2026-42897 to KEV, requiring federal remediation timelines.",
+      "executive_summary": "Exchange remains a persistent strategic target due to its centrality in identity, email, and enterprise access ecosystems.",
+      "change_summary": [
+        "KEV inclusion confirmed",
+        "Federal remediation deadline established"
+      ],
+      "operational_relevance": "Organizations operating on-premise Exchange should accelerate patching and OWA exposure review.",
+      "urgency": "high",
+      "recommended_action": [
+        "Apply Microsoft mitigations",
+        "Review OWA exposure",
+        "Enable enhanced Exchange logging",
+        "Inspect authentication anomalies"
+      ],
+      "ttp": [
+        "T1190",
+        "T1110"
+      ],
+      "strategic_view": {
+        "general": "Legacy enterprise infrastructure continues to present durable high-value targets.",
+        "business": "Migration pressure toward cloud identity ecosystems may accelerate.",
+        "research_direction": "Monitor for APT operationalization of Exchange-related vulnerabilities."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "Exchange compromise often enables broad lateral movement and long-term persistence.",
+        "delta_from_previous": "Regulatory urgency increased through KEV inclusion."
+      },
+      "tags": [
+        "Exchange",
+        "CVE-2026-42897",
+        "KEV"
+      ],
+      "sources": [
+        {
+          "title": "CVE-2026-42897",
+          "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42897",
+          "publisher": "NVD",
+          "published_at": "2026-05-18"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-18_shai_hulud_clone_activity",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Shai-Hulud Worm",
+        "aliases": ["TeamPCP"],
+        "cluster": "NPM supply-chain malware",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "name": "Shai-Hulud worm clones emerge in NPM ecosystem",
+      "category": "サプライチェーン攻撃",
+      "industry": [
+        "ソフトウェア",
+        "開発者エコシステム"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2025-09-01",
+      "last_seen": "2026-05-18",
+      "summary": "Researchers identified clone variants of the Shai-Hulud NPM worm targeting developer credentials and package ecosystems.",
+      "executive_summary": "Open-source malware reuse and mutation indicate maturation of self-propagating software supply-chain attacks.",
+      "change_summary": [
+        "Clone variants identified",
+        "Reuse of previously leaked code observed",
+        "Continued NPM ecosystem targeting"
+      ],
+      "operational_relevance": "Organizations relying on open-source ecosystems should improve package provenance validation and secret hygiene.",
+      "urgency": "medium",
+      "recommended_action": [
+        "Review NPM dependencies",
+        "Rotate CI/CD credentials",
+        "Enable package signing validation",
+        "Monitor unusual publish activity"
+      ],
+      "ttp": [
+        "T1195",
+        "T1552",
+        "T1059"
+      ],
+      "strategic_view": {
+        "general": "Malware commoditization is accelerating in open-source ecosystems.",
+        "business": "Developer trust chains are increasingly exposed to persistent compromise risk.",
+        "research_direction": "Track propagation mechanics and credential theft infrastructure."
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "Clone emergence suggests broader criminal adoption beyond original operators.",
+        "delta_from_previous": "Campaign evolved from isolated malware to replicating ecosystem threat."
+      },
+      "tags": [
+        "NPM",
+        "Supply Chain",
+        "Worm",
+        "OSS"
+      ],
+      "sources": [
+        {
+          "title": "First Shai-Hulud Worm Clones Emerge",
+          "url": "https://www.securityweek.com/first-shai-hulud-worm-clones-emerge/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-18"
+        }
+      ]
+    }
+  ]
+}

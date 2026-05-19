@@ -1,0 +1,81 @@
+{
+  "date": "2026-05-18",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175関連の新規大規模公開作戦は確認されていないが、認証情報窃取、クラウド侵害、RMM利用型活動の継続的脅威として監視継続。",
+  "change_summary": [
+    "公開活動は限定的",
+    "クラウド・認証侵害型活動の監視継続"
+  ],
+  "operational_relevance": "RMM・クラウド認証・LOTL活動監視を継続。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "RMM利用監査",
+    "Entra ID監視",
+    "PowerShell監査"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "cluster": "Credential theft and cloud intrusion",
+    "suspected_actor": "Unknown",
+    "attribution_confidence": "low"
+  },
+  "items": [
+    {
+      "id": "2026-05-18_storm1175_cloud_intrusion_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "Storm-1175 credential and cloud intrusion monitoring",
+      "category": "サイバー犯罪",
+      "targeting": {
+        "regions": [
+          "北米",
+          "欧州"
+        ],
+        "industries": [
+          "IT",
+          "金融"
+        ],
+        "organization_types": [
+          "企業"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-05-18",
+      "activity_summary": "Storm-1175関連の認証情報窃取・クラウド侵害リスクを継続監視。",
+      "ttp": [
+        "T1078",
+        "T1219",
+        "T1059"
+      ],
+      "malware_and_tools": [
+        "RMM tools",
+        "PowerShell"
+      ],
+      "strategic_view": {
+        "general": "LOTLとクラウド認証侵害を組み合わせる傾向。",
+        "business": "EDR回避型活動として企業影響が大きい。",
+        "research_direction": "Scattered Spider系との重複監視。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "low",
+        "why_it_matters": "認証基盤侵害による長期侵入リスク。",
+        "delta_from_previous": "大規模公開更新なし。"
+      },
+      "tags": [
+        "Storm-1175",
+        "RMM",
+        "Cloud"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Security Blog",
+          "url": "https://www.microsoft.com/en-us/security/blog/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-18"
+        }
+      ]
+    }
+  ]
+}

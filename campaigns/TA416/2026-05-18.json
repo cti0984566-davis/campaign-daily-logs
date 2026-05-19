@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-18",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416関連の新規公開作戦は限定的だが、台湾・南シナ海・中国周辺地政学的緊張継続に伴い、海事・政府・シンクタンクへの標的化リスクは継続。",
+  "change_summary": [
+    "新規大規模報告なし",
+    "台湾関連監視を継続"
+  ],
+  "operational_relevance": "台湾・海事・外交関連組織へのフィッシング警戒を維持。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Lure文書分析",
+    "中国語フィッシング監視",
+    "海事関連組織監視"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "RedDelta"
+    ],
+    "cluster": "China-linked espionage",
+    "suspected_actor": "China-linked actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-18_ta416_taiwan_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416 Taiwan-related targeting risk",
+      "category": "国家支援型サイバー作戦",
+      "targeting": {
+        "regions": [
+          "台湾",
+          "南シナ海"
+        ],
+        "industries": [
+          "政府",
+          "海事",
+          "シンクタンク"
+        ],
+        "organization_types": [
+          "政府機関",
+          "研究機関"
+        ]
+      },
+      "first_seen": "2021-01-01",
+      "last_seen": "2026-05-18",
+      "activity_summary": "台湾・海事関連標的化リスクを継続監視。",
+      "ttp": [
+        "T1566",
+        "T1204",
+        "T1059"
+      ],
+      "strategic_view": {
+        "general": "TA416は中国周辺地政学案件と高い相関。",
+        "geopolitical": "中台情勢緊張継続に伴う情報収集需要。",
+        "research_direction": "Mustang Panda系との重複分析。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "台湾情勢関連で継続的活動が予想される。",
+        "delta_from_previous": "大きな変化なし。"
+      },
+      "tags": [
+        "TA416",
+        "Taiwan",
+        "China"
+      ],
+      "sources": [
+        {
+          "title": "TA416 targeting analysis",
+          "url": "https://www.proofpoint.com/us/blog",
+          "publisher": "Proofpoint",
+          "published_at": "2026-05-18"
+        }
+      ]
+    }
+  ]
+}
