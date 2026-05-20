@@ -1,0 +1,668 @@
+{
+  "date": "2026-05-19",
+  "timezone": "JST",
+  "title": "2026/05/19_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-19_fox_tempest_malware_signing",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Fox Tempest malware-signing-as-a-service",
+        "aliases": [
+          "Fox Tempest"
+        ],
+        "cluster": "cybercrime-enablement",
+        "suspected_actor": "Cybercrime service provider",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Fox Tempest and ransomware affiliates using signed malware",
+        "infrastructure": [
+          "Microsoft Artifact Signing abuse",
+          "Azure tenants and subscriptions",
+          "Malware signing service websites"
+        ],
+        "capability": [
+          "Malware signing-as-a-service",
+          "Code signing abuse",
+          "Masquerading as legitimate software"
+        ],
+        "victim": [
+          "Global enterprises",
+          "Windows users",
+          "Organizations targeted by ransomware operators"
+        ]
+      },
+      "name": "Microsoft disrupts Fox Tempest malware-signing-as-a-service",
+      "category": "サイバー犯罪",
+      "industry": [
+        "ソフトウェア",
+        "クラウド",
+        "全産業"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-19",
+      "last_seen": "2026-05-19",
+      "summary": "Microsoftは、Microsoft Artifact Signingを悪用してマルウェアに短命コード署名を付与する犯罪サービスFox Tempestを摘発した。",
+      "executive_summary": "ランサムウェア・エコシステムにおいて、署名済みバイナリを悪用する犯罪支援サービスが明確化した。防御側は「署名済み＝安全」という前提を見直す必要がある。",
+      "change_summary": [
+        "2026年5月19日にMicrosoftがFox Tempestの摘発を公表",
+        "Rhysida、INC、Qilin、Akiraなどのランサムウェア関係者が利用した可能性が示された",
+        "1,000超の証明書失効と関連Azureインフラの停止が公表された"
+      ],
+      "operational_relevance": "EDRやアプリケーション制御において、コード署名を過度に信頼するルールは見直しが必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "署名済みバイナリであっても実行元、親プロセス、通信先を含めて検知する",
+        "Microsoft Artifact Signing関連の不審証明書・署名バイナリを調査する",
+        "ランサムウェア初動対応手順にコード署名悪用の確認項目を追加する"
+      ],
+      "details": "正規クラウド機能を悪用してマルウェアを信頼されたソフトウェアに見せかける手法であり、ランサムウェア攻撃の成功率向上に寄与した可能性がある。",
+      "actors": [
+        {
+          "name": "Fox Tempest",
+          "role": "malware-signing-as-a-service operator",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1553.002 Code Signing",
+        "T1204 User Execution",
+        "T1587.001 Develop Capabilities: Malware",
+        "T1036 Masquerading"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Microsoft Artifact Signing",
+        "Azure tenants",
+        "Short-lived code signing certificates"
+      ],
+      "targeting": {
+        "sectors": [
+          "All sectors"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Enterprise users",
+          "Ransomware victims"
+        ]
+      },
+      "strategic_view": {
+        "general": "犯罪エコシステムが、マルウェア本体だけでなく信頼基盤の悪用をサービス化している。",
+        "geopolitical": "国家系ではなく犯罪系だが、重要インフラや政府機関を含む横断的リスクとなる。",
+        "business": "クラウド事業者による法的・技術的ディスラプションの重要性が高まる。",
+        "research_direction": "署名済みマルウェア、短命証明書、Azure悪用インフラを継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "ランサムウェア攻撃の検知回避に直結し、企業の信頼ベース防御を弱体化させるため。",
+        "delta_from_previous": "従来の盗難証明書悪用から、署名機能を犯罪サービスとして提供する形態が明確になった。"
+      },
+      "related_campaigns": [
+        "Rhysida",
+        "INC",
+        "Qilin",
+        "Akira"
+      ],
+      "related_reports": [
+        "RedVDS disruption",
+        "Ransomware infrastructure disruption"
+      ],
+      "tags": [
+        "code-signing-abuse",
+        "ransomware",
+        "cybercrime-infrastructure",
+        "cloud-abuse"
+      ],
+      "sources": [
+        {
+          "title": "Disrupting Fox Tempest, a cybercrime service",
+          "url": "https://blogs.microsoft.com/on-the-issues/2026/05/19/disrupting-fox-tempest-a-cybercrime-service/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-19_nx_console_vscode_extension_compromise",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Nx Console VS Code Extension Compromise",
+        "aliases": [
+          "nrwl.angular-console 18.95.0 compromise"
+        ],
+        "cluster": "developer-supply-chain",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown supply-chain attacker",
+        "infrastructure": [
+          "VS Code Marketplace",
+          "GitHub API",
+          "External payload delivery infrastructure"
+        ],
+        "capability": [
+          "Malicious VS Code extension update",
+          "Credential theft",
+          "Obfuscated payload execution"
+        ],
+        "victim": [
+          "Software developers",
+          "Organizations using Nx Console",
+          "CI/CD environments"
+        ]
+      },
+      "name": "Nx Console VS Code extension 18.95.0 compromised",
+      "category": "ソフトウェアサプライチェーン攻撃",
+      "industry": [
+        "ソフトウェア開発",
+        "SaaS",
+        "クラウド"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-18",
+      "last_seen": "2026-05-19",
+      "summary": "VS Code Marketplace上のNx Console拡張機能18.95.0が侵害され、開発者環境の秘密情報窃取につながる可能性が報告された。",
+      "executive_summary": "IDE拡張機能が開発者端末とCI/CD秘密情報への侵入口となるリスクが改めて顕在化した。",
+      "change_summary": [
+        "18.95.0が侵害バージョンとして報告された",
+        "修正版18.100.0への更新が推奨された",
+        "GitHub Security AdvisoryでCriticalとして扱われた"
+      ],
+      "operational_relevance": "開発端末、IDE拡張、CI/CDトークンを資産管理・SCA管理の対象に含める必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "Nx Console 18.95.0の利用有無を確認する",
+        "18.100.0以降へ更新する",
+        "開発者端末上のGitHub、npm、クラウド認証情報をローテーションする",
+        "VS Code拡張の許可リスト運用を検討する"
+      ],
+      "details": "開発者がワークスペースを開くと不正ペイロードが実行され、秘密情報が外部送信される可能性があると報告された。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "supply-chain attacker",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1195.002 Compromise Software Supply Chain",
+        "T1552 Unsecured Credentials",
+        "T1059 Command and Scripting Interpreter",
+        "T1041 Exfiltration Over C2 Channel"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "VS Code Marketplace",
+        "GitHub API",
+        "HTTPS exfiltration",
+        "DNS tunneling"
+      ],
+      "targeting": {
+        "sectors": [
+          "Software development",
+          "Technology",
+          "Cloud services"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Developers",
+          "DevOps teams",
+          "SaaS vendors"
+        ]
+      },
+      "strategic_view": {
+        "general": "開発環境そのものが攻撃対象化している。",
+        "geopolitical": "国家系・犯罪系双方が利用可能な侵入口であり、帰属判定は困難。",
+        "business": "ソフトウェア企業にとって、IDE拡張やCI/CDの管理は顧客信頼に直結する。",
+        "research_direction": "VS Code、Cursor、JetBrains等の拡張機能エコシステムを継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "開発者端末からクラウド・CI/CD・ソースコード管理基盤へ横展開される可能性があるため。",
+        "delta_from_previous": "npmパッケージ中心だった開発者サプライチェーンリスクが、IDE拡張に拡大している。"
+      },
+      "related_campaigns": [
+        "Developer supply-chain attacks",
+        "CI/CD credential theft"
+      ],
+      "related_reports": [
+        "GitHub Actions supply-chain compromise",
+        "npm package compromise"
+      ],
+      "tags": [
+        "vscode-extension",
+        "developer-supply-chain",
+        "credential-theft",
+        "ci-cd"
+      ],
+      "sources": [
+        {
+          "title": "Nx Console VS Code Extension Compromised",
+          "url": "https://www.stepsecurity.io/blog/nx-console-vs-code-extension-compromised",
+          "publisher": "StepSecurity",
+          "published_at": "2026-05-19"
+        },
+        {
+          "title": "GitHub Security Advisory GHSA-c9j4-9m59-847w",
+          "url": "https://github.com/nrwl/nx-console/security/advisories/GHSA-c9j4-9m59-847w",
+          "publisher": "GitHub",
+          "published_at": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-19_chromadb_cve_2026_45829",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "ChromaDB CVE-2026-45829",
+        "aliases": [
+          "ChromaDB pre-auth RCE"
+        ],
+        "cluster": "ai-infrastructure-vulnerability",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown potential exploiters",
+        "infrastructure": [
+          "Exposed ChromaDB Python FastAPI servers",
+          "HuggingFace repositories"
+        ],
+        "capability": [
+          "Pre-authentication remote code execution",
+          "Malicious embedding function loading",
+          "AI infrastructure exploitation"
+        ],
+        "victim": [
+          "AI application developers",
+          "Organizations running ChromaDB",
+          "RAG platforms"
+        ]
+      },
+      "name": "ChromaDB Python FastAPI server pre-auth RCE vulnerability",
+      "category": "ゼロデイ脆弱性",
+      "industry": [
+        "AI",
+        "SaaS",
+        "研究開発",
+        "データ基盤"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-19",
+      "last_seen": "2026-05-19",
+      "summary": "ChromaDB Python FastAPIサーバに、認証前RCEにつながるCVE-2026-45829が報告された。",
+      "executive_summary": "RAGやAIアプリ基盤で使われるベクトルDBが、外部露出時に重大なRCEリスクとなる可能性が示された。",
+      "change_summary": [
+        "CVE-2026-45829として報告された",
+        "CVSS 4.0で10.0と評価されたとの報告がある",
+        "Python backend利用時の露出停止やアクセス制限が推奨された"
+      ],
+      "operational_relevance": "社内PoC、RAG基盤、AI検証環境の外部露出確認を優先する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "ChromaDB Python FastAPI serverの外部露出を確認する",
+        "認証前到達性を排除する",
+        "ネットワークACL、VPN、リバースプロキシでアクセス制限する",
+        "修正版または代替backendの利用状況を確認する"
+      ],
+      "details": "攻撃者制御のembedding function設定やリモートコード読み込みにより、認証前に任意コード実行が可能となる可能性が指摘された。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "potential exploiters",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1059 Command and Scripting Interpreter",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "ChromaDB Python FastAPI server",
+        "HuggingFace remote repositories",
+        "Exposed AI application servers"
+      ],
+      "targeting": {
+        "sectors": [
+          "AI",
+          "Technology",
+          "Research",
+          "Enterprise IT"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "AI development teams",
+          "RAG service operators",
+          "Internal PoC environments"
+        ]
+      },
+      "strategic_view": {
+        "general": "AI基盤の構成要素が、新たな公開アプリケーション攻撃面となっている。",
+        "geopolitical": "AI導入競争により、未成熟な検証環境が国家系・犯罪系双方の標的になり得る。",
+        "business": "AIサービス提供企業は、モデルだけでなくベクトルDBや周辺OSSの管理責任を問われる。",
+        "research_direction": "MCP、ベクトルDB、エージェント基盤、埋め込み処理系の脆弱性監視を強化する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "RAG基盤やAI PoC環境は認証・境界管理が甘い場合が多く、RCE時の影響が大きいため。",
+        "delta_from_previous": "AI関連リスクがプロンプトインジェクションだけでなく、基盤OSSのRCEに拡大している。"
+      },
+      "related_campaigns": [
+        "AI infrastructure exploitation",
+        "RAG platform exposure"
+      ],
+      "related_reports": [
+        "MCP and AI agent attack surface research"
+      ],
+      "tags": [
+        "chromadb",
+        "cve-2026-45829",
+        "ai-security",
+        "rce",
+        "vector-database"
+      ],
+      "sources": [
+        {
+          "title": "CVE-2026-45829 - ChromaDB Python server hands you RCE before it asks who you are",
+          "url": "https://hadrian.io/blog/cve-2026-45829----chromadb-python-server-hands-you-rce-before-it-asks-who-you-are",
+          "publisher": "Hadrian",
+          "published_at": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-19_huawei_luxembourg_telecom_zero_day",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Luxembourg telecom outage Huawei zero-day allegation",
+        "aliases": [
+          "Huawei router zero-day allegation",
+          "Luxembourg telecom outage"
+        ],
+        "cluster": "critical-infrastructure-zero-day",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown",
+        "infrastructure": [
+          "Huawei enterprise router software",
+          "Telecom network infrastructure"
+        ],
+        "capability": [
+          "Unpublished zero-day exploitation",
+          "Telecom disruption"
+        ],
+        "victim": [
+          "Luxembourg telecom users",
+          "Emergency communications",
+          "Banking and public services"
+        ]
+      },
+      "name": "Huawei zero-day reportedly linked to Luxembourg telecom outage",
+      "category": "重要インフラ攻撃",
+      "industry": [
+        "通信",
+        "政府",
+        "金融",
+        "緊急通報"
+      ],
+      "region": [
+        "Europe",
+        "Luxembourg"
+      ],
+      "first_seen": "2025-07-01",
+      "last_seen": "2026-05-19",
+      "summary": "2025年7月にルクセンブルクで発生した大規模通信障害について、Huaweiルータの未公表ゼロデイ悪用疑惑が報じられた。",
+      "executive_summary": "通信インフラ障害が、特定ベンダ機器の未公表ゼロデイ疑惑に結び付けられたことで、通信機器サプライチェーンと脆弱性開示の問題が再浮上した。",
+      "change_summary": [
+        "当初は大規模通信障害として扱われていた",
+        "2026年5月19日の報道でHuawei enterprise router softwareの未公表ゼロデイ疑惑が示された",
+        "CVEや公式アドバイザリは確認されていない"
+      ],
+      "operational_relevance": "通信・重要インフラでは、境界機器だけでなくルーティング・コア装置の脆弱性管理が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "重要通信機器のベンダ、型番、ソフトウェアバージョンを棚卸しする",
+        "未公表脆弱性疑惑のある機器についてベンダ・CSIRT経由で情報収集する",
+        "通信障害時の代替経路と手動運用手順を確認する"
+      ],
+      "details": "2025年7月の障害は4G/5G、固定通信、緊急通信、電子銀行等に影響したとされる。2026年5月の報道で、Huaweiルータの未公表脆弱性との関連が示唆された。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "possible exploiter",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1498 Network Denial of Service"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "Huawei enterprise router software",
+        "Telecom routing infrastructure"
+      ],
+      "targeting": {
+        "sectors": [
+          "Telecommunications",
+          "Government",
+          "Financial services",
+          "Emergency services"
+        ],
+        "countries": [
+          "Luxembourg"
+        ],
+        "organization_types": [
+          "Telecom operators",
+          "Public services"
+        ]
+      },
+      "strategic_view": {
+        "general": "重要通信インフラにおける未公表ゼロデイ疑惑は、障害対応と脆弱性開示の両面で重要。",
+        "geopolitical": "Huawei機器をめぐる安全保障上の懸念と結び付きやすく、帰属未確定でも政策議論に影響する。",
+        "business": "通信事業者はマルチベンダ化、予備経路、ベンダリスク管理の説明責任を問われる。",
+        "research_direction": "CVE付与、ベンダ声明、CERT/CSIRT通知、欧州規制当局の続報を監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "重要通信インフラへの未公表ゼロデイ悪用疑惑であり、日本の通信・重要インフラ政策にも示唆があるため。",
+        "delta_from_previous": "単なる通信障害から、特定ベンダ機器の未公表ゼロデイ疑惑へ評価が更新された。"
+      },
+      "related_campaigns": [
+        "China-linked Covert Network Ops",
+        "Volt Typhoon-style critical infrastructure pre-positioning"
+      ],
+      "related_reports": [
+        "Luxembourg 2025 telecom outage reporting"
+      ],
+      "tags": [
+        "telecom",
+        "zero-day",
+        "huawei",
+        "critical-infrastructure",
+        "luxembourg"
+      ],
+      "sources": [
+        {
+          "title": "Huawei zero-day behind last year Luxembourg telecom outage",
+          "url": "https://therecord.media/huawei-zero-day-behind-last-year-luxembourg-telecom-outage",
+          "publisher": "The Record",
+          "published_at": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-19_cisa_jvn_ics_iot_advisories",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "CISA and JVN ICS IoT Vulnerability Advisories",
+        "aliases": [
+          "CISA ICS Advisory 2026-05-19",
+          "JVN ELECOM router vulnerabilities"
+        ],
+        "cluster": "ics-iot-vulnerability-management",
+        "suspected_actor": "Not applicable",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Potential cybercriminal and state-sponsored exploiters",
+        "infrastructure": [
+          "Industrial control systems",
+          "Building controllers",
+          "CCTV systems",
+          "Wireless LAN routers"
+        ],
+        "capability": [
+          "Exploitation of vulnerable ICS and IoT products",
+          "Initial access via exposed devices",
+          "Botnet or foothold creation"
+        ],
+        "victim": [
+          "Manufacturing organizations",
+          "Building operators",
+          "SMEs",
+          "Home and small office users"
+        ]
+      },
+      "name": "CISA ICS advisories and JVN ELECOM router vulnerability disclosures",
+      "category": "脆弱性情報",
+      "industry": [
+        "製造",
+        "ビル管理",
+        "監視カメラ",
+        "通信",
+        "中小企業"
+      ],
+      "region": [
+        "Global",
+        "Japan"
+      ],
+      "first_seen": "2026-05-19",
+      "last_seen": "2026-05-19",
+      "summary": "CISAは複数のICS Advisoryを公表し、JVNはエレコム製無線LANルータ等の複数脆弱性を掲載した。",
+      "executive_summary": "OT、監視カメラ、ビル制御、SOHOルータの脆弱性が継続的に蓄積しており、重要インフラ・中小企業双方で踏み台化リスクが続く。",
+      "change_summary": [
+        "CISAが2026年5月19日に複数のICS Advisoryを公表",
+        "JVNがエレコム製無線LANルータ・APに関する脆弱性情報を掲載",
+        "OT・IoT・SOHO領域の露出資産管理の重要性が再確認された"
+      ],
+      "operational_relevance": "国内組織では、工場・ビル・拠点ルータ・監視カメラの棚卸しとパッチ適用が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "CISA ICS Advisory対象製品の利用有無を確認する",
+        "エレコム製ルータ・APのファームウェア更新状況を確認する",
+        "インターネット露出しているOT・IoT機器をShodan等で棚卸しする",
+        "SOHO機器を国家系アクターの踏み台化リスクとして監視する"
+      ],
+      "details": "対象にはABB CoreSense、Siemens RUGGEDCOM APE1808、ScadaBR、ZKTeco CCTV、Kieback & Peter DDC Building Controllersなどが含まれるとされた。",
+      "actors": [
+        {
+          "name": "Not applicable",
+          "role": "vulnerability disclosure",
+          "country": "N/A"
+        }
+      ],
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1595 Active Scanning",
+        "T1105 Ingress Tool Transfer"
+      ],
+      "malware": [],
+      "infrastructure": [
+        "ICS devices",
+        "Building controllers",
+        "CCTV systems",
+        "Wireless LAN routers",
+        "SOHO routers"
+      ],
+      "targeting": {
+        "sectors": [
+          "Manufacturing",
+          "Critical infrastructure",
+          "Building management",
+          "Telecommunications",
+          "SMEs"
+        ],
+        "countries": [
+          "Global",
+          "Japan"
+        ],
+        "organization_types": [
+          "Industrial operators",
+          "Building operators",
+          "Small and medium enterprises",
+          "Local governments"
+        ]
+      },
+      "strategic_view": {
+        "general": "OT・IoTの脆弱性は、単独被害だけでなく踏み台・永続化基盤として悪用される。",
+        "geopolitical": "SOHO・IoT機器は、中国関連アクターの秘匿ネットワーク作戦とも関連し得る。",
+        "business": "中小企業・自治体・工場向けの資産棚卸しとマネージドセキュリティ支援需要が高い。",
+        "research_direction": "JVN、JPCERT、CISA KEV、CISA ICS Advisoryを日次で突合する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "日本国内に影響し得るルータ脆弱性と、グローバルなOT脆弱性が同時に公表されたため。",
+        "delta_from_previous": "新規攻撃キャンペーンではないが、露出資産管理上の優先対象が更新された。"
+      },
+      "related_campaigns": [
+        "China-linked Covert Network Ops",
+        "Raptor Train",
+        "Volt Typhoon"
+      ],
+      "related_reports": [
+        "CISA ICS Advisory",
+        "JVN vulnerability notes"
+      ],
+      "tags": [
+        "ics",
+        "iot",
+        "soho-router",
+        "jvn",
+        "cisa"
+      ],
+      "sources": [
+        {
+          "title": "JVNVU#93294524 Multiple vulnerabilities in ELECOM wireless LAN routers and access points",
+          "url": "https://jvn.jp/vu/JVNVU93294524/index.html",
+          "publisher": "JVN",
+          "published_at": "2026-05-19"
+        },
+        {
+          "title": "JPCERT/CC Vulnerability Information",
+          "url": "https://www.jpcert.or.jp/",
+          "publisher": "JPCERT/CC",
+          "published_at": "2026-05-19"
+        }
+      ]
+    }
+  ]
+}

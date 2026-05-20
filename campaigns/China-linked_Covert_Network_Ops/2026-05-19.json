@@ -1,0 +1,146 @@
+{
+  "date": "2026-05-19",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "China-linked Covert Network Opsについて、2026年4月の10か国共同アドバイザリ以降、5月19日時点でも日本が重点的に監視すべき中国関連活動の一つである。Volt Typhoon、Flax Typhoon、Raptor Train等に代表される侵害済みSOHO・IoT機器を用いた秘匿ネットワーク作戦は、重要インフラ事前侵入・諜報・攻撃元秘匿の基盤として重要。",
+  "change_summary": [
+    "2026年4月23日に10か国共同で中国関連アクターのcovert network利用に関するアドバイザリが公表された",
+    "Raptor Train、KV Botnet、Volt Typhoon、Flax Typhoon等が同一の監視枠で整理可能",
+    "5月19日時点でも日本の重要インフラ・通信・政府機関にとって高優先度の継続監視対象"
+  ],
+  "operational_relevance": "日本では、重要インフラ、通信、自治体、防衛関連、製造業において、SOHOルータ・IoT機器の踏み台化と攻撃元秘匿を前提に監視設計を行う必要がある。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHOルータ、VPN、IoT機器、監視カメラの外部露出を棚卸しする",
+    "既知脆弱性とデフォルト認証情報を是正する",
+    "海外住宅回線・SOHO機器経由の低速・分散アクセスを異常検知する",
+    "Volt Typhoon、Flax Typhoon、Raptor Train、KV Botnetを一つの監視カテゴリとして継続追跡する"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": [
+      "China-linked covert networks",
+      "Typhoon-linked covert networks",
+      "Compromised SOHO and IoT botnet operations"
+    ],
+    "cluster": "China-linked covert infrastructure and pre-positioning operations",
+    "suspected_actor": "China-nexus state-sponsored and state-linked actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-19_china_linked_covert_network_ops_monitoring",
+      "type": "assessment",
+      "status": "更新",
+      "name": "China-linked covert networks using compromised SOHO and IoT devices",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "United States",
+          "Europe",
+          "Taiwan",
+          "Japan",
+          "Global"
+        ],
+        "industries": [
+          "Critical infrastructure",
+          "Telecommunications",
+          "Government",
+          "Defense",
+          "Energy",
+          "Transportation"
+        ],
+        "organization_types": [
+          "Critical infrastructure operators",
+          "Telecom operators",
+          "Government agencies",
+          "Organizations with exposed SOHO and IoT devices"
+        ]
+      },
+      "first_seen": "2024-01-31",
+      "last_seen": "2026-05-19",
+      "activity_summary": "中国関連アクターが侵害済みSOHOルータ・IoT機器を用いて、攻撃元を秘匿しながら諜報・事前侵入・攻撃基盤を構築している。",
+      "activity_details": "2026年4月23日の共同アドバイザリは、中国関連アクターが侵害済みデバイスによるcovert networksを用いて、諜報・攻撃・秘匿インフラを構築していると警告した。Raptor Train、KV Botnet、Volt Typhoon、Flax Typhoon等は、個別アクター名ではなく作戦基盤として横断監視する価値が高い。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1090 Proxy",
+        "T1584 Compromise Infrastructure",
+        "T1595 Active Scanning",
+        "T1078 Valid Accounts",
+        "T1041 Exfiltration Over C2 Channel"
+      ],
+      "malware_and_tools": [
+        "KV Botnet",
+        "Raptor Train"
+      ],
+      "infrastructure": [
+        "Compromised SOHO routers",
+        "Compromised IoT devices",
+        "Residential proxy infrastructure",
+        "Botnet-based covert networks"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "侵害済み民生機器を攻撃基盤化することで、防御側の帰属判断とブロッキングを困難にする。",
+        "geopolitical": "台湾有事や米中対立を背景に、重要インフラへの事前侵入と作戦準備の文脈で重要。",
+        "business": "通信事業者、ISP、MSSP、重要インフラ事業者には、顧客側機器を含む広域監視と通知能力が求められる。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Raptor Train、KV Botnet、Salt Typhoon系通信侵害との関係を継続整理する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "high",
+        "why_it_matters": "日本の重要インフラ・通信・政府機関にとって、中国関連アクターの事前侵入と攻撃元秘匿は最優先監視対象である。",
+        "delta_from_previous": "個別APTではなく、侵害済みSOHO・IoT機器を用いた横断的なcovert network作戦として分類する必要性が明確化した。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Raptor Train",
+        "KV Botnet",
+        "Salt Typhoon"
+      ],
+      "tags": [
+        "China",
+        "covert-network",
+        "SOHO-router",
+        "IoT",
+        "pre-positioning",
+        "critical-infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Defending Against China-Nexus Covert Networks of Compromised Devices",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-113a",
+          "publisher": "CISA",
+          "published_at": "2026-04-23"
+        },
+        {
+          "title": "侵害されたデバイスからなる中国関連アクターの秘匿ネットワークに対する防御",
+          "url": "https://www.cyber.go.jp/pdf/press/Defending_against_China_linked_covert_networks_of_compromised_devices.pdf",
+          "publisher": "国家サイバー統括室",
+          "published_at": "2026-04-23"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-nexus state-sponsored and state-linked actors",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Compromised IoT devices",
+          "Botnet-based covert networks"
+        ],
+        "capability": [
+          "Covert proxying",
+          "Pre-positioning",
+          "Espionage",
+          "Infrastructure compromise"
+        ],
+        "victim": [
+          "Critical infrastructure",
+          "Telecommunications",
+          "Government",
+          "Taiwan-related and Indo-Pacific targets"
+        ]
+      }
+    }
+  ]
+}

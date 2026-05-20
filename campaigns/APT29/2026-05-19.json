@@ -1,0 +1,135 @@
+{
+  "date": "2026-05-19",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年5月19日JSTに新規の主要公表は確認されない。ロシアSVR系アクターとして、クラウド・ID基盤・外交・政府・研究機関への潜伏型侵入リスクは継続している。",
+  "change_summary": [
+    "5月19日時点で新規の高確度キャンペーン公表は確認されない",
+    "APT29のクラウド・ID基盤初期アクセスTTPを継続監視",
+    "日本では政府、研究、シンクタンク、防衛関連のクラウド監視が重要"
+  ],
+  "operational_relevance": "Microsoft 365、Entra ID、VPN、SaaS認証基盤のログ監視・MFA強化・サービスプリンシパル監査が重要。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "クラウドID基盤の異常ログイン、OAuthアプリ、サービスプリンシパルを監査する",
+    "条件付きアクセスとMFA疲労攻撃対策を確認する",
+    "研究機関・政府系ネットワークで長期潜伏の痕跡を確認する"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard",
+      "Nobelium",
+      "The Dukes"
+    ],
+    "cluster": "Russia-linked foreign intelligence cyber espionage",
+    "suspected_actor": "Russian SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-19_apt29_cloud_identity_monitoring",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29 cloud and identity infrastructure monitoring",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "North America",
+          "Global"
+        ],
+        "industries": [
+          "Government",
+          "Diplomacy",
+          "Research",
+          "Think tanks",
+          "Defense"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Research institutes",
+          "Policy organizations",
+          "Cloud service users"
+        ]
+      },
+      "first_seen": "2024-02-26",
+      "last_seen": "2026-05-19",
+      "activity_summary": "APT29のクラウド・ID基盤を狙う諜報活動を継続監視。",
+      "activity_details": "APT29はロシアSVRに関連付けられる諜報アクターであり、近年はクラウド環境、認証基盤、サービスアカウント、OAuthアプリ等を悪用した初期アクセス・永続化が重視されている。5月19日時点で新規の主要公表は確認されない。",
+      "ttp": [
+        "T1078 Valid Accounts",
+        "T1098 Account Manipulation",
+        "T1550 Use Alternate Authentication Material",
+        "T1110 Brute Force",
+        "T1528 Steal Application Access Token",
+        "T1556 Modify Authentication Process"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Cloud identity infrastructure",
+        "Compromised accounts",
+        "OAuth applications",
+        "Service principals"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29は派手な破壊よりも、長期潜伏と外交・政策情報の収集に重点を置く。",
+        "geopolitical": "ロシアの外交・安全保障上の意思決定を支援する情報収集活動として位置付けられる。",
+        "business": "クラウド利用企業では、境界防御よりもID統制とログ保持が重要になる。",
+        "research_direction": "SVR関連のクラウドTTP、MFA回避、OAuth悪用、サービスアカウント永続化を追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "日本の政府、研究、防衛、シンクタンクにとって、クラウドID基盤の侵害は政策・外交情報漏洩に直結する。",
+        "delta_from_previous": "5月19日の新規事実はないが、APT29のクラウド・ID志向は継続的な防御優先事項。"
+      },
+      "related_campaigns": [
+        "Russian SVR cyber operations",
+        "Cloud identity intrusion campaigns"
+      ],
+      "tags": [
+        "APT29",
+        "SVR",
+        "cloud",
+        "identity",
+        "espionage"
+      ],
+      "sources": [
+        {
+          "title": "APT29",
+          "url": "https://attack.mitre.org/groups/G0016/",
+          "publisher": "MITRE ATT&CK",
+          "published_at": "N/A"
+        },
+        {
+          "title": "SVR cyber actors adapt tactics for initial cloud access",
+          "url": "https://www.ncsc.gov.uk/news/svr-cyber-actors-adapt-tactics-for-initial-cloud-access",
+          "publisher": "NCSC",
+          "published_at": "2024-02-26"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / Russian SVR-linked actor",
+        "infrastructure": [
+          "Cloud accounts",
+          "Identity providers",
+          "OAuth applications"
+        ],
+        "capability": [
+          "Cloud initial access",
+          "Credential abuse",
+          "Stealthy persistence"
+        ],
+        "victim": [
+          "Government",
+          "Diplomatic organizations",
+          "Research institutes",
+          "Think tanks"
+        ]
+      }
+    }
+  ]
+}

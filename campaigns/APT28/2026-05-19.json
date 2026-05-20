@@ -1,0 +1,119 @@
+{
+  "date": "2026-05-19",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28について、2026年5月19日JSTに新規の高確度公表は確認されない。ただし、4月にドイツ当局等が警告したTP-Link等SOHOルータ悪用による軍事・政府・重要インフラ監視リスクは継続している。",
+  "change_summary": [
+    "5月19日時点で新規の主要公表は確認されない",
+    "4月公表のSOHOルータ悪用キャンペーンを継続監視",
+    "日本でも境界機器・SOHO機器を用いた秘匿インフラ化リスクを重視"
+  ],
+  "operational_relevance": "政府、重要インフラ、防衛関連企業では、SOHOルータや境界機器を経由した認証情報窃取・監視活動への警戒が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "TP-Link等SOHOルータのファームウェア更新と不要公開サービス停止を確認する",
+    "VPN、メール、ID基盤への不審ログインを確認する",
+    "SOHO機器由来の通信をAPT28関連TTPとして監視する"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "STRONTIUM",
+      "Sednit"
+    ],
+    "cluster": "Russia-linked military intelligence cyber operations",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-19_apt28_soho_router_monitoring",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28 SOHO router exploitation monitoring",
+      "category": "国家系サイバー作戦",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Global"
+        ],
+        "industries": [
+          "Government",
+          "Military",
+          "Critical infrastructure"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Defense-related organizations",
+          "Critical infrastructure operators"
+        ]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-05-19",
+      "activity_summary": "APT28によるSOHOルータ悪用型の監視・侵入活動について継続監視。",
+      "activity_details": "ドイツ当局等は2026年4月、APT28がTP-Link等のルータ脆弱性を悪用し、軍事・政府・重要インフラを監視したと警告した。5月19日時点で新規キャンペーン公表は確認されないが、同TTPの日本関連組織への波及を警戒する必要がある。",
+      "ttp": [
+        "T1190 Exploit Public-Facing Application",
+        "T1090 Proxy",
+        "T1595 Active Scanning",
+        "T1078 Valid Accounts"
+      ],
+      "malware_and_tools": [],
+      "infrastructure": [
+        "Compromised SOHO routers",
+        "TP-Link routers"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT28は境界機器やSOHO機器を悪用し、帰属困難性を高めながら情報収集を行う傾向がある。",
+        "geopolitical": "ロシア・ウクライナ戦争を背景に、NATO・欧州・支援国の軍事関連情報収集が継続している可能性が高い。",
+        "business": "防衛産業、通信事業者、重要インフラ事業者では、家庭用・小規模拠点機器もリスク面として管理する必要がある。",
+        "research_direction": "APT28のSOHOルータ悪用、DNS・VPN・認証基盤への攻撃、欧州当局の追加警告を継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT28は軍事・政府・重要インフラを対象とするロシア系主要アクターであり、日本の防衛・政府・支援関連組織にも示唆がある。",
+        "delta_from_previous": "5月19日の新規事実は限定的だが、4月のSOHOルータ悪用警告を踏まえ、境界機器監視の優先度は維持。"
+      },
+      "related_campaigns": [
+        "Russia-Ukraine cyber operations",
+        "SOHO router compromise campaigns"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "SOHO-router",
+        "GRU",
+        "critical-infrastructure"
+      ],
+      "sources": [
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU-linked actor",
+        "infrastructure": [
+          "Compromised SOHO routers",
+          "Router-based proxy infrastructure"
+        ],
+        "capability": [
+          "Exploitation of exposed routers",
+          "Covert proxying",
+          "Credential and intelligence collection"
+        ],
+        "victim": [
+          "Government",
+          "Military",
+          "Critical infrastructure"
+        ]
+      }
+    }
+  ]
+}
