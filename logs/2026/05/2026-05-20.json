@@ -1,0 +1,905 @@
+{
+  "date": "2026-05-20",
+  "timezone": "JST",
+  "title": "2026/05/20_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-20_github_internal_repos_teampcp",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "GitHub Internal Repository Exfiltration",
+        "aliases": [
+          "TeamPCP GitHub incident"
+        ],
+        "cluster": "Software Supply Chain / Developer Environment Compromise",
+        "suspected_actor": "TeamPCP",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP",
+        "infrastructure": [
+          "malicious VS Code extension",
+          "developer workstation"
+        ],
+        "capability": [
+          "developer endpoint compromise",
+          "repository exfiltration",
+          "credential and secret exposure risk"
+        ],
+        "victim": [
+          "GitHub",
+          "internal repositories"
+        ]
+      },
+      "name": "GitHub内部リポジトリ侵害／TeamPCP関連疑い",
+      "category": "サプライチェーン／開発環境侵害",
+      "industry": [
+        "IT",
+        "ソフトウェア開発基盤"
+      ],
+      "region": [
+        "米国",
+        "グローバル"
+      ],
+      "first_seen": "2026-05-20",
+      "last_seen": "2026-05-20",
+      "summary": "GitHub従業員端末が悪性VS Code拡張機能で侵害され、内部リポジトリ約3,800件の流出と整合する調査結果が示された。顧客リポジトリへの影響は現時点で確認されていない。",
+      "executive_summary": "開発者端末と拡張機能がサプライチェーン攻撃の入口として再確認された事案。日本企業でもGitHub Secrets、CI/CD、開発端末EDR、VS Code拡張機能管理の優先度が上がる。",
+      "change_summary": [
+        "新規公表事案",
+        "OSSパッケージ汚染だけでなく開発者端末侵害から内部コード流出に波及",
+        "顧客リポジトリへの影響は現時点で確認されていない"
+      ],
+      "operational_relevance": "開発端末、拡張機能、リポジトリ権限、シークレット管理の監査が必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "VS Code拡張機能の許可リスト化と棚卸し",
+        "GitHub SecretsとCI/CDトークンのローテーション確認",
+        "開発端末のEDR検知とログ監査",
+        "内部リポジトリのアクセス権限見直し"
+      ],
+      "details": "悪性VS Code拡張機能を通じて従業員端末が侵害され、内部リポジトリが外部流出した可能性がある。現時点では顧客リポジトリへの直接影響は確認されていない。",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "suspected threat actor",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1195",
+        "T1552",
+        "T1204",
+        "T1059"
+      ],
+      "malware": [
+        "unknown"
+      ],
+      "infrastructure": [
+        "malicious VS Code extension"
+      ],
+      "targeting": {
+        "sectors": [
+          "software development",
+          "cloud development platform"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "technology company",
+          "developer platform"
+        ]
+      },
+      "strategic_view": {
+        "general": "開発環境そのものが高価値標的となっている。",
+        "geopolitical": "国家系・犯罪系を問わず、開発基盤侵害は広範なサプライチェーン影響を持つ。",
+        "business": "GitHub EnterpriseやCI/CD環境を利用する企業では、開発者端末の統制が事業継続リスクに直結する。",
+        "research_direction": "TeamPCPの過去活動、悪性拡張機能の配布経路、流出リポジトリの悪用有無を継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "開発者端末侵害から内部コード流出へ至る経路は、日本企業のソフトウェアサプライチェーン防衛に直結する。",
+        "delta_from_previous": "従来のパッケージ汚染型に加え、開発者端末とIDE拡張機能が主要な侵入経路として浮上した。"
+      },
+      "related_campaigns": [
+        "Software Supply Chain Compromise",
+        "Developer Environment Compromise"
+      ],
+      "related_reports": [
+        "関連既報：OSSパッケージ汚染型サプライチェーン攻撃"
+      ],
+      "tags": [
+        "GitHub",
+        "TeamPCP",
+        "VS Code",
+        "supply-chain",
+        "developer-security"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Breached — Employee Device Hack Led to Exfiltration of 3,800+ Internal Repos",
+          "url": "https://thehackernews.com/2026/05/github-investigating-teampcp-claimed.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_microsoft_fox_tempest_malware_signing",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Fox Tempest Malware-Signing-as-a-Service",
+        "aliases": [
+          "signspace.cloud disruption"
+        ],
+        "cluster": "Cybercrime Infrastructure",
+        "suspected_actor": "Fox Tempest",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "Fox Tempest",
+        "infrastructure": [
+          "signspace.cloud",
+          "cloud virtual machines",
+          "abused Microsoft Artifact Signing workflow"
+        ],
+        "capability": [
+          "malware signing",
+          "certificate abuse",
+          "malware distribution support"
+        ],
+        "victim": [
+          "healthcare",
+          "education",
+          "government",
+          "financial institutions",
+          "enterprise users"
+        ]
+      },
+      "name": "Microsoft、Fox TempestのMalware-Signing-as-a-Serviceを摘発",
+      "category": "サイバー犯罪／ランサムウェア支援基盤",
+      "industry": [
+        "IT",
+        "医療",
+        "教育",
+        "政府",
+        "金融"
+      ],
+      "region": [
+        "米国",
+        "欧州",
+        "グローバル"
+      ],
+      "first_seen": "2026-05-19",
+      "last_seen": "2026-05-20",
+      "summary": "MicrosoftはFox TempestがMicrosoft Artifact Signingを悪用し、マルウェアを正規署名済みソフトに見せかけるサービスを提供していたとして、関連ドメインやVM、証明書に対する措置を行った。",
+      "executive_summary": "犯罪エコシステムが侵入・配布だけでなく、信頼の根幹であるコード署名をサービス化している。署名済みバイナリを無条件に信頼しない検知設計が必要。",
+      "change_summary": [
+        "MicrosoftがFox Tempestの署名悪用基盤を法的・技術的に摘発",
+        "signspace.cloudが差し押さえ対象となった",
+        "署名済みマルウェア対策の重要性が上昇"
+      ],
+      "operational_relevance": "署名済み実行ファイルであっても、振る舞い検知・評判情報・発行元検証を併用する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "署名済みバイナリの実行ログを監査",
+        "不審な証明書・発行元の検知ルールを追加",
+        "Lumma、Vidar、Oyster等の関連IOC監視",
+        "正規ソフト偽装広告や偽Teams配布への注意喚起"
+      ],
+      "details": "Fox Tempestはコード署名を悪用し、犯罪アクターに対してマルウェアの信頼性を高める支援を行っていた。Microsoft、FBI、Europol、Resecurityが関与したとされる。",
+      "actors": [
+        {
+          "name": "Fox Tempest",
+          "role": "malware signing service operator",
+          "country": "unknown"
+        },
+        {
+          "name": "Vanilla Tempest",
+          "role": "associated ransomware ecosystem actor",
+          "country": "unknown"
+        },
+        {
+          "name": "Rhysida",
+          "role": "associated ransomware group",
+          "country": "unknown"
+        },
+        {
+          "name": "Qilin",
+          "role": "associated ransomware group",
+          "country": "unknown"
+        },
+        {
+          "name": "Akira",
+          "role": "associated ransomware group",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1553.002",
+        "T1588",
+        "T1189",
+        "T1204"
+      ],
+      "malware": [
+        "Oyster",
+        "Lumma",
+        "Vidar"
+      ],
+      "infrastructure": [
+        "signspace.cloud"
+      ],
+      "targeting": {
+        "sectors": [
+          "healthcare",
+          "education",
+          "government",
+          "finance",
+          "enterprise"
+        ],
+        "countries": [
+          "United States",
+          "Europe",
+          "Global"
+        ],
+        "organization_types": [
+          "enterprise",
+          "public sector",
+          "critical service providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "サイバー犯罪サービスがコード署名という信頼基盤を商品化している。",
+        "geopolitical": "国家系アクターも同様の信頼悪用手法を利用し得るため、犯罪対策にとどまらない。",
+        "business": "EDRやSOCでは、署名の有無よりも実行時挙動と配布経路を重視する設計が必要。",
+        "research_direction": "Fox TempestとRaaSグループ、情報窃取マルウェア配布基盤との関係を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "署名済みマルウェアは防御側の信頼モデルを逆用し、検知回避とユーザー信頼獲得に寄与する。",
+        "delta_from_previous": "IABやRaaSに加え、署名悪用サービスが犯罪エコシステムの中核機能として確認された。"
+      },
+      "related_campaigns": [
+        "Ransomware Ecosystem",
+        "Malware Distribution Infrastructure"
+      ],
+      "related_reports": [
+        "関連既報：情報窃取マルウェア配布基盤",
+        "関連既報：RaaSエコシステム"
+      ],
+      "tags": [
+        "Microsoft",
+        "Fox Tempest",
+        "code-signing",
+        "malware",
+        "ransomware"
+      ],
+      "sources": [
+        {
+          "title": "Disrupting Fox Tempest: A cybercrime service",
+          "url": "https://blogs.microsoft.com/on-the-issues/2026/05/19/disrupting-fox-tempest-a-cybercrime-service/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_yellowkey_bitlocker_bypass",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "YellowKey BitLocker Bypass",
+        "aliases": [
+          "CVE-2026-45585"
+        ],
+        "cluster": "Windows Security Feature Bypass",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": [
+          "physical access",
+          "USB media",
+          "Windows Recovery Environment"
+        ],
+        "capability": [
+          "BitLocker bypass",
+          "local security feature bypass",
+          "encrypted drive access"
+        ],
+        "victim": [
+          "Windows endpoints",
+          "government laptops",
+          "enterprise laptops"
+        ]
+      },
+      "name": "YellowKey／BitLockerバイパス CVE-2026-45585",
+      "category": "ゼロデイ脆弱性／暗号化バイパス",
+      "industry": [
+        "政府",
+        "企業端末管理",
+        "重要インフラ"
+      ],
+      "region": [
+        "グローバル"
+      ],
+      "first_seen": "2026-05-13",
+      "last_seen": "2026-05-20",
+      "summary": "Windows BitLocker保護をUSB、EFI、WinRE操作等を通じてバイパスできる脆弱性について、Microsoftの緩和策が報じられた。物理アクセスを要するが、高機密端末では重要。",
+      "executive_summary": "端末暗号化の前提を崩し得る脆弱性。政府・防衛・重要インフラではTPM-only運用からTPM+PIN等への再評価が必要。",
+      "change_summary": [
+        "Microsoftの緩和策が確認された",
+        "物理アクセス前提ながら端末盗難・押収・内部者リスクで重要",
+        "PoC公開済みのため悪用リスクを継続監視"
+      ],
+      "operational_relevance": "高機密端末、出張端末、現場端末のBitLocker構成とWinRE更新状況を確認する必要がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "WinREイメージの更新状況確認",
+        "TPM-only構成からTPM+PINへの移行検討",
+        "端末盗難時のIR手順見直し",
+        "物理アクセス対策とBIOS/UEFI設定の確認"
+      ],
+      "details": "CVE-2026-45585は物理アクセスを前提にBitLocker保護を回避し得る。大規模リモート悪用型ではないが、高機密端末では影響が大きい。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "potential exploiter",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1006",
+        "T1556",
+        "T1200"
+      ],
+      "malware": [
+        "none reported"
+      ],
+      "infrastructure": [
+        "USB media",
+        "Windows Recovery Environment"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "defense",
+          "critical infrastructure",
+          "enterprise"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "high-security endpoint operators"
+        ]
+      },
+      "strategic_view": {
+        "general": "端末暗号化は盗難・押収時の最後の防衛線であり、その運用前提が問われる。",
+        "geopolitical": "外交・防衛関係者の出張端末や押収リスクと結びつく。",
+        "business": "企業の端末管理基準、MDM、BitLocker構成標準の見直しが必要。",
+        "research_direction": "PoCの実用性、TPM+PINの有効性、WinRE更新の実装状況を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "物理アクセス前提でも、政府・防衛・重要インフラ端末では情報保全上の影響が大きい。",
+        "delta_from_previous": "脆弱性情報から、具体的な緩和策と運用見直しフェーズへ移行した。"
+      },
+      "related_campaigns": [
+        "Windows Security Feature Bypass"
+      ],
+      "related_reports": [
+        "関連既報：BitLocker関連脆弱性"
+      ],
+      "tags": [
+        "BitLocker",
+        "CVE-2026-45585",
+        "YellowKey",
+        "Windows",
+        "endpoint-security"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Releases Mitigation for YellowKey BitLocker Bypass CVE-2026-45585",
+          "url": "https://thehackernews.com/2026/05/microsoft-releases-mitigation-for.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_cisa_kev_seven_vulnerabilities",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "CISA KEV May 20 Additions",
+        "aliases": [
+          "Known Exploited Vulnerabilities Catalog update"
+        ],
+        "cluster": "Exploited Vulnerability Tracking",
+        "suspected_actor": "multiple or unknown",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "multiple or unknown",
+        "infrastructure": [
+          "internet-facing systems",
+          "vulnerable enterprise products"
+        ],
+        "capability": [
+          "exploitation of known vulnerabilities",
+          "initial access",
+          "privilege escalation or remote code execution depending on CVE"
+        ],
+        "victim": [
+          "US federal agencies",
+          "global enterprises"
+        ]
+      },
+      "name": "CISA、KEVに7件追加",
+      "category": "脆弱性悪用／実悪用警戒",
+      "industry": [
+        "政府",
+        "全業種"
+      ],
+      "region": [
+        "米国",
+        "グローバル"
+      ],
+      "first_seen": "2026-05-20",
+      "last_seen": "2026-05-20",
+      "summary": "CISAはKnown Exploited Vulnerabilities Catalogに7件を追加した。実悪用が確認された脆弱性として、米連邦機関には期限内対応が求められる。",
+      "executive_summary": "KEV追加は、単なる脆弱性情報ではなく実悪用ベースの優先対応シグナル。日本組織もCVSS順ではなく、KEV・露出度・業務影響を組み合わせて優先順位を付けるべき。",
+      "change_summary": [
+        "2026年5月20日に7件がKEV追加",
+        "Microsoft関連を含む複数脆弱性の実悪用が示唆",
+        "5月中旬以降の緊急パッチ対応が継続"
+      ],
+      "operational_relevance": "KEV追加項目を自組織の資産台帳、ASM、脆弱性管理と突合する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "KEV追加CVEの資産影響確認",
+        "インターネット露出資産を優先して修正",
+        "EDR/SIEMで悪用痕跡を確認",
+        "KEV連動のパッチSLAを導入"
+      ],
+      "details": "CISA KEVは実悪用確認済み脆弱性の優先対応リストであり、米連邦機関以外の組織にとっても実務上の優先順位付け指標となる。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "exploiter of known vulnerabilities",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1068"
+      ],
+      "malware": [
+        "unknown"
+      ],
+      "infrastructure": [
+        "vulnerable internet-facing systems"
+      ],
+      "targeting": {
+        "sectors": [
+          "government",
+          "enterprise",
+          "critical infrastructure"
+        ],
+        "countries": [
+          "United States",
+          "Global"
+        ],
+        "organization_types": [
+          "public sector",
+          "private sector"
+        ]
+      },
+      "strategic_view": {
+        "general": "実悪用ベースの脆弱性管理が標準化している。",
+        "geopolitical": "米国のKEV運用は同盟国の脆弱性管理実務にも影響を与える。",
+        "business": "ASM、脆弱性管理、EDR、パッチ管理を統合した運用が求められる。",
+        "research_direction": "各CVEの悪用アクター、標的業種、悪用コード公開状況を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "KEV追加は実悪用が確認された脆弱性であり、優先対応の根拠となる。",
+        "delta_from_previous": "5月20日時点で7件が新規追加され、パッチ優先順位が更新された。"
+      },
+      "related_campaigns": [
+        "Known Exploited Vulnerabilities",
+        "Initial Access via Public-Facing Applications"
+      ],
+      "related_reports": [
+        "関連既報：CISA KEV更新"
+      ],
+      "tags": [
+        "CISA",
+        "KEV",
+        "vulnerability",
+        "patch-management"
+      ],
+      "sources": [
+        {
+          "title": "CISA Adds Seven Known Exploited Vulnerabilities to Catalog",
+          "url": "https://www.cisa.gov/news-events/alerts/2026/05/20/cisa-adds-seven-known-exploited-vulnerabilities-catalog",
+          "publisher": "CISA",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_universal_music_store_data_breach",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Universal Music Store Data Breach",
+        "aliases": [
+          "UNIVERSAL MUSIC STORE breach",
+          "THE BEATLES STORE breach"
+        ],
+        "cluster": "Japanese EC Data Breach",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": [
+          "e-commerce platform",
+          "customer database"
+        ],
+        "capability": [
+          "unauthorized access",
+          "data exfiltration"
+        ],
+        "victim": [
+          "Universal Music Store customers",
+          "THE BEATLES STORE customers"
+        ]
+      },
+      "name": "ユニバーサルミュージックECサイト顧客情報流出",
+      "category": "不正アクセス／個人情報漏えい",
+      "industry": [
+        "メディア",
+        "EC",
+        "小売"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2025-10-25",
+      "last_seen": "2026-05-20",
+      "summary": "UNIVERSAL MUSIC STORE、THE BEATLES STORE等で、約310万5,585件の個人情報流出が判明した。氏名、住所、電話番号、メール、購入履歴等が含まれる。",
+      "executive_summary": "日本のB2C ECにおける大規模個人情報流出事案。EC基盤、委託先、リニューアル前後のデータ管理リスクを示す。",
+      "change_summary": [
+        "2025年10月の調査開始から、2026年5月20日に大規模件数が報道された",
+        "約310万件超の個人情報流出が確認された",
+        "SNS等での流出示唆から長期調査を経て被害規模が明確化"
+      ],
+      "operational_relevance": "ECサイトの脆弱性診断、WAF、ログ保全、委託先管理、個人情報棚卸しが必要。",
+      "urgency": "medium",
+      "recommended_action": [
+        "EC基盤の脆弱性診断とログ確認",
+        "委託先・運用保守事業者の権限管理確認",
+        "顧客向け注意喚起とフィッシング対策",
+        "個人情報保護委員会への報告手順確認"
+      ],
+      "details": "大規模な顧客情報が流出した可能性があり、購入履歴等を含むため、二次被害として標的型フィッシングや詐欺への悪用が懸念される。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "intruder",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1530",
+        "T1041"
+      ],
+      "malware": [
+        "unknown"
+      ],
+      "infrastructure": [
+        "e-commerce system",
+        "customer database"
+      ],
+      "targeting": {
+        "sectors": [
+          "media",
+          "retail",
+          "e-commerce"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "organization_types": [
+          "consumer-facing company"
+        ]
+      },
+      "strategic_view": {
+        "general": "日本国内ECにおける個人情報保護と委託先管理の課題を示す。",
+        "geopolitical": "国家安全保障上の直接影響は限定的だが、国内消費者データの大量流出は詐欺・フィッシング基盤になり得る。",
+        "business": "ブランド毀損、顧客対応、規制対応コストが大きい。",
+        "research_direction": "侵入経路、委託先関与、流出データの地下市場流通を追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "大規模B2C個人情報流出であり、日本国内のEC防御・委託先管理に示唆がある。",
+        "delta_from_previous": "流出示唆段階から、件数と対象情報が具体化した。"
+      },
+      "related_campaigns": [
+        "Japanese EC Data Breaches"
+      ],
+      "related_reports": [
+        "関連既報：国内ECサイト個人情報流出事案"
+      ],
+      "tags": [
+        "Japan",
+        "EC",
+        "data-breach",
+        "personal-information"
+      ],
+      "sources": [
+        {
+          "title": "複数ECサイトから顧客情報約310万件が流出",
+          "url": "https://www.security-next.com/184576",
+          "publisher": "Security NEXT",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_nostrum_ransomware_vpn",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Nostrum VPN Ransomware Incident",
+        "aliases": [
+          "ノストラム ランサムウェア被害"
+        ],
+        "cluster": "VPN Initial Access Ransomware",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": [
+          "VPN",
+          "internal server"
+        ],
+        "capability": [
+          "VPN compromise",
+          "ransomware encryption"
+        ],
+        "victim": [
+          "Nostrum",
+          "learning support service users"
+        ]
+      },
+      "name": "ノストラム、VPN経由侵害によるランサムウェア被害",
+      "category": "ランサムウェア",
+      "industry": [
+        "システム開発",
+        "教育サービス"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2026-04-19",
+      "last_seen": "2026-05-20",
+      "summary": "ノストラムがVPN経由で侵害され、サーバ内データが暗号化された。学習支援サービスは一時停止した。",
+      "executive_summary": "中小SaaS・教育系サービスにおけるVPN認証、MFA、ログ監視の重要性を示すランサムウェア事案。",
+      "change_summary": [
+        "2026年4月19日に被害発生",
+        "2026年5月20日に報道で詳細が確認された",
+        "VPN経由侵入とランサムウェア暗号化が確認された"
+      ],
+      "operational_relevance": "VPN認証、MFA、パッチ、ログ監視、バックアップ復元手順を確認する必要がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "VPNアカウントの棚卸しとMFA強制",
+        "VPN機器の脆弱性確認とパッチ適用",
+        "バックアップのオフライン保全と復元訓練",
+        "異常ログインの検知ルール整備"
+      ],
+      "details": "VPN経由で内部サーバに侵入され、ランサムウェアによりデータが暗号化された。警察および個人情報保護委員会への報告が行われた。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "ransomware operator",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1133",
+        "T1486",
+        "T1078"
+      ],
+      "malware": [
+        "unknown ransomware"
+      ],
+      "infrastructure": [
+        "VPN",
+        "internal server"
+      ],
+      "targeting": {
+        "sectors": [
+          "education",
+          "software services"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "organization_types": [
+          "SME",
+          "SaaS provider"
+        ]
+      },
+      "strategic_view": {
+        "general": "VPNは依然としてランサムウェア初期侵入の主要経路である。",
+        "geopolitical": "国家安全保障上の直接影響は限定的だが、教育サービス停止は社会的影響を持つ。",
+        "business": "中小サービス事業者にとって停止・再構築コストが大きい。",
+        "research_direction": "侵入に使われたVPN製品、脆弱性有無、認証情報漏えい経路を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "VPN経由ランサムウェアは日本国内組織に継続的なリスクであり、基本統制の不備が被害に直結する。",
+        "delta_from_previous": "新規国内事案として、VPN侵害と暗号化被害が確認された。"
+      },
+      "related_campaigns": [
+        "VPN Initial Access Ransomware"
+      ],
+      "related_reports": [
+        "関連既報：VPN経由ランサムウェア事案"
+      ],
+      "tags": [
+        "Japan",
+        "ransomware",
+        "VPN",
+        "education"
+      ],
+      "sources": [
+        {
+          "title": "ランサム被害が発生、一部サービスを停止",
+          "url": "https://www.security-next.com/184422",
+          "publisher": "Security NEXT",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-20_jms_data_breach",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "James Auto Retail Data Breach",
+        "aliases": [
+          "ジェームス サイバー攻撃"
+        ],
+        "cluster": "Japanese Retail Data Breach",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": [
+          "retail membership server",
+          "customer database"
+        ],
+        "capability": [
+          "unauthorized server access",
+          "potential data exfiltration"
+        ],
+        "victim": [
+          "James customers",
+          "Toyota-affiliated retail service"
+        ]
+      },
+      "name": "トヨタ系カー用品店「ジェームス」会員情報流出可能性",
+      "category": "不正アクセス／個人情報漏えい",
+      "industry": [
+        "自動車",
+        "小売"
+      ],
+      "region": [
+        "日本"
+      ],
+      "first_seen": "2026-04-25",
+      "last_seen": "2026-05-20",
+      "summary": "トヨタ系カー用品店ジェームスのサーバにサイバー攻撃があり、会員氏名、住所、電話、生年月日、メール、会員番号等の流出可能性が報じられた。",
+      "executive_summary": "自動車アフターマーケットにおける会員DB侵害リスクを示す国内事案。個人情報に加え、車両・購買履歴と結びつくデータの悪用可能性に注意が必要。",
+      "change_summary": [
+        "2026年4月25日から26日に攻撃を検知",
+        "2026年5月20日に報道で流出可能性が確認された",
+        "ネットワーク遮断と調査が実施された"
+      ],
+      "operational_relevance": "会員DB、店舗システム、サーバ公開面、委託先アクセスを確認する必要がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "会員DBへのアクセスログ確認",
+        "外部公開サーバの脆弱性診断",
+        "顧客向けフィッシング注意喚起",
+        "委託先・店舗システム連携の権限確認"
+      ],
+      "details": "サーバへのサイバー攻撃を受け、会員情報の流出可能性がある。ネットワーク遮断、調査、顧客特定、注意喚起が行われた。",
+      "actors": [
+        {
+          "name": "unknown",
+          "role": "intruder",
+          "country": "unknown"
+        }
+      ],
+      "ttp": [
+        "T1190",
+        "T1530",
+        "T1041"
+      ],
+      "malware": [
+        "unknown"
+      ],
+      "infrastructure": [
+        "membership server",
+        "customer database"
+      ],
+      "targeting": {
+        "sectors": [
+          "automotive retail",
+          "retail"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "organization_types": [
+          "retail chain",
+          "customer membership service"
+        ]
+      },
+      "strategic_view": {
+        "general": "自動車関連小売も会員情報を保有する高価値標的である。",
+        "geopolitical": "国家安全保障上の直接影響は限定的だが、サプライチェーンやブランド企業への信頼影響がある。",
+        "business": "顧客対応、ブランド毀損、フィッシング二次被害が懸念される。",
+        "research_direction": "侵入経路、漏えい有無、車両関連データや購買履歴の含有有無を確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "日本国内の小売・自動車関連サービスにおける会員DB防御の重要性を示す。",
+        "delta_from_previous": "新規国内小売系侵害として、会員情報流出可能性が報じられた。"
+      },
+      "related_campaigns": [
+        "Japanese Retail Data Breaches"
+      ],
+      "related_reports": [
+        "関連既報：国内小売会員情報流出事案"
+      ],
+      "tags": [
+        "Japan",
+        "Toyota-affiliated",
+        "retail",
+        "data-breach",
+        "personal-information"
+      ],
+      "sources": [
+        {
+          "title": "トヨタ系カー用品店にサイバー攻撃",
+          "url": "https://www.security-next.com/184420",
+          "publisher": "Security NEXT",
+          "published_at": "2026-05-20"
+        }
+      ]
+    }
+  ]
+}

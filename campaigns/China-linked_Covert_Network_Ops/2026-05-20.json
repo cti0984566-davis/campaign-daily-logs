@@ -1,0 +1,138 @@
+{
+  "date": "2026-05-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "China-linked_Covert_Network_Opsについて、2026年5月20日時点で新規大型公表は確認できないが、Volt Typhoon、Flax Typhoon、Raptor Train系に代表される侵害済みSOHO・IoT機器を用いた秘匿ネットワーク作戦は、日本の重要インフラ・通信・政府機関に対する長期潜伏リスクとして継続監視すべきである。",
+  "change_summary": [
+    "5月20日時点で新規大型公表なし",
+    "TA416とは別系統の侵害済みデバイス基盤として継続監視",
+    "SOHO・IoT・エッジ機器の秘匿インフラ化を重視"
+  ],
+  "operational_relevance": "国内外拠点のSOHOルータ、VPN、ファイアウォール、NAS、IoT機器をASM・ログ監視・ファームウェア管理の対象に含める。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHO・IoT・エッジ機器の資産棚卸し",
+    "管理画面の外部公開確認",
+    "既知悪用脆弱性と初期パスワードの確認",
+    "通信先異常とプロキシ利用痕跡の監視"
+  ],
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": [
+      "Volt Typhoon-related tradecraft",
+      "Flax Typhoon-related tradecraft",
+      "Raptor Train-related botnet activity"
+    ],
+    "cluster": "China-linked covert network and compromised device operations",
+    "suspected_actor": "China-linked actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-20_china_linked_covert_network_ops_monitor",
+      "type": "assessment",
+      "status": "継続",
+      "name": "中国関連アクターによる秘匿ネットワーク・侵害済みデバイス基盤の継続監視",
+      "category": "国家系サイバー作戦／秘匿インフラ構築",
+      "targeting": {
+        "regions": [
+          "米国",
+          "台湾",
+          "日本",
+          "インド太平洋",
+          "グローバル"
+        ],
+        "industries": [
+          "重要インフラ",
+          "通信",
+          "政府",
+          "防衛",
+          "エネルギー"
+        ],
+        "organization_types": [
+          "重要インフラ事業者",
+          "政府機関",
+          "通信事業者",
+          "海外拠点保有企業"
+        ]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-05-20",
+      "activity_summary": "中国関連アクターは、SOHOルータ、IoT、エッジ機器等の侵害済みデバイスを秘匿ネットワーク基盤として利用する傾向がある。",
+      "activity_details": "5月20日時点で新規大型公表は確認できないが、Volt Typhoon、Flax Typhoon、Raptor Train系の過去事案から、日本の重要インフラ・通信・政府関連組織にとって継続的な監視対象である。",
+      "ttp": [
+        "T1190",
+        "T1090",
+        "T1090.002",
+        "T1584",
+        "T1584.008",
+        "T1078"
+      ],
+      "malware_and_tools": [
+        "unknown for this date"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "compromised IoT devices",
+        "edge devices",
+        "proxy networks"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "侵害済みデバイス基盤は、attributionを困難にし、長期潜伏や有事前配置の可能性を高める。",
+        "geopolitical": "台湾有事、米中対立、インド太平洋の軍事・外交緊張と結びつく潜在的リスクがある。",
+        "business": "重要インフラ、通信、製造、物流の周辺機器管理不備が、戦略的リスクに直結し得る。",
+        "research_direction": "TA416の外交諜報とは分離し、SOHO・IoT・エッジ機器の侵害済み基盤を独立クラスタとして継続収集する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本が今後対処すべき中国関連脅威の中でも、秘匿ネットワーク作戦は重要インフラ防護と有事レジリエンスに直結する。",
+        "delta_from_previous": "5月20日時点で新規材料なし。分類枠としてはTA416とは別系統の監視対象として維持する。"
+      },
+      "related_campaigns": [
+        "Volt Typhoon",
+        "Flax Typhoon",
+        "Raptor Train",
+        "China-linked compromised device infrastructure"
+      ],
+      "tags": [
+        "China-linked",
+        "covert-network",
+        "SOHO",
+        "IoT",
+        "critical-infrastructure",
+        "Japan"
+      ],
+      "sources": [
+        {
+          "title": "People's Republic of China State-Sponsored Cyber Actor Living off the Land to Evade Detection",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-144a",
+          "publisher": "CISA",
+          "published_at": "2023-05-24"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked actors",
+        "infrastructure": [
+          "compromised SOHO routers",
+          "compromised IoT devices",
+          "proxy networks",
+          "edge devices"
+        ],
+        "capability": [
+          "covert routing",
+          "proxy infrastructure",
+          "living-off-the-land",
+          "pre-positioning"
+        ],
+        "victim": [
+          "critical infrastructure",
+          "government",
+          "communications",
+          "defense-related entities"
+        ]
+      }
+    }
+  ]
+}

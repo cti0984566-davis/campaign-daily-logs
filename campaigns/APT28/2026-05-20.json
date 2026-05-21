@@ -1,0 +1,129 @@
+{
+  "date": "2026-05-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28について、2026年5月20日時点で新規の大型公表は確認できないが、4月に公表されたSOHOルータ悪用・DNSハイジャック型の認証情報窃取キャンペーンは継続監視対象である。",
+  "change_summary": [
+    "5月20日時点で新規大型公表なし",
+    "4月公表のSOHOルータ悪用キャンペーンを継続監視",
+    "DNSハイジャックとAitMによる認証情報・OAuthトークン窃取リスクが継続"
+  ],
+  "operational_relevance": "SOHOルータ、MikroTik、TP-Link等の周辺機器を含む外部接続資産の棚卸し、DNS設定確認、MFA、OAuthトークン監視が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "SOHOルータと拠点ルータのファームウェア更新",
+    "DNS設定改ざんの確認",
+    "OAuthトークン異常利用の監視",
+    "海外拠点・小規模拠点のネットワーク機器をASM対象に含める"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Forest Blizzard",
+      "UAC-0001"
+    ],
+    "cluster": "Russia GRU-linked cyber espionage",
+    "suspected_actor": "GRU",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-20_apt28_soho_router_dns_hijacking_monitor",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "APT28 SOHOルータ悪用・DNSハイジャック活動の継続監視",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": [
+          "欧州",
+          "ウクライナ",
+          "グローバル"
+        ],
+        "industries": [
+          "政府",
+          "軍事",
+          "重要インフラ",
+          "通信"
+        ],
+        "organization_types": [
+          "政府機関",
+          "軍事関連組織",
+          "重要インフラ事業者",
+          "小規模拠点"
+        ]
+      },
+      "first_seen": "2025-08",
+      "last_seen": "2026-05-20",
+      "activity_summary": "APT28はSOHOルータを侵害し、DNS設定改ざんやAitMを通じて認証情報やOAuthトークンを窃取する活動が報告されている。",
+      "activity_details": "5月20日時点で新規の大型公表は確認できないが、4月に英独米関係機関等が警告したSOHOルータ悪用キャンペーンは、日本の海外拠点や重要インフラ関連組織にも示唆がある。",
+      "ttp": [
+        "T1595",
+        "T1190",
+        "T1557",
+        "T1557.002",
+        "T1550",
+        "T1078"
+      ],
+      "malware_and_tools": [
+        "unknown"
+      ],
+      "infrastructure": [
+        "compromised SOHO routers",
+        "MikroTik routers",
+        "TP-Link routers",
+        "malicious DNS infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "境界防御の外側にある小規模ネットワーク機器が、国家系諜報活動の足場として悪用されている。",
+        "geopolitical": "ロシアによる欧州・ウクライナ関連諜報の一環として、軍事・政府・重要インフラの認証情報収集が継続している可能性がある。",
+        "business": "海外拠点や子会社のルータ管理不備が、本社クラウドIDやメール基盤への侵入口となり得る。",
+        "research_direction": "APT28のルータ悪用インフラ、DNS改ざんパターン、標的国・標的業種の変化を継続監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "APT28は日本の同盟国・欧州・ウクライナ関連組織を継続的に標的化しており、SOHO機器経由の認証情報窃取は日本組織にも波及し得る。",
+        "delta_from_previous": "5月20日の新規材料は限定的だが、4月公表のルータ悪用活動は引き続き有効な脅威として評価する。"
+      },
+      "related_campaigns": [
+        "Russia-linked cyber espionage",
+        "SOHO router compromise"
+      ],
+      "tags": [
+        "APT28",
+        "Russia",
+        "SOHO-router",
+        "DNS-hijacking",
+        "OAuth"
+      ],
+      "sources": [
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT28 / GRU-linked actor",
+        "infrastructure": [
+          "compromised SOHO routers",
+          "malicious DNS infrastructure"
+        ],
+        "capability": [
+          "DNS hijacking",
+          "adversary-in-the-middle",
+          "credential theft",
+          "OAuth token theft"
+        ],
+        "victim": [
+          "government",
+          "military",
+          "critical infrastructure"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "date": "2026-05-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年5月20日時点で新規の高信頼な大型公表は確認できない。引き続き、クラウドID、Microsoft 365、メール、OAuth、パスワードスプレーを軸とする長期潜伏型の諜報リスクとして監視する。",
+  "change_summary": [
+    "5月20日時点で重要な新規公表なし",
+    "クラウド・ID基盤を中心とする継続リスクとして整理",
+    "日次ログ上はmonitor扱い"
+  ],
+  "operational_relevance": "Entra ID、M365、OAuthアプリ、サービスプリンシパル、レガシー認証、パスワードスプレー検知を継続確認する。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "MFAと条件付きアクセスの例外設定確認",
+    "OAuthアプリ同意の棚卸し",
+    "パスワードスプレー検知ルールの確認",
+    "特権アカウントとサービスプリンシパルの監査"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear",
+      "Midnight Blizzard",
+      "Nobelium"
+    ],
+    "cluster": "Russia SVR-linked cyber espionage",
+    "suspected_actor": "SVR",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-20_apt29_cloud_identity_monitor",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29クラウド・ID基盤侵害リスクの継続監視",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": [
+          "欧米",
+          "グローバル"
+        ],
+        "industries": [
+          "政府",
+          "外交",
+          "研究機関",
+          "IT"
+        ],
+        "organization_types": [
+          "政府機関",
+          "外交機関",
+          "研究機関",
+          "クラウド利用企業"
+        ]
+      },
+      "first_seen": "2020",
+      "last_seen": "2026-05-20",
+      "activity_summary": "APT29は長期にわたりクラウドID、メール、認証基盤を狙うロシア系諜報アクターとして監視対象である。",
+      "activity_details": "5月20日時点で本日付の新規大型公表は確認できないため、継続監視・評価維持とする。",
+      "ttp": [
+        "T1110.003",
+        "T1078",
+        "T1098",
+        "T1550",
+        "T1528",
+        "T1651"
+      ],
+      "malware_and_tools": [
+        "unknown for this date"
+      ],
+      "infrastructure": [
+        "cloud identity infrastructure",
+        "OAuth applications",
+        "email systems"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "クラウドIDは国家系諜報活動における主要な侵入口である。",
+        "geopolitical": "ロシアの外交・安全保障上の情報要求と整合する標的化が継続する可能性がある。",
+        "business": "M365やクラウドID基盤の設定不備は、企業・政府双方にとって重大な情報漏えいリスクとなる。",
+        "research_direction": "新規のAPT29関連インフラ、OAuth悪用、サービスプリンシパル悪用の公開情報を継続確認する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "本日新規材料は限定的だが、APT29のクラウドID狙いは日本の政府・研究・大企業にも関連する。",
+        "delta_from_previous": "評価更新なし。継続監視。"
+      },
+      "related_campaigns": [
+        "Russia-linked cloud espionage",
+        "Midnight Blizzard activity"
+      ],
+      "tags": [
+        "APT29",
+        "Russia",
+        "cloud",
+        "identity",
+        "M365"
+      ],
+      "sources": [
+        {
+          "title": "APT29",
+          "url": "https://attack.mitre.org/groups/G0016/",
+          "publisher": "MITRE ATT&CK",
+          "published_at": "accessed 2026-05-20"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "APT29 / SVR-linked actor",
+        "infrastructure": [
+          "cloud identity systems",
+          "OAuth applications",
+          "email platforms"
+        ],
+        "capability": [
+          "password spraying",
+          "cloud account abuse",
+          "OAuth token abuse",
+          "long-term persistence"
+        ],
+        "victim": [
+          "government",
+          "diplomatic organizations",
+          "research institutions",
+          "cloud-dependent enterprises"
+        ]
+      }
+    }
+  ]
+}

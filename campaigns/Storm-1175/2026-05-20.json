@@ -1,0 +1,131 @@
+{
+  "date": "2026-05-20",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175について、2026年5月20日時点で新規大型公表は確認できないが、Microsoftが4月に公表した、脆弱なWeb公開資産を高速悪用しMedusaランサムウェア展開に至る活動は引き続き高優先度で監視すべきである。",
+  "change_summary": [
+    "5月20日時点で新規大型公表なし",
+    "4月公表のMicrosoftレポートに基づき継続監視",
+    "ゼロデイ／Nデイ悪用から24時間以内にランサムウェア展開する速度が重要"
+  ],
+  "operational_relevance": "Web公開資産、VPN、ファイル転送、リモート管理製品、未適用Nデイ脆弱性を優先監視する。",
+  "urgency": "high",
+  "recommended_action": [
+    "外部公開資産のASMと脆弱性優先順位付け",
+    "Microsoft Exchange、Ivanti、ScreenConnect、TeamCity、CrushFTP等の緊急確認",
+    "Web shell検知と初期侵入後24時間以内の封じ込め訓練",
+    "Medusaランサムウェア関連IOC・TTPのSOC反映"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [
+      "Medusa affiliate activity"
+    ],
+    "cluster": "China-based financially motivated ransomware actor",
+    "suspected_actor": "China-based financially motivated actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-20_storm1175_medusa_web_facing_assets",
+      "type": "campaign_activity",
+      "status": "継続",
+      "name": "Storm-1175によるWeb公開資産悪用・Medusaランサムウェア活動",
+      "category": "サイバー犯罪／ランサムウェア",
+      "targeting": {
+        "regions": [
+          "米国",
+          "英国",
+          "オーストラリア",
+          "グローバル"
+        ],
+        "industries": [
+          "医療",
+          "教育",
+          "専門サービス",
+          "金融"
+        ],
+        "organization_types": [
+          "企業",
+          "医療機関",
+          "教育機関",
+          "サービス事業者"
+        ]
+      },
+      "first_seen": "2023",
+      "last_seen": "2026-05-20",
+      "activity_summary": "Storm-1175は、脆弱なWeb公開資産を悪用し、短時間で侵入、情報窃取、Medusaランサムウェア展開に至る活動を行う。",
+      "activity_details": "Microsoftは2026年4月、Storm-1175がNデイやゼロデイを悪用し、場合によっては24時間以内にランサムウェア展開に至ると報告した。5月20日時点では新規大型更新は確認できない。",
+      "ttp": [
+        "T1190",
+        "T1505.003",
+        "T1059",
+        "T1078",
+        "T1041",
+        "T1486"
+      ],
+      "malware_and_tools": [
+        "Medusa ransomware",
+        "web shells",
+        "remote access tools"
+      ],
+      "infrastructure": [
+        "vulnerable web-facing systems",
+        "compromised servers",
+        "ransomware infrastructure"
+      ],
+      "iocs": [],
+      "strategic_view": {
+        "general": "脆弱性公開から攻撃までの猶予が極めて短いランサムウェア運用が常態化している。",
+        "geopolitical": "中国拠点とされる犯罪アクターであり、国家系とは異なるが、地理的帰属と犯罪エコシステムの関係は継続分析が必要。",
+        "business": "医療・教育・サービス業では、パッチ遅延が即ランサムウェア被害に結びつく。",
+        "research_direction": "悪用製品、侵入から暗号化までの時間、Medusa affiliateとの関係、ゼロデイ利用有無を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "初期アクセスからランサムウェア展開までの速度が速く、従来型の月次パッチ運用では対応困難である。",
+        "delta_from_previous": "5月20日の新規材料は限定的だが、4月公表の高テンポ作戦は高優先監視を維持する。"
+      },
+      "related_campaigns": [
+        "Medusa ransomware",
+        "Ransomware exploitation of public-facing applications"
+      ],
+      "tags": [
+        "Storm-1175",
+        "Medusa",
+        "ransomware",
+        "N-day",
+        "web-facing-assets"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 focuses gaze on vulnerable web-facing assets in high-tempo Medusa ransomware operations",
+          "url": "https://www.microsoft.com/en-us/security/blog/2026/04/06/storm-1175-focuses-gaze-on-vulnerable-web-facing-assets-in-high-tempo-medusa-ransomware-operations/",
+          "publisher": "Microsoft Security",
+          "published_at": "2026-04-06"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "Storm-1175",
+        "infrastructure": [
+          "vulnerable public-facing applications",
+          "compromised servers",
+          "ransomware infrastructure"
+        ],
+        "capability": [
+          "zero-day and n-day exploitation",
+          "web shell deployment",
+          "data exfiltration",
+          "Medusa ransomware deployment"
+        ],
+        "victim": [
+          "healthcare",
+          "education",
+          "professional services",
+          "finance"
+        ]
+      }
+    }
+  ]
+}
