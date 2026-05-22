@@ -1,0 +1,73 @@
+{
+  "date": "2026-05-21",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["Red Lamassu", "Calypso", "Showboat", "JFMBackdoor"],
+    "cluster": "China-linked covert network and telecom espionage operations",
+    "suspected_actor": "China-linked actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-21_china_linked_red_lamassu_telco",
+      "type": "campaign_activity",
+      "status": "更新",
+      "name": "Red Lamassu / Calypsoによる通信事業者標的化",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Asia Pacific", "Middle East", "Central Asia"],
+        "industries": ["telecommunications", "government"],
+        "organization_types": ["telecom operators", "government-related organizations"]
+      },
+      "first_seen": "2022-06-01",
+      "last_seen": "2026-05-21",
+      "activity_summary": "中国系とされるRed Lamassu / Calypsoが、APAC・中東の通信事業者等を標的に、Linux向けShowboatおよびWindows向けJFMBackdoorを用いて長期諜報活動を行っていたことが報じられた。",
+      "activity_details": "PwCはJFMBackdoor、Lumen Black Lotus LabsはShowboatを分析。通信事業者を長期的な情報収集基盤として侵害する活動であり、日本の通信・クラウド・国際回線関連にも示唆が大きい。",
+      "ttp": ["T1105", "T1059", "T1071", "T1005", "T1041", "T1572"],
+      "malware_and_tools": ["Showboat", "JFMBackdoor", "PlugX"],
+      "infrastructure": ["C2 infrastructure", "open directory infrastructure", "telecom-themed domains"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "通信事業者侵害は、広域の情報収集、通信傍受、危機時の作戦準備に直結する。",
+        "geopolitical": "台湾海峡、中央アジア、中東等の危機正面で、通信基盤へのアクセスは中国の情報優位に資する可能性がある。",
+        "business": "通信・クラウド事業者は顧客基盤全体への波及点であり、最重要標的として監視すべき。",
+        "research_direction": "Volt Typhoon、Flax Typhoon、Raptor Train、TA416等との違いを整理し、通信事業者標的型クラスターとして継続管理する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "通信事業者を侵害することで、個別組織を超えた広域情報収集基盤を構築できる。",
+        "delta_from_previous": "ShowboatとJFMBackdoorという具体的ツールセットが公表され、China-linked_Covert_Network_Opsの監視対象として重要性が上がった。"
+      },
+      "related_campaigns": ["Volt Typhoon", "Flax Typhoon", "TA416", "telecom_espionage"],
+      "tags": ["china", "telecom", "espionage", "showboat", "jfmbackdoor", "red-lamassu", "calypso"],
+      "sources": [
+        {
+          "title": "Inside Red Lamassu's JFMBackdoor",
+          "url": "https://www.pwc.com/gx/en/issues/cybersecurity/cyber-threat-intelligence/red-lamassu-open-season.html",
+          "publisher": "PwC",
+          "published_at": "2026-05-21"
+        },
+        {
+          "title": "Chinese hackers target telcos with new Linux, Windows malware",
+          "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-target-telcos-with-new-linux-windows-malware/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-21"
+        }
+      ],
+      "diamond_model": {
+        "adversary": "China-linked Red Lamassu / Calypso",
+        "infrastructure": ["C2 infrastructure", "telecom-themed domains", "open directory"],
+        "capability": ["Showboat", "JFMBackdoor", "Linux backdoor", "Windows backdoor"],
+        "victim": ["telecommunications providers", "government-related organizations"]
+      }
+    }
+  ],
+  "update_type": "assessment_update",
+  "executive_summary": "China-linked_Covert_Network_Opsとして、Red Lamassu / Calypsoによる通信事業者標的化を追加監視対象とする。ShowboatおよびJFMBackdoorの公表により、中国系アクターによる通信基盤侵害・長期諜報の具体性が高まった。",
+  "change_summary": ["Red Lamassu / Calypsoを通信事業者標的型の重要クラスターとして追加", "ShowboatとJFMBackdoorを監視対象に追加"],
+  "operational_relevance": "日本の通信、クラウド、MSP、国際回線関連事業者では、Linux/Windows双方の長期潜伏型マルウェア、C2、認証情報窃取を重点監視。",
+  "urgency": "high",
+  "recommended_action": ["Showboat/JFMBackdoor関連IOCの確認", "通信・クラウド基盤の特権ログ監視", "中国系通信事業者標的活動を別枠でキャンペーン管理"]
+}

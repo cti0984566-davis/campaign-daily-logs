@@ -1,0 +1,397 @@
+{
+  "date": "2026-05-21",
+  "timezone": "JST",
+  "title": "2026/05/21_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-21_red_lamassu_telco_campaign",
+      "type": "campaign_activity",
+      "status": "更新",
+      "campaign": {
+        "name": "Red Lamassu / Calypso telecom targeting",
+        "aliases": ["Red Lamassu", "Calypso"],
+        "cluster": "China-linked cyber espionage",
+        "suspected_actor": "China-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "China-linked espionage actor tracked as Red Lamassu / Calypso",
+        "infrastructure": ["telecom-focused intrusion infrastructure", "C2 infrastructure"],
+        "capability": ["Showboat", "JFMBackdoor", "Linux malware", "Windows backdoor"],
+        "victim": ["telecommunications providers", "government-related targets", "APAC organizations", "Middle East organizations"]
+      },
+      "name": "Red Lamassu / Calypsoによる通信事業者標的化",
+      "category": "国家系サイバー諜報",
+      "industry": ["通信", "政府機関", "重要インフラ"],
+      "region": ["APAC", "Middle East", "Japan-relevant"],
+      "first_seen": "2022-06-01",
+      "last_seen": "2026-05-21",
+      "summary": "中国系とされるRed Lamassu / Calypsoが、APAC・中東の通信事業者等を標的に、Linux向けShowboatおよびWindows向けJFMBackdoorを用いた長期諜報活動を継続していると報じられた。",
+      "executive_summary": "通信事業者を長期的な諜報基盤として狙う中国系活動の具体的ツールセットが明らかになった。日本の通信、クラウド、国際回線事業者にとって、China-linked Covert Network Opsとは別に、通信事業者侵害による情報収集・潜伏を重点監視すべき事象である。",
+      "change_summary": [
+        "ShowboatおよびJFMBackdoorという具体的マルウェア名が公開情報として整理された。",
+        "APAC・中東の通信事業者を中心とする標的傾向が改めて確認された。",
+        "過去の中国系通信侵害活動と連続する長期諜報キャンペーンとして評価を更新。"
+      ],
+      "operational_relevance": "通信事業者、クラウド事業者、MSP、国際回線関連企業では、Linux/Windows双方の不審な永続化、外部通信、認証情報窃取の監視が必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "通信・クラウド基盤におけるLinux/Windows双方のEDR・ログ監視を強化する。",
+        "Showboat、JFMBackdoor関連IOCの有無を確認する。",
+        "通信事業者経由のサプライチェーン・第三者接続リスクを再評価する。"
+      ],
+      "details": "中国系アクターが通信事業者を標的化する活動は、情報収集、通信傍受、地政学的危機時の事前配置の観点から重要である。今回の更新では、既知のRed Lamassu / Calypso活動について、LinuxおよびWindows向けの具体的なマルウェア能力が明示された点が重要である。",
+      "actors": [
+        {
+          "name": "Red Lamassu / Calypso",
+          "role": "suspected intrusion actor",
+          "country": "China"
+        }
+      ],
+      "ttp": ["T1105", "T1059", "T1071", "T1005", "T1041"],
+      "malware": ["Showboat", "JFMBackdoor"],
+      "infrastructure": ["C2 infrastructure", "telecom intrusion infrastructure"],
+      "targeting": {
+        "sectors": ["telecommunications", "government"],
+        "countries": ["APAC countries", "Middle East countries"],
+        "organization_types": ["telecom operators", "government-related organizations"]
+      },
+      "strategic_view": {
+        "general": "通信事業者を標的とする長期諜報は、個別組織の侵害を超えて、広域な情報収集基盤の構築につながる。",
+        "geopolitical": "台湾海峡、中東、南シナ海等の危機時に、通信基盤へのアクセスは情報優位と作戦準備の両面で価値を持つ。",
+        "business": "通信・クラウド事業者は、顧客基盤全体に波及し得る高価値標的として、特権管理と監視を強化する必要がある。",
+        "research_direction": "China-linked Covert Network Ops、Volt Typhoon系活動、通信事業者標的型APTとの関連を継続的に比較する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "通信事業者侵害は国家レベルの情報収集・作戦準備に直結し、日本の重要インフラにも波及し得る。",
+        "delta_from_previous": "既知の中国系通信侵害活動に対し、今回、具体的なLinux/Windowsマルウェア名と標的傾向が補強された。"
+      },
+      "related_campaigns": ["China-linked_Covert_Network_Ops", "Volt Typhoon", "Flax Typhoon"],
+      "related_reports": ["2026/05/21_サイバー事象概要"],
+      "tags": ["china", "telecom", "espionage", "linux-malware", "windows-backdoor", "apac", "middle-east"],
+      "sources": [
+        {
+          "title": "Chinese hackers target telcos with new Linux, Windows malware",
+          "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-target-telcos-with-new-linux-windows-malware/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-21_teampcp_github_supply_chain",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "TeamPCP software supply-chain campaign",
+        "aliases": ["TeamPCP", "Mini Shai-Hulud"],
+        "cluster": "Developer supply-chain compromise",
+        "suspected_actor": "financially motivated cybercriminal group",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP",
+        "infrastructure": ["malicious VS Code extensions", "compromised repositories", "package ecosystem infrastructure"],
+        "capability": ["Mini Shai-Hulud", "credential theft", "token theft", "self-propagating package compromise"],
+        "victim": ["GitHub internal repositories", "software developers", "AI and cloud-related organizations"]
+      },
+      "name": "TeamPCPによるGitHub内部リポジトリ侵害・OSSサプライチェーン汚染",
+      "category": "サイバー犯罪／サプライチェーン攻撃",
+      "industry": ["ソフトウェア", "クラウド", "AI", "開発基盤"],
+      "region": ["Global", "Japan-relevant"],
+      "first_seen": "2025-09-01",
+      "last_seen": "2026-05-21",
+      "summary": "TeamPCPが悪性VS Code拡張やOSSパッケージ汚染を通じて開発者環境を侵害し、GitHub内部リポジトリにも影響が及んだと報じられた。",
+      "executive_summary": "本件は単なるOSS汚染ではなく、開発者端末、IDE拡張、PAT、CI/CDシークレットを侵害連鎖の中心に置くキャンペーンである。日本企業もGitHub/GitLab、npm/PyPI、VS Code拡張、クラウド鍵管理を重点点検すべきである。",
+      "change_summary": [
+        "Mistral AI等への波及に続き、GitHub内部リポジトリ侵害が報じられた。",
+        "悪性VS Code拡張を通じた開発者環境侵害の重要性が高まった。",
+        "Mini Shai-Hulud型の自己増殖的サプライチェーン汚染として評価を更新。"
+      ],
+      "operational_relevance": "開発端末、IDE拡張、GitHub/GitLab PAT、CI/CDシークレット、npm/PyPI等の認証情報棚卸しとローテーションが必要。",
+      "urgency": "high",
+      "recommended_action": [
+        "VS Code拡張の導入元、権限、更新履歴を確認する。",
+        "GitHub/GitLab PAT、CI/CD secrets、クラウド鍵を棚卸しし、不要なものを失効させる。",
+        "依存パッケージの異常更新、maintainer変更、postinstallスクリプトを監視する。"
+      ],
+      "details": "TeamPCPは、開発者が日常的に利用するIDE拡張やOSSパッケージを悪用し、認証情報やトークンを窃取することで侵害範囲を拡大している。特にGitHub内部リポジトリへの影響が報じられたことで、ソフトウェア供給網の中核に対する信頼性が改めて問題化している。",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "threat actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1195", "T1552", "T1059", "T1078", "T1098"],
+      "malware": ["Mini Shai-Hulud"],
+      "infrastructure": ["malicious VS Code extensions", "compromised repositories", "package registries"],
+      "targeting": {
+        "sectors": ["software development", "AI", "cloud services"],
+        "countries": ["Global"],
+        "organization_types": ["developers", "software vendors", "cloud and AI companies"]
+      },
+      "strategic_view": {
+        "general": "開発環境が攻撃の初期侵入口かつ感染増幅器として機能している。",
+        "geopolitical": "OSS供給網の信頼性低下は、国家・企業双方のデジタル主権や技術競争力に影響する。",
+        "business": "SBOMだけでなく、IDE拡張、開発端末、トークン寿命管理を統制対象に含める必要がある。",
+        "research_direction": "TeamPCP、Shai-Hulud系キャンペーン、AI関連企業への波及、GitHub/GitLabトークン悪用事例を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "世界的な開発基盤そのものを侵害経路とするため、影響範囲が広く、日本企業のソフトウェア供給網にも直結する。",
+        "delta_from_previous": "過去のOSSパッケージ汚染から、GitHub内部リポジトリ侵害報道へと重大性が上がった。"
+      },
+      "related_campaigns": ["Shai-Hulud", "developer_supply_chain", "software_supply_chain_compromise"],
+      "related_reports": ["2026/05/21_サイバー事象概要"],
+      "tags": ["supply-chain", "github", "vscode", "oss", "token-theft", "developer-security"],
+      "sources": [
+        {
+          "title": "A Hacker Group Is Poisoning Open Source Code at an Unprecedented Scale",
+          "url": "https://www.wired.com/story/teampcp-software-supply-chain-attack-spree-github",
+          "publisher": "WIRED",
+          "published_at": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-21_first_vpn_takedown",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "First VPN criminal infrastructure takedown",
+        "aliases": ["First VPN"],
+        "cluster": "Cybercrime infrastructure",
+        "suspected_actor": "criminal VPN service operators",
+        "attribution_confidence": "high"
+      },
+      "diamond_model": {
+        "adversary": "operators and users of First VPN",
+        "infrastructure": ["VPN servers", "proxy infrastructure", "anonymization infrastructure"],
+        "capability": ["traffic anonymization", "ransomware support infrastructure", "data theft support infrastructure"],
+        "victim": ["organizations targeted by ransomware and data theft campaigns"]
+      },
+      "name": "First VPN摘発",
+      "category": "サイバー犯罪インフラ摘発",
+      "industry": ["犯罪インフラ", "VPN", "ランサムウェア"],
+      "region": ["Europe", "Global"],
+      "first_seen": "2026-05-21",
+      "last_seen": "2026-05-21",
+      "summary": "ランサムウェアやデータ窃取に悪用されていたVPNサービスFirst VPNが、国際共同捜査により停止され、サーバ押収と管理者逮捕が行われた。",
+      "executive_summary": "本件はランサムウェアグループ本体ではなく、匿名化・中継インフラ層を対象とした摘発である。犯罪エコシステムの分解という観点で重要であり、防御側もVPN、bulletproof hosting、初期アクセスブローカー等の周辺基盤を監視対象に含める必要がある。",
+      "change_summary": [
+        "First VPNのサーバが27か国で押収されたと報じられた。",
+        "管理者がウクライナで逮捕された。",
+        "ランサムウェア支援インフラに対する国際法執行の一例として追加。"
+      ],
+      "operational_relevance": "過去の攻撃ログにFirst VPN関連IPやVPN出口ノードが含まれていないか確認する価値がある。",
+      "urgency": "medium",
+      "recommended_action": [
+        "First VPN関連IOCが公開された場合、過去ログとの突合を実施する。",
+        "VPN・プロキシ由来の認証試行をリスクベースで監視する。",
+        "ランサムウェア対策に犯罪インフラ監視の観点を追加する。"
+      ],
+      "details": "First VPNは攻撃者の匿名化や中継に使われ、ランサムウェアやデータ窃取の一部で悪用されたと報じられている。法執行によりサービス停止、サーバ押収、管理者逮捕が行われた。",
+      "actors": [
+        {
+          "name": "First VPN operators",
+          "role": "criminal infrastructure provider",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1090", "T1572"],
+      "malware": [],
+      "infrastructure": ["VPN servers", "proxy infrastructure"],
+      "targeting": {
+        "sectors": ["multiple sectors"],
+        "countries": ["Global"],
+        "organization_types": ["ransomware victims", "data theft victims"]
+      },
+      "strategic_view": {
+        "general": "ランサムウェア対策は攻撃者グループ本体だけでなく、匿名化・中継インフラの分解が重要である。",
+        "geopolitical": "国際共同捜査により、越境犯罪インフラを継続的に妨害するモデルが強化されている。",
+        "business": "企業SOCでは、VPN出口ノードや匿名化サービスを用いた認証試行の検知精度が重要となる。",
+        "research_direction": "First VPN関連IOC、利用ランサムウェアグループ、過去の侵害ログとの関連を追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "high",
+        "why_it_matters": "犯罪インフラ層への摘発は、ランサムウェア・データ窃取の持続性を低下させる可能性がある。",
+        "delta_from_previous": "個別ランサムウェア事案ではなく、匿名化VPNサービス自体への摘発として新規性がある。"
+      },
+      "related_campaigns": ["ransomware_ecosystem", "criminal_infrastructure"],
+      "related_reports": ["2026/05/21_サイバー事象概要"],
+      "tags": ["vpn", "ransomware", "law-enforcement", "criminal-infrastructure", "proxy"],
+      "sources": [
+        {
+          "title": "Police seize First VPN service used in ransomware, data theft attacks",
+          "url": "https://www.bleepingcomputer.com/news/security/police-seize-first-vpn-service-used-in-ransomware-data-theft-attacks/",
+          "publisher": "BleepingComputer",
+          "published_at": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-21_fox_tempest_signspace_takedown",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Fox Tempest / SignSpace malware-signing service",
+        "aliases": ["Fox Tempest", "SignSpace"],
+        "cluster": "Malware-signing-as-a-service",
+        "suspected_actor": "cybercriminal service provider",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Fox Tempest and ransomware ecosystem customers",
+        "infrastructure": ["SignSpace websites", "virtual machines", "malware signing infrastructure"],
+        "capability": ["malware code signing", "fake software distribution", "ransomware enablement"],
+        "victim": ["healthcare organizations", "education organizations", "government organizations", "financial organizations"]
+      },
+      "name": "Fox Tempest / SignSpace型 Malware-Signing-as-a-Service摘発",
+      "category": "サイバー犯罪／ランサムウェア支援インフラ",
+      "industry": ["クラウド", "コード署名", "医療", "教育", "政府機関", "金融"],
+      "region": ["Global"],
+      "first_seen": "2025-05-01",
+      "last_seen": "2026-05-21",
+      "summary": "Microsoftが、Artifact Signingを悪用してマルウェアに不正なコード署名を付与していたSignSpace関連基盤を停止した。",
+      "executive_summary": "本件は、マルウェア配布基盤が単なるローダーやフィッシングから、正規に見える署名済みマルウェア提供サービスへ進化していることを示す。署名済みファイルを低リスクとみなす運用は見直しが必要である。",
+      "change_summary": [
+        "Microsoft DCUがSignSpace関連サイト、VM、基盤コードを停止・押収した。",
+        "Rhysida、Qilin、BlackByte、Akira等のランサムウェア関連活動との関係が報じられた。",
+        "コード署名悪用が犯罪サービス化している点を評価に追加。"
+      ],
+      "operational_relevance": "署名済み実行ファイルであっても、配布経路、証明書、親プロセス、ネットワーク通信を含めて検証する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "署名済みバイナリを無条件に信頼しない検知ルールを整備する。",
+        "偽Teams、AnyDesk、PuTTY、Webex等の配布サイト経由の実行ファイルを監視する。",
+        "Lumma Stealer、Vidar、Oyster、Rhysida関連IOCを確認する。"
+      ],
+      "details": "Fox TempestはMicrosoft Artifact Signingを悪用し、短期有効の署名を付与したマルウェアを提供していたとされる。偽ソフトウェア配布を通じ、情報窃取型マルウェアやランサムウェア展開に関与した。",
+      "actors": [
+        {
+          "name": "Fox Tempest",
+          "role": "malware signing service operator",
+          "country": "Unknown"
+        },
+        {
+          "name": "Microsoft Digital Crimes Unit",
+          "role": "takedown and disruption actor",
+          "country": "United States"
+        }
+      ],
+      "ttp": ["T1553.002", "T1204", "T1105", "T1566"],
+      "malware": ["Oyster", "Lumma Stealer", "Vidar", "Rhysida"],
+      "infrastructure": ["SignSpace websites", "malware signing infrastructure", "fake software distribution sites"],
+      "targeting": {
+        "sectors": ["healthcare", "education", "government", "finance"],
+        "countries": ["Global"],
+        "organization_types": ["enterprise users", "public sector entities"]
+      },
+      "strategic_view": {
+        "general": "犯罪者は信頼の仕組みであるコード署名を悪用し、防御側の評価ロジックを迂回している。",
+        "geopolitical": "民間企業による法的・技術的な犯罪インフラ妨害が、国家のサイバー法執行を補完している。",
+        "business": "EDR、メール防御、CASB、ID管理製品では、署名済みファイルの文脈評価が差別化要因となる。",
+        "research_direction": "Fox Tempest、Vanilla Tempest、Rhysida、Qilin、Akira等との関係を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "コード署名の信頼を悪用する犯罪サービスは、EDR回避やユーザー信頼悪用に直結する。",
+        "delta_from_previous": "マルウェア配布基盤から、署名済みマルウェア提供サービスへの進化として評価を更新。"
+      },
+      "related_campaigns": ["ransomware_ecosystem", "malware_signing_abuse", "Vanilla Tempest"],
+      "related_reports": ["2026/05/21_サイバー事象概要"],
+      "tags": ["code-signing", "ransomware", "malware-signing-as-a-service", "microsoft", "fox-tempest"],
+      "sources": [
+        {
+          "title": "Microsoft Takes Down Malware-Signing Service Behind Ransomware Attacks",
+          "url": "https://thehackernews.com/2026/05/microsoft-takes-down-malware-signing.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-21_cisco_secure_workload_cve_2026_20223",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Cisco Secure Workload CVE-2026-20223",
+        "aliases": ["CVE-2026-20223"],
+        "cluster": "Security control-plane vulnerability",
+        "suspected_actor": "unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "unknown",
+        "infrastructure": ["Cisco Secure Workload deployments"],
+        "capability": ["unauthorized API access", "privilege escalation"],
+        "victim": ["enterprise networks", "cloud and data center environments"]
+      },
+      "name": "Cisco Secure Workload重大脆弱性",
+      "category": "脆弱性／ゼロトラスト基盤",
+      "industry": ["ネットワーク", "クラウド", "エンタープライズ"],
+      "region": ["Global", "Japan-relevant"],
+      "first_seen": "2026-05-20",
+      "last_seen": "2026-05-21",
+      "summary": "Cisco Secure Workloadに、Site Admin権限取得につながる可能性のある重大脆弱性CVE-2026-20223が公表された。",
+      "executive_summary": "ゼロトラストやマイクロセグメンテーションの制御プレーン自体が侵害経路になり得る事案である。導入企業は通常資産以上に、セキュリティ製品の管理プレーンを厳格にパッチ管理・監視すべきである。",
+      "change_summary": [
+        "Cisco Secure Workloadに重大脆弱性CVE-2026-20223が公表された。",
+        "セキュリティ制御プレーン製品の侵害リスクとして評価に追加。",
+        "現時点で大規模悪用は未確認として監視継続。"
+      ],
+      "operational_relevance": "Cisco Secure Workload利用企業は、バージョン確認、修正適用、管理APIアクセスログ確認を優先する必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "Cisco Secure Workloadの影響バージョンを確認し、修正版を適用する。",
+        "Site Admin権限やAPIアクセスログに不審な操作がないか確認する。",
+        "セキュリティ製品管理プレーンを特権資産として監視対象に含める。"
+      ],
+      "details": "Cisco Secure Workloadは、マイクロセグメンテーションやワークロード可視化に用いられる製品であり、管理プレーン侵害時の影響は大きい。今回のCVEは防御基盤そのものの脆弱性として重要である。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "potential exploiter",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1190", "T1068"],
+      "malware": [],
+      "infrastructure": ["Cisco Secure Workload"],
+      "targeting": {
+        "sectors": ["enterprise", "cloud", "data center"],
+        "countries": ["Global"],
+        "organization_types": ["Cisco Secure Workload customers"]
+      },
+      "strategic_view": {
+        "general": "セキュリティ製品自体が高価値な攻撃対象となっている。",
+        "geopolitical": "重要インフラや大企業の防御制御プレーンが侵害されれば、国家系アクターにも利用価値が高い。",
+        "business": "ゼロトラスト製品導入時には、製品自体の脆弱性管理と運用監査が必須となる。",
+        "research_direction": "CISA KEV登録有無、PoC公開、実悪用観測、Cisco追加アドバイザリを継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "防御制御プレーンの侵害は、ネットワーク分離や可視化の信頼性を損なう。",
+        "delta_from_previous": "境界機器だけでなく、ゼロトラスト製品の管理プレーン脆弱性として新規追加。"
+      },
+      "related_campaigns": ["security_product_vulnerabilities", "zero_trust_control_plane_risk"],
+      "related_reports": ["2026/05/21_サイバー事象概要"],
+      "tags": ["cisco", "cve-2026-20223", "zero-trust", "microsegmentation", "vulnerability"],
+      "sources": [
+        {
+          "title": "Cisco Secure Workload Unauthorized API Access Vulnerability",
+          "url": "https://sec.cloudapps.cisco.com/security/center/publicationListing.x",
+          "publisher": "Cisco",
+          "published_at": "2026-05-20"
+        }
+      ]
+    }
+  ]
+}

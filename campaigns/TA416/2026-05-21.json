@@ -1,0 +1,61 @@
+{
+  "date": "2026-05-21",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta", "Bronze President"],
+    "cluster": "China-linked diplomatic espionage",
+    "suspected_actor": "China-linked actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-21_ta416_no_major_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416の欧州・外交機関標的活動の継続監視",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "Middle East", "Asia"],
+        "industries": ["government", "diplomacy", "international organizations"],
+        "organization_types": ["ministries", "diplomatic missions", "international organizations"]
+      },
+      "first_seen": "2026-04-01",
+      "last_seen": "2026-05-21",
+      "activity_summary": "2026年5月21日時点で、TA416に関する新規重大公表は確認できない。欧州政府・外交機関を狙うPlugX系活動は継続監視対象。",
+      "activity_details": "TA416は欧州政府等を標的に、OAuthリダイレクト悪用やクラウドホスト型マルウェア配布を行ったと報じられている。5月21日は新規キャンペーンではなく継続評価。",
+      "ttp": ["T1566", "T1105", "T1204", "T1071", "T1027"],
+      "malware_and_tools": ["PlugX"],
+      "infrastructure": ["cloud-hosted malware infrastructure", "OAuth redirect infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "TA416は外交・政策決定機関への長期諜報を継続している。",
+        "geopolitical": "中国の外交・安全保障関心に沿い、欧州、NATO、中東外交機関への情報収集が重視されている可能性がある。",
+        "business": "クラウドホスト型マルウェアやOAuth悪用は、通常の境界防御を迂回しやすい。",
+        "research_direction": "Proofpoint等の追加レポート、PlugX亜種、OAuthリダイレクト手法を継続追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "外交・政府機関への侵入は政策情報の窃取や影響工作の前段となり得る。",
+        "delta_from_previous": "5月21日時点では新規重大更新なし。4月公表の欧州・外交標的活動を継続監視。"
+      },
+      "related_campaigns": ["Mustang_Panda", "PlugX_campaigns"],
+      "tags": ["ta416", "china", "mustang-panda", "plugx", "diplomacy", "oauth"],
+      "sources": [
+        {
+          "title": "Chinese Hackers Target European Governments in Renewed Espionage Campaign",
+          "url": "https://www.infosecurity-magazine.com/news/china-hackers-ta416-europe/",
+          "publisher": "Infosecurity Magazine",
+          "published_at": "2026-04-01"
+        }
+      ]
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "TA416について、2026年5月21日に新規重大公表は確認できない。欧州・中東・アジアの外交機関を狙う中国系諜報活動として、PlugX、OAuthリダイレクト悪用、クラウドホスト型配布を継続監視する。",
+  "change_summary": ["新規重大更新なし", "外交・政府標的活動を継続監視"],
+  "operational_relevance": "外交・政府関連組織では、OAuth悪用、クラウドホスト型ペイロード、PlugX関連IOCを確認。",
+  "urgency": "monitor",
+  "recommended_action": ["OAuthリダイレクト悪用の検知", "PlugX関連IOCの確認", "外交・政府関連メールのフィッシング監視"]
+}

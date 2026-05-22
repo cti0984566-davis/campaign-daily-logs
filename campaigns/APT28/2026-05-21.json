@@ -1,0 +1,61 @@
+{
+  "date": "2026-05-21",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "UAC-0001"],
+    "cluster": "Russian GRU-linked cyber espionage",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-21_apt28_no_major_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28のSOHOルータ悪用・欧州標的活動の継続監視",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "Ukraine", "NATO countries"],
+        "industries": ["government", "military", "critical infrastructure"],
+        "organization_types": ["government agencies", "defense-related entities", "SOHO router users"]
+      },
+      "first_seen": "2026-04-07",
+      "last_seen": "2026-05-21",
+      "activity_summary": "2026年5月21日時点で、APT28に関する新規重大公表は確認できないが、4月に公表されたSOHOルータ悪用・DNSリダイレクト・認証情報窃取の活動は継続監視対象である。",
+      "activity_details": "APT28はTP-Link等のルータ脆弱性を悪用し、軍事・政府・重要インフラ関連を対象に偵察・認証情報窃取を行ったとされる。5月21日は新規キャンペーンではなく、既報の継続評価とする。",
+      "ttp": ["T1090", "T1557", "T1556", "T1040", "T1059"],
+      "malware_and_tools": [],
+      "infrastructure": ["compromised SOHO routers", "redirect infrastructure"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "SOHOルータやエッジ機器はAPT28の継続的な偵察・認証情報窃取基盤となっている。",
+        "geopolitical": "欧州・NATO・ウクライナ支援国への諜報活動として、ロシアの軍事・外交目的と整合する。",
+        "business": "企業・自治体では、管理外ルータや拠点ネットワーク機器の棚卸しが重要。",
+        "research_direction": "NCSC、BfV、FBI等の追加アドバイザリと、SOHOルータ関連IOCを継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "エッジ機器侵害は検知が難しく、認証情報窃取や中間者攻撃の起点となる。",
+        "delta_from_previous": "5月21日時点では新規重大更新なし。4月の欧州向け警告を継続監視。"
+      },
+      "related_campaigns": ["SOHO_router_compromise", "Russia_Ukraine_cyber_operations"],
+      "tags": ["apt28", "russia", "gru", "soho-router", "credential-theft", "dns-redirection"],
+      "sources": [
+        {
+          "title": "Germany intelligence agency warns of Russian APT28 cyber spying",
+          "url": "https://www.reuters.com/technology/germany-intelligence-agency-warns-russian-apt28-cyber-spying-2026-04-07/",
+          "publisher": "Reuters",
+          "published_at": "2026-04-07"
+        }
+      ]
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "APT28について、2026年5月21日に新規重大公表は確認できない。引き続きSOHOルータ悪用、DNSリダイレクト、認証情報窃取を中心に、欧州・NATO・ウクライナ支援国向け諜報活動として監視する。",
+  "change_summary": ["新規重大更新なし", "SOHOルータ悪用活動を継続監視"],
+  "operational_relevance": "エッジ機器、SOHOルータ、DNS設定、認証情報窃取痕跡を重点確認。",
+  "urgency": "monitor",
+  "recommended_action": ["SOHOルータの棚卸しと更新", "DNS改ざん・不審リダイレクトの確認", "認証情報窃取兆候の監視"]
+}

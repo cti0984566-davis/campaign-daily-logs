@@ -1,0 +1,61 @@
+{
+  "date": "2026-05-21",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Nobelium", "Midnight Blizzard"],
+    "cluster": "Russian SVR-linked cyber espionage",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-21_apt29_no_major_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29のクラウド・ID基盤侵害リスクの継続監視",
+      "category": "国家系サイバー諜報",
+      "targeting": {
+        "regions": ["Europe", "North America", "NATO countries"],
+        "industries": ["government", "think tanks", "technology", "diplomacy"],
+        "organization_types": ["government agencies", "research institutes", "cloud tenants"]
+      },
+      "first_seen": "2008-01-01",
+      "last_seen": "2026-05-21",
+      "activity_summary": "2026年5月21日時点で、APT29に関する新規重大公表は確認できない。クラウド、ID、OAuth、メール環境を狙う長期諜報リスクは継続。",
+      "activity_details": "APT29はロシア対外情報庁SVRに関連付けられ、政府、外交、研究機関、クラウド環境を標的にしてきた。5月21日は新規事案ではなく、継続監視として整理する。",
+      "ttp": ["T1078", "T1098", "T1114", "T1550", "T1566"],
+      "malware_and_tools": [],
+      "infrastructure": ["cloud tenants", "identity infrastructure", "email systems"],
+      "iocs": [],
+      "strategic_view": {
+        "general": "APT29はクラウド・ID基盤への長期潜伏を得意とするため、境界防御よりID監視が重要。",
+        "geopolitical": "ロシアの外交・安全保障上の意思決定を支える諜報活動と整合する。",
+        "business": "Microsoft 365、Entra ID、OAuthアプリ、サービスプリンシパルの監視が必要。",
+        "research_direction": "OAuth悪用、メールボックスアクセス、クラウド永続化手法の更新を追跡する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "クラウド・ID基盤侵害は長期潜伏と大規模情報窃取につながる。",
+        "delta_from_previous": "5月21日時点では新規重大更新なし。既存のクラウド・ID侵害リスク評価を維持。"
+      },
+      "related_campaigns": ["Midnight_Blizzard", "cloud_identity_compromise"],
+      "tags": ["apt29", "russia", "svr", "cloud", "identity", "oauth"],
+      "sources": [
+        {
+          "title": "APT29",
+          "url": "https://attack.mitre.org/groups/G0016/",
+          "publisher": "MITRE ATT&CK",
+          "published_at": "2026-05-21"
+        }
+      ]
+    }
+  ],
+  "update_type": "ongoing",
+  "executive_summary": "APT29について、2026年5月21日に新規重大公表は確認できない。引き続きクラウド、ID、OAuth、メール環境を狙うロシアSVR系諜報活動として監視する。",
+  "change_summary": ["新規重大更新なし", "クラウド・ID基盤リスクを継続評価"],
+  "operational_relevance": "Entra ID、OAuthアプリ、メールアクセス、サービスプリンシパルの監査が重要。",
+  "urgency": "monitor",
+  "recommended_action": ["OAuthアプリ権限の棚卸し", "特権IDのサインイン監視", "メールボックスアクセスログの確認"]
+}
