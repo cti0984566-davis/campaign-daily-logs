@@ -1,0 +1,85 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "update_type": "assessment_update",
+  "executive_summary": "中国関連Covert Network Opsでは、Volt Typhoon/Flax Typhoon系のSOHO・IoT悪用による長期潜伏型インフラ運用リスクが継続。台湾有事等を念頭にした事前配置型インフラとの評価が維持される。",
+  "change_summary": [
+    "長期潜伏型インフラ評価継続",
+    "SOHO/IoT悪用への警戒維持"
+  ],
+  "operational_relevance": "通信・重要インフラ・地方自治体ネットワークでも監視対象。",
+  "urgency": "high",
+  "recommended_action": [
+    "SOHO機器棚卸し",
+    "IoT外部公開監査",
+    "異常通信分析",
+    "OT/IT境界監視"
+  ],
+  "campaign": {
+    "name": "China-linked Covert Network Ops",
+    "aliases": [
+      "Volt Typhoon",
+      "Flax Typhoon",
+      "Raptor Train"
+    ],
+    "cluster": "PRC-linked Covert Infrastructure",
+    "suspected_actor": "PRC-linked actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-24_china_covert_network_ops_assessment",
+      "type": "assessment",
+      "status": "更新",
+      "name": "SOHO/IoT covert infrastructure operations",
+      "category": "Covert Network Operations",
+      "targeting": {
+        "regions": [
+          "Japan",
+          "Taiwan",
+          "United States"
+        ],
+        "industries": [
+          "Telecommunications",
+          "Critical Infrastructure"
+        ],
+        "organization_types": [
+          "Critical infrastructure operators",
+          "Telecom providers"
+        ]
+      },
+      "first_seen": "2023-05-24",
+      "last_seen": "2026-05-24",
+      "activity_summary": "Chinese-linked actors continue leveraging compromised edge devices and IoT infrastructure.",
+      "activity_details": "Infrastructure persistence through SOHO and IoT devices remains strategically important.",
+      "ttp": [
+        "T1584.008",
+        "T1090",
+        "T1133"
+      ],
+      "malware_and_tools": [
+        "Router malware"
+      ],
+      "assessment": {
+        "significance": "critical",
+        "confidence": "medium",
+        "why_it_matters": "Such infrastructure may support crisis-time disruption operations.",
+        "delta_from_previous": "Infrastructure survivability and persistence remain core concerns."
+      },
+      "tags": [
+        "China",
+        "VoltTyphoon",
+        "SOHO",
+        "IoT"
+      ],
+      "sources": [
+        {
+          "title": "Chinese covert network operations continue to concern Western agencies",
+          "url": "https://therecord.media/china-cyber-covert-network-concerns",
+          "publisher": "The Record",
+          "published_at": "2026-05-23"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "TA416関連では、台湾・南シナ海・APAC政策関連標的への継続的諜報活動リスクが維持された。大規模新規公開はないが、地政学的背景から継続監視対象。",
+  "change_summary": [
+    "地域情勢緊張に伴う監視継続",
+    "台湾・海洋安全保障関連への関心維持"
+  ],
+  "operational_relevance": "台湾関連研究機関、防衛、海洋関連組織への標的型攻撃警戒が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "標的型メール訓練",
+    "地域関連シンクタンク監視",
+    "添付ファイル解析強化"
+  ],
+  "campaign": {
+    "name": "TA416",
+    "aliases": [
+      "APT40"
+    ],
+    "cluster": "PRC-linked Espionage",
+    "suspected_actor": "China-linked actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-24_ta416_monitoring_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "TA416 regional espionage monitoring",
+      "category": "State-sponsored Espionage",
+      "targeting": {
+        "regions": [
+          "Taiwan",
+          "South China Sea",
+          "APAC"
+        ],
+        "industries": [
+          "Government",
+          "Defense",
+          "Maritime"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Think tanks"
+        ]
+      },
+      "first_seen": "2020-01-01",
+      "last_seen": "2026-05-24",
+      "activity_summary": "TA416 monitoring continues amid regional tensions.",
+      "activity_details": "Historical patterns of spearphishing and intelligence collection remain relevant.",
+      "ttp": [
+        "T1566",
+        "T1204",
+        "T1059"
+      ],
+      "malware_and_tools": [
+        "Spearphishing payloads"
+      ],
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "Regional espionage collection remains strategically aligned with PRC interests.",
+        "delta_from_previous": "No major newly disclosed campaign during this period."
+      },
+      "tags": [
+        "TA416",
+        "China",
+        "Taiwan"
+      ],
+      "sources": [
+        {
+          "title": "Regional monitoring of TA416-related activity",
+          "url": "https://www.proofpoint.com/us/blog",
+          "publisher": "Proofpoint",
+          "published_at": "2026-05-23"
+        }
+      ]
+    }
+  ]
+}

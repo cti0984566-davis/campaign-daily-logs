@@ -1,0 +1,86 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT28関連では、この期間に決定的な新規キャンペーン公開は限定的である一方、AiTM・認証情報窃取・SOHO/エッジ機器悪用を中心とする継続的脅威評価が維持された。欧州・ウクライナ関連文脈における情報収集活動への警戒が継続。",
+  "change_summary": [
+    "新規大規模キャンペーン公開は限定的",
+    "AiTMおよびエッジ機器悪用への注目継続",
+    "欧州・政府機関向け脅威評価維持"
+  ],
+  "operational_relevance": "政府・防衛・外交機関において、認証基盤とVPN/エッジ機器監査継続が必要。",
+  "urgency": "high",
+  "recommended_action": [
+    "AiTM対策強化",
+    "VPN/エッジ機器監査",
+    "OAuthセッション監視",
+    "高権限アカウント分離"
+  ],
+  "campaign": {
+    "name": "APT28",
+    "aliases": [
+      "Fancy Bear",
+      "Sofacy"
+    ],
+    "cluster": "Russian State-linked Espionage",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-24_apt28_monitoring_update",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT28 credential interception and edge infrastructure monitoring",
+      "category": "State-sponsored Espionage",
+      "targeting": {
+        "regions": [
+          "Europe",
+          "Ukraine",
+          "United States"
+        ],
+        "industries": [
+          "Government",
+          "Defense",
+          "Telecommunications"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Defense contractors"
+        ]
+      },
+      "first_seen": "2022-01-01",
+      "last_seen": "2026-05-24",
+      "activity_summary": "APT28 activity remained associated with credential harvesting and adversary-in-the-middle operations.",
+      "activity_details": "Operational focus continues around credential interception, proxy infrastructure, and exploitation of edge networking devices.",
+      "ttp": [
+        "T1110",
+        "T1557",
+        "T1584",
+        "T1090"
+      ],
+      "malware_and_tools": [
+        "AiTM infrastructure"
+      ],
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT28 remains a major Russian operational espionage threat against NATO-aligned targets.",
+        "delta_from_previous": "No major newly disclosed operation during this period."
+      },
+      "tags": [
+        "APT28",
+        "Russia",
+        "AiTM"
+      ],
+      "sources": [
+        {
+          "title": "APT28 monitoring and credential interception concerns continue",
+          "url": "https://www.microsoft.com/en-us/security/blog/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-23"
+        }
+      ]
+    }
+  ]
+}

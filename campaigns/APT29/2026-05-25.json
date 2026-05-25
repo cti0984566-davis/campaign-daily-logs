@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "APT29関連では、クラウド・ID基盤に対する低ノイズ型潜伏活動への警戒が継続。OAuth・クラウド認証基盤悪用が、Kali365等サイバー犯罪側とも技術的収斂を見せている。",
+  "change_summary": [
+    "OAuth悪用との技術的重複が拡大",
+    "クラウド潜伏型脅威評価継続"
+  ],
+  "operational_relevance": "クラウド認証、OAuth grant、Entra ID監査の優先度が上昇。",
+  "urgency": "high",
+  "recommended_action": [
+    "OAuth grant監査",
+    "Conditional Access強化",
+    "クラウドログ長期保存",
+    "異常セッション監視"
+  ],
+  "campaign": {
+    "name": "APT29",
+    "aliases": [
+      "Cozy Bear"
+    ],
+    "cluster": "Russian State-linked Espionage",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [
+    {
+      "id": "2026-05-24_apt29_cloud_persistence_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "APT29 cloud persistence assessment",
+      "category": "State-sponsored Espionage",
+      "targeting": {
+        "regions": [
+          "North America",
+          "Europe"
+        ],
+        "industries": [
+          "Government",
+          "Cloud",
+          "Defense"
+        ],
+        "organization_types": [
+          "Government agencies",
+          "Cloud operators"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-05-24",
+      "activity_summary": "APT29 tradecraft continues emphasizing stealthy cloud and identity persistence.",
+      "activity_details": "Operational patterns remain focused on OAuth abuse, token persistence, and cloud tenant compromise.",
+      "ttp": [
+        "T1078",
+        "T1528",
+        "T1098"
+      ],
+      "malware_and_tools": [
+        "Cloud persistence tooling"
+      ],
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "APT29 techniques overlap with broader OAuth/token abuse trends.",
+        "delta_from_previous": "No major newly attributed campaign disclosed during this period."
+      },
+      "tags": [
+        "APT29",
+        "Cloud",
+        "OAuth"
+      ],
+      "sources": [
+        {
+          "title": "APT29 cloud persistence concerns remain active",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+          "publisher": "CISA",
+          "published_at": "2026-05-22"
+        }
+      ]
+    }
+  ]
+}

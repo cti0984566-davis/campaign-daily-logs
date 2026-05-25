@@ -1,0 +1,305 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "title": "2026/05/22-24 サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-24_teampcp_github_intrusion",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "TeamPCP Supply Chain Operations",
+        "aliases": [
+          "Mini Shai-Hulud"
+        ],
+        "cluster": "Cybercrime Supply Chain",
+        "suspected_actor": "TeamPCP",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "TeamPCP",
+        "infrastructure": [
+          "Malicious VS Code extension",
+          "GitHub repositories"
+        ],
+        "capability": [
+          "Credential theft",
+          "Repository compromise",
+          "CI/CD abuse"
+        ],
+        "victim": [
+          "GitHub",
+          "Developers",
+          "Open-source projects"
+        ]
+      },
+      "name": "GitHub internal repositories compromised via malicious VS Code extension",
+      "category": "Software Supply Chain Attack",
+      "industry": [
+        "IT",
+        "Cloud",
+        "Software Development"
+      ],
+      "region": [
+        "Global",
+        "United States"
+      ],
+      "first_seen": "2026-05-20",
+      "last_seen": "2026-05-24",
+      "summary": "GitHub confirmed that attackers associated with TeamPCP compromised employee devices using a malicious VS Code extension and accessed internal repositories.",
+      "executive_summary": "The incident demonstrates continued escalation of developer-focused supply chain attacks targeting IDE extensions and CI/CD trust relationships.",
+      "change_summary": [
+        "GitHub publicly acknowledged internal repository exposure",
+        "Scope expanded beyond earlier OSS package incidents",
+        "Credential rotation and containment actions completed"
+      ],
+      "operational_relevance": "Organizations relying on GitHub Actions, VS Code extensions, or shared developer tooling should reassess trust assumptions and token management.",
+      "urgency": "high",
+      "recommended_action": [
+        "Audit VS Code extensions",
+        "Rotate GitHub tokens and secrets",
+        "Enable commit signing validation",
+        "Review CI/CD trust relationships"
+      ],
+      "details": "Attackers reportedly used malicious VS Code extensions to gain access to developer environments and internal repositories.",
+      "actors": [
+        {
+          "name": "TeamPCP",
+          "role": "Threat actor"
+        }
+      ],
+      "ttp": [
+        "T1195",
+        "T1552",
+        "T1078"
+      ],
+      "malware": [
+        "Malicious VS Code extension"
+      ],
+      "infrastructure": [
+        "GitHub repositories"
+      ],
+      "targeting": {
+        "sectors": [
+          "Technology",
+          "Open Source"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "organization_types": [
+          "Software vendors",
+          "Cloud providers"
+        ]
+      },
+      "strategic_view": {
+        "general": "Developer ecosystems are becoming strategic attack surfaces.",
+        "geopolitical": "Such operations can indirectly impact national digital infrastructure through OSS dependency chains.",
+        "business": "Software vendors face increasing liability and trust challenges.",
+        "research_direction": "Monitor IDE extensions, CI/CD compromise techniques, and token theft patterns."
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "The attack shows that IDE-level compromise can bypass many traditional security controls.",
+        "delta_from_previous": "This expands prior TeamPCP activity into direct GitHub internal compromise."
+      },
+      "related_campaigns": [
+        "TanStack compromise",
+        "Mistral AI supply chain incidents"
+      ],
+      "related_reports": [
+        "2026/05/20 サイバー事象概要"
+      ],
+      "tags": [
+        "SupplyChain",
+        "GitHub",
+        "VSCode",
+        "CI/CD"
+      ],
+      "sources": [
+        {
+          "title": "GitHub confirms being hacked by TeamPCP",
+          "url": "https://therecord.media/github-confirms-teampcp-hack-customers-unaffected",
+          "publisher": "The Record",
+          "published_at": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-24_megalodon_github_actions_attack",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "Megalodon",
+        "cluster": "CI/CD Credential Theft",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown",
+        "infrastructure": [
+          "GitHub Actions workflows"
+        ],
+        "capability": [
+          "Workflow injection",
+          "Credential theft"
+        ],
+        "victim": [
+          "GitHub repositories",
+          "Cloud environments"
+        ]
+      },
+      "name": "Mass GitHub Actions workflow compromise campaign",
+      "category": "CI/CD Supply Chain Attack",
+      "industry": [
+        "IT",
+        "Cloud"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-18",
+      "last_seen": "2026-05-24",
+      "summary": "The Megalodon campaign injected malicious GitHub Actions workflows into thousands of repositories to steal secrets and cloud credentials.",
+      "executive_summary": "The operation highlights increasing automation and scale in CI/CD-focused supply chain attacks.",
+      "change_summary": [
+        "More than 5,500 repositories reportedly affected",
+        "Credential theft focus confirmed",
+        "Cloud and Kubernetes secrets targeted"
+      ],
+      "operational_relevance": "Organizations should treat CI/CD pipelines as high-value infrastructure and monitor workflow modifications.",
+      "urgency": "high",
+      "recommended_action": [
+        "Restrict GitHub Actions permissions",
+        "Review workflow integrity",
+        "Enable OIDC hardening",
+        "Rotate exposed credentials"
+      ],
+      "ttp": [
+        "T1195",
+        "T1059.004",
+        "T1552"
+      ],
+      "targeting": {
+        "sectors": [
+          "Technology",
+          "Cloud"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Software developers",
+          "Cloud-native organizations"
+        ]
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "The campaign demonstrates scalable compromise of modern software delivery infrastructure.",
+        "delta_from_previous": "This attack scaled automated workflow compromise significantly beyond prior incidents."
+      },
+      "tags": [
+        "GitHubActions",
+        "CI/CD",
+        "CredentialTheft"
+      ],
+      "sources": [
+        {
+          "title": "Megalodon GitHub Attack Targets 5,561 Repositories",
+          "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-22"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-24_kali365_oauth_campaign",
+      "type": "campaign_activity",
+      "status": "新規",
+      "campaign": {
+        "name": "Kali365",
+        "cluster": "PhaaS",
+        "suspected_actor": "Cybercrime ecosystem",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Cybercriminal operators",
+        "infrastructure": [
+          "Microsoft 365",
+          "Telegram"
+        ],
+        "capability": [
+          "OAuth token theft",
+          "Phishing"
+        ],
+        "victim": [
+          "Microsoft 365 users"
+        ]
+      },
+      "name": "Kali365 phishing-as-a-service abusing Microsoft device code flow",
+      "category": "Credential Access",
+      "industry": [
+        "Cross-sector"
+      ],
+      "region": [
+        "Global"
+      ],
+      "first_seen": "2026-05-21",
+      "last_seen": "2026-05-24",
+      "summary": "FBI warned that Kali365 operators abuse Microsoft device code flow to steal OAuth access and refresh tokens.",
+      "executive_summary": "OAuth token abuse is increasingly replacing traditional password theft and MFA bypass operations.",
+      "change_summary": [
+        "FBI issued PSA",
+        "Device code flow abuse highlighted",
+        "Refresh token persistence emphasized"
+      ],
+      "operational_relevance": "Organizations using Microsoft 365 should monitor OAuth grants and device code authentication.",
+      "urgency": "high",
+      "recommended_action": [
+        "Restrict device code flow where possible",
+        "Audit OAuth grants",
+        "Implement Conditional Access",
+        "Monitor anomalous session tokens"
+      ],
+      "ttp": [
+        "T1528",
+        "T1078",
+        "T1566"
+      ],
+      "targeting": {
+        "sectors": [
+          "Cross-sector"
+        ],
+        "countries": [
+          "Global"
+        ],
+        "organization_types": [
+          "Enterprises",
+          "Government agencies"
+        ]
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "OAuth token theft bypasses many MFA-centric security models.",
+        "delta_from_previous": "The campaign formalizes OAuth token abuse into a commoditized phishing service."
+      },
+      "tags": [
+        "OAuth",
+        "Microsoft365",
+        "PhaaS",
+        "MFA"
+      ],
+      "sources": [
+        {
+          "title": "Kali365 Phishing-as-a-Service Kit Hijacks Microsoft 365 Access Tokens",
+          "url": "https://www.ic3.gov/PSA/2026/PSA260521",
+          "publisher": "FBI IC3",
+          "published_at": "2026-05-21"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "date": "2026-05-24",
+  "timezone": "JST",
+  "update_type": "ongoing",
+  "executive_summary": "Storm-1175関連では、フィッシング・認証情報窃取基盤としての活動監視が継続。OAuth・PhaaS系との技術収斂が進行。",
+  "change_summary": [
+    "PhaaS系との重複拡大",
+    "大規模新規公開は限定的"
+  ],
+  "operational_relevance": "認証情報悪用・セッション乗っ取り対策継続が必要。",
+  "urgency": "medium",
+  "recommended_action": [
+    "認証ログ監視",
+    "セッション分析",
+    "フィッシング耐性向上"
+  ],
+  "campaign": {
+    "name": "Storm-1175",
+    "cluster": "Cybercrime Enablement",
+    "suspected_actor": "Cybercrime ecosystem",
+    "attribution_confidence": "medium"
+  },
+  "items": [
+    {
+      "id": "2026-05-24_storm1175_assessment",
+      "type": "assessment",
+      "status": "継続",
+      "name": "Storm-1175 ecosystem monitoring",
+      "category": "Credential Theft Ecosystem",
+      "targeting": {
+        "regions": [
+          "Global"
+        ],
+        "industries": [
+          "Cross-sector"
+        ],
+        "organization_types": [
+          "Enterprises"
+        ]
+      },
+      "first_seen": "2024-01-01",
+      "last_seen": "2026-05-24",
+      "activity_summary": "Storm-1175 infrastructure monitoring continues.",
+      "activity_details": "The ecosystem remains associated with phishing and credential abuse enablement.",
+      "ttp": [
+        "T1566",
+        "T1078",
+        "T1583"
+      ],
+      "malware_and_tools": [
+        "Phishing kits"
+      ],
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "Storm-1175 reflects industrialized phishing ecosystems.",
+        "delta_from_previous": "No major newly disclosed campaign during this period."
+      },
+      "tags": [
+        "Storm-1175",
+        "CredentialTheft"
+      ],
+      "sources": [
+        {
+          "title": "Storm-1175 ecosystem monitoring",
+          "url": "https://www.microsoft.com/en-us/security/blog/",
+          "publisher": "Microsoft",
+          "published_at": "2026-05-22"
+        }
+      ]
+    }
+  ]
+}
