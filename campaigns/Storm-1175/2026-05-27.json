@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "campaign": {
+    "name": "Storm-1175",
+    "aliases": [],
+    "cluster": "Microsoft-tracked threat activity",
+    "suspected_actor": "Unknown or Microsoft-tracked actor cluster",
+    "attribution_confidence": "medium"
+  },
+  "items": [],
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月25〜26日JSTの確認範囲では、Storm-1175に直接紐づく新規重大インシデントは確認されなかった。既報の資産標的化・脆弱性悪用系の活動は継続監視対象である。",
+  "change_summary": [
+    "本日の主要新規事象としては確認せず"
+  ],
+  "operational_relevance": "Microsoft公開情報、CISA KEV、境界機器・公開資産の悪用状況を継続監視する。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "Microsoft Threat Intelligenceの更新を継続確認する",
+    "公開資産の脆弱性管理とKEV照合を継続する"
+  ]
+}

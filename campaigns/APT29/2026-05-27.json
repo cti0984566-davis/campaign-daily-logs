@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT29",
+    "aliases": ["Cozy Bear", "Midnight Blizzard", "Nobelium"],
+    "cluster": "Russia-linked strategic intelligence operations",
+    "suspected_actor": "SVR-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [],
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月25〜26日JSTの確認範囲では、APT29に直接紐づく新規重大インシデントは確認されなかった。クラウドID、OAuth、メール環境を利用した長期潜伏型の諜報活動は継続監視対象である。",
+  "change_summary": [
+    "本日の主要新規事象としては確認せず",
+    "クラウド・ID基盤を狙う既存リスク評価は維持"
+  ],
+  "operational_relevance": "Microsoft 365、Entra ID、OAuthアプリ、サービスプリンシパル、メール転送ルールの監査を継続すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "OAuthアプリとサービスプリンシパルの棚卸しを継続する",
+    "特権IDと条件付きアクセス設定を点検する"
+  ]
+}

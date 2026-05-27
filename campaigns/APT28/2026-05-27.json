@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "campaign": {
+    "name": "APT28",
+    "aliases": ["Fancy Bear", "Forest Blizzard", "Sofacy"],
+    "cluster": "Russia-linked military intelligence cyber operations",
+    "suspected_actor": "GRU-linked actor",
+    "attribution_confidence": "high"
+  },
+  "items": [],
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月25〜26日JSTの確認範囲では、APT28に直接紐づく新規重大インシデントは確認されなかった。SOHO機器悪用、認証情報窃取、欧州・ウクライナ関連標的化の継続監視が必要である。",
+  "change_summary": [
+    "本日の主要新規事象としては確認せず",
+    "既存のSOHO機器・ネットワーク機器悪用リスクは継続"
+  ],
+  "operational_relevance": "日本組織では、VPN、SOHOルータ、境界機器、DNS設定、MFAログの監視を継続すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "境界機器とSOHO機器のパッチ・設定確認を継続する",
+    "欧州・ウクライナ関連業務を持つ組織の認証ログを重点監視する"
+  ]
+}

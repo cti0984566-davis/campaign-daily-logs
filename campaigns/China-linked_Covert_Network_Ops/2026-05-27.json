@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "campaign": {
+    "name": "China-linked_Covert_Network_Ops",
+    "aliases": ["Volt Typhoon-like activity", "Flax Typhoon-like activity", "Raptor Train-like infrastructure"],
+    "cluster": "China-linked covert network and compromised device operations",
+    "suspected_actor": "China-linked cyber actors",
+    "attribution_confidence": "medium"
+  },
+  "items": [],
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月25〜26日JSTの確認範囲では、本分類に直接紐づく新規重大インシデントは確認されなかった。ただし、SOHO・IoT機器、VPN、ルータ等を利用した秘匿ネットワーク基盤は、日本の重要インフラ防衛上、継続して最重要監視対象である。",
+  "change_summary": [
+    "本日の主要新規事象としては確認せず",
+    "日本に対する長期潜伏・事前配置リスク評価は維持"
+  ],
+  "operational_relevance": "重要インフラ、通信、エネルギー、港湾、自治体では、境界機器と管理外IoT機器の露出・不審通信を重点監視すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "SOHO・IoT・VPN機器の資産棚卸しを継続する",
+    "境界機器のログ保全と外向き通信の異常検知を強化する",
+    "Volt Typhoon型のLOTL・低ノイズ活動を想定したハンティングを継続する"
+  ]
+}

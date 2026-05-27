@@ -1,0 +1,24 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "campaign": {
+    "name": "TA416",
+    "aliases": ["Mustang Panda", "RedDelta"],
+    "cluster": "China-linked espionage operations",
+    "suspected_actor": "China-linked cyber espionage actor",
+    "attribution_confidence": "medium"
+  },
+  "items": [],
+  "update_type": "ongoing",
+  "executive_summary": "2026年5月25〜26日JSTの確認範囲では、TA416に直接紐づく新規重大インシデントは確認されなかった。台湾、東南アジア、外交・防衛関連標的へのスピアフィッシングやマルウェア配布は継続監視が必要である。",
+  "change_summary": [
+    "本日の主要新規事象としては確認せず",
+    "中台・東南アジア関連の諜報活動リスクは継続"
+  ],
+  "operational_relevance": "台湾・中国・東南アジア関連業務を持つ組織では、添付ファイル型フィッシング、クラウドストレージ悪用、ローダ系マルウェアを監視すべきである。",
+  "urgency": "monitor",
+  "recommended_action": [
+    "外交・防衛・シンクタンク関連メールのフィッシング監視を継続する",
+    "Mustang Panda系IoCとの照合を継続する"
+  ]
+}

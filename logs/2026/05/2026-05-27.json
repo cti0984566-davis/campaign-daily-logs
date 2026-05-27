@@ -1,0 +1,479 @@
+{
+  "date": "2026-05-26",
+  "timezone": "JST",
+  "title": "2026/05/26_サイバー事象概要",
+  "items": [
+    {
+      "id": "2026-05-26_knowledgedeliver_zero_day",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "KnowledgeDeliver_ZeroDay",
+        "aliases": ["CVE-2026-5426"],
+        "cluster": "Japan-focused LMS exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor exploiting KnowledgeDeliver deployments",
+        "infrastructure": ["Compromised KnowledgeDeliver servers", "Godzilla Web Shell", "Cobalt Strike staging infrastructure"],
+        "capability": ["ASP.NET ViewState deserialization", "Web shell deployment", "Cobalt Strike deployment"],
+        "victim": ["Japanese e-learning and training platform users", "Education and corporate training environments"]
+      },
+      "name": "KnowledgeDeliverゼロデイ悪用",
+      "category": "ゼロデイ悪用 / Webシェル展開",
+      "industry": ["教育", "企業研修", "eラーニング"],
+      "region": ["日本"],
+      "first_seen": "2026-05-26",
+      "last_seen": "2026-05-26",
+      "summary": "日本で利用されるLMS KnowledgeDeliverにおいて、固定machineKeyを悪用したASP.NET ViewStateデシリアライゼーション攻撃が確認され、Godzilla Web ShellやCobalt Strikeの展開につながった。",
+      "executive_summary": "日本国内の教育・研修基盤に直接関係するゼロデイ悪用であり、国内組織にとって優先度の高いインシデントである。",
+      "change_summary": [
+        "2026年5月26日に公表された新規事例",
+        "従来のViewState悪用事例と同型だが、日本で利用の多いLMS製品が対象",
+        "Web ShellからCobalt Strike展開まで確認され、侵害後活動の可能性が高い"
+      ],
+      "operational_relevance": "KnowledgeDeliverを利用する国内組織は、machineKeyローテーション、Web Shell痕跡調査、Cobalt Strike関連IoC確認を優先すべきである。",
+      "urgency": "high",
+      "recommended_action": [
+        "KnowledgeDeliver利用有無を確認する",
+        "2026年2月24日以前の導入環境を優先調査する",
+        "machineKeyをローテーションする",
+        "Godzilla Web ShellおよびCobalt Strike関連IoCを確認する"
+      ],
+      "details": "固定machineKeyによりASP.NET ViewStateデシリアライゼーション攻撃が成立し、Web Shell設置およびCobalt Strike展開につながったと報告された。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "suspected attacker",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1190", "T1505.003", "T1059", "T1105", "T1574"],
+      "malware": ["Godzilla Web Shell", "Cobalt Strike"],
+      "infrastructure": ["Compromised LMS server", "Web shell endpoint"],
+      "targeting": {
+        "sectors": ["Education", "Corporate training"],
+        "countries": ["Japan"],
+        "organization_types": ["Universities", "Enterprises", "Training providers"]
+      },
+      "strategic_view": {
+        "general": "国内利用製品のゼロデイ悪用であり、日本企業・教育機関にとって即応が必要な事案である。",
+        "geopolitical": "現時点で国家関与は未確認だが、教育・研修基盤は認証情報や組織情報への入口となる。",
+        "business": "LMSや研修基盤も重要な外部公開アプリケーションとして管理すべきことを示す。",
+        "research_direction": "KnowledgeDeliver利用組織、設置形態、公開範囲、IoCの国内展開状況を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "日本国内利用が想定される製品で、Web ShellおよびCobalt Strike展開まで確認されているため。",
+        "delta_from_previous": "従来の海外CMS/ASP.NET製品悪用から、日本のLMS製品への直接的な波及が確認された。"
+      },
+      "related_campaigns": ["ASP.NET_ViewState_Exploitation", "Cobalt_Strike_Post_Exploitation"],
+      "related_reports": ["Sitecore ViewState exploitation", "CentreStack ViewState exploitation"],
+      "tags": ["zero-day", "Japan", "LMS", "webshell", "Cobalt Strike"],
+      "sources": [
+        {
+          "title": "Hackers Exploited KnowledgeDeliver Zero-Day for Web Shell Deployment",
+          "url": "https://www.securityweek.com/hackers-exploited-knowledgedeliver-zero-day-for-web-shell-deployment/",
+          "publisher": "SecurityWeek",
+          "published_at": "2026-05-26"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-26_laravel_lang_supply_chain",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "Laravel-Lang_SupplyChain",
+        "aliases": ["Laravel-Lang Composer package compromise"],
+        "cluster": "Software supply chain compromise",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actor using leaked GitHub PAT",
+        "infrastructure": ["Compromised GitHub repository", "Packagist distribution channel"],
+        "capability": ["Git tag rewrite", "Composer autoload abuse", "Credential theft"],
+        "victim": ["Laravel developers", "CI/CD environments", "Cloud environments"]
+      },
+      "name": "Laravel-Lang Composerパッケージ汚染",
+      "category": "ソフトウェアサプライチェーン攻撃",
+      "industry": ["Web開発", "SaaS", "CI/CD"],
+      "region": ["Global"],
+      "first_seen": "2026-05-22",
+      "last_seen": "2026-05-25",
+      "summary": "Laravel-Lang系Composerパッケージの過去タグ多数が悪性コミットに差し替えられ、autoload経由で認証情報窃取コードが実行される状態となった。",
+      "executive_summary": "過去タグの書き換えを伴うサプライチェーン攻撃であり、通常のバージョン確認だけでは安全性を判断しにくい。",
+      "change_summary": [
+        "5月22〜23日に悪性パッケージが配布された",
+        "5月25日時点でSnykが更新情報を公表",
+        "過去タグ約700件が影響した点が特徴"
+      ],
+      "operational_relevance": "該当期間にcomposer update/installを実行した開発環境では、秘密情報の漏洩前提で調査とローテーションを行う必要がある。",
+      "urgency": "high",
+      "recommended_action": [
+        "5月22〜23日に該当パッケージを解決した環境を特定する",
+        "GitHub PAT、クラウド鍵、SSH鍵、CI/CDトークンをローテーションする",
+        "composer.lockとGitタグの整合性を確認する",
+        "開発端末とCI環境の不審通信を確認する"
+      ],
+      "details": "Laravel-Lang系4パッケージの過去タグが悪性コミットに差し替えられ、helpers.phpがComposer autoloadで実行されることで認証情報窃取が行われた。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "supply chain attacker",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1195.001", "T1552", "T1059", "T1105"],
+      "malware": ["Credential stealer"],
+      "infrastructure": ["Compromised package repository", "Composer package distribution"],
+      "targeting": {
+        "sectors": ["Software development", "SaaS", "Cloud"],
+        "countries": ["Global"],
+        "organization_types": ["Developers", "DevOps teams", "CI/CD operators"]
+      },
+      "strategic_view": {
+        "general": "開発サプライチェーンの信頼境界がさらに崩れていることを示す事例である。",
+        "geopolitical": "国家帰属は未確認だが、広範な認証情報窃取は将来の標的型侵入に転用され得る。",
+        "business": "SCA、SBOM、シークレット管理、CI/CD監査の重要性が高まる。",
+        "research_direction": "Composerエコシステムにおけるタグ改ざん検知、PAT管理、依存解決時点のログ分析を深掘りする。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "過去タグ改ざんにより、特定バージョンを固定していた環境にも影響し得るため。",
+        "delta_from_previous": "単一バージョン汚染ではなく、履歴タグ全体への改ざんが確認された。"
+      },
+      "related_campaigns": ["Software_SupplyChain_Attacks", "Developer_Credential_Theft"],
+      "related_reports": ["npm/PyPI supply chain attacks"],
+      "tags": ["supply-chain", "Composer", "Laravel", "credential-theft", "CI/CD"],
+      "sources": [
+        {
+          "title": "Laravel Lang Supply Chain Advisory",
+          "url": "https://snyk.io/blog/laravel-lang-supply-chain-advisory/",
+          "publisher": "Snyk",
+          "published_at": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-26_trapdoor_supply_chain",
+      "type": "incident",
+      "status": "新規",
+      "campaign": {
+        "name": "Software_SupplyChain_TrapDoor",
+        "aliases": ["TrapDoor"],
+        "cluster": "Cross-ecosystem malicious package campaign",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown supply chain actor",
+        "infrastructure": ["npm", "PyPI", "Crates.io", "Malicious package repositories"],
+        "capability": ["Typosquatting", "Credential theft", "Persistence via cron/systemd/Git hooks", "AI coding configuration abuse"],
+        "victim": ["Cryptocurrency developers", "AI developers", "Solana developers"]
+      },
+      "name": "TrapDoor クロスエコシステム・サプライチェーン攻撃",
+      "category": "ソフトウェアサプライチェーン攻撃 / 認証情報窃取",
+      "industry": ["暗号資産", "DeFi", "AI開発", "ソフトウェア開発"],
+      "region": ["Global"],
+      "first_seen": "2026-05-25",
+      "last_seen": "2026-05-25",
+      "summary": "npm、PyPI、Crates.ioにまたがる悪性パッケージ群が確認され、暗号資産ウォレット、SSH鍵、AWS/GitHubトークン等の窃取と永続化を試みた。",
+      "executive_summary": "TrapDoorは複数エコシステムを横断し、AI開発環境や暗号資産開発者を狙う高関心のサプライチェーン攻撃である。",
+      "change_summary": [
+        "2026年5月25日に新規公表",
+        "npm、PyPI、Crates.ioを横断",
+        "AI開発設定ファイルを永続化に悪用する点が新しい"
+      ],
+      "operational_relevance": "開発者端末、AIコーディング支援ツール設定、Git hooks、cron/systemdの確認が必要である。",
+      "urgency": "medium",
+      "recommended_action": [
+        "該当パッケージの利用有無を確認する",
+        "開発端末のGit hooks、cron、systemd設定を確認する",
+        "SSH鍵、GitHubトークン、クラウド鍵を棚卸しする",
+        "AI開発設定ファイルの不審な追記を確認する"
+      ],
+      "details": "34超の悪性パッケージと384超のバージョンが確認され、開発者の認証情報や暗号資産関連情報を窃取する設計だった。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "malicious package operator",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1195", "T1552", "T1053", "T1098", "T1021.004"],
+      "malware": ["TrapDoor credential stealer"],
+      "infrastructure": ["npm packages", "PyPI packages", "Crates.io packages"],
+      "targeting": {
+        "sectors": ["Cryptocurrency", "AI", "Software development"],
+        "countries": ["Global"],
+        "organization_types": ["Developers", "Startups", "Open source maintainers"]
+      },
+      "strategic_view": {
+        "general": "開発者端末がサプライチェーン侵害の主要標的となっている。",
+        "geopolitical": "国家帰属は未確認だが、暗号資産・AI開発環境への攻撃は経済安全保障上の関心が高い。",
+        "business": "AIコーディング支援環境もセキュリティ管理対象に含める必要がある。",
+        "research_direction": "AIエージェント設定ファイル、MCP/IDE拡張、開発者ローカル環境への永続化手法を継続監視する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "複数パッケージエコシステムを横断し、AI開発環境を含む新しい侵害面を示しているため。",
+        "delta_from_previous": "従来のnpm/PyPI単独型から、AI開発環境を含む横断的な攻撃に拡大した。"
+      },
+      "related_campaigns": ["Developer_Credential_Theft", "AI_Development_SupplyChain_Risk"],
+      "related_reports": ["npm malicious packages", "PyPI malicious packages"],
+      "tags": ["supply-chain", "AI", "crypto", "developer-security", "credential-theft"],
+      "sources": [
+        {
+          "title": "TrapDoor Supply Chain Attack Spreads Credential-Stealing Malware via npm, PyPI, and CratesIO",
+          "url": "https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-26_ghost_cms_clickfix",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "GhostCMS_ClickFix_Campaign",
+        "aliases": ["CVE-2026-26980"],
+        "cluster": "CMS exploitation and ClickFix malware delivery",
+        "suspected_actor": "Unknown clusters",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown actors exploiting Ghost CMS",
+        "infrastructure": ["Compromised Ghost CMS websites", "Injected JavaScript", "Fake CAPTCHA pages"],
+        "capability": ["SQL Injection", "Admin API key theft", "ClickFix social engineering"],
+        "victim": ["Website operators", "Website visitors"]
+      },
+      "name": "Ghost CMS CVE-2026-26980悪用",
+      "category": "既知脆弱性悪用 / ClickFix配布",
+      "industry": ["メディア", "大学", "SaaS", "金融", "AI", "ブロックチェーン"],
+      "region": ["Global"],
+      "first_seen": "2026-05-07",
+      "last_seen": "2026-05-25",
+      "summary": "Ghost CMSのContent API SQL Injection脆弱性を悪用し、700超のWebサイトに悪性JavaScriptを注入、訪問者をClickFix攻撃へ誘導した。",
+      "executive_summary": "CMS侵害とソーシャルエンジニアリングを組み合わせた大規模配布事案であり、正規サイト経由の感染誘導リスクが高い。",
+      "change_summary": [
+        "脆弱性は2月に修正済みだが、5月に大規模悪用が確認された",
+        "700超サイトへの注入が報告された",
+        "偽CAPTCHAを用いたClickFix誘導が確認された"
+      ],
+      "operational_relevance": "Ghost CMS利用組織は更新、Admin API Keyローテーション、注入コード確認、アクセスログ確認を行うべきである。",
+      "urgency": "medium",
+      "recommended_action": [
+        "Ghost CMSを最新版へ更新する",
+        "Admin API Keyをローテーションする",
+        "サイト内の不審JavaScript注入を確認する",
+        "ClickFix誘導ページへのアクセスログを確認する"
+      ],
+      "details": "CVE-2026-26980を悪用してAdmin API Keyを取得し、悪性JavaScriptを注入。訪問者に偽CAPTCHAを表示し、Windows RunへBase64コマンドを貼り付けさせる手口が使われた。",
+      "actors": [
+        {
+          "name": "Unknown cluster 1",
+          "role": "exploitation operator",
+          "country": "Unknown"
+        },
+        {
+          "name": "Unknown cluster 2",
+          "role": "exploitation operator",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1190", "T1059.001", "T1189", "T1204"],
+      "malware": ["JavaScript loader"],
+      "infrastructure": ["Compromised Ghost CMS sites", "Fake CAPTCHA infrastructure"],
+      "targeting": {
+        "sectors": ["Media", "Education", "SaaS", "Finance", "AI", "Blockchain"],
+        "countries": ["Global"],
+        "organization_types": ["CMS operators", "Website visitors"]
+      },
+      "strategic_view": {
+        "general": "正規サイトを悪用したソーシャルエンジニアリング配布が継続している。",
+        "geopolitical": "国家帰属は未確認だが、メディア・大学サイトの改ざんは情報作戦にも転用可能である。",
+        "business": "CMS更新とAPI Key管理、Web改ざん監視の重要性を示す。",
+        "research_direction": "ClickFix手法、偽CAPTCHAインフラ、Ghost CMS改ざんサイトの業種分布を追跡する。"
+      },
+      "assessment": {
+        "significance": "medium",
+        "confidence": "medium",
+        "why_it_matters": "700超サイトが悪用され、訪問者を巻き込む攻撃であるため。",
+        "delta_from_previous": "修正済み脆弱性が時間差で大規模悪用に移行した。"
+      },
+      "related_campaigns": ["ClickFix_Attacks", "CMS_Exploitation"],
+      "related_reports": ["Fake CAPTCHA malware delivery"],
+      "tags": ["Ghost CMS", "CVE-2026-26980", "ClickFix", "SQL injection", "watering-hole"],
+      "sources": [
+        {
+          "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
+          "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
+          "publisher": "The Hacker News",
+          "published_at": "2026-05-25"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-26_trendmicro_apex_one_cve_2026_34926",
+      "type": "incident",
+      "status": "継続",
+      "campaign": {
+        "name": "TrendMicro_ApexOne_Exploitation",
+        "aliases": ["CVE-2026-34926"],
+        "cluster": "Security product exploitation",
+        "suspected_actor": "Unknown",
+        "attribution_confidence": "low"
+      },
+      "diamond_model": {
+        "adversary": "Unknown attacker",
+        "infrastructure": ["Apex One management server", "Endpoint agent distribution channel"],
+        "capability": ["Relative path traversal", "Security product abuse", "Malicious code distribution"],
+        "victim": ["Enterprise endpoint security environments"]
+      },
+      "name": "Trend Micro Apex One CVE-2026-34926悪用確認",
+      "category": "セキュリティ製品悪用 / ゼロデイ悪用",
+      "industry": ["企業IT", "EDR", "EPP"],
+      "region": ["Global", "Japan"],
+      "first_seen": "2026-05-21",
+      "last_seen": "2026-05-26",
+      "summary": "Trend Micro Apex Oneオンプレミス版サーバの相対パストラバーサル脆弱性について、少なくとも1件の悪用試行が確認された。",
+      "executive_summary": "防御製品の管理サーバが侵害経路となる事案であり、国内利用率を踏まえると日本企業にとって優先対応が必要である。",
+      "change_summary": [
+        "2026年5月21日にTrend Microが公表",
+        "5月25〜26日に周知拡大",
+        "少なくとも1件の悪用試行が確認済み"
+      ],
+      "operational_relevance": "Apex One管理サーバのバージョン確認、パッチ適用、管理者権限監査、エージェント配布経路の整合性確認が必要である。",
+      "urgency": "high",
+      "recommended_action": [
+        "Apex Oneオンプレミス版サーバを修正済みビルドへ更新する",
+        "Apex One SaaS/SEP Agentを指定バージョン以上へ更新する",
+        "管理サーバへのアクセス制御を確認する",
+        "エージェント配布ファイルの改ざん有無を確認する"
+      ],
+      "details": "管理者権限を持つ攻撃者が相対パストラバーサルを悪用し、サーバ上のファイルを改ざん、エージェントへ悪性コードを配布できる可能性がある。",
+      "actors": [
+        {
+          "name": "Unknown",
+          "role": "exploitation actor",
+          "country": "Unknown"
+        }
+      ],
+      "ttp": ["T1190", "T1068", "T1562", "T1556"],
+      "malware": [],
+      "infrastructure": ["Apex One server", "Endpoint agent update/distribution channel"],
+      "targeting": {
+        "sectors": ["Enterprise IT", "Security operations"],
+        "countries": ["Global", "Japan"],
+        "organization_types": ["Enterprises", "Managed security environments"]
+      },
+      "strategic_view": {
+        "general": "セキュリティ製品そのものが攻撃面となるリスクを示す。",
+        "geopolitical": "国家・犯罪アクターの双方にとって、EDR/EPP管理サーバ侵害は高価値である。",
+        "business": "防御製品の管理基盤を重要システムとして扱い、露出管理と権限管理を強化する必要がある。",
+        "research_direction": "Apex One関連の悪用IoC、国内被害有無、他EDR/EPP製品への類似攻撃を継続確認する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "high",
+        "why_it_matters": "国内導入が多いセキュリティ製品で実悪用が確認され、侵害時の影響範囲が大きいため。",
+        "delta_from_previous": "Apex Oneの管理コンソール系リスクが、実悪用確認済みの優先パッチ対象として再浮上した。"
+      },
+      "related_campaigns": ["Security_Product_Exploitation", "EDR_Evasion_and_Abuse"],
+      "related_reports": ["Apex One prior vulnerabilities"],
+      "tags": ["Trend Micro", "Apex One", "CVE-2026-34926", "EDR", "EPP"],
+      "sources": [
+        {
+          "title": "Apex One and Vision One – Standard Endpoint Protection May 2026 Security Bulletin",
+          "url": "https://success.trendmicro.com/en-US/solution/KA-0023430",
+          "publisher": "Trend Micro",
+          "published_at": "2026-05-21"
+        }
+      ]
+    },
+    {
+      "id": "2026-05-26_lacmta_iran_linked_breach",
+      "type": "incident",
+      "status": "更新",
+      "campaign": {
+        "name": "Iran-linked_Ababil_Operations",
+        "aliases": ["Ababil of Minab", "LACMTA breach"],
+        "cluster": "Iran-linked infrastructure targeting",
+        "suspected_actor": "Iran-linked actor",
+        "attribution_confidence": "medium"
+      },
+      "diamond_model": {
+        "adversary": "Iran-linked Ababil of Minab or related actor",
+        "infrastructure": ["Data leak infrastructure", "Compromised LACMTA systems"],
+        "capability": ["Data theft", "Disruption claim", "Public leak operation"],
+        "victim": ["Los Angeles County Metropolitan Transportation Authority"]
+      },
+      "name": "LACMTA侵害のイラン関連アクター帰属",
+      "category": "国家関連サイバー作戦 / 重要インフラ侵害",
+      "industry": ["交通インフラ", "公共交通", "政府関連機関"],
+      "region": ["United States", "Middle East"],
+      "first_seen": "2026-03-16",
+      "last_seen": "2026-05-26",
+      "summary": "Los Angeles County Metropolitan Transportation Authority侵害について、イスラエル系研究者が親イラン系Ababil of Minabとの関連を報告した。",
+      "executive_summary": "中東情勢に連動するイラン関連アクターが、米国交通インフラに心理的・政治的影響を狙う構図として注目される。",
+      "change_summary": [
+        "侵害自体は2026年3月に検知",
+        "2026年5月26日にイラン関連帰属情報が報道された",
+        "LACMTA側は帰属について慎重姿勢"
+      ],
+      "operational_relevance": "交通・公共インフラ事業者は、データ窃取と示威的リークを組み合わせた攻撃への備えが必要である。",
+      "urgency": "medium",
+      "recommended_action": [
+        "交通インフラ組織における外部公開面とバックアップ環境を点検する",
+        "イラン関連アクターのIoCとTTPを確認する",
+        "データ窃取後のリーク・恐喝・破壊主張への危機広報計画を確認する"
+      ],
+      "details": "LACMTAでは少なくとも700GBのメールやバックアップ等が窃取されたとされ、運行継続の一方で到着案内や乗車カード関連サービスに影響があった。",
+      "actors": [
+        {
+          "name": "Ababil of Minab",
+          "role": "suspected attacker",
+          "country": "Iran"
+        }
+      ],
+      "ttp": ["T1005", "T1041", "T1485", "T1490"],
+      "malware": [],
+      "infrastructure": ["Leak site or data publication channel"],
+      "targeting": {
+        "sectors": ["Transportation", "Public infrastructure"],
+        "countries": ["United States"],
+        "organization_types": ["Public transit authorities"]
+      },
+      "strategic_view": {
+        "general": "公共交通インフラを標的としたデータ窃取・示威型攻撃である。",
+        "geopolitical": "イスラエル・イラン対立や米国関与を背景に、サイバー攻撃が心理的圧力や宣伝効果を狙う手段として使われる可能性がある。",
+        "business": "交通事業者はIT障害だけでなく、乗客信頼・運行情報・決済系への影響を考慮する必要がある。",
+        "research_direction": "Ababil of Minabの実体、イラン国家系作戦との関係、米国インフラ標的化の継続性を監視する。"
+      },
+      "assessment": {
+        "significance": "high",
+        "confidence": "medium",
+        "why_it_matters": "米国交通インフラを対象に、イラン関連アクターの関与が示唆されたため。",
+        "delta_from_previous": "単なる交通機関侵害から、中東情勢と接続する国家関連活動としての評価が追加された。"
+      },
+      "related_campaigns": ["Iran-linked_Cyber_Operations", "MiddleEast_Cyber_Conflict"],
+      "related_reports": ["Iranian attacks on US and Israeli infrastructure"],
+      "tags": ["Iran", "transportation", "critical-infrastructure", "data-theft", "geopolitics"],
+      "sources": [
+        {
+          "title": "Iranian hackers responsible for Los Angeles transit system breach, Israeli researchers say",
+          "url": "https://www.reuters.com/legal/litigation/iranian-hackers-responsible-los-angeles-transit-system-breach-israeli-2026-05-26/",
+          "publisher": "Reuters",
+          "published_at": "2026-05-26"
+        }
+      ]
+    }
+  ]
+}
